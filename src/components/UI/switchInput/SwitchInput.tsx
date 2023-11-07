@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styles from './SwitchInput.module.css';
+import classes from './SwitchInput.module.css';
 
-const Switch = () => {
+const SwitchInput = () => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleChange = () => {
@@ -9,17 +9,17 @@ const Switch = () => {
   };
 
   return (
-    <div className={styles.switchContainer}>
-      <label className={styles.switch}>
+    <div className={classes.switchContainer}>
+      <label className={classes.switch}>
         <input
           type="checkbox"
           checked={isChecked}
           onChange={handleChange}
         />
-        <span className={styles.slider} />
+        <span className={classes.slider} />
       </label>
     </div>
   );
 };
 
-export default Switch;
+export default SwitchInput;
