@@ -1,0 +1,23 @@
+import React, { useState } from 'react';
+import classes from './Checkbox.module.css';
+
+const Checkbox = () => {
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleCheckboxChange = () => {
+        setIsChecked(!isChecked);
+    };
+
+    return (
+        <label className={classes.checkbox}>
+            <input
+                type="checkbox"
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+            />
+            <span className={classes.checkmark}></span>
+        </label>
+    );
+};
+
+export default Checkbox;
