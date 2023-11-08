@@ -4,9 +4,9 @@ import classes from './SwitchInput.module.css';
 const SwitchInput = () => {
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleChange = () => {
+  function handleChange() {
     setIsChecked(prevState => !prevState);
-  };
+  }
 
   return (
     <div className={classes.switch_container}>

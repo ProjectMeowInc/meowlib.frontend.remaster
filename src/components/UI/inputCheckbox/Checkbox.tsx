@@ -4,9 +4,9 @@ import classes from './Checkbox.module.css';
 const Checkbox = () => {
     const [isChecked, setIsChecked] = useState(false);
 
-    const handleCheckboxChange = () => {
+    function handleCheckboxChange() {
         setIsChecked(prevState => !prevState);
-    };
+    }
 
     return (
         <label className={classes.checkbox}>
