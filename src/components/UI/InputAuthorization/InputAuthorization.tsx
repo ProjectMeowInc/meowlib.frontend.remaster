@@ -2,16 +2,17 @@ import React from 'react';
 import classes from "./InputAuthorization.module.css";
 
 interface IInputAuthorizationProps {
-    value?: string;
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    placeholder?: string;
-    disabled?: boolean;
+    onChange: () => void;
+    placeholder: string;
 }
-const InputAuthorization: React.FC<IInputAuthorizationProps> = ({value,placeholder,onChange, disabled}) => {
+
+const InputAuthorization: React.FC<IInputAuthorizationProps> = ({placeholder, onChange}) => {
     return (
-        <>
-            <input placeholder={placeholder} className={classes.inpAuth}/>
-        </>
+            <input
+                placeholder={placeholder}
+                className={classes.inp_auth}
+                onChange={onChange}
+            />
     );
 };
 

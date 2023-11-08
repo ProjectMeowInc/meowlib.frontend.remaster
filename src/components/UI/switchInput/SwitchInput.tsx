@@ -9,7 +9,7 @@ const SwitchInput = () => {
   };
 
   return (
-    <div className={classes.switchContainer}>
+    <div className={classes.switch_container}>
       <label className={classes.switch}>
         <input
           type="checkbox"

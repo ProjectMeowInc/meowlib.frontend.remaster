@@ -4,18 +4,24 @@ import image from '/src/assets/img/1.png'
 import Image from "next/image";
 
 interface IInputWithIconProps {
-    value?: string;
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    placeholder?: string;
-    disabled?: boolean;
+    onChange: () => void;
+    placeholder: string;
 }
 
-const InputWithIcon: React.FC<IInputWithIconProps> = ({value,placeholder,onChange, disabled}) => {
+const InputWithIcon: React.FC<IInputWithIconProps> = ({placeholder, onChange}) => {
     return (
-        <>
-            <input placeholder={placeholder} className={classes.inpWithIcon}/>
-            <Image src={'/img/1.png'} alt={''} className={classes.icon} width={19.23} height={19.23}/>
-        </>
+        <div className={classes.inp_with_icon__container}>
+            <input placeholder={placeholder}
+                   className={classes.inp_with_icon}
+                   onChange={onChange}
+            />
+            <Image src={'/img/1.png'}
+                   alt={''}
+                   className={classes.icon}
+                   width={19.23}
+                   height={19.23}
+            />
+        </div>
     );
 };
 

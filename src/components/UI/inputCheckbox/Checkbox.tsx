@@ -5,7 +5,7 @@ const Checkbox = () => {
     const [isChecked, setIsChecked] = useState(false);
 
     const handleCheckboxChange = () => {
-        setIsChecked(!isChecked);
+        setIsChecked(prevState => !prevState);
     };
 
     return (

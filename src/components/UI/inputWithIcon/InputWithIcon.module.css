@@ -1,15 +1,23 @@
-.inpWithIcon {
+.inp_with_icon__container {
+    position: relative;
+    width:682px;
+    height:48px;
+}
+
+.inp_with_icon {
     width:682px;
     height:48px;
     padding: 12px;
     border-radius: 6px;
     border: 1px solid #545F71;
     cursor: pointer;
+    position: absolute;
+    z-index: 0;
 }
 
-.inpWithIcon::placeholder {
+.inp_with_icon::placeholder {
     color: #9BA5B7;
-    font-family: Inter;
+    font-family: Inter, serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;
@@ -19,8 +27,9 @@
 }
 
 .icon {
-    position: absolute;
-    top: 14px;
-    left: 648px;
     cursor: pointer;
+    position: absolute;
+    left: 646px;
+    top: 14px;
+    z-index: 10;
 }
