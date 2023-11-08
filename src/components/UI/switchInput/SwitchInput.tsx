@@ -5,7 +5,7 @@ const SwitchInput = () => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleChange = () => {
-    setIsChecked(!isChecked);
+    setIsChecked(prevState => !prevState);
   };
 
   return (
