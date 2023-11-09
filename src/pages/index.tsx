@@ -7,18 +7,8 @@ import Checkbox from "@/components/UI/inputCheckbox/Checkbox";
 
 
 const Home = () => {
-
-    const hand = () => {
-        console.log('dasd')
-    }
-
     return (
         <>
-
-            <Button onClick={hand}>das</Button>
-            <Checkbox/>
-            <SwitchInput/>
-            <InputWithIcon onChange={hand} placeholder={''}/>
         </>
     );
 };
