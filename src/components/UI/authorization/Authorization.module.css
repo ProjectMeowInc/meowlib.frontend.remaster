@@ -1,0 +1,11 @@
+.authorization {
+    position: absolute;
+    top: 30%;
+    left: 38%;
+    width: 396px;
+    height: 337px;
+
+    border: 1px solid #E5E5E5;
+    border-radius: 15px;
+    box-shadow: 5px 5px 100px 0px #615B5B40;
+}
