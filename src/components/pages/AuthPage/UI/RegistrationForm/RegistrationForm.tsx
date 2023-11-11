@@ -1,6 +1,6 @@
 import React from 'react';
 import InputAuthorization from "@/components/UI/InputAuthorization/InputAuthorization";
-import Button from "@/components/UI/button/Button";
+import Button from "@/components/UI/Button/Button";
 import classes from "./RegistrationForm.module.css";
 
 const RegistrationForm = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import InputAuthorization from "@/components/UI/InputAuthorization/InputAuthorization";
-import Button from "@/components/UI/button/Button";
-import classes from "@/components/pages/AuthPage/UI/authorizationForm/AuthorizationForm.module.css";
+import Button from "@/components/UI/Button/Button";
+import classes from "@/components/pages/AuthPage/UI/AuthorizationForm/AuthorizationForm.module.css";
 
 const AuthorizationForm = () => {
     return (

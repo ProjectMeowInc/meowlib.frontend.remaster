@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from "@/components/pages/AuthPage/UI/navAuth/NavAuth.module.css";
+import classes from "@/components/pages/AuthPage/UI/NavAuth/NavAuth.module.css";
 import Image from "next/image";
 
 const NavAuth = () => {

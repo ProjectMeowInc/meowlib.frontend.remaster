@@ -1,6 +1,6 @@
 import React from 'react';
-import NavAuth from "@/components/pages/AuthPage/UI/navAuth/NavAuth";
-import RegistrationForm from "@/components/pages/AuthPage/UI/registrationForm/RegistrationForm";
+import NavAuth from "@/components/pages/AuthPage/UI/NavAuth/NavAuth";
+import RegistrationForm from "@/components/pages/AuthPage/UI/RegistrationForm/RegistrationForm";
 import classes from "./Authorization.module.css";
 
 const Authorization = () => {
