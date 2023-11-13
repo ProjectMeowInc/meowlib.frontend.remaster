@@ -30,19 +30,6 @@ export class Result<TType> {
         return this.error
     }
 
-    isValidationError(): boolean {
-
-        if (!this.error) {
-            throw new Error("Ошибка не может быть пуста")
-        }
-
-        if ("validationError" in this.error) {
-            return true
-        }
-
-        return false
-    }
-
     static withOk<TResult>(value: TResult): Result<TResult> {
         return new Result<TResult>(value, null)
     }

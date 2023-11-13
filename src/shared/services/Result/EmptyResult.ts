@@ -12,19 +12,6 @@ class EmptyResult {
         return this.error !== null
     }
 
-    isValidationError(): boolean {
-
-        if (!this.error) {
-            throw new Error("Ошибка не может быть пуста")
-        }
-
-        if ("validationError" in this.error) {
-            return true
-        }
-
-        return false
-    }
-
     getError(): IError | IValidationError {
         if (!this.error) {
             throw new Error()
