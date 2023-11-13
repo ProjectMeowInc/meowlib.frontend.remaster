@@ -5,7 +5,7 @@ export class Result<TType> {
     private readonly value: TType | null
     private readonly error: IError | IValidationError | null
 
-    constructor(value: TType | null, error: IError| IValidationError | null) {
+    protected constructor(value: TType | null, error: IError| IValidationError | null) {
         this.value = value
         this.error = error
     }

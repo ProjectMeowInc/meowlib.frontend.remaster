@@ -4,7 +4,7 @@ import {IValidationError} from "@/shared/services/interfaces/IValidationError";
 class EmptyResult {
     private readonly error: IError | IValidationError | null
 
-    constructor(error: IError| IValidationError | null) {
+    protected constructor(error: IError| IValidationError | null) {
         this.error = error
     }
 
