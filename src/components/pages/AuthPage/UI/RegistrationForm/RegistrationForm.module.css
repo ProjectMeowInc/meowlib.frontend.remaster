@@ -1,4 +1,7 @@
 .container__reg_form {
+    position: absolute;
+    top: 107px;
+    left: 0px;
     display: flex;
     flex-direction: column;
     width: 396px;
@@ -22,11 +25,11 @@
 }
 .reg_form__hr_one {
     position: absolute;
-    top:135px;
+    top:30px;
     left: 42px;
 }
 .reg_form__hr_two {
     position: absolute;
-    top:259px;
+    top:150px;
     left: 42px;
 }

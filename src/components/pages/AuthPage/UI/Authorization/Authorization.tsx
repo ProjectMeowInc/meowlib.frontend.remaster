@@ -7,7 +7,6 @@ const Authorization = () => {
     return (
         <div className={classes.authorization}>
             <NavAuth/>
-            <RegistrationForm/>
         </div>
     );
 };
