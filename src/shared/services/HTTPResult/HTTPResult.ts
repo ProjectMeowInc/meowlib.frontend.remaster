@@ -7,7 +7,7 @@ import {IValidationError} from "@/shared/models/IValidationError";
 import {LogService} from "@/shared/services/LogService";
 
 type MethodsType = "GET" | "POST" | "PUT" | "DELETE"
-const BASE_URL: string = "https://localhost:7007/api"
+const BASE_URL: string = "https://127.0.0.1:7007/api"
 
 export class HTTPResult<TContent> {
     private method: MethodsType = "GET"
