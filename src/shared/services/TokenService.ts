@@ -29,6 +29,4 @@ export class TokenService {
 
         return refreshToken
     }
-
-    //TODO: Сделать бесшовное обновление токена
 }
