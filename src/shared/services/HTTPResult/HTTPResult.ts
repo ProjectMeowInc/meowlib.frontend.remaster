@@ -2,8 +2,8 @@ import {Result} from "@/shared/services/Result/Result";
 import {IncorrectUrlException} from "@/shared/exception/IncorrectUrlException";
 import axios, {AxiosError, AxiosRequestConfig} from "axios";
 import {TokenService} from "@/shared/services/TokenService";
-import {IError} from "@/shared/models/IError";
-import {IValidationError} from "@/shared/models/IValidationError";
+import {IBaseErrorResponse} from "@/shared/models/IBaseErrorResponse";
+import {IValidationErrorResponse} from "@/shared/models/IValidationErrorResponse";
 import {LogService} from "@/shared/services/LogService";
 
 type MethodsType = "GET" | "POST" | "PUT" | "DELETE"
@@ -48,7 +48,7 @@ export class HTTPResult<TContent> {
         }
         catch (err: any) {
             if (err.isAxiosError) {
-                const error = err as AxiosError<IError | IValidationError>
+                const error = err as AxiosError<IBaseErrorResponse | IValidationErrorResponse>
 
                 if (error === null) {
                     LogService.error("Пустая ошибка", "HTTPRequest")
@@ -76,7 +76,7 @@ export class HTTPResult<TContent> {
         }
     }
 
-    private unexpectedError(): IError {
+    private unexpectedError(): IBaseErrorResponse {
         return {errorMessage: "Неожиданная ошибка"}
     }
 
