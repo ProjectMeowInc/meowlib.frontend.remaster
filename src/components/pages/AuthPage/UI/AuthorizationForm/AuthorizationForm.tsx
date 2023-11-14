@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import InputAuthorization from "@/components/UI/InputAuthorization/InputAuthorization";
 import Button from "@/components/UI/Button/Button";
 import classes from "@/components/pages/AuthPage/UI/AuthorizationForm/AuthorizationForm.module.css";
