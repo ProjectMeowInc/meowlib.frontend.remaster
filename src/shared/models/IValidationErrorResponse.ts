@@ -1,4 +1,4 @@
-import {IBaseErrorResponse} from "@/shared/models/IBaseErrorResponse";
+import { IBaseErrorResponse } from "@/shared/models/IBaseErrorResponse"
 
 export interface IValidationErrorResponse extends IBaseErrorResponse {
     validationErrors: {

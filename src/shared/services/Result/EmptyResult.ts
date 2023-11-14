@@ -1,4 +1,4 @@
-import {IError} from "@/shared/services/Result/IError";
+import { IError } from "@/shared/services/Result/IError"
 
 class EmptyResult {
     private readonly error: IError | null
