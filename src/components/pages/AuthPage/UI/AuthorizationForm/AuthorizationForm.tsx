@@ -8,8 +8,6 @@ const AuthorizationForm = () => {
     const [password, setPassword] = useState<string>('')
     const [isLongSession, setIsLongSession] = useState<boolean>(false)
 
-
-
         return (
             <div className={classes.container__auth_form}>
                 <h2>Вход через логин и пароль</h2>
@@ -29,10 +27,9 @@ const AuthorizationForm = () => {
 
                     <hr className={classes.auth_form__hr_two}/>
                     <Button
-                        onClick={() => ''}
                         margin='30px 42px'
-                        width='312px'>
-
+                        width='312px'
+                    >
                         Войти
                     </Button>
                 </form>

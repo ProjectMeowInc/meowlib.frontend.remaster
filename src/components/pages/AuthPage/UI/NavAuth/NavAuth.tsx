@@ -7,7 +7,7 @@ import AuthorizationForm from "@/components/pages/AuthPage/UI/AuthorizationForm/
 
 const NavAuth = () => {
 
-    const[isRegPage, setIsRegPage] = useState<boolean>(false)
+    const [isRegPage, setIsRegPage] = useState<boolean>(false)
 
     return (
             <div className={classes.container__nav_auth}>

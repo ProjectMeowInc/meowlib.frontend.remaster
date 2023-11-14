@@ -3,7 +3,7 @@ import classes from "./Button.module.css";
 
 interface IButtonProps {
     children: string;
-    onClick: () => void;
+    onClick?: () => void;
     margin?:string;
     width?:string;
 }
