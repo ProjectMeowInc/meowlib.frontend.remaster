@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from "./InputWithIcon.module.css";
-import image from '/src/assets/img/1.png'
 import Image from "next/image";
 
 interface IInputWithIconProps {
