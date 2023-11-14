@@ -1,11 +1,10 @@
-import {IError} from "@/shared/services/interfaces/IError";
-import {IValidationError} from "@/shared/services/interfaces/IValidationError";
+import {IError} from "@/shared/models/IError";
 
 export class Result<TType> {
     private readonly value: TType | null
-    private readonly error: IError | IValidationError | null
+    private readonly error: IError | null
 
-    protected constructor(value: TType | null, error: IError| IValidationError | null) {
+    protected constructor(value: TType | null, error: IError | null) {
         this.value = value
         this.error = error
     }
@@ -22,7 +21,7 @@ export class Result<TType> {
         return this.error !== null
     }
 
-    getError(): IError | IValidationError {
+    getError(): IError {
         if (!this.error) {
             throw new Error("Ошибка не может быть пуста")
         }
@@ -34,7 +33,7 @@ export class Result<TType> {
         return new Result<TResult>(value, null)
     }
 
-    static withError<TResult>(error: IError | IValidationError): Result<TResult> {
+    static withError<TResult>(error: IError): Result<TResult> {
         return new Result<TResult>(null, error)
     }
 }

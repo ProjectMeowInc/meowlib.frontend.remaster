@@ -1,10 +1,9 @@
-import {IError} from "@/shared/services/interfaces/IError";
-import {IValidationError} from "@/shared/services/interfaces/IValidationError";
+import {IError} from "@/shared/models/IError";
 
 class EmptyResult {
-    private readonly error: IError | IValidationError | null
+    private readonly error: IError | null
 
-    protected constructor(error: IError| IValidationError | null) {
+    protected constructor(error: IError | null) {
         this.error = error
     }
 
@@ -12,9 +11,9 @@ class EmptyResult {
         return this.error !== null
     }
 
-    getError(): IError | IValidationError {
+    getError(): IError {
         if (!this.error) {
-            throw new Error()
+            throw new Error("Ошибка не может быть пуста")
         }
 
         return this.error
@@ -24,7 +23,7 @@ class EmptyResult {
         return new EmptyResult(null)
     }
 
-    withError(error: IError| IValidationError): EmptyResult {
+    withError(error: IError): EmptyResult {
         return new EmptyResult(error)
     }
 }
