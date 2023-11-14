@@ -1,10 +1,10 @@
-import {Result} from "@/shared/services/Result/Result";
-import {IncorrectUrlException} from "@/shared/exception/IncorrectUrlException";
-import axios, {AxiosError, AxiosRequestConfig} from "axios";
-import {TokenService} from "@/shared/services/TokenService";
-import {IBaseErrorResponse} from "@/shared/models/IBaseErrorResponse";
-import {IValidationErrorResponse} from "@/shared/models/IValidationErrorResponse";
-import {LogService} from "@/shared/services/LogService";
+import { Result } from "@/shared/services/Result/Result"
+import { IncorrectUrlException } from "@/shared/exception/IncorrectUrlException"
+import axios, { AxiosError, AxiosRequestConfig } from "axios"
+import { TokenService } from "@/shared/services/TokenService"
+import { IBaseErrorResponse } from "@/shared/models/IBaseErrorResponse"
+import { IValidationErrorResponse } from "@/shared/models/IValidationErrorResponse"
+import { LogService } from "@/shared/services/LogService"
 
 type MethodsType = "GET" | "POST" | "PUT" | "DELETE"
 const BASE_URL: string = "https://127.0.0.1:7007/api"
@@ -27,7 +27,7 @@ export class HTTPResult<TContent> {
         let config: AxiosRequestConfig = {
             baseURL: BASE_URL,
             method: this.method,
-            url: this.url
+            url: this.url,
         }
 
         if (this.body) {
@@ -37,7 +37,7 @@ export class HTTPResult<TContent> {
         if (this.isAuth) {
             config.headers = {
                 ...config.headers,
-                Authorization: TokenService.getAccessToken()
+                Authorization: TokenService.getAccessToken(),
             }
         }
 
@@ -45,10 +45,11 @@ export class HTTPResult<TContent> {
             const result = await axios.request<TContent>(config)
 
             return Result.withOk(result.data)
-        }
-        catch (err: any) {
+        } catch (err: any) {
             if (err.isAxiosError) {
-                const error = err as AxiosError<IBaseErrorResponse | IValidationErrorResponse>
+                const error = err as AxiosError<
+                    IBaseErrorResponse | IValidationErrorResponse
+                >
 
                 if (error === null) {
                     LogService.error("Пустая ошибка", "HTTPRequest")
@@ -63,7 +64,9 @@ export class HTTPResult<TContent> {
                 // Идёт проверка на наличие поля validationErrors, для того чтобы понять какой формат ошибки
                 if ("validationErrors" in error.response.data) {
                     return Result.withError({
-                        errorMessage: "Ошибка валидации." + error.response.data.validationErrors[0].message
+                        errorMessage:
+                            "Ошибка валидации." +
+                            error.response.data.validationErrors[0].message,
                     })
                 }
 
@@ -77,7 +80,7 @@ export class HTTPResult<TContent> {
     }
 
     private unexpectedError(): IBaseErrorResponse {
-        return {errorMessage: "Неожиданная ошибка"}
+        return { errorMessage: "Неожиданная ошибка" }
     }
 
     //TODO: Сделать нормальную валидацию

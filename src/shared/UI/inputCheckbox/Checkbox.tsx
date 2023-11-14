@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import classes from './Checkbox.module.css';
+import React, { useState } from "react"
+import classes from "./Checkbox.module.css"
 
 const Checkbox = () => {
-    const [isChecked, setIsChecked] = useState(false);
+    const [isChecked, setIsChecked] = useState(false)
 
     function handleCheckboxChange() {
-        setIsChecked(prevState => !prevState);
+        setIsChecked((prevState) => !prevState)
     }
 
     return (
@@ -17,7 +17,7 @@ const Checkbox = () => {
             />
             <span className={classes.checkmark}></span>
         </label>
-    );
-};
+    )
+}
 
-export default Checkbox;
+export default Checkbox

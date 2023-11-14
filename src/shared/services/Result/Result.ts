@@ -1,4 +1,4 @@
-import {IError} from "@/shared/services/Result/IError";
+import { IError } from "@/shared/services/Result/IError"
 
 export class Result<TType> {
     private readonly value: TType | null

@@ -1,22 +1,22 @@
 .inp_with_icon__container {
     position: relative;
-    width:682px;
-    height:48px;
+    width: 682px;
+    height: 48px;
 }
 
 .inp_with_icon {
-    width:682px;
-    height:48px;
+    width: 682px;
+    height: 48px;
     padding: 12px;
     border-radius: 6px;
-    border: 1px solid #545F71;
+    border: 1px solid #545f71;
     cursor: pointer;
     position: absolute;
     z-index: 0;
 }
 
 .inp_with_icon::placeholder {
-    color: #9BA5B7;
+    color: #9ba5b7;
     font-family: Inter, serif;
     font-size: 16px;
     font-weight: 400;

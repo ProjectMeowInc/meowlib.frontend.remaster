@@ -1,7 +1,6 @@
 import Cookie from "js-cookie"
 
 export class TokenService {
-
     static setAccessToken(accessToken: string) {
         Cookie.set("access_token", accessToken)
     }
