@@ -1,9 +1,9 @@
 import {Result} from "@/shared/services/Result/Result";
+import {IncorrectUrlException} from "@/shared/exception/IncorrectUrlException";
 import axios, {AxiosError, AxiosRequestConfig} from "axios";
 import {TokenService} from "@/shared/services/TokenService";
 import {IError} from "@/shared/models/IError";
 import {IValidationError} from "@/shared/models/IValidationError";
-import {IncorrectUrlException} from "@/shared/exception/IncorrectUrlException";
 import {LogService} from "@/shared/services/LogService";
 
 type MethodsType = "GET" | "POST" | "PUT" | "DELETE"
@@ -19,7 +19,6 @@ export class HTTPResult<TContent> {
      * IncorrectUrlException - ошибка формата ссылки
      * AxiosError - ошибка во время запроса от axios
      */
-
     async sendAsync(): Promise<Result<TContent>> {
         if (!this.url) {
             throw new IncorrectUrlException("Не правильный формат ссылки")
@@ -81,20 +80,24 @@ export class HTTPResult<TContent> {
         return {errorMessage: "Неожиданная ошибка"}
     }
 
-    private validationUrl(url: string) {
+    //TODO: Сделать нормальную валидацию
+    private static validateUrl(url: string): boolean {
         if (url[0] !== "/") {
-            throw new IncorrectUrlException("Не верный формат ошибки")
+            return false
         }
+
+        return true
     }
 
     /**
      * Добавляет ссылку в запрос.
      * При неверном формате кидает исключение IncorrectUrlException
-     * @param url - ссылка формата /user/login
+     * @param url - ссылка формата "/user/login"
      */
     withUrl(url: string) {
-        this.validationUrl(url)
-        return this
+        if (!HTTPResult.validateUrl(url)) {
+            throw new IncorrectUrlException("Неправильный формат ссылки")
+        }
     }
 
     withBody(body: object) {

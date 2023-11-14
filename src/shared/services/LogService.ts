@@ -2,19 +2,19 @@ import {LOG_LEVEL} from "@/app/consts";
 
 export class LogService {
 
-    static info(message: string, service: string) {
-        console.log(`Сообщение действия: ${message}. Место действия ${service}`)
+    static info(message: string, from: string) {
+        console.log(`Сообщение действия: ${message}. Место действия ${from}`)
     }
 
-    static warning(message: string, service: string) {
+    static warning(message: string, from: string) {
         if (LOG_LEVEL !== "info") {
-            console.log(`Сообщение предупреждения: ${message}. Место предупреждения ${service}`)
+            console.log(`Сообщение предупреждения: ${message}. Место предупреждения ${from}`)
         }
     }
 
-    static error(message: string, service: string) {
+    static error(message: string, from: string) {
         if (LOG_LEVEL === "error") {
-            console.log(`Сообщение ошибки: ${message}. Место ошибки ${service}`)
+            console.log(`Сообщение ошибки: ${message}. Место ошибки ${from}`)
         }
     }
 }
