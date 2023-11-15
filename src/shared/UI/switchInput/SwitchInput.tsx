@@ -11,11 +11,7 @@ const SwitchInput = () => {
     return (
         <div className={classes.switch_container}>
             <label className={classes.switch}>
-                <input
-                    type="checkbox"
-                    checked={isChecked}
-                    onChange={handleChange}
-                />
+                <input type="checkbox" checked={isChecked} onChange={handleChange} />
                 <span className={classes.slider} />
             </label>
         </div>
