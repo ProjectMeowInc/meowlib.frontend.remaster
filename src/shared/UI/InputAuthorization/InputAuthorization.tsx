@@ -6,17 +6,8 @@ interface IInputAuthorizationProps {
     placeholder: string
 }
 
-const InputAuthorization: React.FC<IInputAuthorizationProps> = ({
-    placeholder,
-    onChange,
-}) => {
-    return (
-        <input
-            placeholder={placeholder}
-            className={classes.inp_auth}
-            onChange={onChange}
-        />
-    )
+const InputAuthorization: React.FC<IInputAuthorizationProps> = ({ placeholder, onChange }) => {
+    return <input placeholder={placeholder} className={classes.inp_auth} onChange={onChange} />
 }
 
 export default InputAuthorization

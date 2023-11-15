@@ -7,9 +7,7 @@ export class LogService {
 
     static warning(message: string, from: string) {
         if (LOG_LEVEL !== "info") {
-            console.log(
-                `Сообщение предупреждения: ${message}. Место предупреждения ${from}`,
-            )
+            console.log(`Сообщение предупреждения: ${message}. Место предупреждения ${from}`)
         }
     }
 

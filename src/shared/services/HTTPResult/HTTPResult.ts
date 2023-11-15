@@ -47,9 +47,7 @@ export class HTTPResult<TContent> {
             return Result.withOk(result.data)
         } catch (err: any) {
             if (err.isAxiosError) {
-                const error = err as AxiosError<
-                    IBaseErrorResponse | IValidationErrorResponse
-                >
+                const error = err as AxiosError<IBaseErrorResponse | IValidationErrorResponse>
 
                 if (error === null) {
                     LogService.error("Пустая ошибка", "HTTPRequest")
@@ -64,9 +62,7 @@ export class HTTPResult<TContent> {
                 // Идёт проверка на наличие поля validationErrors, для того чтобы понять какой формат ошибки
                 if ("validationErrors" in error.response.data) {
                     return Result.withError({
-                        errorMessage:
-                            "Ошибка валидации." +
-                            error.response.data.validationErrors[0].message,
+                        errorMessage: "Ошибка валидации." + error.response.data.validationErrors[0].message,
                     })
                 }
 

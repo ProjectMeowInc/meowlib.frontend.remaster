@@ -10,11 +10,7 @@ const Checkbox = () => {
 
     return (
         <label className={classes.checkbox}>
-            <input
-                type="checkbox"
-                checked={isChecked}
-                onChange={handleCheckboxChange}
-            />
+            <input type="checkbox" checked={isChecked} onChange={handleCheckboxChange} />
             <span className={classes.checkmark}></span>
         </label>
     )
