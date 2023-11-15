@@ -1,0 +1,16 @@
+.inp_auth {
+    width: 312px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #e8f0fe;
+    border: 0;
+    padding: 8px 0 7px 10px;
+}
+
+.inp_auth::placeholder {
+    font-family: Ubuntu, serif;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 15px;
+    color: #000000b2;
+}
