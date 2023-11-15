@@ -1,0 +1,20 @@
+.container__cookie_notification {
+    height: 150px;
+    width: 530px;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: flex;
+}
+
+.container__cookie_notification p {
+    font-family: Ubuntu, serif;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.container__cookie_notification span {
+    display: flex;
+    flex-direction: column;
+}
+.container__cookie_notification img {
+    margin: 5px 0 0 5px;
+}
