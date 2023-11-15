@@ -11,10 +11,27 @@
     font-size: 16px;
     margin-bottom: 15px;
 }
+
 .container__cookie_notification span {
     display: flex;
     flex-direction: column;
 }
+
 .container__cookie_notification img {
     margin: 5px 0 0 5px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container__cookie_notification {
+    animation: fadeIn 0.4s ease-in-out;
 }
