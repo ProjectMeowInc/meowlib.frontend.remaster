@@ -23,7 +23,7 @@
 
 .container__auth_form hr {
     width: 312px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid rgba(229, 229, 229, 75%);
 }
 
 .auth_form__hr_one {

@@ -4,13 +4,15 @@ import classes from "./Button.module.css"
 interface IButtonProps {
     children: string
     onClick?: () => void
-    margin?: string
-    width?: string
+    styles?: {
+        margin?: string;
+        width?: string;
+    }
 }
 
-const Button: React.FC<IButtonProps> = ({ children, onClick, margin, width }) => {
+const Button: React.FC<IButtonProps> = ({ children, onClick, styles}) => {
     return (
-        <button className={classes.btn} onClick={onClick} style={{ margin, width }}>
+        <button className={classes.btn} onClick={onClick} style={{margin:styles?.margin, width:styles?.width}}>
             {children}
         </button>
     )
