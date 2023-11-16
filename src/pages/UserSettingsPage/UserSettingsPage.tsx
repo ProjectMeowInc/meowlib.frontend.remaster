@@ -7,7 +7,7 @@ import ChangePasswordForm from "@/pages/UserSettingsPage/UI/ChangePasswordForm/C
 const UserSettingsPage = () => {
     return (
         <div className={classes.container__user_settings_page}>
-            <div className={classes.lineOne}>
+            <div className={classes.line_one}>
                 <h2>Настройки внешнего вида сайта</h2>
                 <UserAppearanceSettings />
                 <ChangePasswordForm />
