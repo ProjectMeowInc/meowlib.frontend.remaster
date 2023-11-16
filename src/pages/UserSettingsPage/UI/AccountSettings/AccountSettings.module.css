@@ -1,0 +1,21 @@
+.container__account_settings h2 {
+    font-family: Ubuntu, serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+    margin-bottom: 25px;
+    color: #545F71;
+}
+
+.container__account_settings p {
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: -0.02em;
+    color: #545F71;
+}
+.account_settings__current_email_input {
+    margin-top: 94px;
+}
