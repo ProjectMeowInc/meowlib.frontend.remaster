@@ -7,12 +7,13 @@ interface IButtonProps {
     styles?: {
         margin?: string
         width?: string
+        backgroundColor?: string;
     }
 }
 
 const Button: React.FC<IButtonProps> = ({ children, onClick, styles }) => {
     return (
-        <button className={classes.btn} onClick={onClick} style={{ margin: styles?.margin, width: styles?.width }}>
+        <button className={classes.btn} onClick={onClick} style={{ margin: styles?.margin, width: styles?.width, backgroundColor: styles?.backgroundColor}}>
             {children}
         </button>
     )
