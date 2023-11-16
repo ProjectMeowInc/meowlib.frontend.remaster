@@ -10,11 +10,16 @@ interface UserSettingsInput {
 }
 
 const UserSettingsInput: React.FC<UserSettingsInput> = ({ onChange, placeholder, styles }) => {
+
+    function OnChange(value: string) {
+        onChange?.call(null, value)
+    }
+
     return (
         <input
             className={classes.user_settings_input}
             placeholder={placeholder}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(e) => OnChange(e.target.value)}
             style={{ margin: styles?.margin }}
         />
     )
