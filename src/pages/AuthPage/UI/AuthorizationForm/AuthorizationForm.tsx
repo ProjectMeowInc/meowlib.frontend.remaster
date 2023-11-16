@@ -1,7 +1,8 @@
 import React, { useState } from "react"
-import InputAuthorization from "@/components/UI/InputAuthorization/InputAuthorization"
+import InputAuthorization from "@/shared/UI/InputAuthorization/InputAuthorization"
 import Button from "@/shared/UI/button/Button"
 import classes from "@/pages/AuthPage/UI/AuthorizationForm/AuthorizationForm.module.css"
+
 const AuthorizationForm = () => {
     const [login, setLogin] = useState<string>("")
     const [password, setPassword] = useState<string>("")
@@ -15,19 +16,17 @@ const AuthorizationForm = () => {
                 <InputAuthorization
                     onChange={(value) => setLogin(value)}
                     placeholder={"Введите логин"}
-                    margin="30px 42px"
+                    styles={{ margin: "20px 42px" }}
                 />
 
                 <InputAuthorization
                     onChange={(value) => setPassword(value)}
                     placeholder={"Введите пароль"}
-                    margin="0 42px "
+                    styles={{ margin: "0 42px" }}
                 />
 
                 <hr className={classes.auth_form__hr_two} />
-                <Button margin="30px 42px" width="312px">
-                    Войти
-                </Button>
+                <Button styles={{ margin: "30px 42px", width: "312px" }}>Войти</Button>
             </form>
         </div>
     )
