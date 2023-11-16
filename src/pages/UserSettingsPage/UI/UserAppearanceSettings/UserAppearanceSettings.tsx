@@ -1,6 +1,6 @@
-import React from 'react';
-import SwitchInput from "@/shared/UI/switchInput/SwitchInput";
-import classes from '@/pages/UserSettingsPage/UI/UserAppearanceSettings/UserAppearanceSettings.module.css'
+import React from "react"
+import SwitchInput from "@/shared/UI/switchInput/SwitchInput"
+import classes from "@/pages/UserSettingsPage/UI/UserAppearanceSettings/UserAppearanceSettings.module.css"
 
 const UserAppearanceSettings = () => {
     return (
@@ -9,9 +9,9 @@ const UserAppearanceSettings = () => {
                 <h3>Включить темную тему</h3>
                 <p>Включает темную тему на сайте</p>
             </div>
-            <SwitchInput/>
+            <SwitchInput />
         </div>
-    );
-};
+    )
+}
 
-export default UserAppearanceSettings;
+export default UserAppearanceSettings
