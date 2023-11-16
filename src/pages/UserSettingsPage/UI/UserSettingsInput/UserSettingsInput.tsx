@@ -17,9 +17,7 @@ const UserSettingsInput: React.FC<UserSettingsInput> = ({onChange, placeholder, 
             placeholder={placeholder}
             onChange={() => onChange}
             style={{margin:styles?.margin}}
-        >
-
-        </input>
+        />
     );
 };
 
