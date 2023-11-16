@@ -9,25 +9,12 @@ const RegistrationForm = () => {
             <h2>Регистрация через логин и пароль</h2>
             <hr className={classes.reg_form__hr_one} />
             <form>
-                <InputAuthorization
-                    onChange={() => {}}
-                    placeholder={"Введите логин"}
-                    styles={{margin: "20px 42px"}}
-                />
+                <InputAuthorization placeholder={"Введите логин"} styles={{ margin: "20px 42px" }} />
 
-                <InputAuthorization
-                    onChange={() => {}}
-                    placeholder={"Введите пароль"}
-                    styles={{margin: "0 42px"}}
-                />
+                <InputAuthorization placeholder={"Введите пароль"} styles={{ margin: "0 42px" }} />
 
-                <hr className={classes.reg_form__hr_two}/>
-                <Button
-                        onClick={() => {}}
-                        styles={{margin: "30px 42px", width:"312px"}}
-                >
-                    Зарегистрироваться
-                </Button>
+                <hr className={classes.reg_form__hr_two} />
+                <Button styles={{ margin: "30px 42px", width: "312px" }}>Зарегистрироваться</Button>
             </form>
         </div>
     )

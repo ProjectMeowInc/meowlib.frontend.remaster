@@ -16,22 +16,20 @@ const AuthorizationForm = () => {
                 <InputAuthorization
                     onChange={(value) => setLogin(value)}
                     placeholder={"Введите логин"}
-                    styles={{margin: "20px 42px"}}
+                    styles={{ margin: "20px 42px" }}
                 />
 
                 <InputAuthorization
                     onChange={(value) => setPassword(value)}
                     placeholder={"Введите пароль"}
-                    styles={{margin: "0 42px"}}
+                    styles={{ margin: "0 42px" }}
                 />
 
                 <hr className={classes.auth_form__hr_two} />
-                <Button styles={{margin: "30px 42px", width: "312px"}} >
-                    Войти
-                </Button>
+                <Button styles={{ margin: "30px 42px", width: "312px" }}>Войти</Button>
             </form>
         </div>
     )
 }
 
-export default AuthorizationForm;
+export default AuthorizationForm

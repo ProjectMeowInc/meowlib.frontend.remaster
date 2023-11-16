@@ -12,11 +12,6 @@
     margin-bottom: 15px;
 }
 
-.container__cookie_notification span {
-    display: flex;
-    flex-direction: column;
-}
-
 .container__cookie_notification img {
     margin: 5px 0 0 5px;
 }
