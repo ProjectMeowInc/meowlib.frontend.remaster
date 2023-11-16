@@ -16,6 +16,20 @@
     letter-spacing: -0.02em;
     color: #545F71;
 }
-.account_settings__current_email_input {
+
+.account_settings__current_email {
+    display: flex;
+    flex-direction: column;
+}
+
+.account_settings__current_email_header {
     margin-top: 94px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 285px;
+}
+
+.account_settings__current_email img {
+    cursor: pointer;
 }
