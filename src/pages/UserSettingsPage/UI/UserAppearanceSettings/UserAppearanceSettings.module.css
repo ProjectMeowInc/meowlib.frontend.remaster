@@ -1,0 +1,23 @@
+.container__user_appearance_settings {
+    display: flex;
+}
+
+.container__user_appearance_settings h3 {
+    font-family: Inter, serif;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 22px;
+    letter-spacing: -0.02em;
+    color: #545f71;
+    margin: 0;
+}
+
+.container__user_appearance_settings p {
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: -0.02em;
+    color: #545f71;
+    margin: 0 79px 0 0;
+}

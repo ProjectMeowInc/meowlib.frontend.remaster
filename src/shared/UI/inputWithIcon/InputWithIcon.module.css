@@ -1,18 +1,16 @@
 .inp_with_icon__container {
-    position: relative;
     width: 682px;
     height: 48px;
+    display: flex;
 }
 
 .inp_with_icon {
     width: 682px;
     height: 48px;
-    padding: 12px;
+    padding-left: 12px;
     border-radius: 6px;
     border: 1px solid #545f71;
     cursor: pointer;
-    position: absolute;
-    z-index: 0;
 }
 
 .inp_with_icon::placeholder {
@@ -28,8 +26,6 @@
 
 .icon {
     cursor: pointer;
-    position: absolute;
-    left: 646px;
-    top: 14px;
     z-index: 10;
+    margin: 16px -30px;
 }

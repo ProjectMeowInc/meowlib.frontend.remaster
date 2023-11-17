@@ -1,0 +1,19 @@
+.container__user_settings_page {
+    display: flex;
+}
+
+.container__user_settings_page h2 {
+    font-family: Ubuntu, serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    color: #545f71;
+}
+
+.line_one {
+    display: flex;
+    flex-direction: column;
+    margin-right: 140px;
+}
