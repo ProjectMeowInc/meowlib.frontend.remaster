@@ -1,6 +1,6 @@
 import { IError } from "@/shared/services/Result/IError"
 
-class EmptyResult {
+export class EmptyResult {
     private readonly error: IError | null
 
     protected constructor(error: IError | null) {
@@ -19,11 +19,11 @@ class EmptyResult {
         return this.error
     }
 
-    withOk(): EmptyResult {
+    static withOk(): EmptyResult {
         return new EmptyResult(null)
     }
 
-    withError(error: IError): EmptyResult {
+    static withError(error: IError): EmptyResult {
         return new EmptyResult(error)
     }
 }

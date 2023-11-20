@@ -97,6 +97,7 @@ export class HTTPResult<TContent> {
         if (!HTTPResult.validateUrl(url)) {
             throw new IncorrectUrlException("Неправильный формат ссылки")
         }
+        return this
     }
 
     withBody(body: object) {
