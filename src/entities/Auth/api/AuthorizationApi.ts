@@ -7,7 +7,6 @@ import { ILoginResponse } from "@/entities/Auth/models/response/LogInResponse"
 import { IUpdateAuthResponse } from "@/entities/Auth/models/response/UpdateAuthResponse"
 import { IUpdateAuthRequest } from "@/entities/Auth/models/requests/UpdateAuthRequest"
 import { mapResponseLogInToDTO } from "@/entities/Auth/models/dto/LogInDto"
-import { mapRequestSignInToDto } from "@/entities/Auth/models/dto/SignInDto"
 import { mapResponseUpdateAuthToDto } from "@/entities/Auth/models/dto/UpdateAuthDto"
 
 export class AuthorizationApi {
@@ -21,9 +20,6 @@ export class AuthorizationApi {
         if (result.hasError()) {
             return EmptyResult.withError(result.getError())
         }
-
-        const data = result.unwrap()
-        const signInDto = mapRequestSignInToDto(data)
 
         return EmptyResult.withOk()
     }
