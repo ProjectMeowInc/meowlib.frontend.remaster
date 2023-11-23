@@ -1,7 +1,7 @@
 import { ILoginResponse } from "@/entities/Auth/models/response/LogInResponse"
 import { ILogInRequest } from "@/entities/Auth/models/requests/LogInRequest"
 
-export interface ILogRequestInDto {
+export interface ILogInRequestInDto {
     login: string
     password: string
     isLongSession: boolean
@@ -12,7 +12,7 @@ export interface ILogInResponseInDto {
     refreshToken: string
 }
 
-export function mapRequestLogInToDTO(request: ILogInRequest): ILogRequestInDto {
+export function mapRequestLogInToDTO(request: ILogInRequest): ILogInRequestInDto {
     return {
         login: request.login,
         password: request.password,
