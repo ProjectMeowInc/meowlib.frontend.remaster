@@ -4,7 +4,7 @@ import { ILogInRequest } from "@/entities/Auth/models/requests/LogInRequest"
 export interface ILogRequestInDto {
     login: string
     password: string
-    isLongSession: string
+    isLongSession: boolean
 }
 
 export interface ILogInResponseInDto {
