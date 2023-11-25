@@ -81,11 +81,7 @@ export class HTTPResult<TContent> {
 
     //TODO: Сделать нормальную валидацию
     private static validateUrl(url: string): boolean {
-        if (url[0] !== "/") {
-            return false
-        }
-
-        return true
+        return url[0] === "/";
     }
 
     /**
@@ -97,6 +93,8 @@ export class HTTPResult<TContent> {
         if (!HTTPResult.validateUrl(url)) {
             throw new IncorrectUrlException("Неправильный формат ссылки")
         }
+
+        this.url = url
         return this
     }
 
