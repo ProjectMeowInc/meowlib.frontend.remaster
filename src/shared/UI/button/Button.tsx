@@ -4,6 +4,7 @@ import classes from "./Button.module.css"
 interface IButtonProps {
     children: string
     onClick?: () => void
+    lockFunction?: () => Promise<void>
     styles?: {
         margin?: string
         width?: string
@@ -17,6 +18,7 @@ const Button: React.FC<IButtonProps> = ({ children, onClick, styles }) => {
             className={classes.btn}
             onClick={onClick}
             style={{ margin: styles?.margin, width: styles?.width, backgroundColor: styles?.backgroundColor }}
+            type={"submit"}
         >
             {children}
         </button>
