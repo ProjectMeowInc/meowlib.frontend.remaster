@@ -1,3 +1,4 @@
 export interface IOnChangeEvent {
-    newValue: any
+    newValue: string
+    name: string
 }

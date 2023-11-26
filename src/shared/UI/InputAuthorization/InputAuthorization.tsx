@@ -1,7 +1,8 @@
-import React, {useState} from "react"
+import React from "react"
 import classes from "./InputAuthorization.module.css"
 import {IOnChangeEvent} from "@/shared/models/events/IOnChangeEvent";
 
+// TODO: добавить документацию
 interface IInputAuthorizationProps {
     onChange?: (event: IOnChangeEvent) => void
     placeholder: string
@@ -10,7 +11,8 @@ interface IInputAuthorizationProps {
     }
     value?: string
     type?: string
-    name?: string
+    // TODO: особенно для этого
+    name: string
 }
 
 
@@ -20,19 +22,20 @@ const InputAuthorization: React.FC<IInputAuthorizationProps> = ({
     value,
     type,
     name,
+    onChange
 }) => {
-
-    const [state, setState] = useState('')
-
-    function changeHandler(newValue: string): void {
-        setState(newValue)
+    function changeHandler(event: IOnChangeEvent): void {
+        onChange?.call(null, event)
     }
 
     return (
         <input
             placeholder={placeholder}
             className={classes.inp_auth}
-            onChange={(event)=> changeHandler(event.target.value)}
+            onChange={(event) => changeHandler({
+                newValue: event.target.value,
+                name: name
+            })}
             style={{ margin: styles?.margin }}
             value={value}
             type={type}

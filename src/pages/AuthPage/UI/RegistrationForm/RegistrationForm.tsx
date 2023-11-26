@@ -16,7 +16,7 @@ const RegistrationForm = () => {
                     type={"text"}
                     name={"login"}
                     value={formData.login}
-                    onChange={(event) => handleInputChange (event.newValue)}
+                    onChange={(event) => handleInputChange(event)}
                     placeholder={"Введите логин"}
                     styles={{ margin: "20px 42px" }}
                 />

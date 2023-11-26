@@ -11,10 +11,10 @@ export const useRegistration = () => {
     })
 
     const handleInputChange = (event: IOnChangeEvent) => {
-        const { name, value } = event.newValue
+        const { name, newValue } = event
         setFormData((prevFormData) => ({
             ...prevFormData,
-            [name]: value,
+            [name]: newValue,
         }))
     }
 
