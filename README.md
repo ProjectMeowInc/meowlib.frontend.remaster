@@ -1,8 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## MeowLib.Frontend
 
-## Getting Started
-
-First, run the development server:
+Для запуска проекта в режиме разработке используйте:
 
 ```bash
 npm run dev
@@ -14,27 +12,43 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+После запуска откройте [http://localhost:3000](http://localhost:3000) с помощью вашего браузера.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Проект был написан с целью получения опыта в написании больших проектов и работы в команде. Во время написания использовались следующие технологии:
+* Frontend: 
+  * Next.JS
+  * TypeScript
+  * React
+  * и много других библиотек для удобного написания
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+* Backend: 
+  * .NET 8
+  * Asp NET
+  * Entity Framework
+  * LINQ
+  * Для базы данных Sqlite
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Проект имеет следующую архитектуру (Frontend):
+* /src - корневая папка исходного кода.
+  * /app - корень приложения, отсюда так или иначе будет вызвана вся его логика. Роутинг будет где-нибудь здесь.
+  * /pages - здесь будут находиться все страницы как компоненты, расположение файлов здесь не влияет на роутинг приложения. Роутинг будет настроен в 'app'.
+    * /{CompoentNamePage} - в 'pages' будут находиться компоненты страниц. Каждый компонент страницы находится в своей директории с названием формата: '{ComponentName}Page'. В директории будут находится файлы: '{ComponentName}Page.tsx' и '{ComponentName}Page.module.css'.
+      * /ui - Если на странице используется какой-нибудь компонент он помещается сюда, исключая те компоненты, которые используются 2 и более страницами.
+  * /entities - Сущности приложения и логика работы с ним. Подробнее в подпапках.
+    * /{EntityName} - Отдельная сущность в приложении. В ней находиться: '{EntityName}.ts'. Файл с доменной моделью данной сущности.
+     * /models - Набор моделей связанный с сущностью.
+       * /request - Набор моделей запросов к API заданной сущности.
+       * /responses - Набор ответов на запросы к API заданной сущности.
+       * /dto - Набор DTO моделей для заданной сущности.
+     * /api - Набор методов реализовывающих запросы на API. Представлен файлом: '{EntityName}Api.tsx'
+    * /services - Набор методов бизнес-логики, который может использовать '/api' методы для взаимодействия с API. Или другие сервисы. Вызов отсюда '/api' другой сущности некорректен
+  * /shared - Различные вещи, которые могут использоваться везде. Например: UI-kit
+      * /ui - Набор компонентов для повсеместного использования. UI-kit.
+      * /models - Набор моделей для повсеместного использования
+        * /responses - Набор переиспользуемых моделей ответов от API. Сюда следует поместить 'IValidationErrorResponse' и 'IBaseErrorResponse'
+                
+Мы главные конкуренты для [RanobeLib](https://ranobelib.me/).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![BookPage.png](.github/BookPage.png)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> Псс... для запуска нужен backend. Его можно найти [тут](https://github.com/ProjectMeowInc/MeowLib.Backend).
