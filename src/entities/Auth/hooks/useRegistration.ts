@@ -35,7 +35,6 @@ export const useRegistration = () => {
     }
 
     return {
-        formData,
         handleInputChange,
         handleSubmit,
     }
