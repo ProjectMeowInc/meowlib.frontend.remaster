@@ -3,7 +3,7 @@ import InputAuthorization from "@/shared/UI/InputAuthorization/InputAuthorizatio
 import Button from "@/shared/UI/button/Button"
 import classes from "@/pages/AuthPage/UI/AuthorizationForm/AuthorizationForm.module.css"
 import { TokenService } from "@/shared/services/TokenService"
-import {AuthService} from "@/entities/Auth/service/AuthService";
+import { AuthService } from "@/entities/Auth/service/AuthService"
 
 const AuthorizationForm = () => {
     const [login, setLogin] = useState<string>("")
@@ -11,11 +11,7 @@ const AuthorizationForm = () => {
     const [isLongSession, setIsLongSession] = useState<boolean>(false)
 
     async function SubmitHandler(login: string, password: string, isLongSession: boolean): Promise<void> {
-        const res = await AuthService.authorization(
-            login,
-            password,
-            isLongSession
-        )
+        const res = await AuthService.authorization(login, password, isLongSession)
 
         const loginData = res.unwrap()
         TokenService.setAccessToken(loginData.accessToken)
@@ -29,14 +25,14 @@ const AuthorizationForm = () => {
             <form>
                 <InputAuthorization
                     name={"login"}
-                    onChange={({newValue}) => setLogin(newValue)}
+                    onChange={({ newValue }) => setLogin(newValue)}
                     placeholder={"Введите логин"}
                     styles={{ margin: "20px 42px" }}
                 />
 
                 <InputAuthorization
                     name={"password"}
-                    onChange={({newValue}) => setPassword(newValue)}
+                    onChange={({ newValue }) => setPassword(newValue)}
                     placeholder={"Введите пароль"}
                     styles={{ margin: "0 42px" }}
                 />

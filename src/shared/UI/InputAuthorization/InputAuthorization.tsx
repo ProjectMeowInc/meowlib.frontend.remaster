@@ -1,6 +1,6 @@
 import React from "react"
 import classes from "./InputAuthorization.module.css"
-import {IOnChangeEvent} from "@/shared/models/events/IOnChangeEvent";
+import { IOnChangeEvent } from "@/shared/models/events/IOnChangeEvent"
 
 // TODO: добавить документацию
 interface IInputAuthorizationProps {
@@ -15,14 +15,13 @@ interface IInputAuthorizationProps {
     name: string
 }
 
-
 const InputAuthorization: React.FC<IInputAuthorizationProps> = ({
     placeholder,
     styles,
     value,
     type,
     name,
-    onChange
+    onChange,
 }) => {
     function changeHandler(event: IOnChangeEvent): void {
         onChange?.call(null, event)
@@ -32,10 +31,12 @@ const InputAuthorization: React.FC<IInputAuthorizationProps> = ({
         <input
             placeholder={placeholder}
             className={classes.inp_auth}
-            onChange={(event) => changeHandler({
-                newValue: event.target.value,
-                name: name
-            })}
+            onChange={(event) =>
+                changeHandler({
+                    newValue: event.target.value,
+                    name: name,
+                })
+            }
             style={{ margin: styles?.margin }}
             value={value}
             type={type}

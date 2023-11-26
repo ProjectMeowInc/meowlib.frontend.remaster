@@ -81,7 +81,7 @@ export class HTTPResult<TContent> {
 
     //TODO: Сделать нормальную валидацию
     private static validateUrl(url: string): boolean {
-        return url[0] === "/";
+        return url[0] === "/"
     }
 
     /**

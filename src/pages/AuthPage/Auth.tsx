@@ -5,7 +5,7 @@ import RegistrationForm from "@/pages/AuthPage/UI/RegistrationForm/RegistrationF
 const Auth = () => {
     return (
         <>
-            <RegistrationForm/>
+            <RegistrationForm />
         </>
     )
 }

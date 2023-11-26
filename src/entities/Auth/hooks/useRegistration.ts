@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { ISignInRequest } from "@/entities/Auth/models/requests/SignInRequests"
 import { AuthService } from "@/entities/Auth/service/AuthService"
 import { AlertService } from "@/shared/services/AlertService"
-import {IOnChangeEvent} from "@/shared/models/events/IOnChangeEvent";
+import { IOnChangeEvent } from "@/shared/models/events/IOnChangeEvent"
 
 export const useRegistration = () => {
     const [formData, setFormData] = useState<ISignInRequest>({
