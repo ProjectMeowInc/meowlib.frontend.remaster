@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { ISignInRequest } from "@/entities/Auth/models/requests/SignInRequests"
 import { AuthService } from "@/entities/Auth/service/AuthService"
 import { AlertService } from "@/shared/services/AlertService"
+import {IOnChangeEvent} from "@/shared/models/events/IOnChangeEvent";
 
 export const useRegistration = () => {
     const [formData, setFormData] = useState<ISignInRequest>({
@@ -9,8 +10,8 @@ export const useRegistration = () => {
         password: "",
     })
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target
+    const handleInputChange = (event: IOnChangeEvent) => {
+        const { name, value } = event.newValue
         setFormData((prevFormData) => ({
             ...prevFormData,
             [name]: value,
