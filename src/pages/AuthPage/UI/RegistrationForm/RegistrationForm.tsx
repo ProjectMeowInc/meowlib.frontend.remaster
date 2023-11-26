@@ -5,7 +5,7 @@ import classes from "./RegistrationForm.module.css"
 import { useRegistration } from "@/entities/Auth/hooks/useRegistration"
 
 const RegistrationForm = () => {
-    const { formData, handleInputChange, handleSubmit } = useRegistration()
+    const { handleInputChange, handleSubmit } = useRegistration()
 
     return (
         <div className={classes.container__reg_form}>
@@ -13,20 +13,17 @@ const RegistrationForm = () => {
             <hr className={classes.reg_form__hr_one} />
             <form onSubmit={handleSubmit}>
                 <InputAuthorization
-                    type={"text"}
-                    name={"login"}
-                    value={formData.login}
-                    onChange={(event) => handleInputChange(event)}
+                    onChange={handleInputChange}
                     placeholder={"Введите логин"}
                     styles={{ margin: "20px 42px" }}
+                    name={"login"}
                 />
                 <InputAuthorization
-                    type={"password"}
-                    name={"password"}
-                    value={formData.password}
                     onChange={handleInputChange}
                     placeholder={"Введите пароль"}
                     styles={{ margin: "0 42px" }}
+                    type={"password"}
+                    name={"password"}
                 />
                 <hr className={classes.reg_form__hr_two} />
                 <Button styles={{ margin: "30px 42px", width: "312px" }}>Зарегистрироваться</Button>
