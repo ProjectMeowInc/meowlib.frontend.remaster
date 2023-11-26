@@ -1,11 +1,10 @@
 import React from "react"
-import CookieNotification from "@/shared/UI/CookieNotification/CookieNotification"
-import RegistrationForm from "@/pages/AuthPage/UI/RegistrationForm/RegistrationForm"
+import Authorization from "@/pages/AuthPage/UI/Authorization/Authorization"
 
 const Auth = () => {
     return (
         <>
-            <RegistrationForm />
+            <Authorization />
         </>
     )
 }
