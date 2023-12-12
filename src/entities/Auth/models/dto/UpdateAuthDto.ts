@@ -7,6 +7,7 @@ export interface IUpdateAuthRequestInDto {
 
 export interface IUpdateAuthResponseInDto {
     refreshToken: string
+    accessToken: string
 }
 
 export function mapRequestUpdateAuthToDto(request: IUpdateAuthRequest): IUpdateAuthRequestInDto {
@@ -18,5 +19,6 @@ export function mapRequestUpdateAuthToDto(request: IUpdateAuthRequest): IUpdateA
 export function mapResponseUpdateAuthToDto(response: IUpdateAuthResponse): IUpdateAuthResponseInDto {
     return {
         refreshToken: response.refreshToken,
+        accessToken: response.accessToken,
     }
 }
