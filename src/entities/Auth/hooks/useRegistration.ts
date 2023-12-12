@@ -22,8 +22,6 @@ export const useRegistration = () => {
         event.preventDefault()
         const result = await AuthService.registration(formData.login, formData.password)
 
-        console.log(formData)
-
         setFormData({
             login: "",
             password: "",
