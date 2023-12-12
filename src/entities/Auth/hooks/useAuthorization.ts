@@ -5,7 +5,6 @@ import { ILogInRequest } from "@/entities/Auth/models/requests/LogInRequest"
 import { TokenService } from "@/shared/services/TokenService"
 import { IOnChangeEvent } from "@/shared/models/events/IOnChangeEvent"
 
-
 export const useAuthorization = () => {
     const [formData, setFormData] = useState<ILogInRequest>({
         login: "",
@@ -39,13 +38,14 @@ export const useAuthorization = () => {
         const loginData = result.unwrap()
         TokenService.setAccessToken(loginData.accessToken)
         TokenService.setRefreshToken(loginData.refreshToken)
-        console.log(loginData)
 
         return AlertService.successMessage("Вы успешно вошли")
     }
 
+    const [isLongSession, setIsLongSession] = useState<boolean>(false)
+
     function handleCheckbox() {
-        formData.isLongSession = true
+        setIsLongSession((prevState) => !prevState)
     }
 
     return {
