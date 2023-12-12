@@ -28,7 +28,7 @@ export class AlertService {
     }
 
     static successMessage(message: string) {
-        toast.warning(message, {
+        toast.success(message, {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: true,
