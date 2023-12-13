@@ -35,10 +35,10 @@ export class AuthorizationApi {
             return Result.withError(result.getError())
         }
 
-        const data = result.unwrap()
-        const logInDTO = mapResponseLogInToDTO(data)
+        const authorizationData = result.unwrap()
+        const authorizationDTO = mapResponseLogInToDTO(authorizationData)
 
-        return Result.withOk(result.unwrap())
+        return Result.withOk(authorizationDTO)
     }
 
     static async updateAuth(requestData: IUpdateAuthRequest): Promise<Result<IUpdateAuthResponse>> {
@@ -52,9 +52,9 @@ export class AuthorizationApi {
             return Result.withError(result.getError())
         }
 
-        const data = result.unwrap()
-        const updateAuthDto = mapResponseUpdateAuthToDto(data)
+        const updateAuthData = result.unwrap()
+        const updateAuthDto = mapResponseUpdateAuthToDto(updateAuthData)
 
-        return Result.withOk(result.unwrap())
+        return Result.withOk(updateAuthDto)
     }
 }
