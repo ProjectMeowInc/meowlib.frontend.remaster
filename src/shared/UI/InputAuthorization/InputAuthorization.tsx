@@ -9,7 +9,7 @@ interface IInputAuthorizationProps {
     onChange?: (event: IOnChangeEvent) => void
     /**
      * placeholder - строка которая будет отображаться в инпуте
-    */
+     */
     placeholder: string
     /**
      * styles - объект, принимает в себя стили используемые компонентом
@@ -31,7 +31,6 @@ interface IInputAuthorizationProps {
      * будут отправлены на сервер в виде login='введенные в инпут данные'
      */
     name: string
-
 }
 
 const InputAuthorization: React.FC<IInputAuthorizationProps> = ({
