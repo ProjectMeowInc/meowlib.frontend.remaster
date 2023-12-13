@@ -4,9 +4,7 @@ import { IOnChangeEvent } from "@/shared/models/events/IOnChangeEvent"
 
 interface IInputAuthorizationProps {
     /**
-     * onChange - принимает в себя интерфейс в котором описаны данные в веденные в инпут
-     * и привязка поля ввода для отправки на сервер
-     * при срабатывании евента, а так же саму функцию которая будет вызвана при изменении данных
+     * onChange - функция, которая будет вызвана при изменении данных
      */
     onChange?: (event: IOnChangeEvent) => void
     /**
