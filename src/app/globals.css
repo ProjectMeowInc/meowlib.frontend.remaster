@@ -5,6 +5,10 @@
     src: url("../shared/fonts/Ubuntu-Regular.ttf");
 }
 
+@font-face {
+    src: url("../shared/fonts/Raleway-Regular.ttf");
+}
+
 * {
     margin: 0;
     padding: 0;
