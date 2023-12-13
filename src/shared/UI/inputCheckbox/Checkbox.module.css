@@ -1,6 +1,6 @@
 .checkbox {
     position: relative;
-    display: inline-block;
+    display: flex;
     cursor: pointer;
 }
 
@@ -31,11 +31,18 @@
     position: relative;
     content: "";
     display: none;
-    left: 3px;
-    top: -2px;
+    left: 5px;
+    top: -1px;
     width: 8px;
     height: 14px;
     border: solid #fff;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
+}
+
+.checkbox__text {
+    margin: 3px 0 0 13px;
+    font-size: 14px;
+    font-family: Ubuntu, serif;
+    color: #808080;
 }

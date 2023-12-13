@@ -1,10 +1,10 @@
 import React from "react"
-import CookieNotification from "@/shared/UI/CookieNotification/CookieNotification"
+import Authorization from "@/pages/AuthPage/UI/Authorization/Authorization"
 
 const Auth = () => {
     return (
         <>
-            <CookieNotification />
+            <Authorization />
         </>
     )
 }

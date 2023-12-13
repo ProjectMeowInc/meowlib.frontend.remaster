@@ -10,7 +10,6 @@ interface UserSettingsInput {
 }
 
 const UserSettingsInput: React.FC<UserSettingsInput> = ({ onChange, placeholder, styles }) => {
-
     function OnChange(value: string) {
         onChange?.call(null, value)
     }

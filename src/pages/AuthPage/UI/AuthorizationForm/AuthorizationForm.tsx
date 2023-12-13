@@ -1,35 +1,39 @@
-import React, { useState } from "react"
+import React from "react"
 import InputAuthorization from "@/shared/UI/InputAuthorization/InputAuthorization"
 import Button from "@/shared/UI/button/Button"
 import classes from "@/pages/AuthPage/UI/AuthorizationForm/AuthorizationForm.module.css"
+import { useAuthorization } from "@/entities/Auth/hooks/useAuthorization"
+import Checkbox from "@/shared/UI/inputCheckbox/Checkbox"
 
 const AuthorizationForm = () => {
-    const [login, setLogin] = useState<string>("")
-    const [password, setPassword] = useState<string>("")
-    const [isLongSession, setIsLongSession] = useState<boolean>(false)
+    const { handleSubmit, handleInputChange, handleCheckbox } = useAuthorization()
 
     return (
         <div className={classes.container__auth_form}>
             <h2>Вход через логин и пароль</h2>
             <hr className={classes.auth_form__hr_one} />
-            <form>
+            <form onSubmit={handleSubmit}>
                 <InputAuthorization
-                    onChange={(value) => setLogin(value)}
+                    onChange={handleInputChange}
                     placeholder={"Введите логин"}
                     styles={{ margin: "20px 42px" }}
+                    name={"login"}
                 />
 
                 <InputAuthorization
-                    onChange={(value) => setPassword(value)}
+                    onChange={handleInputChange}
                     placeholder={"Введите пароль"}
                     styles={{ margin: "0 42px" }}
+                    name={"password"}
+                    type={"password"}
                 />
-
+                <Checkbox styles={{ margin: "15px 0 0 42px" }} onClick={handleCheckbox}>
+                    Запомнить меня
+                </Checkbox>
                 <hr className={classes.auth_form__hr_two} />
                 <Button styles={{ margin: "30px 42px", width: "312px" }}>Войти</Button>
             </form>
         </div>
     )
 }
-
 export default AuthorizationForm
