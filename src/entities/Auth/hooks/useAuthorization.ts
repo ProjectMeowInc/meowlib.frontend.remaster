@@ -24,8 +24,6 @@ export const useAuthorization = () => {
         event.preventDefault()
         const result = await AuthService.authorization(formData.login, formData.password, formData.isLongSession)
 
-        console.log(formData)
-
         setFormData({
             login: "",
             password: "",
