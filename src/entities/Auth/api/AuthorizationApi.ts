@@ -6,8 +6,6 @@ import { Result } from "@/shared/services/Result/Result"
 import { ILoginResponse } from "@/entities/Auth/models/response/LogInResponse"
 import { IUpdateAuthResponse } from "@/entities/Auth/models/response/UpdateAuthResponse"
 import { IUpdateAuthRequest } from "@/entities/Auth/models/requests/UpdateAuthRequest"
-import { mapResponseLogInToDTO } from "@/entities/Auth/models/dto/LogInDto"
-import { mapResponseUpdateAuthToDto } from "@/entities/Auth/models/dto/UpdateAuthDto"
 
 export class AuthorizationApi {
     static async registration(requestData: ISignInRequest): Promise<EmptyResult> {
@@ -35,10 +33,7 @@ export class AuthorizationApi {
             return Result.withError(result.getError())
         }
 
-        const authorizationData = result.unwrap()
-        const authorizationDTO = mapResponseLogInToDTO(authorizationData)
-
-        return Result.withOk(authorizationDTO)
+        return Result.withOk(result.unwrap())
     }
 
     static async updateAuth(requestData: IUpdateAuthRequest): Promise<Result<IUpdateAuthResponse>> {
@@ -52,9 +47,6 @@ export class AuthorizationApi {
             return Result.withError(result.getError())
         }
 
-        const updateAuthData = result.unwrap()
-        const updateAuthDto = mapResponseUpdateAuthToDto(updateAuthData)
-
-        return Result.withOk(updateAuthDto)
+        return Result.withOk(result.unwrap())
     }
 }
