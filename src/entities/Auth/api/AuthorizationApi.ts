@@ -10,7 +10,7 @@ import { IUpdateAuthRequest } from "@/entities/Auth/models/requests/UpdateAuthRe
 export class AuthorizationApi {
     static async registration(requestData: ISignInRequest): Promise<EmptyResult> {
         const result = await new HTTPResult<void>()
-            .withUrl("/authorization/sign-in")
+            .withUrl("/v1/authorization/sign-in")
             .withBody(requestData)
             .withPostMethod()
             .sendAsync()
@@ -24,7 +24,7 @@ export class AuthorizationApi {
 
     static async authorization(requestData: ILogInRequest): Promise<Result<ILoginResponse>> {
         const result = await new HTTPResult<ILoginResponse>()
-            .withUrl("/authorization/log-in")
+            .withUrl("/v1/authorization/log-in")
             .withBody(requestData)
             .withPostMethod()
             .sendAsync()
@@ -38,7 +38,7 @@ export class AuthorizationApi {
 
     static async updateAuth(requestData: IUpdateAuthRequest): Promise<Result<IUpdateAuthResponse>> {
         const result = await new HTTPResult<IUpdateAuthResponse>()
-            .withUrl("/authorization/update-auth")
+            .withUrl("/v1/authorization/update-auth")
             .withBody(requestData)
             .withPostMethod()
             .sendAsync()

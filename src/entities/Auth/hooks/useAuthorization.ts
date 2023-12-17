@@ -12,6 +12,7 @@ export const useAuthorization = () => {
         isLongSession: false,
     })
 
+
     const handleInputChange = (event: IOnChangeEvent) => {
         const { name, newValue } = event
         setFormData((prevFormData) => ({
@@ -22,15 +23,10 @@ export const useAuthorization = () => {
 
     async function handleSubmit(event: React.FormEvent): Promise<void> {
         event.preventDefault()
-        const result = await AuthService.authorization(formData.login, formData.password, formData.isLongSession)
+        const result = await AuthService.authorization(formData)
 
-        setFormData({
-            login: "",
-            password: "",
-            isLongSession: false,
-        })
         if (result.hasError()) {
-            AlertService.errorMessage(result.getError().errorMessage)
+           return AlertService.errorMessage(result.getError().errorMessage)
         }
 
         const loginData = result.unwrap()
@@ -38,12 +34,14 @@ export const useAuthorization = () => {
         TokenService.setRefreshToken(loginData.refreshToken)
 
         return AlertService.successMessage("Вы успешно вошли")
+
     }
 
-    const [isLongSession, setIsLongSession] = useState<boolean>(false)
-
-    function handleCheckbox() {
-        setIsLongSession((prevState) => !prevState)
+    function handleCheckbox(state: boolean) {
+        setFormData(prevState => ({
+            ...prevState,
+            isLongSession: state
+        }))
     }
 
     return {
