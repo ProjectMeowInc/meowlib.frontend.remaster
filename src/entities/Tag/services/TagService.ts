@@ -1,10 +1,10 @@
 import { ICreateTagRequest } from "@/entities/Tag/models/requests/ICreateTagRequest"
 import { Result } from "@/shared/services/Result/Result"
 import { TagApi } from "@/entities/Tag/api/TagApi"
-import { ICreateTagDTO } from "@/entities/Tag/models/models/ICreateTagDTO"
-import { ITagDTO } from "@/entities/Tag/models/models/ITagDTO"
+import { ICreateTagDTO } from "@/entities/Tag/models/dto/ICreateTagDTO"
+import { ITagDTO } from "@/entities/Tag/models/dto/ITagDTO"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
-import { IUpdateTagDTO } from "@/entities/Tag/models/models/IUpdateTagDTO"
+import { IUpdateTagDTO } from "@/entities/Tag/models/dto/IUpdateTagDTO"
 
 export class TagService {
 
