@@ -1,11 +1,12 @@
 import { Result } from "@/shared/services/Result/Result"
 import { HTTPResult } from "@/shared/services/HTTPResult/HTTPResult"
-import { IBookRequest, IPostBookRequest } from "@/entities/Book/model/request/BookRequest"
+import { IBook } from "@/entities/Book/model/request/BookModel"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
 import { IBooksGetResponse } from "@/entities/Book/model/response/BooksGetResponse"
 import { IBooksResponse } from "@/entities/Book/model/response/BooksResponse"
 import { IUpdateBookRequest } from "@/entities/Book/model/request/UpdateBookRequest"
 import { IUpdateBookTagRequest } from "@/entities/Book/model/request/UpdateBookTagRequest"
+import {IPostBookRequest} from "@/entities/Book/model/request/PostBookRequest";
 
 export class BookApi {
     static async getBooks(): Promise<Result<IBooksGetResponse[]>> {
@@ -45,8 +46,8 @@ export class BookApi {
         return EmptyResult.withOk()
     }
 
-    static async getBookByID(id: number): Promise<Result<IBookRequest>> {
-        const result = await new HTTPResult<IBookRequest>()
+    static async getBookByID(id: number): Promise<Result<IBook>> {
+        const result = await new HTTPResult<IBook>()
             .withUrl(`/books/${id}`)
             .withGetMethod()
             .sendAsync()
