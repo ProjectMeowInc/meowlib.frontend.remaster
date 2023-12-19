@@ -1,4 +1,4 @@
-export interface IBookRequest {
+export interface IBook {
     id: number
     name: string
     description: string
@@ -9,7 +9,3 @@ export interface IBookRequest {
     } | null
 }
 
-export interface IPostBookRequest {
-    name: string
-    description: string
-}
