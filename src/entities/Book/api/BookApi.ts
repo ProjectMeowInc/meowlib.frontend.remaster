@@ -6,7 +6,7 @@ import { IBooksGetResponse } from "@/entities/Book/model/response/BooksGetRespon
 import { IBooksResponse } from "@/entities/Book/model/response/BooksResponse"
 import { IUpdateBookRequest } from "@/entities/Book/model/request/UpdateBookRequest"
 import { IUpdateBookTagRequest } from "@/entities/Book/model/request/UpdateBookTagRequest"
-import {IPostBookRequest} from "@/entities/Book/model/request/PostBookRequest";
+import { IPostBookRequest } from "@/entities/Book/model/request/PostBookRequest"
 
 export class BookApi {
     static async getBooks(): Promise<Result<IBooksGetResponse[]>> {
@@ -22,7 +22,8 @@ export class BookApi {
     }
 
     static async postBooks(requestData: IPostBookRequest): Promise<EmptyResult> {
-        const result = await new HTTPResult<void>().withUrl("/books")
+        const result = await new HTTPResult<void>()
+            .withUrl("/books")
             .withPostMethod()
             .withBody(requestData)
             .sendAsync()
