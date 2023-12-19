@@ -89,7 +89,7 @@ export class HTTPResult<TContent> {
      * При неверном формате кидает исключение IncorrectUrlException
      * @param url - ссылка формата "/user/login"
      */
-    withUrl(url: string) {
+    withUrl(url: string): HTTPResult<TContent> {
         if (!HTTPResult.validateUrl(url)) {
             throw new IncorrectUrlException("Неправильный формат ссылки")
         }
@@ -98,28 +98,33 @@ export class HTTPResult<TContent> {
         return this
     }
 
-    withBody(body: object) {
+    withBody(body: object): HTTPResult<TContent> {
         this.body = body
         return this
     }
 
-    withGetMethod() {
+    withGetMethod(): HTTPResult<TContent> {
         this.method = "GET"
         return this
     }
 
-    withPostMethod() {
+    withPostMethod(): HTTPResult<TContent> {
         this.method = "POST"
         return this
     }
 
-    withPutMethod() {
+    withPutMethod(): HTTPResult<TContent> {
         this.method = "PUT"
         return this
     }
 
-    withDeleteMethod() {
+    withDeleteMethod(): HTTPResult<TContent> {
         this.method = "DELETE"
+        return this
+    }
+
+    withAuth(): HTTPResult<TContent> {
+        this.isAuth = true
         return this
     }
 }
