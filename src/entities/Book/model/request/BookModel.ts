@@ -8,4 +8,3 @@ export interface IBook {
         name: string
     } | null
 }
-
