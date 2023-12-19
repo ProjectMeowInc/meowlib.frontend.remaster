@@ -12,7 +12,6 @@ export const useAuthorization = () => {
         isLongSession: false,
     })
 
-
     const handleInputChange = (event: IOnChangeEvent) => {
         const { name, newValue } = event
         setFormData((prevFormData) => ({
@@ -26,7 +25,7 @@ export const useAuthorization = () => {
         const result = await AuthService.authorization(formData)
 
         if (result.hasError()) {
-           return AlertService.errorMessage(result.getError().errorMessage)
+            return AlertService.errorMessage(result.getError().errorMessage)
         }
 
         const loginData = result.unwrap()
@@ -34,13 +33,12 @@ export const useAuthorization = () => {
         TokenService.setRefreshToken(loginData.refreshToken)
 
         return AlertService.successMessage("Вы успешно вошли")
-
     }
 
     function handleCheckbox(state: boolean) {
-        setFormData(prevState => ({
+        setFormData((prevState) => ({
             ...prevState,
-            isLongSession: state
+            isLongSession: state,
         }))
     }
 
