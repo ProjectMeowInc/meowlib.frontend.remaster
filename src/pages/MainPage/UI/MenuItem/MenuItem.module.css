@@ -1,0 +1,37 @@
+.container {
+    width: 234px;
+    height: 52px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 24px 118px 20px;
+    gap: 24px;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 16px;
+}
+
+.container > img:nth-of-type(1) {
+    width: 24px;
+    height: 24px;
+}
+
+.container > p {
+    font-family:
+        Work Sans,
+        sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.container:active {
+    background-color: #eef1f4;
+}
+
+.container > p:active {
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #545f71;
+}
