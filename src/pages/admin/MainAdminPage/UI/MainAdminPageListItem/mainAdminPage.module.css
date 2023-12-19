@@ -1,0 +1,19 @@
+.link {
+    width: 125px;
+    height: 125px;
+    border: 1px solid #B5C8DB;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: all .4s ease-out;
+}
+
+.link:hover {
+    background-color: #B5C8DB;
+    color: white;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+}
