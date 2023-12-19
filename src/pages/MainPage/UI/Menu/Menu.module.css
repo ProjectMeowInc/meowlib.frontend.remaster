@@ -1,0 +1,19 @@
+.container {
+    display: grid;
+    gap: 551px;
+    grid-template-rows: 156px 120px;
+    grid-template-columns: 234px;
+    margin: 68px 0 0 56px;
+}
+
+.top_part {
+    display: grid;
+    grid-template-rows: repeat(3, 52px);
+}
+
+.bottom_part {
+    display: grid;
+    grid-template-rows: repeat(2, 52px);
+    border-top: 1px solid #eef1f4;
+    padding-top: 16px;
+}
