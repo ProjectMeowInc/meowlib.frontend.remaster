@@ -1,7 +1,7 @@
 import React from "react"
 import classes from "./BookPreview.module.css"
 
-const BookPreview = ({}) => {
+const BookPreview = () => {
     return (
         <div className={classes.container}>
             <img src={'/img/4.png'} alt={''}/>
