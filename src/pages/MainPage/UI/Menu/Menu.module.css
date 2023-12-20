@@ -1,0 +1,30 @@
+.container {
+    display: grid;
+    gap: 551px;
+    grid-template-rows: 156px 120px;
+    grid-template-columns: 234px;
+}
+
+.top_part {
+    display: grid;
+    grid-template-rows: repeat(3, 52px);
+}
+
+.bottom_part {
+    display: grid;
+    grid-template-rows: repeat(2, 52px);
+    border-top: 1px solid #eef1f4;
+    padding-top: 16px;
+}
+
+
+@media (max-width: 375px) {
+    .container {
+        position: relative;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0 #00000040;
+        background-color: #fff;
+        gap: 50px;
+        grid-template-columns: 55px;
+    }
+}

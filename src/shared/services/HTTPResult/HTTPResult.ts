@@ -7,7 +7,7 @@ import { IValidationErrorResponse } from "@/shared/models/IValidationErrorRespon
 import { LogService } from "@/shared/services/LogService"
 
 type MethodsType = "GET" | "POST" | "PUT" | "DELETE"
-const BASE_URL: string = "https://127.0.0.1:7007/api"
+const BASE_URL: string = "http://127.0.0.1:5000/api/"
 
 export class HTTPResult<TContent> {
     private method: MethodsType = "GET"
@@ -89,7 +89,7 @@ export class HTTPResult<TContent> {
      * При неверном формате кидает исключение IncorrectUrlException
      * @param url - ссылка формата "/user/login"
      */
-    withUrl(url: string): HTTPResult<TContent> {
+    withUrl(url: string) {
         if (!HTTPResult.validateUrl(url)) {
             throw new IncorrectUrlException("Неправильный формат ссылки")
         }
@@ -98,33 +98,33 @@ export class HTTPResult<TContent> {
         return this
     }
 
-    withBody(body: object): HTTPResult<TContent> {
+    withBody(body: object) {
         this.body = body
         return this
     }
 
-    withGetMethod(): HTTPResult<TContent> {
+    withAuth() {
+        this.isAuth = true
+        return this
+    }
+
+    withGetMethod() {
         this.method = "GET"
         return this
     }
 
-    withPostMethod(): HTTPResult<TContent> {
+    withPostMethod() {
         this.method = "POST"
         return this
     }
 
-    withPutMethod(): HTTPResult<TContent> {
+    withPutMethod() {
         this.method = "PUT"
         return this
     }
 
-    withDeleteMethod(): HTTPResult<TContent> {
+    withDeleteMethod() {
         this.method = "DELETE"
-        return this
-    }
-
-    withAuth(): HTTPResult<TContent> {
-        this.isAuth = true
         return this
     }
 }
