@@ -25,6 +25,7 @@ export class BookApi {
         const result = await new HTTPResult<void>()
             .withUrl("/books")
             .withPostMethod()
+            .withAuth()
             .withBody(requestData)
             .sendAsync()
 
@@ -38,6 +39,7 @@ export class BookApi {
     static async deleteBooks(id: number): Promise<EmptyResult> {
         const result = await new HTTPResult<void>().withUrl(`/books/${id}`)
             .withDeleteMethod()
+            .withAuth()
             .sendAsync()
 
         if (result.hasError()) {
@@ -64,6 +66,7 @@ export class BookApi {
         const result = await new HTTPResult<void>()
             .withUrl(`/books/${bookId}/info`)
             .withBody(updateData)
+            .withAuth()
             .withPutMethod()
             .sendAsync()
 
@@ -77,6 +80,7 @@ export class BookApi {
     static async updateBookAuthor(bookId: number, authorId: number): Promise<EmptyResult> {
         const result = await new HTTPResult<void>()
             .withUrl(`/books/${bookId}/author/${authorId}`)
+            .withAuth()
             .withPutMethod()
             .sendAsync()
 
@@ -91,6 +95,7 @@ export class BookApi {
         const result = await new HTTPResult<void>()
             .withUrl(`/books/${bookId}/tags`)
             .withBody(requestData)
+            .withAuth()
             .withPutMethod()
             .sendAsync()
 

@@ -103,6 +103,11 @@ export class HTTPResult<TContent> {
         return this
     }
 
+    withAuth() {
+        this.isAuth = true
+        return this
+    }
+
     withGetMethod() {
         this.method = "GET"
         return this
