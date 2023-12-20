@@ -3,10 +3,10 @@ import classes from './MenuBurger.module.css'
 import Menu from "@/pages/MainPage/UI/Menu/Menu";
 
 const MenuBurger = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const handleClick = () => {
-        setIsOpen(!isOpen);
+        setIsOpen(prevState => !prevState);
     };
 
     return (
