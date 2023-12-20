@@ -9,16 +9,18 @@ import { IUpdateBookTagRequest } from "@/entities/Book/model/request/UpdateBookT
 import { IPostBookRequest } from "@/entities/Book/model/request/PostBookRequest"
 
 export class BookApi {
-    static async getBooks(): Promise<Result<IBooksGetResponse[]>> {
-        const result = await new HTTPResult<IBooksResponse>()
+
+    static async getBooks(): Promise<Result<IBooksGetResponse>> {
+        const result = await new HTTPResult<IBooksGetResponse>()
             .withUrl("/v1/books")
+            .withGetMethod()
             .sendAsync()
 
         if (result.hasError()) {
             return Result.withError(result.getError())
         }
 
-        return Result.withOk(result.unwrap().items)
+        return Result.withOk(result.unwrap())
     }
 
     static async postBooks(requestData: IPostBookRequest): Promise<EmptyResult> {

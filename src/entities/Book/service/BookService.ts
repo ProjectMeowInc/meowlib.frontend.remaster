@@ -9,7 +9,13 @@ import {IPostBookRequest} from "@/entities/Book/model/request/PostBookRequest";
 
 export class BookService {
     static async getBooks(): Promise<Result<BookGetResponseDTO[]>> {
-        return await BookApi.getBooks()
+        const result = await BookApi.getBooks()
+
+        if (result.hasError()) {
+            return Result.withError(result.getError())
+        }
+
+        return Result.withOk(result.unwrap().items)
     }
 
     static async postBooks(requestData: IPostBookRequest): Promise<EmptyResult> {

@@ -1,23 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import classes from './MainPageBooks.module.css'
-import {BookGetResponseDTO} from "@/entities/Book/model/dto/BookGetResponseDTO";
 import {BookService} from "@/entities/Book/service/BookService";
 
-const MainPageBooks = () => {
-        const [books, setBooks] = useState<BookGetResponseDTO[] | null>(null)
+const MainPageBooks = async () => {
+    const getBooksResult = await BookService.getBooks()
 
-        useEffect(() => {
-            BookService.getBooks().then(result => {
-                if (result.hasError()) {
-                    return
-                }
+    if (getBooksResult.hasError()) {
+        return <div>{getBooksResult.getError().errorMessage}</div>
+    }
 
-                const books = result.unwrap()
-
-                return setBooks(books)
-            })
-        }, [])
-
+    const books = getBooksResult.unwrap()
 
     return (
         <div className={classes.container}>

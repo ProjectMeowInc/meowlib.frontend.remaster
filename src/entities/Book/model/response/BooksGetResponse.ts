@@ -1,6 +1,8 @@
 export interface IBooksGetResponse {
-    id: number
-    name: string
-    description: string
-    imageName: string | null
+    items: {
+        id: number
+        name: string
+        description: string
+        imageName: string | null
+    }[]
 }
