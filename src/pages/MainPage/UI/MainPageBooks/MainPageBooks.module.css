@@ -3,3 +3,12 @@
     grid-template-columns: repeat(5, 305px);
     grid-template-rows: repeat(auto-fill, 441px);
 }
+
+.container > h1 {
+    display: grid;
+    grid-column: 1 / span 5;
+    text-align: center;
+    align-items: center;
+    font-family: Ubuntu, sans-serif;
+    font-weight: 500;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './MainPageBooks.module.css'
 import {BookService} from "@/entities/Book/service/BookService";
+import BookPreview from "@/pages/MainPage/UI/BookPreview/BookPreview";
 
 const MainPageBooks = async () => {
     const getBooksResult = await BookService.getBooks()
@@ -13,6 +14,12 @@ const MainPageBooks = async () => {
 
     return (
         <div className={classes.container}>
+
+            {
+                books.length < 0
+                    ? <div> <BookPreview/> </div>
+                    :  <h1>Результатов не найдено</h1>
+            }
         </div>
     );
 };
