@@ -1,3 +1,5 @@
+"use client"
+
 import React, {useState} from 'react';
 import classes from './MenuBurger.module.css'
 import Menu from "@/pages/MainPage/UI/Menu/Menu";
