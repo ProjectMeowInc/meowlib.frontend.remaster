@@ -11,7 +11,7 @@ import { IPostBookRequest } from "@/entities/Book/model/request/PostBookRequest"
 export class BookApi {
     static async getBooks(): Promise<Result<IBooksGetResponse[]>> {
         const result = await new HTTPResult<IBooksResponse>()
-            .withUrl("/books")
+            .withUrl("/v1/books")
             .sendAsync()
 
         if (result.hasError()) {
@@ -23,7 +23,7 @@ export class BookApi {
 
     static async postBooks(requestData: IPostBookRequest): Promise<EmptyResult> {
         const result = await new HTTPResult<void>()
-            .withUrl("/books")
+            .withUrl("/v1/books")
             .withPostMethod()
             .withAuth()
             .withBody(requestData)
@@ -37,7 +37,7 @@ export class BookApi {
     }
 
     static async deleteBooks(id: number): Promise<EmptyResult> {
-        const result = await new HTTPResult<void>().withUrl(`/books/${id}`)
+        const result = await new HTTPResult<void>().withUrl(`/v1/books/${id}`)
             .withDeleteMethod()
             .withAuth()
             .sendAsync()
@@ -51,7 +51,7 @@ export class BookApi {
 
     static async getBookByID(id: number): Promise<Result<IBook>> {
         const result = await new HTTPResult<IBook>()
-            .withUrl(`/books/${id}`)
+            .withUrl(`/v1/books/${id}`)
             .withGetMethod()
             .sendAsync()
 
@@ -64,7 +64,7 @@ export class BookApi {
 
     static async updateBookInfo(bookId: number, updateData: IUpdateBookRequest): Promise<EmptyResult> {
         const result = await new HTTPResult<void>()
-            .withUrl(`/books/${bookId}/info`)
+            .withUrl(`/v1/books/${bookId}/info`)
             .withBody(updateData)
             .withAuth()
             .withPutMethod()
@@ -79,7 +79,7 @@ export class BookApi {
 
     static async updateBookAuthor(bookId: number, authorId: number): Promise<EmptyResult> {
         const result = await new HTTPResult<void>()
-            .withUrl(`/books/${bookId}/author/${authorId}`)
+            .withUrl(`/v1/books/${bookId}/author/${authorId}`)
             .withAuth()
             .withPutMethod()
             .sendAsync()
@@ -93,7 +93,7 @@ export class BookApi {
 
     static async updateBookTags(bookId: number, requestData: IUpdateBookTagRequest): Promise<EmptyResult> {
         const result = await new HTTPResult<void>()
-            .withUrl(`/books/${bookId}/tags`)
+            .withUrl(`/v1/books/${bookId}/tags`)
             .withBody(requestData)
             .withAuth()
             .withPutMethod()
@@ -108,7 +108,7 @@ export class BookApi {
 
     static async uploadImageBook(bookId: number, image: FormData): Promise<EmptyResult> {
         const result = await new HTTPResult<void>()
-            .withUrl(`/books/${bookId}/image`)
+            .withUrl(`/v1/books/${bookId}/image`)
             .withBody(image)
             .withPutMethod()
             .sendAsync()
