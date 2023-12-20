@@ -1,3 +1,5 @@
+"use client"
+
 import React, {useState} from 'react';
 import classes from './MenuBurger.module.css'
 import Menu from "@/pages/MainPage/UI/Menu/Menu";
@@ -11,7 +13,7 @@ const MenuBurger = () => {
 
     return (
         <div>
-            <img src={'/img/view-list.png'} onClick={handleClick}/>
+            <img src={'/img/view-list.png'} alt={"logo"} onClick={handleClick}/>
             {isOpen && (
                 <div className={classes.menu}>
                   <Menu/>
