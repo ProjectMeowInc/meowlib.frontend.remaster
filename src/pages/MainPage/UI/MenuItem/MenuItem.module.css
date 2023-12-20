@@ -35,3 +35,16 @@
     line-height: 22px;
     color: #545f71;
 }
+
+
+@media (max-width: 375px) {
+    .container {
+        width: 24px;
+        grid-template-columns: 24px;
+        gap: 0;
+    }
+
+    .container > p, .container img:nth-of-type(2) {
+        display: none;
+    }
+}
