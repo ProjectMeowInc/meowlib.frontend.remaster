@@ -1,15 +1,21 @@
-import AdaptiveImage from "@/shared/UI/AdaptiveImage/AdaptiveImage"
 import { FC } from "react"
+import classes from "./bookImage.module.css"
 
 interface IBookImageProps {
     image: string
-    className: string
 }
 
-const BookImage: FC<IBookImageProps> = ({ image, className }) => {
+const BookImage: FC<IBookImageProps> = ({ image }) => {
     return (
-        <div className={className}>
-            <AdaptiveImage url={image} />
+        <div className={"null"}>
+            <div
+                className={classes.background_image}
+                style={{backgroundImage: `url(${image})`, backgroundSize: "cover"}}>
+                <div
+                    style={{backgroundImage: `url(${image})`, backgroundSize: "cover"}}>
+
+                </div>
+            </div>
         </div>
     )
 }
