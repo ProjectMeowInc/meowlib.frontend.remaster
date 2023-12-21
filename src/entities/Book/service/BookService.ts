@@ -29,6 +29,11 @@ export class BookService {
 
         return Result.withOk({
             ...book,
+            // todo: remove this
+            author: {
+                id: -1,
+                name: "N/A"
+            },
             imageUrl: book.imageUrl ?? DEFAULT_BOOK_IMAGE
         })
     }
