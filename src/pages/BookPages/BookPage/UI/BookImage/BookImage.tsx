@@ -6,11 +6,10 @@ interface IBookImageProps {
     className: string
 }
 
-const BookImage: FC<IBookImageProps> = ({image, className}) => {
+const BookImage: FC<IBookImageProps> = ({ image, className }) => {
     return (
         <div className={className}>
-            <AdaptiveImage url={image}/>
-
+            <AdaptiveImage url={image} />
         </div>
     )
 }

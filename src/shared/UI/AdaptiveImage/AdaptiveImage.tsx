@@ -9,11 +9,9 @@ interface IAdaptiveImageProps {
     url: string
 }
 
-const AdaptiveImage: FC<IAdaptiveImageProps> = ({url, style, className}) => {
+const AdaptiveImage: FC<IAdaptiveImageProps> = ({ url, style, className }) => {
     return (
-        <div className={className} style={{...style, backgroundImage: `url(${url})`, backgroundSize: "cover"}}>
-
-        </div>
+        <div className={className} style={{ ...style, backgroundImage: `url(${url})`, backgroundSize: "cover" }}></div>
     )
 }
 
