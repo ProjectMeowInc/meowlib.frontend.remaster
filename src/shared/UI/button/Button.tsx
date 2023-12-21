@@ -10,12 +10,13 @@ interface IButtonProps {
         width?: string
         backgroundColor?: string
     }
+    className?: string
 }
 
-const Button: React.FC<IButtonProps> = ({ children, onClick, styles }) => {
+const Button: React.FC<IButtonProps> = ({ children, onClick, styles, className }) => {
     return (
         <button
-            className={classes.btn}
+            className={`${classes.btn} ${className}`}
             onClick={onClick}
             style={{ margin: styles?.margin, width: styles?.width, backgroundColor: styles?.backgroundColor }}
             type={"submit"}
