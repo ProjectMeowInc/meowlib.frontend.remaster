@@ -3,6 +3,7 @@ import {IShortBookDto} from "@/entities/Book/models/dto/ShortBookDto";
 import {BookApi} from "@/entities/Book/api/BookApi";
 import {LogService} from "@/shared/services/LogService";
 import {IBookDto} from "@/entities/Book/models/dto/BookDto";
+import {DEFAULT_BOOK_IMAGE} from "@/app/consts";
 
 export class BookService {
     static async getAllBooksAsync(): Promise<Result<IShortBookDto[]>> {
@@ -24,6 +25,11 @@ export class BookService {
             return Result.withError(error)
         }
 
-        return Result.withOk(result.unwrap())
+        const book = result.unwrap();
+
+        return Result.withOk({
+            ...book,
+            imageUrl: book.imageUrl ?? DEFAULT_BOOK_IMAGE
+        })
     }
 }
