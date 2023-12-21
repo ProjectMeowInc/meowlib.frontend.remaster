@@ -20,11 +20,11 @@ const BookPage: FC<IBookPageProps> = async ({params}) => {
     const data = result.unwrap();
 
     return (
-        <div>
+        <div className={classes.page}>
             <BookImage
                 image={data.imageUrl}
             />
-            <BookMainInfo />
+            <BookMainInfo {...data}/>
         </div>
     )
 }
