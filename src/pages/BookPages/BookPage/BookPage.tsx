@@ -3,7 +3,7 @@ import BookImage from "@/pages/BookPages/BookPage/UI/BookImage/BookImage"
 import BookMainInfo from "@/pages/BookPages/BookPage/UI/BookMainInfo/BookMainInfo"
 import classes from "./bookPage.module.css"
 import {BookService} from "@/entities/Book/service/BookService";
-import ChapterList from "@/pages/BookPages/BookPage/UI/ChapterList/ChapterList";
+import TranslationList from "@/pages/BookPages/BookPage/UI/TranslationList/TranslationList";
 import {AvailableSections} from "@/pages/BookPages/BookPage/UI/SectionSelector/useSectionSelector";
 import BookName from "@/pages/BookPages/BookPage/UI/BookName/BookName";
 import SectionSelector from "@/pages/BookPages/BookPage/UI/SectionSelector/SectionSelector";
@@ -33,8 +33,8 @@ const BookPage: FC<IBookPageProps> = async ({params, searchParams}) => {
         case "main":
             requiredSection = <BookMainInfo {...bookData}/>
             break
-        case "chapters":
-            requiredSection = <ChapterList/>
+        case "translation":
+            requiredSection = <TranslationList translations={bookData.translations}/>
             break;
     }
 

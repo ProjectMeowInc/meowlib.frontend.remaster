@@ -15,10 +15,10 @@ const SectionSelector = () => {
                 Описание
             </div>
             <div
-                className={currentSection == "chapters" ? classes.active_selector : classes.selector}
-                onClick={() => changeToSection("chapters")}
+                className={currentSection == "translation" ? classes.active_selector : classes.selector}
+                onClick={() => changeToSection("translation")}
             >
-                Главы
+                Переводы
             </div>
         </div>
     );

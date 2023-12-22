@@ -2,7 +2,7 @@ import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import {useEffect, useState} from "react";
 
 
-export type AvailableSections = "main" | "chapters"
+export type AvailableSections = "main" | "translation"
 
 export const useSectionSelector = () => {
 
