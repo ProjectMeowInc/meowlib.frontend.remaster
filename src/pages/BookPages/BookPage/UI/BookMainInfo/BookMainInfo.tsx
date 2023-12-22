@@ -5,7 +5,6 @@ import CommentList from "@/pages/BookPages/BookPage/UI/CommentList/CommentList";
 
 interface IBookMainInfoProps {
     id: number
-    name: string
     description: string
     tags: {
         id: number
@@ -13,24 +12,26 @@ interface IBookMainInfoProps {
     }[]
 }
 
-const BookMainInfo: FC<IBookMainInfoProps> = ({id, name, description, tags}) => {
+const BookMainInfo: FC<IBookMainInfoProps> = ({id, description, tags}) => {
     return (
-        <div>
-            <div className={classes.name}>
-                {name}
-            </div>
-            <div>
+        <div className={classes.block}>
+            <div className={classes.description}>
                 {description}
             </div>
-            <div>
-                {
-                    tags.map(tag => (
-                        <TagItem {...tag} />
-                    ))
-                }
-            </div>
-            <div>
-                <div>
+            {
+                tags.length > 0 && (
+                    <div className={classes.tags_list}>
+                        {
+                            tags.map(tag => (
+                                <TagItem {...tag} />
+                            ))
+                        }
+                    </div>
+                )
+            }
+
+            <div className={classes.comments_block}>
+                <div className={classes.comments_caption}>
                     Комментарии:
                 </div>
                 <CommentList bookId={id}/>
