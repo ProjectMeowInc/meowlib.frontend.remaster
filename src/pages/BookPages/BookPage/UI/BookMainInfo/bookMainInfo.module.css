@@ -1,8 +1,25 @@
 @media (min-width: 320px) {
-    .name {
-        font-family: "Ubuntu Regular", "serif";
+    .block {
+        margin-top: 25px;
+    }
+
+    .description {
+        font-family: "Ubuntu", serif;
         font-size: 20px;
-        font-weight: 500;
+    }
+
+    .tags_list {
+        margin-top: 25px;
+        display: flex;
+    }
+
+    .comments_block {
         margin-top: 30px;
+    }
+
+    .comments_caption {
+        font-size: 25px;
+        font-weight: 500;
+        font-family: "Ubuntu";
     }
 }

@@ -1,4 +1,5 @@
 import {FC} from "react";
+import classes from "./tagItem.module.css"
 
 interface ITagItemProps {
     id: number
@@ -7,7 +8,7 @@ interface ITagItemProps {
 
 const TagItem: FC<ITagItemProps> = ({name}) => {
     return (
-        <div>
+        <div className={classes.item}>
             {name}
         </div>
     );

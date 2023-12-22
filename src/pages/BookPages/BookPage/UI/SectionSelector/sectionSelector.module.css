@@ -1,0 +1,29 @@
+@media (min-width: 320px) {
+    .block {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .active_selector {
+        padding: 12px 0;
+        border-bottom: 2px solid #645EF9;
+        width: 140px;
+        text-align: center;
+        font-family: "Ubuntu", serif;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 700;
+        color: #645EF9;
+    }
+
+    .selector {
+        padding: 12px 0;
+        border-bottom: 1px solid #EEF1F4;
+        width: 140px;
+        text-align: center;
+        font-family: "Ubuntu", serif;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 400;
+    }
+}

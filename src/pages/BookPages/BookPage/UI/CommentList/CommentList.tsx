@@ -2,6 +2,8 @@
 
 import {FC} from "react";
 import {useCommentList} from "@/pages/BookPages/BookPage/UI/CommentList/useCommentList";
+import classes from "./commentList.module.css"
+import CommentItem from "@/pages/BookPages/BookPage/UI/CommentItem/CommentItem";
 
 interface ICommentListProps {
     bookId: number
@@ -17,16 +19,20 @@ const CommentList: FC<ICommentListProps> = ({bookId}) => {
     }
 
     if (!comments.length) {
+        // todo: add styles
         return <div>Комментарии отсутствуют...</div>
     }
 
     return (
-        <div>
+        <div className={classes.list}>
             {
                 comments.map(comment => (
-                    <div>
-                        {comment.text}
-                    </div>
+                    <CommentItem
+                        authorName={comment.author.login}
+                        authorImage={"https://i.pinimg.com/736x/fa/f2/11/faf2114584ee9a58c797b84c9c362264.jpg"}
+                        postedAt={comment.postedAt}
+                        text={comment.text}
+                    />
                 ))
             }
         </div>

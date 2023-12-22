@@ -1,30 +1,53 @@
-import { FC } from "react"
+import React, {FC} from "react"
 import BookImage from "@/pages/BookPages/BookPage/UI/BookImage/BookImage"
 import BookMainInfo from "@/pages/BookPages/BookPage/UI/BookMainInfo/BookMainInfo"
 import classes from "./bookPage.module.css"
 import {BookService} from "@/entities/Book/service/BookService";
+import ChapterList from "@/pages/BookPages/BookPage/UI/ChapterList/ChapterList";
+import {AvailableSections} from "@/pages/BookPages/BookPage/UI/SectionSelector/useSectionSelector";
+import BookName from "@/pages/BookPages/BookPage/UI/BookName/BookName";
+import SectionSelector from "@/pages/BookPages/BookPage/UI/SectionSelector/SectionSelector";
 
 interface IBookPageProps {
     params: {
         bookId: number
     }
+    searchParams: {
+        section?: AvailableSections
+    }
 }
 
-const BookPage: FC<IBookPageProps> = async ({params}) => {
+const BookPage: FC<IBookPageProps> = async ({params, searchParams}) => {
 
     const result = await BookService.getBookByIdAsync(params.bookId)
     if (result.hasError()) {
         return <div>Ошибка загрузки книги: {result.getError().errorMessage}</div>
     }
 
-    const data = result.unwrap();
+    const bookData = result.unwrap();
+
+    const section = searchParams.section ?? "main"
+
+    let requiredSection;
+    switch (section) {
+        case "main":
+            requiredSection = <BookMainInfo {...bookData}/>
+            break
+        case "chapters":
+            requiredSection = <ChapterList/>
+            break;
+    }
 
     return (
         <div className={classes.page}>
             <BookImage
-                image={data.imageUrl}
+                image={bookData.imageUrl}
             />
-            <BookMainInfo {...data}/>
+            <BookName
+                name={bookData.name}
+            />
+            <SectionSelector/>
+            {requiredSection}
         </div>
     )
 }
