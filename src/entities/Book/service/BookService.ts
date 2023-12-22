@@ -51,6 +51,17 @@ export class BookService {
                     description: "test description"
                 }
             ],
+            // todo: remove this
+            translations: [
+                {
+                    id: 1,
+                    name: "Великий и ужастный"
+                },
+                {
+                    id: 2,
+                    name: "Черно-белый"
+                }
+            ],
             imageUrl: book.imageUrl ?? DEFAULT_BOOK_IMAGE
         })
     }
