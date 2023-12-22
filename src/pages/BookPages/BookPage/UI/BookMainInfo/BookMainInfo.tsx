@@ -23,7 +23,7 @@ const BookMainInfo: FC<IBookMainInfoProps> = ({id, description, tags}) => {
                     <div className={classes.tags_list}>
                         {
                             tags.map(tag => (
-                                <TagItem {...tag} />
+                                <TagItem key={tag.id} {...tag} />
                             ))
                         }
                     </div>
