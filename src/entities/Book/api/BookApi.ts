@@ -1,14 +1,11 @@
-import {Result} from "@/shared/services/Result/Result";
-import {IGetAllBookResponse} from "@/entities/Book/models/response/GetAllBookResponse";
-import {HTTPResult} from "@/shared/services/HTTPResult/HTTPResult";
-import {IGetBookByIdResponse} from "@/entities/Book/models/response/IGetBookByIdResponse";
-import { Result } from "@/shared/services/Result/Result"
-import { HTTPResult } from "@/shared/services/HTTPResult/HTTPResult"
-import { IBook } from "@/entities/Book/model/request/BookModel"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
 import { IUpdateBookRequest } from "@/entities/Book/model/request/UpdateBookRequest"
 import { IUpdateBookTagRequest } from "@/entities/Book/model/request/UpdateBookTagRequest"
 import { IPostBookRequest } from "@/entities/Book/model/request/PostBookRequest"
+import {Result} from "@/shared/services/Result/Result";
+import {IGetAllBookResponse} from "@/entities/Book/models/response/GetAllBookResponse";
+import {HTTPResult} from "@/shared/services/HTTPResult/HTTPResult";
+import {IGetBookByIdResponse} from "@/entities/Book/models/response/IGetBookByIdResponse";
 
 
 export class BookApi {

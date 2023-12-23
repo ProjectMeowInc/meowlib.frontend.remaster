@@ -1,3 +1,14 @@
+import {Result} from "@/shared/services/Result/Result";
+import {IShortBookDto} from "@/entities/Book/models/dto/ShortBookDto";
+import {BookApi} from "@/entities/Book/api/BookApi";
+import {LogService} from "@/shared/services/LogService";
+import {IBookDto} from "@/entities/Book/models/dto/BookDto";
+import {DEFAULT_BOOK_IMAGE} from "@/app/consts";
+import {IPostBookRequest} from "@/entities/Book/model/request/PostBookRequest";
+import {EmptyResult} from "@/shared/services/Result/EmptyResult";
+import {IUpdateBookRequest} from "@/entities/Book/model/request/UpdateBookRequest";
+import {IUpdateBookTagRequest} from "@/entities/Book/model/request/UpdateBookTagRequest";
+
 export class BookService {
     static async getAllBooksAsync(): Promise<Result<IShortBookDto[]>> {
         const result = await BookApi.getAllBooksAsync()
