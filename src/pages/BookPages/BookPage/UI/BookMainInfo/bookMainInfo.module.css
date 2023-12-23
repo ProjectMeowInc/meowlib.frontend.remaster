@@ -1,6 +1,7 @@
 @media (min-width: 320px) {
     .block {
         margin-top: 25px;
+        padding: 10px;
     }
 
     .description {
@@ -20,6 +21,6 @@
     .comments_caption {
         font-size: 25px;
         font-weight: 500;
-        font-family: "Ubuntu";
+        font-family: "Ubuntu", serif;
     }
 }
