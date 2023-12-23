@@ -9,7 +9,7 @@
 }
 
 .books {
-    width: 70%;
+    width: 80%;
     height: 50%;
     align-items: center;
     display: flex;
@@ -47,18 +47,38 @@
     }
 }
 
-@media (min-width: 767px) and (max-width: 769px) {
+@media (width: 768px) {
 
     .container > aside {
         display: none;
     }
 
     .container > div:nth-of-type(1) {
-        margin: 90px 0 0 100px;
+        margin: 90px 0 0 200px;
     }
 
     .container > div:nth-of-type(2) {
-        margin: 50px 0 0 60px;
+        margin: 50px 0 0 0;
     }
 
+    .books {
+        width: 800px;
+    }
+
+}
+
+
+@media (width: 1024px) {
+
+    .container > aside {
+        margin: 30px 0 0 20px;
+    }
+
+    .container > div:nth-of-type(1) {
+        margin-left: 260px;
+    }
+
+    .container > div:nth-of-type(2) {
+        margin-left: 270px;
+    }
 }

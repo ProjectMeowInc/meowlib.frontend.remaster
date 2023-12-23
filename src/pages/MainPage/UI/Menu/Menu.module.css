@@ -25,5 +25,18 @@
     .top_part {
         margin-bottom: 100px;
     }
+}
+
+@media (width: 768px) {
+
+    .container {
+        top: 80px;
+        left: 15px;
+    }
+
+    .top_part {
+        margin-bottom: 200px;
+    }
 
 }
+
