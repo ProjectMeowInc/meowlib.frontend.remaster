@@ -15,9 +15,7 @@ const MenuBurger = () => {
         <div>
             <img src={'/img/view-list.png'} alt={"logo"} onClick={handleClick}/>
             {isOpen && (
-                <div className={classes.menu}>
                   <Menu/>
-                </div>
             )}
         </div>
     );

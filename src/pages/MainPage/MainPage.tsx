@@ -12,7 +12,11 @@ const MainPage = () => {
             <Header />
             <Menu />
             <SearchInput placeholder={"Enter search terms"} />
+        <div className={classes.books}>
             <MainPageBooks/>
+        </div>
+
+
         </div>
     )
 }

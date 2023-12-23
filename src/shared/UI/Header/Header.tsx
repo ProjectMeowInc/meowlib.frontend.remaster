@@ -9,7 +9,7 @@ const Header = () => {
             <MenuBurger/>
             <div className={classes.profile_info}>
                 <img src={"/img/Rectangle 106.png"} alt={""} />
-                <p>aSd</p>
+                <p>asdsadsad</p>
             </div>
         </header>
     )

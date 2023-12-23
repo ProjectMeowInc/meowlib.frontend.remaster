@@ -1,17 +1,16 @@
 .container {
     display: flex;
     align-items: center;
-    width: 345px;
+    width: 40vh;
     height: 48px;
 }
 
 .container > input {
-    width: 345px;
+    width: 40vh;
     height: 48px;
     padding-left: 12px;
     border-radius: 6px;
     border: 1px solid #545f71;
-    cursor: pointer;
 }
 
 .container > input:focus {

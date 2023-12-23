@@ -14,12 +14,13 @@ const MainPageBooks = async () => {
 
     return (
         <div className={classes.container}>
+            <BookPreview/><BookPreview/>
 
-            {
-                books.length < 0
-                    ? <div> <BookPreview/> </div>
-                    :  <h1>Результатов не найдено</h1>
-            }
+            {/*{*/}
+            {/*    books.length < 0*/}
+            {/*        ? <div> <BookPreview/> </div>*/}
+            {/*        :  <h1>Результатов не найдено</h1>*/}
+            {/*}*/}
         </div>
     );
 };
