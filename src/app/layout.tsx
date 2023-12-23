@@ -1,4 +1,5 @@
 import React from "react";
+import classes from "./root.module.css"
 
 export const metadata = {
   title: 'Meow Lib',
@@ -11,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={classes.app_body}>{children}</body>
     </html>
   )
 }
