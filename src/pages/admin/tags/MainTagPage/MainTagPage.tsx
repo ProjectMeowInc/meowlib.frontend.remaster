@@ -1,6 +1,7 @@
 import { TagService } from "@/entities/Tag/services/TagService"
 import AdminCreateButton from "@/pages/admin/UI/AdminCreateButton/AdminCreateButton"
 import classes from "./mainTagPage.module.css"
+import TagList from "@/pages/admin/tags/MainTagPage/UI/TagList"
 
 const MainTagPage = async () => {
 
@@ -15,6 +16,7 @@ const MainTagPage = async () => {
     return (
         <div className={classes.wrapper}>
             <AdminCreateButton text={"Создать тег"} href={"/new"} />
+            <TagList tags={tags}/>
         </div>
     )
 }
