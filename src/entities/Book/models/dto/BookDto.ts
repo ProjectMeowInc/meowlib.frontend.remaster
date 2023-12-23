@@ -3,7 +3,7 @@ export interface IBookDto {
     name: string
     description: string
     imageUrl: string
-    author: {
+    author?: {
         id: number
         name: string
     }
