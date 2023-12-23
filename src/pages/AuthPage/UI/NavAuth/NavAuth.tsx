@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react"
 
 import classes from "@/pages/AuthPage/UI/NavAuth/NavAuth.module.css"

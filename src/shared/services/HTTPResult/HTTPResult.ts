@@ -81,7 +81,7 @@ export class HTTPResult<TContent> {
 
     //TODO: Сделать нормальную валидацию
     private static validateUrl(url: string): boolean {
-        return url.startsWith("/");
+        return url.startsWith("/")
     }
 
     /**
@@ -120,6 +120,11 @@ export class HTTPResult<TContent> {
 
     withDeleteMethod() {
         this.method = "DELETE"
+        return this
+    }
+
+    withAuth(): HTTPResult<TContent> {
+        this.isAuth = true
         return this
     }
 }

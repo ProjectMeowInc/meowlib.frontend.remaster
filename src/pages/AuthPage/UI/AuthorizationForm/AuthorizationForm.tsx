@@ -27,7 +27,7 @@ const AuthorizationForm = () => {
                     name={"password"}
                     type={"password"}
                 />
-                <Checkbox styles={{ margin: "15px 0 0 42px" }} onClick={handleCheckbox}>
+                <Checkbox styles={{ margin: "15px 0 0 42px" }} onChange={handleCheckbox}>
                     Запомнить меня
                 </Checkbox>
                 <hr className={classes.auth_form__hr_two} />

@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import classes from "./Checkbox.module.css"
 
 interface ICheckboxProps {
-    onClick?: () => void
+    onChange?: (state: boolean) => void
     children?: string
     styles?: {
         margin?: string
@@ -10,19 +10,16 @@ interface ICheckboxProps {
     }
 }
 
-const Checkbox: React.FC<ICheckboxProps> = ({ children, onClick, styles }) => {
+const Checkbox: React.FC<ICheckboxProps> = ({ children, onChange, styles }) => {
     const [isChecked, setIsChecked] = useState<boolean>(false)
 
     function handleCheckboxChange() {
         setIsChecked((prevState) => !prevState)
+        onChange?.call(null, !isChecked)
     }
 
     return (
-        <label
-            className={classes.checkbox}
-            style={{ margin: styles?.margin, padding: styles?.padding }}
-            onClick={onClick}
-        >
+        <label className={classes.checkbox} style={{ margin: styles?.margin, padding: styles?.padding }}>
             <input type="checkbox" checked={isChecked} onChange={handleCheckboxChange} />
             <span className={classes.checkmark}></span>
             <div className={classes.checkbox__text}>{children}</div>

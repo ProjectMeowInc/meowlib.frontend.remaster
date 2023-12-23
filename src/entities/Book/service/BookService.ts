@@ -1,10 +1,3 @@
-import {Result} from "@/shared/services/Result/Result";
-import {IShortBookDto} from "@/entities/Book/models/dto/ShortBookDto";
-import {BookApi} from "@/entities/Book/api/BookApi";
-import {LogService} from "@/shared/services/LogService";
-import {IBookDto} from "@/entities/Book/models/dto/BookDto";
-import {DEFAULT_BOOK_IMAGE} from "@/app/consts";
-
 export class BookService {
     static async getAllBooksAsync(): Promise<Result<IShortBookDto[]>> {
         const result = await BookApi.getAllBooksAsync()
@@ -31,5 +24,29 @@ export class BookService {
             ...book,
             imageUrl: book.imageUrl ?? DEFAULT_BOOK_IMAGE
         })
+    }
+
+    static async postBooks(requestData: IPostBookRequest): Promise<EmptyResult> {
+        return await BookApi.postBooks(requestData)
+    }
+
+    static async deleteBooks(id: number): Promise<EmptyResult> {
+        return await BookApi.deleteBooks(id)
+    }
+
+    static async updateBookInfo(bookId: number, updateData: IUpdateBookRequest): Promise<EmptyResult> {
+        return await BookApi.updateBookInfo(bookId, updateData)
+    }
+
+    static async updateBookAuthor(bookId: number, authorId: number): Promise<EmptyResult> {
+        return await BookApi.updateBookAuthor(bookId, authorId)
+    }
+
+    static async updateBookTags(bookId: number, requestData: IUpdateBookTagRequest): Promise<EmptyResult> {
+        return await BookApi.updateBookTags(bookId, requestData)
+    }
+
+    static async uploadImageBook(bookId: number, image: FormData): Promise<EmptyResult> {
+        return await BookApi.uploadImageBook(bookId, image)
     }
 }

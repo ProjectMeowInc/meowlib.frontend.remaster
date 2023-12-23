@@ -1,0 +1,59 @@
+.container {
+    padding: 45px 0 0 56px;
+    display: flex;
+}
+
+.container > img {
+    margin-right: 1360px;
+    cursor: pointer;
+}
+
+.profile_info {
+    display: flex;
+    width: 106px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile_info > p {
+    margin-left: 11px;
+    font-family: Ubuntu, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
+}
+
+.container > div:nth-of-type(1) {
+    display: none;
+}
+
+@media (max-width: 375px) {
+
+    .container {
+        padding: 0;
+        gap: 210px;
+    }
+
+    .container > div:nth-of-type(1) {
+        display: block;
+        grid-row-start: 2;
+    }
+
+    .profile_info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .profile_info > img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .profile_info > p {
+        font-family: Ubuntu, sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 23px;
+    }
+}
