@@ -1,4 +1,4 @@
-export interface IBooksGetResponse {
+export interface IGetBooksResponse {
     items: {
         id: number
         name: string
