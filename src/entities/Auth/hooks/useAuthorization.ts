@@ -22,15 +22,10 @@ export const useAuthorization = () => {
 
     async function handleSubmit(event: React.FormEvent): Promise<void> {
         event.preventDefault()
-        const result = await AuthService.authorization(formData.login, formData.password, formData.isLongSession)
+        const result = await AuthService.authorization(formData)
 
-        setFormData({
-            login: "",
-            password: "",
-            isLongSession: false,
-        })
         if (result.hasError()) {
-            AlertService.errorMessage(result.getError().errorMessage)
+            return AlertService.errorMessage(result.getError().errorMessage)
         }
 
         const loginData = result.unwrap()
@@ -40,10 +35,11 @@ export const useAuthorization = () => {
         return AlertService.successMessage("Вы успешно вошли")
     }
 
-    const [isLongSession, setIsLongSession] = useState<boolean>(false)
-
-    function handleCheckbox() {
-        setIsLongSession((prevState) => !prevState)
+    function handleCheckbox(state: boolean) {
+        setFormData((prevState) => ({
+            ...prevState,
+            isLongSession: state,
+        }))
     }
 
     return {

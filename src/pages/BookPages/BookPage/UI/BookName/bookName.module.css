@@ -1,0 +1,15 @@
+@media (min-width: 320px) {
+    .name {
+        font-family: "Ubuntu-Regular", serif;
+        font-size: 25px;
+        font-weight: 500;
+        margin-top: 20px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .name {
+        text-align: start;
+    }
+}
