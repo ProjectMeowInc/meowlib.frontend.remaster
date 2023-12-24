@@ -1,15 +1,17 @@
 import { ICreateTagRequest } from "@/entities/Tag/models/requests/ICreateTagRequest"
 import { Result } from "@/shared/services/Result/Result"
-import { TagEntity } from "@/entities/Tag/TagEntity"
 import { HTTPResult } from "@/shared/services/HTTPResult/HTTPResult"
 import { IGetAllTagResponse } from "@/entities/Tag/models/responses/IGetAllTagResponse"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
 import { IUpdateTagRequest } from "@/entities/Tag/models/requests/IUpdateTagRequest"
+import { ICreateTagResponse } from "@/entities/Tag/models/responses/ICreateTagResponse"
+import { IUpdateTagByIdResponse } from "@/entities/Tag/models/responses/IUpdateTagByIdResponse"
+import { IGetTagByIdResponse } from "@/entities/Tag/models/responses/IGetTagByIdResponse"
 
 export class TagApi {
 
-    static async createAsync(requestData: ICreateTagRequest): Promise<Result<TagEntity>> {
-        const result = await new HTTPResult<TagEntity>()
+    static async createAsync(requestData: ICreateTagRequest): Promise<Result<ICreateTagResponse>> {
+        const result = await new HTTPResult<ICreateTagResponse>()
             .withUrl("/v1/tags")
             .withPostMethod()
             .withAuth()
@@ -50,8 +52,8 @@ export class TagApi {
         return EmptyResult.withOk()
     }
 
-    static async updateByIdAsync(tagId: number, requestData: IUpdateTagRequest): Promise<Result<TagEntity>> {
-        const result = await new HTTPResult<TagEntity>()
+    static async updateByIdAsync(tagId: number, requestData: IUpdateTagRequest): Promise<Result<IUpdateTagByIdResponse>> {
+        const result = await new HTTPResult<IUpdateTagByIdResponse>()
             .withUrl(`/v1/tags/${tagId}`)
             .withPutMethod()
             .withBody(requestData)
@@ -65,8 +67,8 @@ export class TagApi {
         return Result.withOk(result.unwrap())
     }
 
-    static async getByIdAsync(tagId: number): Promise<Result<TagEntity>> {
-        const result = await new HTTPResult<TagEntity>()
+    static async getByIdAsync(tagId: number): Promise<Result<IGetTagByIdResponse>> {
+        const result = await new HTTPResult<IGetTagByIdResponse>()
             .withUrl(`/v1/tags/${tagId}`)
             .withGetMethod()
             .sendAsync()
