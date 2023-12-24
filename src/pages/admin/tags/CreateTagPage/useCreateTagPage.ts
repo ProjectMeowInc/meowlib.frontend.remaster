@@ -19,7 +19,6 @@ export const useCreateTagPage = () => {
             ...prevState,
             [name]: newValue
         }))
-        console.log(data)
     }
 
     const SubmitHandler = async (e: FormEvent) => {

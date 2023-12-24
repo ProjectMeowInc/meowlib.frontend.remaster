@@ -13,31 +13,7 @@ export const useCommentList = () => {
             })
     }, []);
 
-    const updateCommentsAsync = async () => {
-        // todo: add fetch data
-        setComments([
-            {
-                id: 1,
-                author: {
-                    id: 1,
-                    login: "tester",
-                    role: UserRoleEnum.User
-                },
-                text: "Comment text",
-                postedAt: new Date()
-            },
-            {
-                id: 2,
-                author: {
-                    id: 2,
-                    login: "Admin",
-                    role: UserRoleEnum.Admin
-                },
-                text: "Comment text",
-                postedAt: new Date()
-            }
-        ])
-    }
+    const updateCommentsAsync = async () => {}
 
     return {
         comments
