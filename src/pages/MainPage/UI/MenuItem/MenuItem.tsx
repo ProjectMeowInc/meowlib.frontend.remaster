@@ -1,5 +1,6 @@
 import React from "react"
 import classes from "./MenuItem.module.css"
+import Link from "next/link";
 
 interface IMenuItemProps {
     img: string
@@ -8,11 +9,11 @@ interface IMenuItemProps {
 
 const MenuItem: React.FC<IMenuItemProps> = ({ img, text }) => {
     return (
-        <div className={classes.container}>
+        <Link className={classes.container} href={''}>
             <img src={img} alt={""} />
             <p>{text}</p>
             <img src={"/img/5.png"} alt={''} />
-        </div>
+        </Link>
     )
 }
 
