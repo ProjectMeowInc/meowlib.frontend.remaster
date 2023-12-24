@@ -10,7 +10,10 @@
     padding-left: 12px;
     border-radius: 6px;
     border: 1px solid #545f71;
-    cursor: pointer;
+}
+
+.inp_with_icon:focus {
+    outline: 0;
 }
 
 .inp_with_icon::placeholder {
@@ -27,5 +30,7 @@
 .icon {
     cursor: pointer;
     z-index: 10;
-    margin: 16px -30px;
+    margin: 15px -30px;
+    width: 19px;
+    height: 19px;
 }

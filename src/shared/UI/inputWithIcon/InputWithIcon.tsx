@@ -1,6 +1,5 @@
 import React from "react"
 import classes from "./InputWithIcon.module.css"
-import Image from "next/image"
 
 interface IInputWithIconProps {
     onChange?: () => void
@@ -8,9 +7,10 @@ interface IInputWithIconProps {
     styles?: {
         width?: string
     }
+    icon?: string
 }
 
-const InputWithIcon: React.FC<IInputWithIconProps> = ({ placeholder, onChange, styles }) => {
+const InputWithIcon: React.FC<IInputWithIconProps> = ({ placeholder, onChange, styles, icon }) => {
     return (
         <div className={classes.inp_with_icon__container}>
             <input
@@ -19,7 +19,7 @@ const InputWithIcon: React.FC<IInputWithIconProps> = ({ placeholder, onChange, s
                 onChange={onChange}
                 style={{ width: styles?.width }}
             />
-            <Image src={"/img/1.png"} alt={""} className={classes.icon} width={19.23} height={19.23} />
+            <img src={icon} alt={""} className={classes.icon}/>
         </div>
     )
 }
