@@ -1,4 +1,7 @@
 import "./globals.css"
+import Header from "@/shared/UI/Header/Header";
+import Menu from "@/pages/MainPage/UI/Menu/Menu";
+import React from "react";
 
 export const metadata = {
     title: 'Next.js',
@@ -12,7 +15,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-        <body>{children}</body>
+        <body>
+        <Header />
+        <Menu />
+        </body>
         </html>
     )
 }
