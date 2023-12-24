@@ -12,7 +12,7 @@ const AccountSettings = () => {
         <div className={classes.container__account_settings}>
             <h2>Настройки аккаунта</h2>
             <p>Ваша почта не привязана. Хотите привязать?</p>
-            <InputWithIcon placeholder={"Введите вашу почту"} styles={{ width: "328px" }} />
+            <InputWithIcon placeholder={"Введите вашу почту"} styles={{ width: "328px" }} icon={'/img/1.png'}/>
             <div className={classes.account_settings__current_email}>
                 <div className={classes.account_settings__current_email_header}>
                     <p>Текущая почта: someName@mail.ru</p>

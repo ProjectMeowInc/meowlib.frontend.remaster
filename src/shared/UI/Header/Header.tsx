@@ -4,7 +4,7 @@ import MenuBurger from "@/shared/UI/MenuBurger/MenuBurger";
 
 const Header = () => {
     return (
-        <header className={classes.container}>
+        <header className={classes.header}>
             <img src={"/img/Logo black 2.png"} alt={""} />
             <MenuBurger/>
             <div className={classes.profile_info}>

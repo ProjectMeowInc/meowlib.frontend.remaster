@@ -2,6 +2,7 @@ import "./globals.css"
 import Header from "@/shared/UI/Header/Header";
 import Menu from "@/pages/MainPage/UI/Menu/Menu";
 import React from "react";
+import MainPage from "@/pages/MainPage/MainPage";
 
 export const metadata = {
     title: 'Next.js',
@@ -18,6 +19,7 @@ export default function RootLayout({
         <body>
         <Header />
         <Menu />
+        <MainPage/>
         </body>
         </html>
     )

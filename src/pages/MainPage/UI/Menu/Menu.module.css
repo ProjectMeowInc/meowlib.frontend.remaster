@@ -11,15 +11,18 @@
     border-top: 1px solid #EEF1F4;
 }
 
-@media (min-width: 375px) and (max-width: 768px) {
+
+@media (max-width: 768px) {
+
     .container {
         margin: 0;
         position: absolute;
         top: 60px;
         left: 5px;
-        background-color: #FFFFFF;
+        /*background-color: #FFFFFF;*/
         box-shadow: 0 0 10px 0 #00000040;
         border-radius: 10px;
+        display: none;
     }
 
     .top_part {

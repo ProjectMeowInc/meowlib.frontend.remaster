@@ -14,9 +14,8 @@ const MainPageBooks = async () => {
 
     return (
         <div className={classes.container}>
-
             {
-                books.length < 0
+                books.length > 0
                     ? <div> <BookPreview/> </div>
                     :  <h1>Результатов не найдено</h1>
             }

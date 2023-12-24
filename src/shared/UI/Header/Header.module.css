@@ -1,10 +1,10 @@
-.container {
+.header {
     display: flex;
     justify-content: space-between;
     padding: 45px 56px;
 }
 
-.container > div:nth-of-type(1) {
+.header > div:nth-of-type(1) {
     display: none;
 }
 
@@ -22,25 +22,24 @@
     line-height: 23px;
 }
 
-
 @media (max-width: 768px) {
 
-    .container {
+    .header {
         padding: 15px;
     }
 
-    .container > div:nth-of-type(1) {
+    .header > div:nth-of-type(1) {
         display: flex;
     }
 
-    .container > img:nth-of-type(1) {
+    .header > img:nth-of-type(1) {
         display: none;
     }
 }
 
 @media (width: 768px) {
 
-    .container {
+    .header {
         padding: 30px 25px 0 25px;
     }
 }

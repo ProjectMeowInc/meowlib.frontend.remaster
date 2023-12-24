@@ -1,3 +1,13 @@
+.container {
+    margin-left: -300px;
+    width: 75%;
+    height: 50%;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
 .container > h1 {
     font-family: Raleway, sans-serif;
     font-size: 38px;
@@ -34,5 +44,9 @@
 
     .container > h1 {
         margin: 30px 0 0 120px;
+    }
+
+    .container {
+        width: 800px;
     }
 }
