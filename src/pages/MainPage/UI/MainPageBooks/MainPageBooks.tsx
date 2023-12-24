@@ -16,7 +16,17 @@ const MainPageBooks = async () => {
         <div className={classes.container}>
             {
                 books.length > 0
-                    ? <div> <BookPreview/> </div>
+                    ?
+                    books.map(book => (
+                        <BookPreview
+                            key={book.id}
+                            id={book.id}
+                            imageName={book.imageName}
+                            name={book.name}
+                            author={'автор'}
+                        />
+                    ))
+
                     :  <h1>Результатов не найдено</h1>
             }
         </div>
