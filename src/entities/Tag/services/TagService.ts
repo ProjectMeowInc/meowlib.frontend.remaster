@@ -1,14 +1,14 @@
-import { ICreateTagRequest } from "@/entities/Tag/models/requests/ICreateTagRequest"
 import { Result } from "@/shared/services/Result/Result"
 import { TagApi } from "@/entities/Tag/api/TagApi"
 import { ICreateTagDTO } from "@/entities/Tag/models/dto/ICreateTagDTO"
 import { ITagDTO } from "@/entities/Tag/models/dto/ITagDTO"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
 import { IUpdateTagDTO } from "@/entities/Tag/models/dto/IUpdateTagDTO"
+import { TagEntity } from "@/entities/Tag/TagEntity"
 
 export class TagService {
 
-    static async createAsync(requestData: ICreateTagRequest): Promise<Result<ICreateTagDTO>> {
+    static async createAsync(requestData: ICreateTagDTO): Promise<Result<TagEntity>> {
         return await TagApi.createAsync(requestData)
     }
 
