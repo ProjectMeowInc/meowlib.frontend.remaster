@@ -1,6 +1,7 @@
 .container > div:nth-of-type(1) {
     margin-left: 400px;
     margin-top: -720px;
+    width: 40vh;
 }
 
 .container > div:nth-of-type(2) {
@@ -11,7 +12,7 @@
 @media (min-width: 375px) and (max-width: 424px) {
 
     .container > div:nth-of-type(1) {
-        margin: 90px auto 0 30px;
+        margin: 90px auto 0 20px;
     }
 
     .container > div:nth-of-type(2) {
@@ -23,6 +24,7 @@
 
     .container > div:nth-of-type(1) {
         margin: 90px auto 0 50px;
+
     }
 
     .container > div:nth-of-type(2) {
@@ -45,7 +47,7 @@
 @media (width: 1024px) {
 
     .container > div:nth-of-type(1) {
-        margin-left: 260px;
+        margin-left: 275px;
     }
 
     .container > div:nth-of-type(2) {
