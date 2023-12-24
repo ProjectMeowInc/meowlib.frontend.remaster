@@ -1,11 +1,11 @@
 .inp_with_icon__container {
-    width: 682px;
+    width: 40vh;
     height: 48px;
     display: flex;
 }
 
 .inp_with_icon {
-    width: 682px;
+    width: 40vh;
     height: 48px;
     padding-left: 12px;
     border-radius: 6px;
