@@ -4,7 +4,7 @@ import MenuItem from "@/pages/MainPage/UI/MenuItem/MenuItem"
 
 const Menu = () => {
     return (
-        <aside className={classes.container}>
+        <aside className={classes.aside}>
             <div className={classes.top_part}>
                 <MenuItem img={"/img/icon.png"} text={"Главная"} href={''} />
 
