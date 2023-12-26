@@ -7,7 +7,7 @@ const MainPage = () => {
 
     return (
         <div className={classes.container}>
-            <InputWithIcon placeholder={"Enter search terms"} icon={"/img/10.png"} />
+            <InputWithIcon placeholder={"Начните вводить"} icon={"/img/10.png"} />
             <MainPageBooks/>
         </div>
     )
