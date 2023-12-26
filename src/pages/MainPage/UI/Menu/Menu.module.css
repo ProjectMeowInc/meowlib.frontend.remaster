@@ -1,11 +1,12 @@
 .aside {
     width: 25vh;
     margin: 68px 0 0 56px;
+    position: fixed;
 
 }
 
 .top_part {
-    margin-bottom: 470px;
+    margin-bottom: 370px;
 }
 
 .bottom_part {
