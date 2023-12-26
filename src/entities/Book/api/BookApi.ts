@@ -11,7 +11,7 @@ export class BookApi {
 
     static async getBooks(): Promise<Result<IGetBooksResponse>> {
         const result = await new HTTPResult<IGetBooksResponse>()
-            .withUrl("/v1/books")
+            .withUrl("/v2/books")
             .withGetMethod()
             .sendAsync()
 
