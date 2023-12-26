@@ -1,7 +1,10 @@
 export interface BookGetResponseDTO {
     id: number
     name: string
-    description?: string
+    description: string
     imageName: string | null
-    author: string
+    author: {
+        id: number
+        name: string
+    }
 }
