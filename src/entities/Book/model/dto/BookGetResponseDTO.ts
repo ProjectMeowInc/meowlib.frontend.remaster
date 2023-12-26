@@ -6,5 +6,5 @@ export interface BookGetResponseDTO {
     author: {
         id: number
         name: string
-    }
+    } | null
 }
