@@ -23,7 +23,7 @@ const MainPageBooks = async () => {
                             id={book.id}
                             imageName={book.imageName}
                             name={book.name}
-                            author={'автор'}
+                            author={book.author}
                         />
                     ))
 
