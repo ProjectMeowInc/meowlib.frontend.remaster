@@ -1,13 +1,15 @@
 import { Result } from "@/shared/services/Result/Result"
 import { BookApi } from "@/entities/Book/api/BookApi"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
-import { IBookDTO } from "@/entities/Book/model/dto/BookDTO"
-import { IUpdateBookRequest } from "@/entities/Book/model/request/UpdateBookRequest"
-import { IUpdateBookTagRequest } from "@/entities/Book/model/request/UpdateBookTagRequest"
-import { ICreateBook } from "@/entities/Book/model/request/CreateBookRequest";
+import { IUpdateBookRequest } from "@/entities/Book/models/requests/UpdateBookRequest"
+import { IUpdateBookTagRequest } from "@/entities/Book/models/requests/UpdateBookTagRequest"
+import { ICreateBook } from "@/entities/Book/models/requests/CreateBookRequest";
+import {IBookDto} from "@/entities/Book/models/dto/BookDto";
+import {IShortBookDto} from "@/entities/Book/models/dto/ShortBookDto";
+import {DEFAULT_BOOK_IMAGE} from "@/app/consts";
 
 export class BookService {
-    static async getBooks(): Promise<Result<IBookDTO[]>> {
+    static async getBooks(): Promise<Result<IShortBookDto[]>> {
         const result = await BookApi.getBooks()
 
         if (result.hasError()) {
@@ -17,7 +19,7 @@ export class BookService {
         return Result.withOk(result.unwrap().items.map(book => ({
             ...book,
             // todo: create valid link
-            imageUrl: book.imageName,
+            imageUrl: book.imageUrl ?? DEFAULT_BOOK_IMAGE,
         })))
     }
 
@@ -29,8 +31,14 @@ export class BookService {
         return await BookApi.deleteBookById(id)
     }
 
-    static async getBookById(id: number): Promise<Result<IBookDTO>> {
-        return await BookApi.getBookById(id)
+    static async getBookById(id: number): Promise<Result<IBookDto>> {
+        const getBookResult = await BookApi.getBookById(id)
+        if (getBookResult.hasError()) {
+            return Result.withError(getBookResult.getError())
+        }
+
+        const data = getBookResult.unwrap();
+        return Result.withOk(data)
     }
 
     static async updateBookInfo(bookId: number, updateData: IUpdateBookRequest): Promise<EmptyResult> {

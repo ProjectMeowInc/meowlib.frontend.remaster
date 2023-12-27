@@ -7,6 +7,7 @@ import TranslationList from "@/pages/BookPages/BookPage/UI/TranslationList/Trans
 import {AvailableSections} from "@/pages/BookPages/BookPage/UI/SectionSelector/useSectionSelector";
 import BookName from "@/pages/BookPages/BookPage/UI/BookName/BookName";
 import SectionSelector from "@/pages/BookPages/BookPage/UI/SectionSelector/SectionSelector";
+import {DEFAULT_BOOK_IMAGE} from "@/app/consts";
 
 interface IBookPageProps {
     params: {
@@ -34,14 +35,14 @@ const BookPage: FC<IBookPageProps> = async ({params, searchParams}) => {
             requiredSection = <BookMainInfo {...bookData}/>
             break
         case "translation":
-            requiredSection = <TranslationList translations={bookData}/>
+            requiredSection = <TranslationList translations={bookData.translations}/>
             break;
     }
 
     return (
         <div className={classes.page}>
             <BookImage
-                image={bookData.imageUrl}
+                image={bookData.imageUrl ?? DEFAULT_BOOK_IMAGE}
             />
             <div className={classes.info_block}>
                 <BookName
