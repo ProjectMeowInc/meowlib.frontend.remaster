@@ -5,7 +5,7 @@ import { TagService } from "@/entities/Tag/services/TagService"
 import { AlertService } from "@/shared/services/AlertService"
 import { useRouter } from "next/navigation"
 
-export const useUpdateTagPage = (tagId: number) => {
+export const useUpdateTagForm = (tagId: number) => {
     const [data, setData] = useState<IUpdateTagDTO>({
         name: "",
         description: ""

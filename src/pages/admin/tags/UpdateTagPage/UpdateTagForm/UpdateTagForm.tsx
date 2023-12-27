@@ -5,7 +5,7 @@ import Input from "@/shared/UI/Input/Input"
 import { ITagDTO } from "@/entities/Tag/models/dto/ITagDTO"
 import classes from "./updateTagForm.module.css"
 import Button from "@/shared/UI/button/Button"
-import { useUpdateTagPage } from "@/pages/admin/tags/UpdateTagPage/useUpdateTagPage"
+import { useUpdateTagForm } from "@/pages/admin/tags/UpdateTagPage/useUpdateTagForm"
 
 interface IUpdateTagFormProps {
     tag: ITagDTO
@@ -13,7 +13,7 @@ interface IUpdateTagFormProps {
 
 const UpdateTagForm: FC<IUpdateTagFormProps> = ({tag}) => {
 
-    const {ChangeHandler, SubmitHandler} = useUpdateTagPage(tag.id)
+    const {ChangeHandler, SubmitHandler} = useUpdateTagForm(tag.id)
 
     return (
         <form className={classes.form} onSubmit={SubmitHandler}>
