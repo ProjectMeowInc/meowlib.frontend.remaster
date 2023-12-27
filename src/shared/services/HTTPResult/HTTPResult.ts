@@ -7,7 +7,7 @@ import { IValidationErrorResponse } from "@/shared/models/IValidationErrorRespon
 import { LogService } from "@/shared/services/LogService"
 
 type MethodsType = "GET" | "POST" | "PUT" | "DELETE"
-const BASE_URL: string = "http://127.0.0.1:5000/api/"
+const BASE_URL: string = "http://localhost:5000/api"
 
 export class HTTPResult<TContent> {
     private method: MethodsType = "GET"
@@ -81,7 +81,7 @@ export class HTTPResult<TContent> {
 
     //TODO: Сделать нормальную валидацию
     private static validateUrl(url: string): boolean {
-        return url[0] === "/"
+        return url.startsWith("/")
     }
 
     /**
@@ -103,11 +103,6 @@ export class HTTPResult<TContent> {
         return this
     }
 
-    withAuth() {
-        this.isAuth = true
-        return this
-    }
-
     withGetMethod() {
         this.method = "GET"
         return this
@@ -125,6 +120,11 @@ export class HTTPResult<TContent> {
 
     withDeleteMethod() {
         this.method = "DELETE"
+        return this
+    }
+
+    withAuth(): HTTPResult<TContent> {
+        this.isAuth = true
         return this
     }
 }

@@ -4,7 +4,7 @@ import {BookService} from "@/entities/Book/service/BookService";
 import BookPreview from "@/pages/MainPage/UI/BookPreview/BookPreview";
 
 const MainPageBooks = async () => {
-    const getBooksResult = await BookService.getBooks()
+    const getBooksResult = await BookService.getAllBooksAsync()
 
     if (getBooksResult.hasError()) {
         return <div>{getBooksResult.getError().errorMessage}</div>
