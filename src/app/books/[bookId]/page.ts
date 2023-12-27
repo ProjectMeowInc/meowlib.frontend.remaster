@@ -14,7 +14,7 @@ interface IBookPageProps {
 
 export const generateMetadata = async ({params, searchParams}: IBookPageProps): Promise<Metadata> => {
     const bookId = params.bookId
-    const result = await BookService.getBookByIdAsync(bookId)
+    const result = await BookService.getBookById(bookId)
 
     if (result.hasError()) {
         return {

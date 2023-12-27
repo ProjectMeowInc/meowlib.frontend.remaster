@@ -3,6 +3,10 @@ export interface IGetBooksResponse {
         id: number
         name: string
         description: string
-        imageName: string | null
+        imageName: string | null,
+        author: {
+            id: number
+            name: string
+        } | null
     }[]
 }

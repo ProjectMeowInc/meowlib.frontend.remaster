@@ -4,7 +4,7 @@ import {BookService} from "@/entities/Book/service/BookService";
 import BookPreview from "@/pages/MainPage/UI/BookPreview/BookPreview";
 
 const MainPageBooks = async () => {
-    const getBooksResult = await BookService.getAllBooksAsync()
+    const getBooksResult = await BookService.getBooks()
 
     if (getBooksResult.hasError()) {
         return <div>{getBooksResult.getError().errorMessage}</div>
@@ -21,9 +21,9 @@ const MainPageBooks = async () => {
                         <BookPreview
                             key={book.id}
                             id={book.id}
-                            image={book.imageName}
+                            image={book.imageUrl}
                             name={book.name}
-                            author={book.author ? book.author.name : "Автор"}
+                            author={book.author ? book.author.name : "Отсутствует"}
                         />
                     ))
 

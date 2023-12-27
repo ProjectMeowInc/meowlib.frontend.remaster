@@ -19,7 +19,7 @@ interface IBookPageProps {
 
 const BookPage: FC<IBookPageProps> = async ({params, searchParams}) => {
 
-    const result = await BookService.getBookByIdAsync(params.bookId)
+    const result = await BookService.getBookById(params.bookId)
     if (result.hasError()) {
         return <div>Ошибка загрузки книги: {result.getError().errorMessage}</div>
     }
@@ -34,7 +34,7 @@ const BookPage: FC<IBookPageProps> = async ({params, searchParams}) => {
             requiredSection = <BookMainInfo {...bookData}/>
             break
         case "translation":
-            requiredSection = <TranslationList translations={bookData.translations}/>
+            requiredSection = <TranslationList translations={bookData}/>
             break;
     }
 

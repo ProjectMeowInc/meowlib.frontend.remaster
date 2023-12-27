@@ -14,7 +14,11 @@ export class BookService {
             return Result.withError(result.getError())
         }
 
-        return Result.withOk(result.unwrap().items)
+        return Result.withOk(result.unwrap().items.map(book => ({
+            ...book,
+            // todo: create valid link
+            imageUrl: book.imageName,
+        })))
     }
 
     static async createBook(requestData: ICreateBook): Promise<EmptyResult> {
