@@ -1,4 +1,4 @@
-import {FC} from "react";
+import { FC } from "react"
 import classes from "./tagItem.module.css"
 
 interface ITagItemProps {
@@ -6,12 +6,8 @@ interface ITagItemProps {
     name: string
 }
 
-const TagItem: FC<ITagItemProps> = ({name}) => {
-    return (
-        <div className={classes.item}>
-            {name}
-        </div>
-    );
-};
+const TagItem: FC<ITagItemProps> = ({ name }) => {
+    return <div className={classes.item}>{name}</div>
+}
 
-export default TagItem;
+export default TagItem

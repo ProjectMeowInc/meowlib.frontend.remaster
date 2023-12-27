@@ -7,7 +7,6 @@ import { IUpdateTagDTO } from "@/entities/Tag/models/dto/IUpdateTagDTO"
 import { TagEntity } from "@/entities/Tag/TagEntity"
 
 export class TagService {
-
     static async createAsync(requestData: ICreateTagDTO): Promise<Result<TagEntity>> {
         return await TagApi.createAsync(requestData)
     }

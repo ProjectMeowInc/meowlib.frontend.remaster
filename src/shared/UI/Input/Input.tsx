@@ -15,8 +15,7 @@ interface IInputProps {
     }
 }
 
-const Input: FC<IInputProps> = ({placeholder, type, onChange, style, name}) => {
-
+const Input: FC<IInputProps> = ({ placeholder, type, onChange, style, name }) => {
     const changeHandler = (event: IOnChangeEvent) => {
         onChange?.call(null, event)
     }
@@ -27,14 +26,16 @@ const Input: FC<IInputProps> = ({placeholder, type, onChange, style, name}) => {
             className={classes.input}
             style={{
                 width: `${style?.width}%`,
-                margin: style?.margin
+                margin: style?.margin,
             }}
             placeholder={placeholder}
             type={type}
-            onChange={(e) => changeHandler({
-                name: e.target.name,
-                newValue: e.target.value
-            })}
+            onChange={(e) =>
+                changeHandler({
+                    name: e.target.name,
+                    newValue: e.target.value,
+                })
+            }
         />
     )
 }

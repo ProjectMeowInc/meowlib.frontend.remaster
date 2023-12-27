@@ -5,19 +5,18 @@ import { useRouter } from "next/navigation"
 import { TagService } from "@/entities/Tag/services/TagService"
 import { AlertService } from "@/shared/services/AlertService"
 
-export const useCreateTagPage = () => {
-
+export const useCreateForm = () => {
     const [data, setData] = useState<ICreateTagDTO>({
         name: "",
-        description: ""
+        description: "",
     })
 
     const router = useRouter()
 
-    const ChangeHandler = ({name, newValue}: IOnChangeEvent) => {
-        setData(prevState => ({
+    const ChangeHandler = ({ name, newValue }: IOnChangeEvent) => {
+        setData((prevState) => ({
             ...prevState,
-            [name]: newValue
+            [name]: newValue,
         }))
     }
 
@@ -31,11 +30,12 @@ export const useCreateTagPage = () => {
         }
 
         router.back()
+        router.refresh()
         return AlertService.successMessage("Тег успешно создан")
     }
 
     return {
         SubmitHandler,
-        ChangeHandler
+        ChangeHandler,
     }
 }

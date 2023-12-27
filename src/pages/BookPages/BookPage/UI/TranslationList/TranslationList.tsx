@@ -1,5 +1,5 @@
 import classes from "./translationList.module.css"
-import {FC} from "react";
+import { FC } from "react"
 
 interface ITranslationListProps {
     translations: {
@@ -8,30 +8,20 @@ interface ITranslationListProps {
     }[]
 }
 
-const TranslationList: FC<ITranslationListProps> = ({translations}) => {
-
+const TranslationList: FC<ITranslationListProps> = ({ translations }) => {
     if (!translations.length) {
-        return (
-            <div className={classes.no_translation}>
-                Переводы отсутствуют
-            </div>
-        )
+        return <div className={classes.no_translation}>Переводы отсутствуют</div>
     }
 
     return (
         <div>
-            {
-                translations.map(translation => (
-                    <div
-                        key={translation.id}
-                        className={classes.translation_item}
-                    >
-                        {translation.name}
-                    </div>
-                ))
-            }
+            {translations.map((translation) => (
+                <div key={translation.id} className={classes.translation_item}>
+                    {translation.name}
+                </div>
+            ))}
         </div>
-    );
-};
+    )
+}
 
-export default TranslationList;
+export default TranslationList

@@ -5,17 +5,17 @@ import { TagService } from "@/entities/Tag/services/TagService"
 import { AlertService } from "@/shared/services/AlertService"
 import { useRouter } from "next/navigation"
 
-export const useUpdateTagPage = (tagId: number) => {
+export const useUpdateTagForm = (tagId: number) => {
     const [data, setData] = useState<IUpdateTagDTO>({
         name: "",
-        description: ""
+        description: "",
     })
     const router = useRouter()
 
-    const ChangeHandler = ({name, newValue}: IOnChangeEvent) => {
-        setData(prevState => ({
+    const ChangeHandler = ({ name, newValue }: IOnChangeEvent) => {
+        setData((prevState) => ({
             ...prevState,
-            [name]: newValue
+            [name]: newValue,
         }))
     }
 
@@ -29,10 +29,12 @@ export const useUpdateTagPage = (tagId: number) => {
         }
 
         router.back()
+        router.refresh()
+        return AlertService.successMessage("Тег успешно обновлён")
     }
 
     return {
         ChangeHandler,
-        SubmitHandler
+        SubmitHandler,
     }
 }

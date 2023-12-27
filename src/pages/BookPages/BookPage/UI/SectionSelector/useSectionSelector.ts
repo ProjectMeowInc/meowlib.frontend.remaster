@@ -1,11 +1,9 @@
-import {usePathname, useRouter, useSearchParams} from "next/navigation";
-import {useEffect, useState} from "react";
-
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { useEffect, useState } from "react"
 
 export type AvailableSections = "main" | "translation"
 
 export const useSectionSelector = () => {
-
     const router = useRouter()
     const pathname = usePathname()
     const params = useSearchParams()
@@ -14,7 +12,7 @@ export const useSectionSelector = () => {
     useEffect(() => {
         const section = (params?.get("section") ?? "main") as AvailableSections
         setCurrentSection(section)
-    }, [params]);
+    }, [params])
 
     const changeToSection = (section: AvailableSections) => {
         const currentPath = pathname ?? ""
@@ -27,6 +25,6 @@ export const useSectionSelector = () => {
 
     return {
         currentSection,
-        changeToSection
+        changeToSection,
     }
 }

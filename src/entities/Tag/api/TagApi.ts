@@ -9,7 +9,6 @@ import { IUpdateTagByIdResponse } from "@/entities/Tag/models/responses/IUpdateT
 import { IGetTagByIdResponse } from "@/entities/Tag/models/responses/IGetTagByIdResponse"
 
 export class TagApi {
-
     static async createAsync(requestData: ICreateTagRequest): Promise<Result<ICreateTagResponse>> {
         const result = await new HTTPResult<ICreateTagResponse>()
             .withUrl("/v1/tags")
@@ -26,10 +25,7 @@ export class TagApi {
     }
 
     static async getAllAsync(): Promise<Result<IGetAllTagResponse>> {
-        const result = await new HTTPResult<IGetAllTagResponse>()
-            .withUrl("/v1/tags")
-            .withGetMethod()
-            .sendAsync()
+        const result = await new HTTPResult<IGetAllTagResponse>().withUrl("/v1/tags").withGetMethod().sendAsync()
 
         if (result.hasError()) {
             return Result.withError(result.getError())
@@ -52,7 +48,10 @@ export class TagApi {
         return EmptyResult.withOk()
     }
 
-    static async updateByIdAsync(tagId: number, requestData: IUpdateTagRequest): Promise<Result<IUpdateTagByIdResponse>> {
+    static async updateByIdAsync(
+        tagId: number,
+        requestData: IUpdateTagRequest,
+    ): Promise<Result<IUpdateTagByIdResponse>> {
         const result = await new HTTPResult<IUpdateTagByIdResponse>()
             .withUrl(`/v1/tags/${tagId}`)
             .withPutMethod()

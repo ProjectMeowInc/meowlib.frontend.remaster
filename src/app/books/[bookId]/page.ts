@@ -12,14 +12,14 @@ interface IBookPageProps {
     }
 }
 
-export const generateMetadata = async ({params, searchParams}: IBookPageProps): Promise<Metadata> => {
+export const generateMetadata = async ({ params }: IBookPageProps): Promise<Metadata> => {
     const bookId = params.bookId
-    const result = await BookService.getBookByIdAsync(bookId)
+    const result = await BookService.getBookById(bookId)
 
     if (result.hasError()) {
         return {
             title: "MeowLib",
-            description: "The best library of ranobe in the world"
+            description: "The best library of ranobe in the world",
         }
     }
 
@@ -28,8 +28,8 @@ export const generateMetadata = async ({params, searchParams}: IBookPageProps): 
     return {
         title: `Читать ${book.name}`,
         description: `Читать ранобэ ${book.name} бесплатно без смс и регистрации онлайн инкогнито без слежки без фсб даркнет. Торгуем хорошим настроением.`,
-        keywords: book.tags.map(tag => tag.name)
+        keywords: book.tags.map((tag) => tag.name),
     }
 }
 
-export default BookPage;
+export default BookPage
