@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import { TagService } from "@/entities/Tag/services/TagService"
 import { AlertService } from "@/shared/services/AlertService"
 
-export const useCreateTagPage = () => {
+export const useCreateForm = () => {
 
     const [data, setData] = useState<ICreateTagDTO>({
         name: "",

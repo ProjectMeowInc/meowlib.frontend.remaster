@@ -3,11 +3,11 @@
 import Input from "@/shared/UI/Input/Input"
 import Button from "@/shared/UI/button/Button"
 import classes from "./createForm.module.css"
-import { useCreateTagPage } from "@/pages/admin/tags/CreateTagPage/useCreateTagPage"
+import {useCreateForm} from "@/pages/admin/tags/CreateTagPage/useCreateForm";
 
 const CreateForm = () => {
 
-    const {SubmitHandler, ChangeHandler} = useCreateTagPage()
+    const {SubmitHandler, ChangeHandler} = useCreateForm()
 
     return (
         <form className={classes.form} onSubmit={SubmitHandler}>

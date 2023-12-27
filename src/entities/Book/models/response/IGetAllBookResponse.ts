@@ -1,12 +1,12 @@
-export interface IGetBooksResponse {
+export interface IGetAllBookResponse {
     items: {
         id: number
         name: string
         description: string
-        imageName: string | null,
-        author: {
+        imageUrl?: string
+        author?: {
             id: number
             name: string
-        } | null
+        }
     }[]
 }

@@ -1,16 +1,16 @@
 import { Result } from "@/shared/services/Result/Result"
 import { HTTPResult } from "@/shared/services/HTTPResult/HTTPResult"
-import { IBook } from "@/entities/Book/model/request/BookModel"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
-import { IGetBooksResponse } from "@/entities/Book/model/response/GetBooksResponse"
-import { IUpdateBookRequest } from "@/entities/Book/model/request/UpdateBookRequest"
-import { IUpdateBookTagRequest } from "@/entities/Book/model/request/UpdateBookTagRequest"
-import { ICreateBook } from "@/entities/Book/model/request/CreateBookRequest"
+import { IUpdateBookRequest } from "@/entities/Book/models/requests/UpdateBookRequest"
+import { IUpdateBookTagRequest } from "@/entities/Book/models/requests/UpdateBookTagRequest"
+import { ICreateBook } from "@/entities/Book/models/requests/CreateBookRequest"
+import {IGetBookByIdResponse} from "@/entities/Book/models/response/IGetBookByIdResponse";
+import {IGetAllBookResponse} from "@/entities/Book/models/response/IGetAllBookResponse";
 
 export class BookApi {
 
-    static async getBooks(): Promise<Result<IGetBooksResponse>> {
-        const result = await new HTTPResult<IGetBooksResponse>()
+    static async getBooks(): Promise<Result<IGetAllBookResponse>> {
+        const result = await new HTTPResult<IGetAllBookResponse>()
             .withUrl("/v2/books")
             .withGetMethod()
             .sendAsync()
@@ -50,8 +50,8 @@ export class BookApi {
         return EmptyResult.withOk()
     }
 
-    static async getBookById(id: number): Promise<Result<IBook>> {
-        const result = await new HTTPResult<IBook>()
+    static async getBookById(id: number): Promise<Result<IGetBookByIdResponse>> {
+        const result = await new HTTPResult<IGetBookByIdResponse>()
             .withUrl(`/v1/books/${id}`)
             .withGetMethod()
             .sendAsync()
