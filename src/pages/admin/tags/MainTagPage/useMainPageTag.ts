@@ -16,6 +16,6 @@ export const useMainPageTag = () => {
     }
 
     return {
-        DeleteHandler
+        DeleteHandler,
     }
 }

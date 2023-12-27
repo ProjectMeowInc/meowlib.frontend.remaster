@@ -17,7 +17,9 @@
 }
 
 .container > p {
-    font-family: Work Sans, sans-serif;
+    font-family:
+        Work Sans,
+        sans-serif;
     font-size: 13px;
     font-weight: 400;
     line-height: 15px;
@@ -26,7 +28,7 @@
 }
 
 .container:active {
-    background-color: #EEF1F4;
+    background-color: #eef1f4;
     border-radius: 8px;
 }
 
@@ -36,4 +38,3 @@
     font-weight: 600;
     line-height: 22px;
 }
-

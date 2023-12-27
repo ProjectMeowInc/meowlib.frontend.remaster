@@ -4,7 +4,7 @@ import classes from "./createTagPage.module.css"
 const CreateTagPage = () => {
     return (
         <div className={classes.wrapper}>
-            <CreateForm/>
+            <CreateForm />
         </div>
     )
 }

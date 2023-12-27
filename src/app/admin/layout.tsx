@@ -1,13 +1,11 @@
 import React, { FC, PropsWithChildren } from "react"
 import RootProvider from "@/shared/providers/RootProvider"
 
-const Layout: FC<PropsWithChildren> = ({children}) => {
+const Layout: FC<PropsWithChildren> = ({ children }) => {
     return (
         <html>
             <body>
-            <RootProvider>
-                {children}
-            </RootProvider>
+                <RootProvider>{children}</RootProvider>
             </body>
         </html>
     )

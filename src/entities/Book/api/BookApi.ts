@@ -4,16 +4,12 @@ import { EmptyResult } from "@/shared/services/Result/EmptyResult"
 import { IUpdateBookRequest } from "@/entities/Book/models/requests/UpdateBookRequest"
 import { IUpdateBookTagRequest } from "@/entities/Book/models/requests/UpdateBookTagRequest"
 import { ICreateBook } from "@/entities/Book/models/requests/CreateBookRequest"
-import {IGetBookByIdResponse} from "@/entities/Book/models/response/IGetBookByIdResponse";
-import {IGetAllBookResponse} from "@/entities/Book/models/response/IGetAllBookResponse";
+import { IGetBookByIdResponse } from "@/entities/Book/models/response/IGetBookByIdResponse"
+import { IGetAllBookResponse } from "@/entities/Book/models/response/IGetAllBookResponse"
 
 export class BookApi {
-
     static async getBooks(): Promise<Result<IGetAllBookResponse>> {
-        const result = await new HTTPResult<IGetAllBookResponse>()
-            .withUrl("/v2/books")
-            .withGetMethod()
-            .sendAsync()
+        const result = await new HTTPResult<IGetAllBookResponse>().withUrl("/v2/books").withGetMethod().sendAsync()
 
         if (result.hasError()) {
             return Result.withError(result.getError())
@@ -38,10 +34,7 @@ export class BookApi {
     }
 
     static async deleteBookById(id: number): Promise<EmptyResult> {
-        const result = await new HTTPResult<void>().withUrl(`/v1/books/${id}`)
-            .withDeleteMethod()
-            .withAuth()
-            .sendAsync()
+        const result = await new HTTPResult<void>().withUrl(`/v1/books/${id}`).withDeleteMethod().withAuth().sendAsync()
 
         if (result.hasError()) {
             return EmptyResult.withError(result.getError())

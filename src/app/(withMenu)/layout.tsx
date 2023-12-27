@@ -1,9 +1,9 @@
 import "../globals.css"
-import React from "react";
-import Layout from "@/shared/Layout/Layout";
+import React from "react"
+import Layout from "@/shared/Layout/Layout"
 
 export const metadata = {
-    title: 'Meow Lib',
+    title: "Meow Lib",
     description: "Лучший сайт для чтения ранобэ",
     keywords: [
         "ранобэ",
@@ -17,22 +17,15 @@ export const metadata = {
         "ранобэ читать +на русском",
         "новелла +это",
         "новелла",
-    ]
+    ],
 }
 
-
-export default function RootLayout({
-                                       children,
-                                   }: {
-    children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="ru">
-        <body>
-            <Layout>
-                {children}
-            </Layout>
-        </body>
+            <body>
+                <Layout>{children}</Layout>
+            </body>
         </html>
     )
 }

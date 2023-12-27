@@ -2,7 +2,7 @@
     margin-top: 30px;
     width: 100%;
     height: 70px;
-    background: #B5C8DB;
+    background: #b5c8db;
     border-radius: 5px;
     font-size: 20px;
     color: white;
@@ -23,7 +23,7 @@
 }
 
 .delete_btn {
-    transition: .4s all;
+    transition: 0.4s all;
     cursor: pointer;
 }
 

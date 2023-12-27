@@ -1,4 +1,4 @@
-import {UserRoleEnum} from "@/entities/User/User";
+import { UserRoleEnum } from "@/entities/User/User"
 
 export interface ICommentDto {
     id: number

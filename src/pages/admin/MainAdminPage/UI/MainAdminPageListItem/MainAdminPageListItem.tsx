@@ -6,7 +6,7 @@ export interface IMainAdminPageListItemProps {
     href: string
 }
 
-const MainAdminPageListItem: FC<PropsWithChildren<IMainAdminPageListItemProps>> = ({children, href}) => {
+const MainAdminPageListItem: FC<PropsWithChildren<IMainAdminPageListItemProps>> = ({ children, href }) => {
     return (
         <Link className={classes.link} href={href}>
             {children}

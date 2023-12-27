@@ -19,7 +19,7 @@ const InputWithIcon: React.FC<IInputWithIconProps> = ({ placeholder, onChange, s
                 onChange={onChange}
                 style={{ width: styles?.width }}
             />
-            <img src={icon} alt={""} className={classes.icon}/>
+            <img src={icon} alt={""} className={classes.icon} />
         </div>
     )
 }

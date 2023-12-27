@@ -4,7 +4,6 @@ import classes from "./mainTagPage.module.css"
 import TagList from "@/pages/admin/tags/MainTagPage/UI/TagList"
 
 const MainTagPage = async () => {
-
     const getTagsResult = await TagService.getAllAsync()
 
     if (getTagsResult.hasError()) {
@@ -16,7 +15,7 @@ const MainTagPage = async () => {
     return (
         <div className={classes.wrapper}>
             <AdminCreateButton text={"Создать тег"} href={"/new"} />
-            <TagList tags={tags}/>
+            <TagList tags={tags} />
         </div>
     )
 }

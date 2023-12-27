@@ -10,8 +10,7 @@ interface IUpdateTagPageProps {
     }
 }
 
-const UpdateTagPage: FC<IUpdateTagPageProps> = async ({params: {tagId}}) => {
-
+const UpdateTagPage: FC<IUpdateTagPageProps> = async ({ params: { tagId } }) => {
     const getTagResult = await TagService.getByIdAsync(tagId)
 
     if (getTagResult.hasError()) {
@@ -22,7 +21,7 @@ const UpdateTagPage: FC<IUpdateTagPageProps> = async ({params: {tagId}}) => {
 
     return (
         <div className={classes.wrapper}>
-            <UpdateTagForm tag={tag}/>
+            <UpdateTagForm tag={tag} />
         </div>
     )
 }

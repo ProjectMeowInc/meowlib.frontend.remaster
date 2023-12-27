@@ -10,19 +10,20 @@ interface ITagListProps {
     tags: ITagDTO[]
 }
 
-const TagList: FC<ITagListProps> = ({tags}) => {
-
-    const {DeleteHandler} = useMainPageTag()
+const TagList: FC<ITagListProps> = ({ tags }) => {
+    const { DeleteHandler } = useMainPageTag()
 
     return (
         <div className={classes.tags}>
-            {tags.map(tag => (
+            {tags.map((tag) => (
                 <ListItem
                     key={tag.id}
                     id={tag.id}
                     text={tag.name}
                     href={`/${tag.id}`}
-                    onDelete={async (id) => { await DeleteHandler(id)}}
+                    onDelete={async (id) => {
+                        await DeleteHandler(id)
+                    }}
                 />
             ))}
         </div>

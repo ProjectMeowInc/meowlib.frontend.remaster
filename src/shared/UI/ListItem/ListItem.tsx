@@ -12,8 +12,7 @@ interface IListItemProps {
     onDelete: (id: number) => Promise<void>
 }
 
-const ListItem: FC<IListItemProps> = ({id, text, href, onDelete}) => {
-
+const ListItem: FC<IListItemProps> = ({ id, text, href, onDelete }) => {
     const pathname = usePathname()
 
     return (
@@ -22,7 +21,9 @@ const ListItem: FC<IListItemProps> = ({id, text, href, onDelete}) => {
                 <Link className={classes.link_text} href={pathname + href}>
                     {text}
                 </Link>
-                <p className={classes.delete_btn} onClick={async () => await onDelete(id)}>Удалить</p>
+                <p className={classes.delete_btn} onClick={async () => await onDelete(id)}>
+                    Удалить
+                </p>
             </div>
         </div>
     )

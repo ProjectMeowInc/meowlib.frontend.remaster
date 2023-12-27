@@ -3,10 +3,10 @@ import { BookApi } from "@/entities/Book/api/BookApi"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
 import { IUpdateBookRequest } from "@/entities/Book/models/requests/UpdateBookRequest"
 import { IUpdateBookTagRequest } from "@/entities/Book/models/requests/UpdateBookTagRequest"
-import { ICreateBook } from "@/entities/Book/models/requests/CreateBookRequest";
-import {IBookDto} from "@/entities/Book/models/dto/BookDto";
-import {IShortBookDto} from "@/entities/Book/models/dto/ShortBookDto";
-import {DEFAULT_BOOK_IMAGE} from "@/app/consts";
+import { ICreateBook } from "@/entities/Book/models/requests/CreateBookRequest"
+import { IBookDto } from "@/entities/Book/models/dto/BookDto"
+import { IShortBookDto } from "@/entities/Book/models/dto/ShortBookDto"
+import { DEFAULT_BOOK_IMAGE } from "@/app/consts"
 
 export class BookService {
     static async getBooks(): Promise<Result<IShortBookDto[]>> {
@@ -16,11 +16,13 @@ export class BookService {
             return Result.withError(result.getError())
         }
 
-        return Result.withOk(result.unwrap().items.map(book => ({
-            ...book,
-            // todo: create valid link
-            imageUrl: book.imageUrl ?? DEFAULT_BOOK_IMAGE,
-        })))
+        return Result.withOk(
+            result.unwrap().items.map((book) => ({
+                ...book,
+                // todo: create valid link
+                imageUrl: book.imageUrl ?? DEFAULT_BOOK_IMAGE,
+            })),
+        )
     }
 
     static async createBook(requestData: ICreateBook): Promise<EmptyResult> {
@@ -37,7 +39,7 @@ export class BookService {
             return Result.withError(getBookResult.getError())
         }
 
-        const data = getBookResult.unwrap();
+        const data = getBookResult.unwrap()
         return Result.withOk(data)
     }
 

@@ -8,14 +8,14 @@ import { useRouter } from "next/navigation"
 export const useUpdateTagForm = (tagId: number) => {
     const [data, setData] = useState<IUpdateTagDTO>({
         name: "",
-        description: ""
+        description: "",
     })
     const router = useRouter()
 
-    const ChangeHandler = ({name, newValue}: IOnChangeEvent) => {
-        setData(prevState => ({
+    const ChangeHandler = ({ name, newValue }: IOnChangeEvent) => {
+        setData((prevState) => ({
             ...prevState,
-            [name]: newValue
+            [name]: newValue,
         }))
     }
 
@@ -35,6 +35,6 @@ export const useUpdateTagForm = (tagId: number) => {
 
     return {
         ChangeHandler,
-        SubmitHandler
+        SubmitHandler,
     }
 }

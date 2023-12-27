@@ -11,23 +11,14 @@ interface IUpdateTagFormProps {
     tag: ITagDTO
 }
 
-const UpdateTagForm: FC<IUpdateTagFormProps> = ({tag}) => {
-
-    const {ChangeHandler, SubmitHandler} = useUpdateTagForm(tag.id)
+const UpdateTagForm: FC<IUpdateTagFormProps> = ({ tag }) => {
+    const { ChangeHandler, SubmitHandler } = useUpdateTagForm(tag.id)
 
     return (
         <form className={classes.form} onSubmit={SubmitHandler}>
             <h1>Обновление тега</h1>
-            <Input
-                name={"name"}
-                placeholder={tag.name}
-                onChange={ChangeHandler}
-            />
-            <Input
-                name={"description"}
-                placeholder={tag.description}
-                onChange={ChangeHandler}
-            />
+            <Input name={"name"} placeholder={tag.name} onChange={ChangeHandler} />
+            <Input name={"description"} placeholder={tag.description} onChange={ChangeHandler} />
             <Button>Отправить</Button>
         </form>
     )

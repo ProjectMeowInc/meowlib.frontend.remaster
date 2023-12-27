@@ -1,10 +1,10 @@
 "use client"
 
-import {useSectionSelector} from "@/pages/BookPages/BookPage/UI/SectionSelector/useSectionSelector";
+import { useSectionSelector } from "@/pages/BookPages/BookPage/UI/SectionSelector/useSectionSelector"
 import classes from "./sectionSelector.module.css"
 
 const SectionSelector = () => {
-    const {currentSection, changeToSection} = useSectionSelector()
+    const { currentSection, changeToSection } = useSectionSelector()
 
     return (
         <div className={classes.block}>
@@ -21,7 +21,7 @@ const SectionSelector = () => {
                 Переводы
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default SectionSelector;
+export default SectionSelector

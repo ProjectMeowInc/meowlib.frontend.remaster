@@ -10,8 +10,7 @@ interface IAdminCreateButtonProps {
     href: string
 }
 
-const AdminCreateButton: FC<IAdminCreateButtonProps> = ({text, href}) => {
-
+const AdminCreateButton: FC<IAdminCreateButtonProps> = ({ text, href }) => {
     const pathname = usePathname()
 
     return (

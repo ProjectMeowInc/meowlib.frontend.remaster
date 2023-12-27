@@ -6,18 +6,17 @@ import { TagService } from "@/entities/Tag/services/TagService"
 import { AlertService } from "@/shared/services/AlertService"
 
 export const useCreateForm = () => {
-
     const [data, setData] = useState<ICreateTagDTO>({
         name: "",
-        description: ""
+        description: "",
     })
 
     const router = useRouter()
 
-    const ChangeHandler = ({name, newValue}: IOnChangeEvent) => {
-        setData(prevState => ({
+    const ChangeHandler = ({ name, newValue }: IOnChangeEvent) => {
+        setData((prevState) => ({
             ...prevState,
-            [name]: newValue
+            [name]: newValue,
         }))
     }
 
@@ -37,6 +36,6 @@ export const useCreateForm = () => {
 
     return {
         SubmitHandler,
-        ChangeHandler
+        ChangeHandler,
     }
 }
