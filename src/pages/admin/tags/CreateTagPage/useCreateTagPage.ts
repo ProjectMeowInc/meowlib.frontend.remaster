@@ -31,6 +31,7 @@ export const useCreateTagPage = () => {
         }
 
         router.back()
+        router.refresh()
         return AlertService.successMessage("Тег успешно создан")
     }
 

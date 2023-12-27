@@ -3,7 +3,7 @@
 import Input from "@/shared/UI/Input/Input"
 import Button from "@/shared/UI/button/Button"
 import classes from "./createForm.module.css"
-import { useCreateTagPage } from "@/pages/admin/tags/CreateTagPage/hooks/useCreateTagPage"
+import { useCreateTagPage } from "@/pages/admin/tags/CreateTagPage/useCreateTagPage"
 
 const CreateForm = () => {
 

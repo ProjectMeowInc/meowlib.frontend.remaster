@@ -29,6 +29,8 @@ export const useUpdateTagPage = (tagId: number) => {
         }
 
         router.back()
+        router.refresh()
+        return AlertService.successMessage("Тег успешно обновлён")
     }
 
     return {
