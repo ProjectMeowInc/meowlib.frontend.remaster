@@ -18,11 +18,11 @@ export class UsersApi {
         return Result.withOk(result.unwrap())
     }
 
-    static async updateUserById(id: number, updateData: IUpdateUserByIdRequest): Promise<EmptyResult> {
+    static async updateUserById(id: number, requestData: IUpdateUserByIdRequest): Promise<EmptyResult> {
         const result = await new HTTPResult<void>()
             .withUrl(`/v1/users/${id}`)
             .withAuth()
-            .withBody(updateData)
+            .withBody(requestData)
             .withPutMethod()
             .sendAsync()
 
