@@ -1,14 +1,13 @@
 import { Result } from "@/shared/services/Result/Result"
 import { BookApi } from "@/entities/Book/api/BookApi"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
-import { BookGetResponseDTO } from "@/entities/Book/model/dto/BookGetResponseDTO"
-import { IBookModelDTO } from "@/entities/Book/model/dto/BookModelDTO"
+import { IBookDTO } from "@/entities/Book/model/dto/BookDTO"
 import { IUpdateBookRequest } from "@/entities/Book/model/request/UpdateBookRequest"
 import { IUpdateBookTagRequest } from "@/entities/Book/model/request/UpdateBookTagRequest"
 import { ICreateBook } from "@/entities/Book/model/request/CreateBookRequest";
 
 export class BookService {
-    static async getBooks(): Promise<Result<BookGetResponseDTO[]>> {
+    static async getBooks(): Promise<Result<IBookDTO[]>> {
         const result = await BookApi.getBooks()
 
         if (result.hasError()) {
@@ -26,7 +25,7 @@ export class BookService {
         return await BookApi.deleteBookById(id)
     }
 
-    static async getBookById(id: number): Promise<Result<IBookModelDTO>> {
+    static async getBookById(id: number): Promise<Result<IBookDTO>> {
         return await BookApi.getBookById(id)
     }
 

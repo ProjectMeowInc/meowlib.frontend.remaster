@@ -1,10 +1,10 @@
-export interface BookGetResponseDTO {
+export interface IBookDTO {
     id: number
     name: string
     description: string
-    imageName: string | null
+    imageUrl: string | null
     author: {
         id: number
         name: string
-    }
+    } | null
 }
