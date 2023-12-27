@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import InputWithIcon from "@/shared/UI/inputWithIcon/InputWithIcon"
 import classes from "@/pages/UserSettingsPage/UI/AccountSettings/AccountSettings.module.css"
 import UserSettingsInput from "@/pages/UserSettingsPage/UI/UserSettingsInput/UserSettingsInput"
