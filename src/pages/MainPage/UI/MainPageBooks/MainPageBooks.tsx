@@ -21,9 +21,9 @@ const MainPageBooks = async () => {
                         <BookPreview
                             key={book.id}
                             id={book.id}
-                            imageName={book.imageName}
+                            image={book.imageName}
                             name={book.name}
-                            author={book.author}
+                            author={book.author ? book.author.name : "Автор"}
                         />
                     ))
 
