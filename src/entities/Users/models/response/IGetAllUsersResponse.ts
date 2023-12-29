@@ -1,9 +1,5 @@
-import { UserRoleEnum } from "@/entities/User/User";
+import {UserEntity} from "@/entities/Users/models/UserEntity";
 
 export interface IGetAllUsersResponse {
-    items: {
-        id: number
-        login: string
-        role: UserRoleEnum
-    } []
+    items: UserEntity[]
 }
