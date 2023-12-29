@@ -11,11 +11,7 @@ export class UsersService {
                 return Result.withError(result.getError())
             }
 
-        return Result.withOk(
-            result.unwrap().items.map((user)=> ({
-            ...user,
-        }))
-        )
+        return Result.withOk(result.unwrap().items)
     }
 
     static async updateUserById(id: number, requestData: IUpdateUserByIdRequest): Promise<Result<IUserDTO>> {
