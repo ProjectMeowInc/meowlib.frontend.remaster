@@ -16,6 +16,7 @@ const UserItem: FC<IUserItemProps> = ({id, login, role}) => {
     return (
         <div className={classes.container}>
             <div className={classes.content}>
+                <p className={classes.id}>{id}</p>
                 <p className={classes.login}>{login}</p>
                 <p className={classes.role}>{role}</p>
                 <Link href={`${id}/edit`} className={classes.link_text}> Изменить </Link>
