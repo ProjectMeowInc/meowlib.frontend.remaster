@@ -20,17 +20,21 @@ const  MainUsersPage = () => {
         })
     }, [])
 
+    if (!userList) {
+        return (
+            <p>Загрузка</p>
+        )
+    }
+
     return (
         <div className={classes.container}>
             <h2 className={classes.title}>Список пользователей</h2>
 
-            {userList === null
-                ? <p>Загрузка</p>
-                : userList.length === 0
-                    ? <p>Здесь пока ничего нет</p>
-                    : userList.map(user => (
-                        <UserItem key={user.id} id={user.id} login={user.login} role={user.role} href={''}/>
-                    ))
+            {userList.length > 0
+                    ? userList.map(user => (
+                            <UserItem key={user.id} id={user.id} login={user.login} role={user.role} href={""} />
+                        ))
+                    : <p>Здесь пока ничего нет</p>
             }
         </div>
     );
