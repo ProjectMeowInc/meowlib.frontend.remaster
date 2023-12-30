@@ -1,7 +1,7 @@
 import {Result} from "@/shared/services/Result/Result";
 import {IUserDTO} from "@/entities/Users/models/dto/IUserDTO";
 import {UsersApi} from "@/entities/Users/api/UsersApi";
-import {IUpdateUserByIdRequest} from "@/entities/Users/models/requests/IUpdateUserByIdRequest";
+import {IUpdateUserDTO} from "@/entities/Users/models/dto/IUpdateUserDTO";
 
 export class UsersService {
     static async getAllUsers(): Promise<Result<IUserDTO[]>> {
@@ -14,12 +14,12 @@ export class UsersService {
         return Result.withOk(result.unwrap().items)
     }
 
-    static async getUserById(id: number) {
-        return UsersApi.getUserById(id)
+    static async getUserById(usersId: number) {
+        return await UsersApi.getUserById(usersId)
     }
 
-    static async updateUserById(id: number, requestData: IUpdateUserByIdRequest): Promise<Result<IUserDTO>> {
-        return UsersApi.updateUserById(id, requestData)
+    static async updateUserById(usersId: number, requestData: IUpdateUserDTO): Promise<Result<IUserDTO>> {
+        return await UsersApi.updateUserById(usersId, requestData)
     }
 
 }

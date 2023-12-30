@@ -19,9 +19,9 @@ export class UsersApi {
         return Result.withOk(result.unwrap())
     }
 
-    static async getUserById(id: number): Promise<Result<IGetUserByIdResponse>> {
+    static async getUserById(usersId: number): Promise<Result<IGetUserByIdResponse>> {
         const result = await new HTTPResult<IGetUserByIdResponse>()
-            .withUrl(`/v1/users/${id}`)
+            .withUrl(`/v1/users/${usersId}`)
             .withGetMethod()
             .sendAsync()
 
@@ -32,9 +32,9 @@ export class UsersApi {
         return Result.withOk(result.unwrap())
     }
 
-    static async updateUserById(id: number, requestData: IUpdateUserByIdRequest): Promise<Result<IUpdateUserByIdResponse>> {
+    static async updateUserById(usersId: number, requestData: IUpdateUserByIdRequest): Promise<Result<IUpdateUserByIdResponse>> {
         const result = await new HTTPResult<IUpdateUserByIdResponse>()
-            .withUrl(`/v1/users/${id}`)
+            .withUrl(`/v1/users/${usersId}`)
             .withAuth()
             .withBody(requestData)
             .withPutMethod()
