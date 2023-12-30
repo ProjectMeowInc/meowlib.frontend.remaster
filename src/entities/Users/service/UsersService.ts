@@ -14,6 +14,10 @@ export class UsersService {
         return Result.withOk(result.unwrap().items)
     }
 
+    static async getUserById(id: number): Promise<Result<IUserDTO>> {
+        return UsersApi.getUserById(id)
+    }
+
     static async updateUserById(id: number, requestData: IUpdateUserByIdRequest): Promise<Result<IUserDTO>> {
         return UsersApi.updateUserById(id, requestData)
     }
