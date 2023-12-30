@@ -10,13 +10,12 @@ import {IUpdateUserByIdRequest} from "@/entities/Users/models/requests/IUpdateUs
 
 interface IUpdateUserPageProps {
     params: {
-        usersId: number
+        userId: number
     }
 }
 
-
-const UpdateUserPage: FC<IUpdateUserPageProps> = async ({ params: { usersId } }) => {
-    const getUserResult = await UsersService.getUserById(usersId)
+const UpdateUserPage: FC<IUpdateUserPageProps> = async ({ params: { userId } }) => {
+    const getUserResult = await UsersService.getUserById(userId)
 
     if (getUserResult.hasError()) {
         return <div>{getUserResult.getError().errorMessage}</div>
