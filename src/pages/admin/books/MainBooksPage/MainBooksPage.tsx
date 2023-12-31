@@ -1,3 +1,5 @@
+"use client"
+
 import React, {useEffect, useState} from 'react';
 import {BookService} from "@/entities/Book/service/BookService";
 import {IShortBookDto} from "@/entities/Book/models/dto/ShortBookDto";
