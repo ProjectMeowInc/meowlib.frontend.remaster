@@ -21,5 +21,4 @@ export class UsersService {
     static async updateUserById(usersId: number, requestData: IUpdateUserDTO): Promise<Result<IUserDTO>> {
         return await UsersApi.updateUserById(usersId, requestData)
     }
-
 }
