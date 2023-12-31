@@ -5,6 +5,7 @@ import classes from './MainUsersPage.module.css'
 import { UsersService } from "@/entities/Users/service/UsersService";
 import UserItem from "@/pages/admin/users/UI/UserItem/UserItem";
 import {IUserDTO} from "@/entities/Users/models/dto/IUserDTO";
+import Preloader from "@/pages/admin/users/UI/Preloader/Preloader";
 
 const  MainUsersPage = () => {
 
@@ -22,7 +23,7 @@ const  MainUsersPage = () => {
 
     if (!usersList) {
         return (
-            <p>Загрузка</p>
+            <Preloader/>
         )
     }
 
