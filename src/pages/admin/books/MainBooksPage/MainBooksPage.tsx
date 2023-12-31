@@ -7,8 +7,11 @@ import classes from './MainBooksPage.module.css'
 import BookItem from "@/pages/admin/books/MainBooksPage/UI/BookItem/BookItem";
 import AdminCreateButton from "@/pages/admin/UI/AdminCreateButton/AdminCreateButton";
 import Preloader from "@/pages/admin/UI/Preloader/Preloader";
+import {useMainPageBooks} from "@/pages/admin/books/MainBooksPage/useMainPageBooks";
 
 const MainBooksPage = () => {
+
+    const { DeleteHandler } = useMainPageBooks()
 
     const [booksList, setBooksList] = useState<IShortBookDto[] | null>(null)
 
@@ -29,14 +32,21 @@ const MainBooksPage = () => {
 
     return (
         <div className={classes.container}>
-            <h2>Список книг</h2>
             <AdminCreateButton text={"Создать книгу"} href={'/new'}/>
+            <h2>Список книг</h2>
             {booksList?.length > 0
                 ? booksList?.map(book => (
-                    <BookItem key={book.id} id={book.id} name={book.name} description={book.description} imageUrl={book.imageUrl}/>
+                    <BookItem
+                        key={book.id}
+                        id={book.id}
+                        name={book.name}
+                        description={book.description}
+                        imageUrl={book.imageUrl}
+                        onDelete={async (id) => {await DeleteHandler(id)}}/>
                 ))
-                :<p>Здесь пока ничего нет</p>
+                : <p>Здесь пока ничего нет</p>
             }
+
         </div>
     );
 };
