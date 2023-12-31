@@ -10,7 +10,7 @@ export const useUpdateUserForm = (id: number) => {
     const [data, setData] = useState<IUpdateUserDTO>({
         login: "",
         password: "",
-        role: UserRoleEnum.Admin || UserRoleEnum.User || UserRoleEnum.Moderator || UserRoleEnum.Editor,
+        role: UserRoleEnum.User || UserRoleEnum.Admin || UserRoleEnum.Moderator || UserRoleEnum.Editor,
     })
 
     const router = useRouter()
