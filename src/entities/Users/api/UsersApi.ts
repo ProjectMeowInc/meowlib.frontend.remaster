@@ -46,6 +46,4 @@ export class UsersApi {
 
         return Result.withOk(result.unwrap())
     }
-
-
 }
