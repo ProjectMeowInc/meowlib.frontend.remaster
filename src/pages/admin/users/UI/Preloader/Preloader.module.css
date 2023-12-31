@@ -1,0 +1,36 @@
+.container {
+    width: 20vh;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-top: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container > h2 {
+    margin: 0;
+    font-family: Ubuntu, sans-serif;
+}
+
+.preloader {
+    border: 5px dotted #000;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
