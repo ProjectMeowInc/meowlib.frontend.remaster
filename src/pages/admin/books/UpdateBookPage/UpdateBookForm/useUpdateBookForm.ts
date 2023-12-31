@@ -39,7 +39,7 @@ export const useUpdateBookForm = (bookId: number) => {
 
         router.back()
         router.refresh()
-        return AlertService.successMessage("Тег успешно обновлён")
+        return AlertService.successMessage("Книга успешно обновлена")
     }
 
     return {
