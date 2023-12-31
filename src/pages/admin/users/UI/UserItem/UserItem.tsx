@@ -11,7 +11,6 @@ interface IUserItemProps {
     login: string
     role: UserRoleEnum
     href: string
-    onUpdate?: (id: number) => Promise<void>
 }
 
 const UserItem: FC<IUserItemProps> = ({id, login, role}) => {
