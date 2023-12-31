@@ -42,6 +42,7 @@ const MainBooksPage = () => {
                         name={book.name}
                         description={book.description}
                         imageUrl={book.imageUrl}
+                        author={book.author}
                         onDelete={async (id) => {await DeleteHandler(id)}}/>
                 ))
                 : <p>Здесь пока ничего нет</p>
