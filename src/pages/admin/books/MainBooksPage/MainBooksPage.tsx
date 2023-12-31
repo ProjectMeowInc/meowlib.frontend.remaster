@@ -5,6 +5,7 @@ import {BookService} from "@/entities/Book/service/BookService";
 import {IShortBookDto} from "@/entities/Book/models/dto/ShortBookDto";
 import classes from './MainBooksPage.module.css'
 import BookItem from "@/pages/admin/books/MainBooksPage/UI/BookItem/BookItem";
+import AdminCreateButton from "@/pages/admin/UI/AdminCreateButton/AdminCreateButton";
 
 const MainBooksPage = () => {
 
@@ -28,6 +29,7 @@ const MainBooksPage = () => {
     return (
         <div className={classes.container}>
             <h2>Список книг</h2>
+            <AdminCreateButton text={"Создать книгу"} href={'/new'}/>
             {booksList?.length > 0
                 ? booksList?.map(book => (
                     <BookItem key={book.id} id={book.id} name={book.name} description={book.description} imageUrl={book.imageUrl}/>
