@@ -8,7 +8,7 @@ import {IUserDTO} from "@/entities/Users/models/dto/IUserDTO";
 
 const  MainUsersPage = () => {
 
-    const [userList, setUserList] = useState<IUserDTO[] | null>(null)
+    const [usersList, setUsersList] = useState<IUserDTO[] | null>(null)
 
     useEffect(() => {
         UsersService.getAllUsers().then(getUserResult => {
@@ -16,11 +16,11 @@ const  MainUsersPage = () => {
                 return <div>{getUserResult.getError().errorMessage}</div>
             }
 
-            setUserList(getUserResult.unwrap())
+            setUsersList(getUserResult.unwrap())
         })
     }, [])
 
-    if (!userList) {
+    if (!usersList) {
         return (
             <p>Загрузка</p>
         )
@@ -30,8 +30,8 @@ const  MainUsersPage = () => {
         <div className={classes.container}>
             <h2 className={classes.title}>Список пользователей</h2>
 
-            {userList.length > 0
-                    ? userList.map(user => (
+            {usersList.length > 0
+                    ? usersList.map(user => (
                             <UserItem key={user.id} id={user.id} login={user.login} role={user.role} href={""} />
                         ))
                     : <p>Здесь пока ничего нет</p>
