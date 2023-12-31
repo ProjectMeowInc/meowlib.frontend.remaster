@@ -14,7 +14,7 @@ export class UsersService {
         return Result.withOk(result.unwrap().items)
     }
 
-    static async getUserById(usersId: number) {
+    static async getUserById(usersId: number): Promise<Result<IUserDTO>> {
         return await UsersApi.getUserById(usersId)
     }
 
