@@ -6,6 +6,7 @@ import {IShortBookDto} from "@/entities/Book/models/dto/ShortBookDto";
 import classes from './MainBooksPage.module.css'
 import BookItem from "@/pages/admin/books/MainBooksPage/UI/BookItem/BookItem";
 import AdminCreateButton from "@/pages/admin/UI/AdminCreateButton/AdminCreateButton";
+import Preloader from "@/pages/admin/UI/Preloader/Preloader";
 
 const MainBooksPage = () => {
 
@@ -22,7 +23,7 @@ const MainBooksPage = () => {
 
     if(!booksList) {
         return (
-            <p>Загрузка</p>
+            <Preloader/>
         )
     }
 
