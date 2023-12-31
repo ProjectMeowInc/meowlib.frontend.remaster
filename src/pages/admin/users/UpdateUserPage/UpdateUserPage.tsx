@@ -1,12 +1,6 @@
 import React, {FC} from 'react';
-import classes from "@/pages/admin/tags/UpdateTagPage/updateTagPage.module.css";
-import Input from "@/shared/UI/Input/Input";
-import {useUpdateTagForm} from "@/pages/admin/tags/UpdateTagPage/useUpdateTagForm";
-import {useUpdateUserForm} from "@/pages/admin/users/UpdateUserPage/useUpdateUserForm";
 import {UsersService} from "@/entities/Users/service/UsersService";
-import UpdateTagForm from "@/pages/admin/tags/UpdateTagPage/UpdateTagForm/UpdateTagForm";
-import UpdateUserForm from "@/pages/admin/users/UpdateUserPage/UpdateUserForm/UpdateUserForm";
-import {IUpdateUserByIdRequest} from "@/entities/Users/models/requests/IUpdateUserByIdRequest";
+import UpdateUserForm from "@/pages/admin/users/UI/UpdateUserForm/UpdateUserForm";
 
 interface IUpdateUserPageProps {
     params: {
