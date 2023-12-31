@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {BookService} from "@/entities/Book/service/BookService";
 import {IShortBookDto} from "@/entities/Book/models/dto/ShortBookDto";
 import classes from './MainBooksPage.module.css'
-import BookItem from "@/pages/admin/books/UI/BookItem/BookItem";
+import BookItem from "@/pages/admin/books/MainBooksPage/UI/BookItem/BookItem";
 
 const MainBooksPage = () => {
 
