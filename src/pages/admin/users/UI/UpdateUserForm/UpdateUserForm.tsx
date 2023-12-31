@@ -1,6 +1,6 @@
 "use client"
 
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import Input from "@/shared/UI/Input/Input";
 import {useUpdateUserForm} from "@/pages/admin/users/UI/UpdateUserForm/useUpdateUserForm";
 import Button from "@/shared/UI/button/Button";
