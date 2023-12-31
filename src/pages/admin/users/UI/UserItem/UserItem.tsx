@@ -10,7 +10,6 @@ interface IUserItemProps {
     id: number
     login: string
     role: UserRoleEnum
-    href: string
 }
 
 const UserItem: FC<IUserItemProps> = ({id, login, role}) => {
