@@ -2,7 +2,7 @@
 
 import React, {FC} from 'react';
 import Input from "@/shared/UI/Input/Input";
-import {useUpdateUserForm} from "@/pages/admin/users/UpdateUserPage/useUpdateUserForm";
+import {useUpdateUserForm} from "@/pages/admin/users/UI/UpdateUserForm/useUpdateUserForm";
 import Button from "@/shared/UI/button/Button";
 import {IUserDTO} from "@/entities/Users/models/dto/IUserDTO";
 import classes from './UpdateUserForm.module.css'
