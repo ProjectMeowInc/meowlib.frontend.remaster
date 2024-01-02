@@ -63,4 +63,8 @@ export class BookService {
     static async addPeopleToBook(bookId: number, requestData: IAddPeopleToBook): Promise<EmptyResult> {
         return await BookApi.addPeopleToBook(bookId, requestData)
     }
+
+    static async deletePeopleBook(bookId: number, peopleId: number): Promise<EmptyResult> {
+        return await BookApi.deletePeopleBook(bookId, peopleId)
+    }
 }

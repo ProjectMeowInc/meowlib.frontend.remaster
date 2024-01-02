@@ -130,4 +130,20 @@ export class BookApi {
 
         return EmptyResult.withOk()
     }
+
+    static async deletePeopleBook(bookId: number, peopleId: number): Promise<EmptyResult> {
+        const result = await new HTTPResult<void>()
+            .withUrl(`v1/books/${bookId}/people/${peopleId}`)
+            .withAuth()
+            .withBody({bookId, peopleId})
+            .withDeleteMethod()
+            .sendAsync()
+
+        if (result.hasError()) {
+            return EmptyResult.withError(result.getError())
+        }
+
+        return EmptyResult.withOk()
+
+    }
 }
