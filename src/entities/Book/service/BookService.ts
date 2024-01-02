@@ -7,6 +7,7 @@ import { ICreateBook } from "@/entities/Book/models/requests/CreateBookRequest"
 import { IBookDto } from "@/entities/Book/models/dto/BookDto"
 import { IShortBookDto } from "@/entities/Book/models/dto/ShortBookDto"
 import { DEFAULT_BOOK_IMAGE } from "@/app/consts"
+import {IAddPeopleToBook} from "@/entities/Book/models/requests/AddPeopleToBook";
 
 export class BookService {
     static async getBooks(): Promise<Result<IShortBookDto[]>> {
@@ -57,5 +58,9 @@ export class BookService {
 
     static async uploadImageBook(bookId: number, image: FormData): Promise<EmptyResult> {
         return await BookApi.uploadImageBook(bookId, image)
+    }
+
+    static async addPeopleToBook(bookId: number, requestData: IAddPeopleToBook): Promise<EmptyResult> {
+        return await BookApi.addPeopleToBook(bookId, requestData)
     }
 }
