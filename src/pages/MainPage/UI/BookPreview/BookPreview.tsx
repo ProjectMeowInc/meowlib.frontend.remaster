@@ -6,7 +6,7 @@ interface IBookPreview {
     id: number
     image: string | null
     name: string
-    author: string
+    author: string | undefined
 }
 
 const BookPreview: React.FC<IBookPreview> = ({ image, name, author }) => {

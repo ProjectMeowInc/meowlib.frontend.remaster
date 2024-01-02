@@ -2,7 +2,6 @@ import React, {FC} from 'react';
 import classes from './BookItem.module.css'
 import Link from "next/link";
 import {usePathname} from "next/navigation";
-import BookName from "@/pages/BookPages/BookPage/UI/BookName/BookName";
 import BookPreview from "@/pages/MainPage/UI/BookPreview/BookPreview";
 
 interface IBookItemProps {
@@ -10,7 +9,7 @@ interface IBookItemProps {
     name: string
     description: string
     imageUrl: string
-    author: any
+    author: string | undefined
     onDelete: (id: number) => Promise<void>
 }
 
