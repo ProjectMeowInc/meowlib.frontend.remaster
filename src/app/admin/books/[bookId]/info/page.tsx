@@ -1,3 +1,3 @@
-import UpdateInfoBookForm from "@/pages/admin/books/UpdateBookPage/UI/UpdateInfoBookForm/UpdateInfoBookForm";
+import UpdateBookInfoPage from "@/pages/admin/books/UpdateBookInfoPage/UpdateBookInfoPage"
 
-export default UpdateInfoBookForm
+export default UpdateBookInfoPage
