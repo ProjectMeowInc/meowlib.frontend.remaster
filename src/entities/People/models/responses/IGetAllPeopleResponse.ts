@@ -1,6 +1,7 @@
-export interface IGetAllAuthorsResponse {
+export interface IGetAllPeopleResponse {
     items: {
         id: number
         name: string
     }[]
+    page: number
 }

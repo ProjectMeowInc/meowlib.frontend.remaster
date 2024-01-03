@@ -1,4 +1,4 @@
-export interface IAuthorDto {
+export interface PeopleEntity {
     id: number
     name: string
 }
