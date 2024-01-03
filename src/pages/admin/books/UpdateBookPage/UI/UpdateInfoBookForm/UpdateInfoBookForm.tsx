@@ -1,3 +1,5 @@
+"use client"
+
 import React, {FC} from 'react';
 import Input from "@/shared/UI/Input/Input";
 import Button from "@/shared/UI/button/Button";
