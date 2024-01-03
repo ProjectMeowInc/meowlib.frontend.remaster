@@ -1,7 +1,7 @@
 .container {
     width: 270px;
     height: 416px;
-    padding: 20px 0 0 35px;
+    padding: 20px 0 0 20px;
     transition: 0.4s all;
     cursor: pointer;
 }
