@@ -1,6 +1,8 @@
 import React, {FC} from 'react';
 import {BookService} from "@/entities/Book/service/BookService";
-import UpdateBookForm from "@/pages/admin/books/UpdateBookPage/UpdateBookForm/UpdateBookForm";
+import MainAdminPageListItem from "@/pages/admin/MainAdminPage/UI/MainAdminPageListItem/MainAdminPageListItem";
+import classes from './UpdateBookPage.module.css'
+import UpdateInfoBookForm from "@/pages/admin/books/UpdateBookPage/UI/UpdateInfoBookForm/UpdateInfoBookForm";
 
 interface IUpdateBookPageProps {
    params: {
@@ -18,8 +20,14 @@ const UpdateBookPage: FC<IUpdateBookPageProps> = async ({ params: {bookId} }) =>
     const book = getBookResult.unwrap()
 
     return (
-        <div>
-            <UpdateBookForm book={book}/>
+        <div className={classes.container}>
+            <h1>Обновление книги</h1>
+            <MainAdminPageListItem href={`${book.id}/info`}>Информация</MainAdminPageListItem>
+            <MainAdminPageListItem href={`${book.id}/pic`}>Изображение</MainAdminPageListItem>
+            <MainAdminPageListItem href={`${book.id}/people`}>Люди</MainAdminPageListItem>
+            <MainAdminPageListItem href={`${book.id}/tags`}>Теги</MainAdminPageListItem>
+            <MainAdminPageListItem href={`${book.id}/trans`}>Переводы</MainAdminPageListItem>
+            <UpdateInfoBookForm book={book} styles={{display: 'none'}}/>
         </div>
     );
 };
