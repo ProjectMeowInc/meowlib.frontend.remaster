@@ -1,6 +1,8 @@
 import { FC } from "react"
 import { PeopleService } from "@/entities/People/services/PeopleService"
 import EmptyTag from "@/shared/UI/EmptyTag/EmptyTag"
+import UpdatePeopleForm from "@/pages/admin/people/UpdatePeoplePage/UI/UpdatePeopleForm/UpdatePeopleForm"
+import classes from "./updatePeoplePage.module.css"
 
 interface IUpdatePeoplePageProps {
     params: {
@@ -19,8 +21,8 @@ const UpdatePeoplePage: FC<IUpdatePeoplePageProps> = async ({params: {peopleId}}
     const people = result.unwrap()
 
     return (
-        <div>
-
+        <div className={classes.wrapper}>
+            <UpdatePeopleForm id={people.id} name={people.name}/>
         </div>
     )
 }
