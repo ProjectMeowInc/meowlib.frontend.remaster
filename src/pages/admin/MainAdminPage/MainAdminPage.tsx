@@ -9,7 +9,7 @@ const MainAdminPage = () => {
                 <div className={classes.items}>
                     <MainAdminPageListItem href={"/admin/tags"}>Теги</MainAdminPageListItem>
                     <MainAdminPageListItem href={"/admin/users"}>Пользователи</MainAdminPageListItem>
-                    <MainAdminPageListItem href={"/admin/people"}>Люди</MainAdminPageListItem>
+                    <MainAdminPageListItem href={"/admin/people?page=1"}>Люди</MainAdminPageListItem>
                 </div>
             </div>
         </div>

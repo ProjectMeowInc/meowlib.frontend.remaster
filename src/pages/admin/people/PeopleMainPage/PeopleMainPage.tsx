@@ -7,7 +7,7 @@ import ListItem from "@/shared/UI/ListItem/ListItem"
 
 const PeopleMainPage = () => {
 
-    const {people, DeleteHandler} = usePeopleMainPage()
+    const {people, DeleteHandler, SwapPage} = usePeopleMainPage()
 
     //TODO: Заменить на нормальный Loader
     if (!people) {
@@ -21,6 +21,11 @@ const PeopleMainPage = () => {
             {people.map(p => (
                 <ListItem key={p.id} id={p.id} text={p.name} href={`/${p.id}`} onDelete={ async (id) => await DeleteHandler(id)}/>
             ))}
+
+            <div className={classes.controls}>
+                <div onClick={() => SwapPage(- 1)}>Предидущая</div>
+                <div onClick={() => SwapPage(1)}>Следущая</div>
+            </div>
         </div>
     )
 }

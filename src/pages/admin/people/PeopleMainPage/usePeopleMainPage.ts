@@ -14,14 +14,6 @@ export const usePeopleMainPage = () => {
     const router = useRouter()
 
     useEffect(() => {
-        if (searchParams) {
-            setPageNumber(Number(searchParams.get("page")) ?? 1)
-        }
-
-        if (!searchParams) {
-            params.set("page", "1")
-        }
-
         PeopleService.getAllAsync(pageNumber).then(result => {
             if (result.hasError()) {
                 return AlertService.errorMessage(result.getError().errorMessage)
@@ -31,8 +23,19 @@ export const usePeopleMainPage = () => {
         })
     }, [pageNumber])
 
-    const SwapPage = () => {
-        params.set("page", pageNumber.toString())
+    const SwapPage = (number: number) => {
+        if (!searchParams) {
+            params.set("page", "1")
+            return
+        }
+
+        if (pageNumber + number < 1) {
+            return
+        }
+
+        setPageNumber(prevState => prevState + number)
+
+        params.set("page", (pageNumber + number).toString())
         const query = `${pathname}?${params.toString()}`
         router.push(query)
     }
@@ -49,8 +52,7 @@ export const usePeopleMainPage = () => {
 
     return {
         people,
-        setPageNumber,
-        SwapPage,
-        DeleteHandler
+        DeleteHandler,
+        SwapPage
     }
 }
