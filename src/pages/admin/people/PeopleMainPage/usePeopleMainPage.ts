@@ -5,11 +5,13 @@ import { AlertService } from "@/shared/services/AlertService"
 import { useGetParams } from "@/shared/hooks/useGetParams"
 import { useFirstLoadingAsync } from "@/shared/hooks/useFirstLoadingAsync"
 import { LogService } from "@/shared/services/LogService"
+import { usePage } from "@/shared/hooks/usePage"
 
 export const usePeopleMainPage = () => {
     const [people, setPeople] = useState<IPeopleDto[]>()
     const [currentPage, setCurrentPage] = useState<number>(1)
     const {getCurrentParams, setParam} = useGetParams()
+    const page = usePage()
 
     useFirstLoadingAsync(async () => {
         const currentParams = getCurrentParams()
@@ -50,7 +52,7 @@ export const usePeopleMainPage = () => {
             return AlertService.errorMessage(result.getError().errorMessage)
         }
 
-        window.location.reload()
+        page.reload()
     }
 
     return {
