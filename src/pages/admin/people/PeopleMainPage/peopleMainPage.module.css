@@ -1,0 +1,14 @@
+.wrapper {
+    width: 70%;
+    margin: 50px auto;
+}
+
+.controls {
+    margin: 50px auto 0 auto;
+    font-size: 20px;
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    cursor: pointer;
+    font-weight: 500;
+}
