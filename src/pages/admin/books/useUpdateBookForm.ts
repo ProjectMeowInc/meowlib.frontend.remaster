@@ -4,8 +4,6 @@ import {IOnChangeEvent} from "@/shared/models/events/IOnChangeEvent";
 import {AlertService} from "@/shared/services/AlertService";
 import {BookService} from "@/entities/Book/service/BookService";
 import {IUpdateBookRequest} from "@/entities/Book/models/requests/UpdateBookRequest";
-import {IAddPeopleToBook} from "@/entities/Book/models/requests/AddPeopleToBook";
-import {IUpdateBookTagRequest} from "@/entities/Book/models/requests/UpdateBookTagRequest";
 
 export const useUpdateBookForm = (bookId: number) => {
     const [info, setInfo] = useState<IUpdateBookRequest>({
@@ -38,7 +36,6 @@ export const useUpdateBookForm = (bookId: number) => {
         router.back()
         router.refresh()
         return AlertService.successMessage("Изображение успешно обновлено")
-        console.log(image)
     }
 
     const DeleteHandler = async (bookId: number, peopleId: number) => {
