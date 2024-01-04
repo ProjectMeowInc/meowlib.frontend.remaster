@@ -118,7 +118,7 @@ export class BookApi {
 
     static async addPeopleToBook(bookId: number, requestData: IAddPeopleToBook): Promise<EmptyResult> {
         const result = await new HTTPResult<void>()
-            .withUrl(`v1/books/${bookId}/people`)
+            .withUrl(`/v1/books/${bookId}/people`)
             .withAuth()
             .withBody(requestData)
             .withPostMethod()
