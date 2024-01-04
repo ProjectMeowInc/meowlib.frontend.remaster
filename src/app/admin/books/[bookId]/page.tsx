@@ -1,3 +1,3 @@
-import UpdateBookPage from "@/pages/admin/books/UpdateBookPage/UpdateBookPage";
+import MainUpdateBookPage from "@/pages/admin/books/MainUpdateBookPage/MainUpdateBookPage";
 
-export default UpdateBookPage
+export default MainUpdateBookPage
