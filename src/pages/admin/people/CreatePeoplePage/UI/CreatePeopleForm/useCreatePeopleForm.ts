@@ -7,14 +7,14 @@ import { useRouter } from "next/navigation"
 
 export const useCreatePeopleForm = () => {
     const [requestData, setRequestData] = useState<IShortPeopleDto>({
-        name: ""
+        name: "",
     })
     const router = useRouter()
 
-    const ChangeHandler = ({name, newValue}: IOnChangeEvent) => {
-        setRequestData(prevState => ({
+    const ChangeHandler = ({ name, newValue }: IOnChangeEvent) => {
+        setRequestData((prevState) => ({
             ...prevState,
-            [name]: newValue
+            [name]: newValue,
         }))
     }
 
@@ -33,6 +33,6 @@ export const useCreatePeopleForm = () => {
 
     return {
         SubmitHandler,
-        ChangeHandler
+        ChangeHandler,
     }
 }

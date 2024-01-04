@@ -10,7 +10,7 @@ import { usePage } from "@/shared/hooks/usePage"
 export const usePeopleMainPage = () => {
     const [people, setPeople] = useState<IPeopleDto[]>()
     const [currentPage, setCurrentPage] = useState<number>(1)
-    const {getCurrentParams, setParam} = useGetParams()
+    const { getCurrentParams, setParam } = useGetParams()
     const page = usePage()
 
     useFirstLoadingAsync(async () => {
@@ -25,7 +25,7 @@ export const usePeopleMainPage = () => {
     })
 
     useEffect(() => {
-        PeopleService.getAllAsync(currentPage).then(result => {
+        PeopleService.getAllAsync(currentPage).then((result) => {
             if (result.hasError()) {
                 return AlertService.errorMessage(result.getError().errorMessage)
             }
@@ -58,6 +58,6 @@ export const usePeopleMainPage = () => {
     return {
         people,
         DeleteHandler,
-        ChangePage
+        ChangePage,
     }
 }

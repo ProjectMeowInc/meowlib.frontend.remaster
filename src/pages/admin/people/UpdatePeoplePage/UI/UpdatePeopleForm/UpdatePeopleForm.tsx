@@ -11,14 +11,13 @@ interface IUpdatePeopleFormProps {
     name: string
 }
 
-const UpdatePeopleForm: FC<IUpdatePeopleFormProps> = ({id, name}) => {
-
-    const {SubmitHandler, ChangeHandler} = useUpdatePeopleForm(id, name)
+const UpdatePeopleForm: FC<IUpdatePeopleFormProps> = ({ id, name }) => {
+    const { SubmitHandler, ChangeHandler } = useUpdatePeopleForm(id, name)
 
     return (
         <form className={classes.form} onSubmit={SubmitHandler}>
             <h1>Обновление человека</h1>
-            <Input name={"name"} type={"text"} placeholder={name} onChange={ChangeHandler}/>
+            <Input name={"name"} type={"text"} placeholder={name} onChange={ChangeHandler} />
             <Button>Отравить</Button>
         </form>
     )

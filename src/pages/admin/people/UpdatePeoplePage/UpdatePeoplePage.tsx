@@ -10,8 +10,7 @@ interface IUpdatePeoplePageProps {
     }
 }
 
-const UpdatePeoplePage: FC<IUpdatePeoplePageProps> = async ({params: {peopleId}}) => {
-
+const UpdatePeoplePage: FC<IUpdatePeoplePageProps> = async ({ params: { peopleId } }) => {
     const result = await PeopleService.getByIdAsync(peopleId)
 
     if (result.hasError()) {
@@ -22,7 +21,7 @@ const UpdatePeoplePage: FC<IUpdatePeoplePageProps> = async ({params: {peopleId}}
 
     return (
         <div className={classes.wrapper}>
-            <UpdatePeopleForm id={people.id} name={people.name}/>
+            <UpdatePeopleForm id={people.id} name={people.name} />
         </div>
     )
 }

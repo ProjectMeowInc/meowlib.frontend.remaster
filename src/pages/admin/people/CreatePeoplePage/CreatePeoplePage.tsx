@@ -4,7 +4,7 @@ import classes from "./createPeoplePage.module.css"
 const CreatePeoplePage = () => {
     return (
         <div className={classes.wrapper}>
-            <CreatePeopleForm/>
+            <CreatePeopleForm />
         </div>
     )
 }

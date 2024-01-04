@@ -21,8 +21,7 @@ export const useGetParams = () => {
         let currentParams
         if (searchParams) {
             currentParams = new URLSearchParams(Array.from(searchParams.entries()))
-        }
-        else {
+        } else {
             currentParams = new URLSearchParams()
         }
         return currentParams
@@ -33,6 +32,6 @@ export const useGetParams = () => {
     return {
         setParam,
         removeParam,
-        getCurrentParams
+        getCurrentParams,
     }
 }

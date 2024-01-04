@@ -6,8 +6,7 @@ import { usePeopleMainPage } from "@/pages/admin/people/PeopleMainPage/usePeople
 import ListItem from "@/shared/UI/ListItem/ListItem"
 
 const PeopleMainPage = () => {
-
-    const {people, DeleteHandler, ChangePage} = usePeopleMainPage()
+    const { people, DeleteHandler, ChangePage } = usePeopleMainPage()
 
     //TODO: Заменить на нормальный Loader
     if (!people) {
@@ -16,10 +15,16 @@ const PeopleMainPage = () => {
 
     return (
         <div className={classes.wrapper}>
-            <AdminCreateButton text={"Создать человека"} href={"/new"}/>
+            <AdminCreateButton text={"Создать человека"} href={"/new"} />
 
-            {people.map(p => (
-                <ListItem key={p.id} id={p.id} text={p.name} href={`/${p.id}`} onDelete={ async (id) => await DeleteHandler(id)}/>
+            {people.map((p) => (
+                <ListItem
+                    key={p.id}
+                    id={p.id}
+                    text={p.name}
+                    href={`/${p.id}`}
+                    onDelete={async (id) => await DeleteHandler(id)}
+                />
             ))}
 
             <div className={classes.controls}>

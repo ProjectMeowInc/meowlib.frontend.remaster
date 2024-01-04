@@ -7,7 +7,7 @@ import { IOnChangeEvent } from "@/shared/models/events/IOnChangeEvent"
 
 export const useUpdatePeopleForm = (id: number, name: string) => {
     const [requestData, setRequestData] = useState<IShortPeopleDto>({
-        name: name
+        name: name,
     })
     const router = useRouter()
 
@@ -24,15 +24,15 @@ export const useUpdatePeopleForm = (id: number, name: string) => {
         router.refresh()
     }
 
-    const ChangeHandler = ({name, newValue}: IOnChangeEvent) => {
-        setRequestData(prevState => ({
+    const ChangeHandler = ({ name, newValue }: IOnChangeEvent) => {
+        setRequestData((prevState) => ({
             ...prevState,
-            [name]: newValue
+            [name]: newValue,
         }))
     }
 
     return {
         ChangeHandler,
-        SubmitHandler
+        SubmitHandler,
     }
 }
