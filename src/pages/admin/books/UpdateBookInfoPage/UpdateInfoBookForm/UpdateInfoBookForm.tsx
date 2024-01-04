@@ -4,22 +4,19 @@ import React, {FC} from 'react';
 import Input from "@/shared/UI/Input/Input";
 import Button from "@/shared/UI/button/Button";
 import {IBookDto} from "@/entities/Book/models/dto/BookDto";
-import {useUpdateBookForm} from "@/pages/admin/books/UpdateBookPage/UI/useUpdateBookForm";
+import {useUpdateBookForm} from "@/pages/admin/books/useUpdateBookForm";
 
-interface IUpdateBookFormProps {
+export interface IUpdateBookFormProps {
     book: IBookDto
-    styles? : {
-        display: string
-    }
 }
 
 
-const UpdateInfoBookForm:FC<IUpdateBookFormProps> = ({book, styles}) => {
+const UpdateInfoBookForm:FC<IUpdateBookFormProps> = ({book}) => {
 
     const { ChangeInfoHandler, SubmitInfoHandler } = useUpdateBookForm(book.id)
 
     return (
-       <form onSubmit={SubmitInfoHandler} style={styles}>
+       <form onSubmit={SubmitInfoHandler}>
            <Input name={"name"} placeholder={'Введите название книги'} onChange={ChangeInfoHandler} />
            <Input name={"description"} placeholder={'Введите описание книги'} onChange={ChangeInfoHandler} />
            <Button>Отправить</Button>

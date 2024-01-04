@@ -1,8 +1,8 @@
 import { BookService } from "@/entities/Book/service/BookService"
 import React, { FC } from "react"
-import UpdateInfoBookForm from "@/pages/admin/books/UpdateBookPage/UI/UpdateInfoBookForm/UpdateInfoBookForm"
+import UpdateInfoBookForm from "@/pages/admin/books/UpdateBookInfoPage/UpdateInfoBookForm/UpdateInfoBookForm"
 
-interface IUpdateBookInfoPageProps {
+export interface IUpdateBookInfoPageProps {
     params: {
         bookId: number
     }
@@ -10,13 +10,13 @@ interface IUpdateBookInfoPageProps {
 
 const UpdateBookInfoPage: FC<IUpdateBookInfoPageProps> = async ({params: {bookId}}) => {
 
-    const getBookResult = await BookService.getBookById(bookId)
+     const getBookResult = await BookService.getBookById(bookId)
 
     if (getBookResult.hasError()) {
         return <div>{getBookResult.getError().errorMessage}</div>
     }
 
-    const book = getBookResult.unwrap()
+     const book = getBookResult.unwrap()
 
     return (
         <div>

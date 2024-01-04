@@ -19,7 +19,7 @@ export const useUpdateBookForm = (bookId: number) => {
 
     const [people, setPeople] = useState<IAddPeopleToBook>({
         peopleId: 0,
-        role: ''
+        role: "Author"
     })
 
     const [tags, setTags] = useState<IUpdateBookTagRequest>({
@@ -27,20 +27,13 @@ export const useUpdateBookForm = (bookId: number) => {
     })
 
 
-   // const SubmitImageHandler = async (e: FormEvent) => {
-   //      e.preventDefault()
-   //
-   //      // const result = await BookService.uploadImageBook(bookId, image)
-   //
-   //     if (result.hasError()) {
-   //         return AlertService.errorMessage(result.getError().errorMessage)
-   //     }
-   //
-   //     router.back()
-   //     router.refresh()
-   //     return AlertService.successMessage("Изображение успешно обновлено")
-   //
-   //  }
+    const DeleteHandler = async (bookId: number, peopleId: number) => {
+        const result = await BookService.deletePeopleBook(bookId, peopleId)
+
+        if (result.hasError()) {
+            return AlertService.errorMessage(result.getError().errorMessage)
+        }
+    }
 
     const ChangeInfoHandler = ({name, newValue}: IOnChangeEvent) => {
         setInfo((prevState) => ({
@@ -66,6 +59,6 @@ export const useUpdateBookForm = (bookId: number) => {
     return {
         ChangeInfoHandler,
         SubmitInfoHandler,
-        // SubmitImageHandler,
+        DeleteHandler,
     }
 }
