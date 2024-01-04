@@ -1,4 +1,4 @@
-import {FormEvent, useState} from "react";
+import React, {FormEvent, useState} from "react";
 import {useRouter} from "next/navigation";
 import {IOnChangeEvent} from "@/shared/models/events/IOnChangeEvent";
 import {AlertService} from "@/shared/services/AlertService";
@@ -13,19 +13,33 @@ export const useUpdateBookForm = (bookId: number) => {
         description: ''
     })
 
+    const [image, setImage] = useState<FormData | null>(null)
+
     const router = useRouter()
 
-    const [image, setImage] = useState<FormData>()
+    function UpdateImageHandler(event: React.ChangeEvent<HTMLInputElement>) {
+        if (event.target.files) {
+            const file = event.target.files[0]
+            const formData = new FormData()
+            formData.append('image', file)
+            setImage(formData)
+        }
+    }
 
-    const [people, setPeople] = useState<IAddPeopleToBook>({
-        peopleId: 0,
-        role: "Author"
-    })
+    const SubmitImageHandler = async (e: FormEvent) => {
+        e.preventDefault()
 
-    const [tags, setTags] = useState<IUpdateBookTagRequest>({
-        tags: []
-    })
+        const result = await BookService.uploadImageBook(bookId, image as FormData)
 
+        if (result.hasError()) {
+            return AlertService.errorMessage(result.getError().errorMessage)
+        }
+
+        router.back()
+        router.refresh()
+        return AlertService.successMessage("Изображение успешно обновлено")
+        console.log(image)
+    }
 
     const DeleteHandler = async (bookId: number, peopleId: number) => {
         const result = await BookService.deletePeopleBook(bookId, peopleId)
@@ -60,5 +74,7 @@ export const useUpdateBookForm = (bookId: number) => {
         ChangeInfoHandler,
         SubmitInfoHandler,
         DeleteHandler,
+        UpdateImageHandler,
+        SubmitImageHandler,
     }
 }
