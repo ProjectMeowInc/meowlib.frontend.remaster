@@ -13,11 +13,13 @@ const MainUpdateBookPage: FC<IUpdateBookPageProps> = async ({ params: {bookId} }
     return (
         <div className={classes.container}>
             <h1>Обновление книги</h1>
+           <div className={classes.items}>
             <MainAdminPageListItem href={`${bookId}/info`}>Информация</MainAdminPageListItem>
             <MainAdminPageListItem href={`${bookId}/image`}>Изображение</MainAdminPageListItem>
             <MainAdminPageListItem href={`${bookId}/people`}>Люди</MainAdminPageListItem>
             <MainAdminPageListItem href={`${bookId}/tags`}>Теги</MainAdminPageListItem>
             <MainAdminPageListItem href={`${bookId}/trans`}>Переводы</MainAdminPageListItem>
+           </div>
         </div>
     );
 };
