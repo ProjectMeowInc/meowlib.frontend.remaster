@@ -1,0 +1,36 @@
+.link {
+    margin-top: 30px;
+    width: 100%;
+    height: 70px;
+    background: #b5c8db;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+}
+
+.link_text {
+    color: white;
+    text-decoration: none;
+}
+
+.link__wrapper {
+    margin: 0 auto;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete_btn, .add_btn {
+    transition: 0.4s all;
+    cursor: pointer;
+}
+
+.delete_btn:hover {
+    color: red;
+}
+
+.add_btn:hover {
+    color: greenyellow;
+}
