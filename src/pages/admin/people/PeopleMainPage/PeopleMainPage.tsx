@@ -7,7 +7,7 @@ import ListItem from "@/shared/UI/ListItem/ListItem"
 
 const PeopleMainPage = () => {
 
-    const {people, DeleteHandler, SwapPage} = usePeopleMainPage()
+    const {people, DeleteHandler, ChangePage} = usePeopleMainPage()
 
     //TODO: Заменить на нормальный Loader
     if (!people) {
@@ -23,8 +23,8 @@ const PeopleMainPage = () => {
             ))}
 
             <div className={classes.controls}>
-                <div onClick={() => SwapPage(- 1)}>Предидущая</div>
-                <div onClick={() => SwapPage(1)}>Следущая</div>
+                <div onClick={() => ChangePage(-1)}>Предыдущая</div>
+                <div onClick={() => ChangePage(1)}>Следующая</div>
             </div>
         </div>
     )
