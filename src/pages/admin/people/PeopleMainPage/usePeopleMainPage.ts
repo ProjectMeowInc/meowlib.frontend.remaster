@@ -9,7 +9,7 @@ import { LogService } from "@/shared/services/LogService"
 export const usePeopleMainPage = () => {
     const [people, setPeople] = useState<IPeopleDto[]>()
     const [currentPage, setCurrentPage] = useState<number>(1)
-    const {getCurrentParams, setParam, removeParam} = useGetParams()
+    const {getCurrentParams, setParam} = useGetParams()
 
     useFirstLoadingAsync(async () => {
         const currentParams = getCurrentParams()
