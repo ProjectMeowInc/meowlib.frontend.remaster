@@ -4,6 +4,8 @@ import {IOnChangeEvent} from "@/shared/models/events/IOnChangeEvent";
 import {AlertService} from "@/shared/services/AlertService";
 import {BookService} from "@/entities/Book/service/BookService";
 import {IUpdateBookRequest} from "@/entities/Book/models/requests/UpdateBookRequest";
+import {IAddPeopleToBook} from "@/entities/Book/models/requests/AddPeopleToBook";
+import {PeopleRoleType} from "@/entities/People/types/PeopleRoleType";
 
 export const useUpdateBookForm = (bookId: number) => {
     const [info, setInfo] = useState<IUpdateBookRequest>({
@@ -12,6 +14,8 @@ export const useUpdateBookForm = (bookId: number) => {
     })
 
     const [image, setImage] = useState<FormData | null>(null)
+
+
 
     const router = useRouter()
 
@@ -38,12 +42,28 @@ export const useUpdateBookForm = (bookId: number) => {
         return AlertService.successMessage("Изображение успешно обновлено")
     }
 
-    const DeleteHandler = async (bookId: number, peopleId: number) => {
+    const DeletePeopleHandler = async (bookId: number, peopleId: number) => {
         const result = await BookService.deletePeopleBook(bookId, peopleId)
 
         if (result.hasError()) {
             return AlertService.errorMessage(result.getError().errorMessage)
         }
+
+        return AlertService.successMessage('Человек успешно удален')
+    }
+
+    const AddPeopleHandler = async (bookId: number, peopleId: number, peopleRole: PeopleRoleType) => {
+        const people = {
+            peopleId: peopleId,
+            role: peopleRole
+        }
+        const result = await BookService.addPeopleToBook(bookId, people as IAddPeopleToBook)
+
+        if (result.hasError()) {
+            return AlertService.errorMessage(result.getError().errorMessage)
+        }
+
+        return AlertService.successMessage('Человек успешно добавлен к книге')
     }
 
     const ChangeInfoHandler = ({name, newValue}: IOnChangeEvent) => {
@@ -67,11 +87,13 @@ export const useUpdateBookForm = (bookId: number) => {
         return AlertService.successMessage("Информация успешно обновлена")
     }
 
+
     return {
         ChangeInfoHandler,
         SubmitInfoHandler,
-        DeleteHandler,
+        DeletePeopleHandler,
         UpdateImageHandler,
         SubmitImageHandler,
+        AddPeopleHandler,
     }
 }

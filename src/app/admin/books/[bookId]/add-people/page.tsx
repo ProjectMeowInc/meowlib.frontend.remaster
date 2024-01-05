@@ -1,3 +1,3 @@
-import AddBookPeople from "@/pages/admin/books/AddBookPeople/AddBookPeople";
+import AddBookPeoplePage from "@/pages/admin/books/AddBookPeople/AddBookPeoplePage";
 
-export default AddBookPeople
+export default AddBookPeoplePage

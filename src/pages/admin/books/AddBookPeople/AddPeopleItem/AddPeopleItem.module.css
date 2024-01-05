@@ -22,13 +22,9 @@
     align-items: center;
 }
 
-.delete_btn, .add_btn {
+.add_btn {
     transition: 0.4s all;
     cursor: pointer;
-}
-
-.delete_btn:hover {
-    color: red;
 }
 
 .add_btn:hover {
