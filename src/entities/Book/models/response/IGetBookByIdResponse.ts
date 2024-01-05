@@ -1,4 +1,4 @@
-import {Author} from "next/dist/lib/metadata/types/metadata-types";
+import {PeopleRoleType} from "@/entities/People/types/PeopleRoleType";
 
 export interface IGetBookByIdResponse {
     id: number
@@ -8,7 +8,7 @@ export interface IGetBookByIdResponse {
     peoples?: {
         id: number
         name: string
-        role: Author
+        role: PeopleRoleType
     }
     tags: {
         id: number
