@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "style-fix": "prettier ./src --write",
+        "style-fix": "./.tools/auto-prettier/AutoPrettier",
         "build": "next build",
         "start": "next start",
         "lint": "next lint"
