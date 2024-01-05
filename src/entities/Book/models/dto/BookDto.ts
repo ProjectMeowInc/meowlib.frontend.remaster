@@ -1,11 +1,14 @@
+import {PeopleRoleType} from "@/entities/People/types/PeopleRoleType";
+
 export interface IBookDto {
     id: number
     name: string
     description: string
     imageUrl?: string
-    author?: {
+    peoples?: {
         id: number
         name: string
+        role: PeopleRoleType
     }
     tags: {
         id: number
