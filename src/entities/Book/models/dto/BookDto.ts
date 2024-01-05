@@ -5,7 +5,7 @@ export interface IBookDto {
     name: string
     description: string
     imageUrl?: string
-    peoples?: {
+    peoples: {
         id: number
         name: string
         role: PeopleRoleType
