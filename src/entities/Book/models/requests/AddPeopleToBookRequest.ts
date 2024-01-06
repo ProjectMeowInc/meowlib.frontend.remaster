@@ -1,6 +1,6 @@
 import {PeopleRoleType} from "@/entities/People/types/PeopleRoleType";
 
-export interface IAddPeopleToBook {
+export interface IAddPeopleToBookRequest {
     peopleId: number
     role: PeopleRoleType
 }

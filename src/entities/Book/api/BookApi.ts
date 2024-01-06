@@ -6,7 +6,7 @@ import { IUpdateBookTagRequest } from "@/entities/Book/models/requests/UpdateBoo
 import { ICreateBook } from "@/entities/Book/models/requests/CreateBookRequest"
 import { IGetBookByIdResponse } from "@/entities/Book/models/response/IGetBookByIdResponse"
 import { IGetAllBookResponse } from "@/entities/Book/models/response/IGetAllBookResponse"
-import {IAddPeopleToBook} from "@/entities/Book/models/requests/AddPeopleToBook";
+import {IAddPeopleToBookRequest} from "@/entities/Book/models/requests/AddPeopleToBookRequest";
 
 export class BookApi {
     static async getBooks(): Promise<Result<IGetAllBookResponse>> {
@@ -116,7 +116,7 @@ export class BookApi {
         return EmptyResult.withOk()
     }
 
-    static async addPeopleToBook(bookId: number, requestData: IAddPeopleToBook): Promise<EmptyResult> {
+    static async addPeopleToBook(bookId: number, requestData: IAddPeopleToBookRequest): Promise<EmptyResult> {
         const result = await new HTTPResult<void>()
             .withUrl(`/v1/books/${bookId}/people`)
             .withAuth()
