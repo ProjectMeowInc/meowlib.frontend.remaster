@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
 import classes from './MainUpdateBookPage.module.css'
 import UpdateImageBookForm from "@/pages/admin/books/UpdateImageBookForm/UpdateImageBookForm";
-import AddBookPeoplePage from "@/pages/admin/books/AddBookPeople/AddBookPeoplePage";
-import DeleteBookPeoplePage from "@/pages/admin/books/DeleteBookPeople/DeleteBookPeoplePage";
+import UpdateBookPeople from "@/pages/admin/books/DeleteBookPeople/UpdateBookPeople";
 import UpdateInfoBookForm from "@/pages/admin/books/UpdateInfoBookForm/UpdateInfoBookForm";
+import UpdateBookTagsPage from "@/pages/admin/books/UpdateBookTagsPage/UpdateBookTagsPage";
 
 interface IUpdateBookPageProps {
    params: {
@@ -19,8 +19,8 @@ const MainUpdateBookPage: FC<IUpdateBookPageProps> = async ({ params: {bookId} }
             <h1>Обновление книги</h1>
              <UpdateInfoBookForm params={{bookId}}/>
              <UpdateImageBookForm params={{bookId}}/>
-             <AddBookPeoplePage params={{bookId}} />
-             <DeleteBookPeoplePage params={{bookId}}/>
+             <UpdateBookPeople params={{bookId}}/>
+             <UpdateBookTagsPage params={{bookId}} />
         </div>
     );
 };

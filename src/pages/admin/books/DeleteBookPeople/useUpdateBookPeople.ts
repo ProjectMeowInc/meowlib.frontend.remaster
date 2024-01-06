@@ -9,7 +9,7 @@ interface IGetPeople {
     role: PeopleRoleType
 }
 
-export const useDeleteBookPeoplePage = (bookId: number) => {
+export const useUpdateBookPeople = (bookId: number) => {
 
     const [peopleList, setPeopleList] = useState<IGetPeople[] | null>(null)
 

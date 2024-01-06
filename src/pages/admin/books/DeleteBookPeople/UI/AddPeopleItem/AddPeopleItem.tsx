@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import classes from './AddPeopleItem.module.css'
 import {PeopleRoleType} from "@/entities/People/types/PeopleRoleType";
-import {useAddPeopleItem} from "@/pages/admin/books/AddBookPeople/AddPeopleItem/useAddPeopleItem";
+import {useAddPeopleItem} from "@/pages/admin/books/DeleteBookPeople/UI/AddPeopleItem/useAddPeopleItem";
 
 interface IPeopleItemProps {
     params: {
@@ -21,11 +21,14 @@ const AddPeopleItem: FC<IPeopleItemProps> = ({ params: {bookId}, id, text, role 
     }
 
     return (
-        <div className={classes.link} onClick={handleAddClick}>
-            <div className={classes.link__wrapper}>
-                <p className={classes.link_text}>
-                    {text}
-                </p>
+        <div className={classes.container} onClick={handleAddClick}>
+
+            <div className={classes.text__container}>
+
+                <p className={classes.text}>{text}</p>
+
+                <p className={classes.author}>{role}</p>
+
             </div>
         </div>
     )
