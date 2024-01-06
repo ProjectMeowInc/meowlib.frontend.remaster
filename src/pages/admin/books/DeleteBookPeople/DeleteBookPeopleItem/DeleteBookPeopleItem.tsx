@@ -1,19 +1,32 @@
 import React, {FC} from 'react';
 import {PeopleRoleType} from "@/entities/People/types/PeopleRoleType";
+import classes from './DeleteBookPeopleItem.module.css'
+import {
+    useDeleteBookPeopleItem
+} from "@/pages/admin/books/DeleteBookPeople/DeleteBookPeopleItem/useDeleteBookPeopleItem";
 
 interface IDeleteBookPeopleItemProps {
+    params: {
+        bookId: number
+    }
     id: number
     name: string
     role: PeopleRoleType
-    onDelete: (id: number) => Promise<void>
 }
 
-const DeleteBookPeopleItem:FC<IDeleteBookPeopleItemProps> = ({id, name , role, onDelete}) => {
+const DeleteBookPeopleItem:FC<IDeleteBookPeopleItemProps> = ({params: {bookId}, id, name , role}) => {
+
+    const { DeletePeopleHandler } = useDeleteBookPeopleItem()
+
+    const handleDeleteClick = () => {
+        DeletePeopleHandler(bookId, id)
+
+    }
+
     return (
-        <div>
+        <div className={classes.container} onClick={handleDeleteClick}>
             <p>{name}</p>
             <p>{role}</p>
-            <p onClick={async ()=> await onDelete(id)}>Удалить</p>
         </div>
     );
 };
