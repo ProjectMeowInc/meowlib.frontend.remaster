@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import classes from './AddPeopleItem.module.css'
-import {useUpdateBookForm} from "@/pages/admin/books/useUpdateBookForm";
 import {PeopleRoleType} from "@/entities/People/types/PeopleRoleType";
+import {useAddPeopleItem} from "@/pages/admin/books/AddBookPeople/AddPeopleItem/useAddPeopleItem";
 
 interface IPeopleItemProps {
     params: {
@@ -14,7 +14,7 @@ interface IPeopleItemProps {
 
 const AddPeopleItem: FC<IPeopleItemProps> = ({params: {bookId}, id, text, role}) => {
 
-    const {AddPeopleHandler} = useUpdateBookForm(bookId)
+    const { AddPeopleHandler } = useAddPeopleItem()
 
     const handleAddClick = () => {
         AddPeopleHandler(bookId, id, role);
