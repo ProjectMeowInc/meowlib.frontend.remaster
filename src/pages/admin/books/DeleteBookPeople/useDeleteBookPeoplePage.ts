@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {BookService} from "@/entities/Book/service/BookService";
 import {PeopleRoleType} from "@/entities/People/types/PeopleRoleType";
+import {AlertService} from "@/shared/services/AlertService";
 
 interface IGetPeople {
     id: number
@@ -15,7 +16,7 @@ export const useDeleteBookPeoplePage = (bookId: number) => {
     useEffect(() => {
         BookService.getBookById(bookId).then(getPeoplesResult => {
             if(getPeoplesResult.hasError()) {
-                return getPeoplesResult.getError().errorMessage
+                return AlertService.errorMessage(getPeoplesResult.getError().errorMessage)
             }
 
             setPeopleList(getPeoplesResult.unwrap().peoples)
