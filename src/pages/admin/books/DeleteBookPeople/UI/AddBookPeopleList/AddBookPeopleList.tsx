@@ -3,16 +3,16 @@
 import React, {FC, useState} from 'react';
 import Preloader from "@/pages/admin/UI/Preloader/Preloader";
 import AddPeopleItem from "@/pages/admin/books/DeleteBookPeople/UI/AddPeopleItem/AddPeopleItem";
-import classes from './AddBookPeoplePage.module.css'
-import {useAddBookPeople} from "@/pages/admin/books/DeleteBookPeople/UI/AddBookPeople/useAddBookPeoplePage";
+import classes from './AddBookPeopleList.module.css'
+import {useAddBookPeople} from "@/pages/admin/books/DeleteBookPeople/UI/AddBookPeopleList/useAddBookPeopleList";
 
-interface IAddBookPeoplePageProps {
+interface IAddBookPeopleListProps {
     params: {
         bookId: number
     }
 }
 
-const AddBookPeoplePage:FC<IAddBookPeoplePageProps> = ({ params: {bookId} }) => {
+const AddBookPeopleList:FC<IAddBookPeopleListProps> = ({ params: {bookId} }) => {
 
     const { people, ChangePage } = useAddBookPeople()
     const [open, setOpen] = useState<boolean>(true)
@@ -52,4 +52,4 @@ const AddBookPeoplePage:FC<IAddBookPeoplePageProps> = ({ params: {bookId} }) => 
 };
 
 
-export default AddBookPeoplePage;
+export default AddBookPeopleList;

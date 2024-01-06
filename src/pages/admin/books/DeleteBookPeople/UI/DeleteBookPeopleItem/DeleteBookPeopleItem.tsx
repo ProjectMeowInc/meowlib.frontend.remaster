@@ -27,6 +27,7 @@ const DeleteBookPeopleItem:FC<IDeleteBookPeopleItemProps> = ({params: {bookId}, 
         <div className={classes.container} onClick={handleDeleteClick}>
             <p>{name}</p>
             <p>{role}</p>
+            <p>Удалить</p>
         </div>
     );
 };

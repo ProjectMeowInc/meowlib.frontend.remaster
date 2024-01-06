@@ -5,7 +5,7 @@ import DeleteBookPeopleItem from "@/pages/admin/books/DeleteBookPeople/UI/Delete
 import Preloader from "@/pages/admin/UI/Preloader/Preloader";
 import classes from './UpdateBookPeople.module.css'
 import {useUpdateBookPeople} from "@/pages/admin/books/DeleteBookPeople/useUpdateBookPeople";
-import AddBookPeoplePage from "@/pages/admin/books/DeleteBookPeople/UI/AddBookPeople/AddBookPeoplePage";
+import AddBookPeopleList from "@/pages/admin/books/DeleteBookPeople/UI/AddBookPeopleList/AddBookPeopleList";
 
 interface IDeleteBookPeoplePageProps {
     params: {
@@ -15,7 +15,7 @@ interface IDeleteBookPeoplePageProps {
 
 const UpdateBookPeople:FC<IDeleteBookPeoplePageProps> =  ({ params:{bookId} } ) => {
 
-    const {peopleList} = useUpdateBookPeople(bookId)
+    const { peopleList } = useUpdateBookPeople(bookId)
 
     const [showPeople, setShowPeople] = useState<boolean>(false)
 
@@ -34,7 +34,7 @@ const UpdateBookPeople:FC<IDeleteBookPeoplePageProps> =  ({ params:{bookId} } ) 
             <h1>Люди</h1>
           <div className={classes.peoples}>
               <div className={classes.add_btn} onClick={handleAddPeopleClick}>Нажмите, чтобы добавить человека</div>
-              {showPeople && <AddBookPeoplePage params={{bookId}}/>}
+              {showPeople && <AddBookPeopleList params={{bookId}}/>}
             {peopleList?.length > 0
                 ? peopleList?.map(people => (
                     <DeleteBookPeopleItem
