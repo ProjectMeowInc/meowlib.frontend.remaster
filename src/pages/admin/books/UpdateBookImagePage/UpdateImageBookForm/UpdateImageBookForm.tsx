@@ -2,9 +2,9 @@
 
 import React, {FC} from 'react';
 import {IBookDto} from "@/entities/Book/models/dto/BookDto";
-import {useUpdateBookForm} from "@/pages/admin/books/useUpdateBookForm";
 import Button from "@/shared/UI/button/Button";
 import classes from './UpdateImageBookForm.module.css'
+import {useUpdateImageBookForm} from "@/pages/admin/books/UpdateBookImagePage/UpdateImageBookForm/useUpdateImageBookForm";
 
 interface IUpdateImageBookFormProps {
     book: IBookDto
@@ -12,9 +12,7 @@ interface IUpdateImageBookFormProps {
 
 const UpdateImageBookForm:FC<IUpdateImageBookFormProps> = ({book}) => {
 
-    const {UpdateImageHandler, SubmitImageHandler} = useUpdateBookForm(book.id)
-
-
+    const {UpdateImageHandler, SubmitImageHandler} = useUpdateImageBookForm(book.id)
 
     return (
       <div className={classes.container}>

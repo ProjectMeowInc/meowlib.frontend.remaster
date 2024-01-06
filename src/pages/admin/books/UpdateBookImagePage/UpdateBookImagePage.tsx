@@ -8,8 +8,7 @@ interface IUpdateBookImagePageProps {
     }
 }
 
-const UpdateBookImagePage: FC<IUpdateBookImagePageProps> = async ( {params: {bookId}}) => {
-
+const UpdateBookImagePage: FC<IUpdateBookImagePageProps> = async ({ params: {bookId} }) => {
 
     const getBookResult = await BookService.getBookById(bookId)
 
