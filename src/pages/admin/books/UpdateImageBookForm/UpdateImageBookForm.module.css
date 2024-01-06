@@ -1,0 +1,14 @@
+.container {
+    width: 45vh;
+    height: 150px;
+}
+
+.container > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container > h1 {
+    font-family: Ubuntu, sans-serif;
+    font-size: 28px;
+}

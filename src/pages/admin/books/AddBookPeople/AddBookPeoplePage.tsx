@@ -12,7 +12,7 @@ interface IAddBookPeoplePageProps {
     }
 }
 
-const AddBookPeoplePage:FC<IAddBookPeoplePageProps> = ({params: {bookId}}) => {
+const AddBookPeoplePage:FC<IAddBookPeoplePageProps> = ({ params: {bookId} }) => {
 
     const { people, ChangePage } = useAddBookPeople()
 
@@ -22,6 +22,7 @@ const AddBookPeoplePage:FC<IAddBookPeoplePageProps> = ({params: {bookId}}) => {
 
     return (
         <div className={classes.wrapper}>
+            <h1>Выберите человека, которого хотите добавить</h1>
             {people.map((p) => (
                 <AddPeopleItem
                     key={p.id}
@@ -30,7 +31,6 @@ const AddBookPeoplePage:FC<IAddBookPeoplePageProps> = ({params: {bookId}}) => {
                     params={{bookId}}
                     role={'Author'}
                  />
-
             ))}
 
             <div className={classes.controls}>

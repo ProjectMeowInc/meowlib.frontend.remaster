@@ -12,7 +12,7 @@ interface IPeopleItemProps {
     role: PeopleRoleType
 }
 
-const AddPeopleItem: FC<IPeopleItemProps> = ({params: {bookId}, id, text, role}) => {
+const AddPeopleItem: FC<IPeopleItemProps> = ({ params: {bookId}, id, text, role }) => {
 
     const { AddPeopleHandler } = useAddPeopleItem()
 
@@ -21,13 +21,10 @@ const AddPeopleItem: FC<IPeopleItemProps> = ({params: {bookId}, id, text, role})
     }
 
     return (
-        <div className={classes.link}>
+        <div className={classes.link} onClick={handleAddClick}>
             <div className={classes.link__wrapper}>
                 <p className={classes.link_text}>
                     {text}
-                </p>
-                <p className={classes.add_btn} onClick={handleAddClick}>
-                    Добавить
                 </p>
             </div>
         </div>
