@@ -9,7 +9,7 @@ export interface IBookDto {
         id: number
         name: string
         role: PeopleRoleType
-    }
+    }[]
     tags: {
         id: number
         name: string

@@ -9,7 +9,7 @@ export interface IGetBookByIdResponse {
         id: number
         name: string
         role: PeopleRoleType
-    }
+    }[]
     tags: {
         id: number
         name: string
