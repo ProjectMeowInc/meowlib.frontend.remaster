@@ -1,18 +1,19 @@
 'use client'
 
 import React, {FC} from 'react';
-import {IBookDto} from "@/entities/Book/models/dto/BookDto";
 import Button from "@/shared/UI/button/Button";
 import classes from './UpdateImageBookForm.module.css'
 import {useUpdateImageBookForm} from "@/pages/admin/books/UpdateBookImagePage/UpdateImageBookForm/useUpdateImageBookForm";
 
 interface IUpdateImageBookFormProps {
-    book: IBookDto
+    params: {
+        bookId: number
+    }
 }
 
-const UpdateImageBookForm:FC<IUpdateImageBookFormProps> = ({book}) => {
+const UpdateImageBookForm:FC<IUpdateImageBookFormProps> = ( {params: {bookId} }) => {
 
-    const {UpdateImageHandler, SubmitImageHandler} = useUpdateImageBookForm(book.id)
+    const {UpdateImageHandler, SubmitImageHandler} = useUpdateImageBookForm(bookId)
 
     return (
       <div className={classes.container}>
