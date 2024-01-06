@@ -1,20 +1,24 @@
 'use client'
 
 import React, {FC} from 'react';
-import {usePeopleMainPage} from "@/pages/admin/people/PeopleMainPage/usePeopleMainPage";
 import Preloader from "@/pages/admin/UI/Preloader/Preloader";
 import AddPeopleItem from "@/pages/admin/books/AddBookPeople/AddPeopleItem/AddPeopleItem";
 import classes from './AddBookPeoplePage.module.css'
-import {IUpdateBookInfoPageProps} from "@/pages/admin/books/UpdateBookInfoPage/UpdateBookInfoPage";
+import {useAddBookPeople} from "@/pages/admin/books/AddBookPeople/useAddBookPeoplePage";
 
-const AddBookPeoplePage:FC<IUpdateBookInfoPageProps> = ({params: {bookId}}) => {
+interface IAddBookPeoplePageProps {
+    params: {
+        bookId: number
+    }
+}
 
-    const { people, ChangePage } = usePeopleMainPage()
+const AddBookPeoplePage:FC<IAddBookPeoplePageProps> = ({params: {bookId}}) => {
+
+    const { people, ChangePage } = useAddBookPeople()
 
     if (!people) {
         return <Preloader/>
     }
-
 
     return (
         <div className={classes.wrapper}>
@@ -28,7 +32,6 @@ const AddBookPeoplePage:FC<IUpdateBookInfoPageProps> = ({params: {bookId}}) => {
                  />
 
             ))}
-
 
             <div className={classes.controls}>
                 <div onClick={() => ChangePage(-1)}>Предыдущая</div>
