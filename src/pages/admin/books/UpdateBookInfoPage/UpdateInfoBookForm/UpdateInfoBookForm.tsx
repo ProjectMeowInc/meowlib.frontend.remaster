@@ -5,7 +5,7 @@ import Input from "@/shared/UI/Input/Input";
 import Button from "@/shared/UI/button/Button";
 import classes from './UpdateInfoBookForm.module.css'
 import {IBookDto} from "@/entities/Book/models/dto/BookDto";
-import {useUpdateBookForm} from "@/pages/admin/books/useUpdateBookForm";
+import {useUpdateInfoBookForm} from "@/pages/admin/books/UpdateBookInfoPage/UpdateInfoBookForm/useUpdateInfoBookForm";
 
 export interface IUpdateBookFormProps {
     book: IBookDto
@@ -14,7 +14,7 @@ export interface IUpdateBookFormProps {
 
 const UpdateInfoBookForm:FC<IUpdateBookFormProps> = ({book}) => {
 
-    const { ChangeInfoHandler, SubmitInfoHandler } = useUpdateBookForm(book.id)
+    const { ChangeInfoHandler, SubmitInfoHandler } = useUpdateInfoBookForm(book.id)
 
     return (
      <div className={classes.container}>
