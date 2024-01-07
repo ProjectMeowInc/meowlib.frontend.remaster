@@ -1,11 +1,11 @@
 'use client'
 
 import React, {FC, useState} from 'react';
-import DeleteBookPeopleItem from "@/pages/admin/books/DeleteBookPeople/UI/DeleteBookPeopleItem/DeleteBookPeopleItem";
+import DeleteBookPeopleItem from "@/pages/admin/books/UpdateBookPeople/UI/DeleteBookPeopleItem/DeleteBookPeopleItem";
 import Preloader from "@/pages/admin/UI/Preloader/Preloader";
 import classes from './UpdateBookPeople.module.css'
-import {useUpdateBookPeople} from "@/pages/admin/books/DeleteBookPeople/useUpdateBookPeople";
-import AddBookPeopleList from "@/pages/admin/books/DeleteBookPeople/UI/AddBookPeopleList/AddBookPeopleList";
+import {useUpdateBookPeople} from "@/pages/admin/books/UpdateBookPeople/useUpdateBookPeople";
+import AddBookPeopleList from "@/pages/admin/books/UpdateBookPeople/UI/AddBookPeopleList/AddBookPeopleList";
 
 interface IDeleteBookPeoplePageProps {
     params: {
