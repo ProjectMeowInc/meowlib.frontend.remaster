@@ -1,6 +1,6 @@
 .container {
     width: 20%;
-    height: 70px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     border-radius: 30px;
@@ -11,8 +11,13 @@
 .container > p {
     display: flex;
     align-items: center;
-    cursor: pointer;
     margin: 0 auto;
+    cursor: default;
+}
+
+.container > p:nth-of-type(3) {
+    color: red;
+    cursor: pointer;
 }
 
 .container:hover {

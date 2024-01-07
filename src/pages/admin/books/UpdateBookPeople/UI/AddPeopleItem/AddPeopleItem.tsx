@@ -3,7 +3,7 @@ import classes from './AddPeopleItem.module.css'
 import {PeopleRoleType} from "@/entities/People/types/PeopleRoleType";
 import {useAddPeopleItem} from "@/pages/admin/books/UpdateBookPeople/UI/AddPeopleItem/useAddPeopleItem";
 
-interface IPeopleItemProps {
+interface IAddPeopleItemProps {
     params: {
         bookId: number
     }
@@ -12,7 +12,7 @@ interface IPeopleItemProps {
     role: PeopleRoleType
 }
 
-const AddPeopleItem: FC<IPeopleItemProps> = ({ params: {bookId}, id, text, role }) => {
+const AddPeopleItem: FC<IAddPeopleItemProps> = ({ params: {bookId}, id, text, role }) => {
 
     const { AddPeopleHandler } = useAddPeopleItem()
 

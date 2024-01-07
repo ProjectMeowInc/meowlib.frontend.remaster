@@ -9,13 +9,19 @@
 }
 
 .container > p {
-    position: absolute;
-    top: 13%;
+    position: relative;
+    top: 15%;
     left: 70%;
     z-index: 9999;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
     font-family: Ubuntu, sans-serif;
+}
+
+.wrapper > h2 {
+    font-family: Ubuntu, sans-serif;
+    font-size: 24px;
+    margin-top: 50px;
 }
 
 .wrapper {
@@ -33,12 +39,6 @@
     border-radius: 30px;
     box-shadow: 0 0 10px 0 #00000090;
     padding: 20px;
-}
-
-.wrapper > h1 {
-    font-size: 28px;
-    font-family: Ubuntu, sans-serif;
-    margin: 0;
 }
 
 .controls > div:hover {

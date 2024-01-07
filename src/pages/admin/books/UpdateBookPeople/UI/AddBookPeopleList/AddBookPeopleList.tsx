@@ -31,6 +31,7 @@ const AddBookPeopleList:FC<IAddBookPeopleListProps> = ({ params: {bookId} }) => 
                 <div className={classes.container}>
                     <p onClick={handleCloseClick}>Закрыть</p>
                     <div className={classes.wrapper}>
+                        <h2>Выберите человека, которого хотите добавить</h2>
                         {people.map((p) => (
                             <AddPeopleItem
                                 key={p.id}
