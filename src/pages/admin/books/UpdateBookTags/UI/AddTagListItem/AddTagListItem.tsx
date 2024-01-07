@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 import classes from './AddTagListItem.module.css'
 import {useAddTagListItem} from "@/pages/admin/books/UpdateBookTags/UI/AddTagListItem/useAddTagListItem";
+import {IUpdateBookTagRequest} from "@/entities/Book/models/requests/UpdateBookTagRequest";
 
 interface IAddTagListItemProps {
     params: {
@@ -16,9 +17,16 @@ const AddTagListItem:FC<IAddTagListItemProps> = ({ params: {bookId} , id, name, 
     const { AddTagHandler } = useAddTagListItem()
 
 
+    const handleAddTag = async () => {
+        const tags: IUpdateBookTagRequest = {
+            tags: [id]
+        };
+
+        await AddTagHandler(bookId, tags);
+    };
 
     return (
-        <div className={classes.container}>
+        <div className={classes.container} onClick={handleAddTag}>
             <div className={classes.text__container}>
 
                 <p className={classes.text}>{name}</p>
