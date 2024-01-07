@@ -30,7 +30,7 @@ const UpdateBookPeople:FC<IDeleteBookPeoplePageProps> =  ({ params:{bookId} } ) 
         <div className={classes.container}>
           <h1>Люди</h1>
           <div className={classes.peoples}>
-              <div className={classes.add_btn} onClick={handleAddPeopleClick}>Нажмите, чтобы добавить человека</div>
+              <div className={classes.add_btn} onClick={handleAddPeopleClick}>+</div>
               {showPeople && <AddBookPeopleList params={{bookId}}/>}
             {peopleList?.length > 0
                 ? peopleList?.map(people => (

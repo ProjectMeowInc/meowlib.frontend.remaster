@@ -29,20 +29,19 @@
 }
 
 .add_btn {
-    width: 15%;
-    height: 50px;
+    font-size: 40px;
+    border-radius: 50px;
+    width: 45px;
+    height: 45px;
     display: flex;
-    border-radius: 20px;
-    font-size: 18px;
-    border: 1px solid #545f71;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background-color: #6d5bfd;
-    color: white;
 }
 
 .add_btn:hover {
     box-shadow: 0 0 10px 0 #00000060;
     transition: 0.4s all;
+    background-color: #6d5bfd;
+    color: white;
 }
