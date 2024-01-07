@@ -30,7 +30,6 @@
     height: 70%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     position: absolute;
     top: 50%;
@@ -42,13 +41,14 @@
     padding: 20px;
 }
 
-.controls > div:hover {
-    cursor: pointer;
+.wrapper > div {
+    margin-bottom: 30px;
 }
 
 .controls {
     display: flex;
     justify-content: space-between;
     width: 40%;
+    cursor: pointer;
 }
 
