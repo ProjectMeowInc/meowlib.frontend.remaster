@@ -2,7 +2,6 @@
 
 import React, {FC, useState} from 'react';
 import DeleteBookPeopleItem from "@/pages/admin/books/UpdateBookPeople/UI/DeleteBookPeopleItem/DeleteBookPeopleItem";
-import Preloader from "@/pages/admin/UI/Preloader/Preloader";
 import classes from './UpdateBookPeople.module.css'
 import {useUpdateBookPeople} from "@/pages/admin/books/UpdateBookPeople/useUpdateBookPeople";
 import AddBookPeopleList from "@/pages/admin/books/UpdateBookPeople/UI/AddBookPeopleList/AddBookPeopleList";
@@ -24,14 +23,12 @@ const UpdateBookPeople:FC<IDeleteBookPeoplePageProps> =  ({ params:{bookId} } ) 
     }
 
     if(!peopleList) {
-        return (
-            <Preloader/>
-        )
+        return
     }
 
     return (
         <div className={classes.container}>
-            <h1>Люди</h1>
+          <h1>Люди</h1>
           <div className={classes.peoples}>
               <div className={classes.add_btn} onClick={handleAddPeopleClick}>Нажмите, чтобы добавить человека</div>
               {showPeople && <AddBookPeopleList params={{bookId}}/>}

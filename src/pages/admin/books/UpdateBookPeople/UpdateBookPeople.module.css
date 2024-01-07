@@ -1,8 +1,9 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 300px;
     width: 100%;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
 .container > h1 {
@@ -11,8 +12,20 @@
 }
 
 .peoples {
+    height: 100%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.peoples > div {
+    margin-bottom: 10px;
+}
+
+.peoples > p {
+    font-size: 28px;
+    font-family: Ubuntu, sans-serif;
 }
 
 .add_btn {

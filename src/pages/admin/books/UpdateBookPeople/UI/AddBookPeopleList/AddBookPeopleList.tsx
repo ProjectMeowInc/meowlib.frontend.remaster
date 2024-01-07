@@ -1,7 +1,6 @@
 'use client'
 
 import React, {FC, useState} from 'react';
-import Preloader from "@/pages/admin/UI/Preloader/Preloader";
 import AddPeopleItem from "@/pages/admin/books/UpdateBookPeople/UI/AddPeopleItem/AddPeopleItem";
 import classes from './AddBookPeopleList.module.css'
 import {useAddBookPeople} from "@/pages/admin/books/UpdateBookPeople/UI/AddBookPeopleList/useAddBookPeopleList";
@@ -22,7 +21,7 @@ const AddBookPeopleList:FC<IAddBookPeopleListProps> = ({ params: {bookId} }) => 
     }
 
     if (!people) {
-        return <Preloader/>
+        return
     }
 
     return (

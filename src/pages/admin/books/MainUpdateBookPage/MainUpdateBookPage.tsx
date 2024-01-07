@@ -1,9 +1,14 @@
+'use client'
+
 import React, {FC} from 'react';
 import classes from './MainUpdateBookPage.module.css'
 import UpdateImageBookForm from "@/pages/admin/books/UpdateImageBookForm/UpdateImageBookForm";
 import UpdateBookPeople from "@/pages/admin/books/UpdateBookPeople/UpdateBookPeople";
 import UpdateInfoBookForm from "@/pages/admin/books/UpdateInfoBookForm/UpdateInfoBookForm";
 import UpdateBookTags from "@/pages/admin/books/UpdateBookTags/UpdateBookTags";
+import Link from "next/link";
+import {useMainUpdateBookPage} from "@/pages/admin/books/MainUpdateBookPage/useMainUpdateBookPage";
+import Preloader from "@/pages/admin/UI/Preloader/Preloader";
 
 interface IUpdateBookPageProps {
    params: {
@@ -11,7 +16,13 @@ interface IUpdateBookPageProps {
    }
 }
 
-const MainUpdateBookPage: FC<IUpdateBookPageProps> = async ({ params: {bookId} }) => {
+const MainUpdateBookPage: FC<IUpdateBookPageProps> = ({ params: {bookId} }) => {
+
+    const { peopleList, tagList } = useMainUpdateBookPage(bookId)
+
+    if (!peopleList || !tagList) {
+        return <Preloader/>
+    }
 
     return (
         <div className={classes.container}>
@@ -20,6 +31,7 @@ const MainUpdateBookPage: FC<IUpdateBookPageProps> = async ({ params: {bookId} }
              <UpdateImageBookForm params={{bookId}}/>
              <UpdateBookPeople params={{bookId}}/>
              <UpdateBookTags params={{bookId}}/>
+            <Link href={'/admin/books'}>Сохранить</Link>
         </div>
     );
 };
