@@ -16,8 +16,6 @@ export const useUpdateImageBookForm = (bookId: number) => {
         }
     }
 
-    const router = useRouter()
-
     const SubmitImageHandler = async (e: FormEvent) => {
         e.preventDefault()
 
@@ -27,8 +25,6 @@ export const useUpdateImageBookForm = (bookId: number) => {
             return AlertService.errorMessage(result.getError().errorMessage)
         }
 
-        router.back()
-        router.refresh()
         return AlertService.successMessage("Изображение успешно обновлено")
     }
 

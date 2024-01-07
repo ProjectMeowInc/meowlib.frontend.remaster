@@ -11,8 +11,6 @@ export const useUpdateInfoBookForm = (bookId: number) => {
         description: ''
     })
 
-    const router = useRouter()
-
     const SubmitInfoHandler = async (e: FormEvent) => {
         e.preventDefault()
 
@@ -22,8 +20,6 @@ export const useUpdateInfoBookForm = (bookId: number) => {
             return AlertService.errorMessage(result.getError().errorMessage)
         }
 
-        router.back()
-        router.refresh()
         return AlertService.successMessage("Информация успешно обновлена")
     }
 
