@@ -15,6 +15,7 @@ const DeleteTagListItem:FC<ITagListItemProps> = ({ params: {bookId}, id, name, d
         <div className={classes.container}>
             <p>{name}</p>
             <p>{description}</p>
+            <p>Удалить</p>
         </div>
     );
 };

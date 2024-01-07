@@ -4,7 +4,6 @@ import {IUpdateBookTagRequest} from "@/entities/Book/models/requests/UpdateBookT
 
 export const useAddTagListItem = () => {
 
-
     const AddTagHandler = async (bookId: number, tags: IUpdateBookTagRequest) => {
 
         const result = await BookService.updateBookTags(bookId, tags)
@@ -13,7 +12,7 @@ export const useAddTagListItem = () => {
             return AlertService.errorMessage(result.getError().errorMessage)
         }
 
-        return AlertService.successMessage('Тег успешно добавлен к книге')
+        return AlertService.successMessage('Тег успешно добавлен')
     }
 
     return {
