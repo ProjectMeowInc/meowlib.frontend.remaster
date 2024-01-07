@@ -42,7 +42,7 @@ const UpdateBookPeople:FC<IDeleteBookPeoplePageProps> =  ({ params:{bookId} } ) 
                         params={{bookId}}
                     />
                 ))
-                 : <p>Здесь пока ничего нет</p>
+                 : <p>Здесь пока ничего нет. Нажмите на +, чтобы добавить</p>
             }
           </div>
         </div>

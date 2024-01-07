@@ -28,9 +28,13 @@ const MainUpdateBookPage: FC<IUpdateBookPageProps> = ({ params: {bookId} }) => {
         <div className={classes.container}>
             <h1>Обновление книги</h1>
              <UpdateInfoBookForm params={{bookId}}/>
+            <hr/>
              <UpdateImageBookForm params={{bookId}}/>
+            <hr/>
              <UpdateBookPeople params={{bookId}}/>
+            <hr/>
              <UpdateBookTags params={{bookId}}/>
+            <hr/>
             <Link href={'/admin/books'}>Сохранить</Link>
         </div>
     );

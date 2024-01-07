@@ -3,7 +3,6 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
-    margin-bottom: 50px;
 }
 
 .container > h1 {
@@ -19,8 +18,8 @@
     align-items: center;
 }
 
-.tags > p{
-    font-size: 28px;
+.tags > p {
+    font-size: 24px;
     font-family: Ubuntu, sans-serif;
 }
 
