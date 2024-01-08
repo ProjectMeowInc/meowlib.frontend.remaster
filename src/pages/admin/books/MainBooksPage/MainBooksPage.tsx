@@ -11,7 +11,7 @@ import {useMainPageBooks} from "@/pages/admin/books/MainBooksPage/useMainPageBoo
 
 const MainBooksPage = () => {
 
-    const { DeleteHandler } = useMainPageBooks()
+    const { DeleteBookHandler } = useMainPageBooks()
 
     const [booksList, setBooksList] = useState<IShortBookDto[] | null>(null)
 
@@ -43,7 +43,7 @@ const MainBooksPage = () => {
                         description={book.description}
                         imageUrl={book.imageUrl}
                         author={book.author?.name}
-                        onDelete={async (id) => {await DeleteHandler(id)}}/>
+                        onDelete={ async (id) => await DeleteBookHandler(id) }/>
                 ))
                 : <p>Здесь пока ничего нет</p>
             }

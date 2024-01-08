@@ -5,7 +5,7 @@ import {BookService} from "@/entities/Book/service/BookService";
 export const useMainPageBooks = () => {
     const router = useRouter()
 
-    const DeleteHandler = async (bookId: number) => {
+    const DeleteBookHandler = async (bookId: number) => {
         const result = await BookService.deleteBookById(bookId)
 
         if (result.hasError()) {
@@ -16,6 +16,6 @@ export const useMainPageBooks = () => {
     }
 
     return {
-        DeleteHandler,
+        DeleteBookHandler,
     }
 }
