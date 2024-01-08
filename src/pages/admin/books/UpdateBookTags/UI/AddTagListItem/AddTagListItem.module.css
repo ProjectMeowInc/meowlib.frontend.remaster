@@ -24,11 +24,11 @@
 
 .link:hover {
     box-shadow: 0 0 10px 0 #00000040;
-    transition: 0.4s all ;
+    transition: 0.4s, all ;
 }
 
 .container:hover {
-    transition: 0.4s all;
+    transition: 0.4s, all;
     border: 1px solid greenyellow;
     box-shadow: 0 0 10px 0 #00000040;
 }
