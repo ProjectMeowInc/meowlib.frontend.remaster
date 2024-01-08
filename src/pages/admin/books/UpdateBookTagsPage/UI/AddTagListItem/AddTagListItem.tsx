@@ -14,6 +14,7 @@ interface IAddTagListItemProps {
 const AddTagListItem: FC<IAddTagListItemProps> = ({ params: { bookId }, id, name, description }) => {
     const { handleAddTag } = useAddTagListItem(bookId, id, name, description)
 
+
     return (
         <div className={classes.container} onClick={handleAddTag}>
             <div className={classes.text__container}>

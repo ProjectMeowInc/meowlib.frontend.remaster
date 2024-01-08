@@ -27,11 +27,11 @@ export const useAddTagListItem = (bookId: number, id: number, name: string, desc
         return AlertService.successMessage("Тег успешно добавлен")
     }
 
-    if (!tagList) {
-        return
-    }
-
     const handleAddTag = async () => {
+        if (!tagList) {
+            return
+        }
+
         tagList.push({ id, name, description })
 
         const tags: IUpdateBookTagRequest = {
@@ -42,7 +42,6 @@ export const useAddTagListItem = (bookId: number, id: number, name: string, desc
     }
 
     return {
-        tagList,
         handleAddTag,
         AddTagHandler,
     }
