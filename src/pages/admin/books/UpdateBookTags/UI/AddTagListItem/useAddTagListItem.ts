@@ -1,8 +1,28 @@
 import {BookService} from "@/entities/Book/service/BookService";
 import {AlertService} from "@/shared/services/AlertService";
 import {IUpdateBookTagRequest} from "@/entities/Book/models/requests/UpdateBookTagRequest";
+import {useEffect, useState} from "react";
 
-export const useAddTagListItem = () => {
+interface IGetBookTags {
+    id: number
+    name: string
+    description: string
+}
+
+export const useAddTagListItem = (bookId: number) => {
+
+    const [tagList, setTagList] = useState<IGetBookTags[] | null>(null)
+
+    useEffect(() => {
+        BookService.getBookById(bookId).then(getTagsResult => {
+            if(getTagsResult.hasError()) {
+                return AlertService.errorMessage(getTagsResult.getError().errorMessage)
+            }
+
+            setTagList(getTagsResult.unwrap().tags)
+
+        })
+    }, [])
 
     const AddTagHandler = async (bookId: number, tags: IUpdateBookTagRequest) => {
 
@@ -17,5 +37,6 @@ export const useAddTagListItem = () => {
 
     return {
         AddTagHandler,
+        tagList
     }
 }

@@ -14,16 +14,23 @@ interface IAddTagListItemProps {
 
 const AddTagListItem:FC<IAddTagListItemProps> = ({ params: {bookId} , id, name, description }) => {
 
-    const { AddTagHandler } = useAddTagListItem()
+    const { AddTagHandler, tagList } = useAddTagListItem(bookId)
 
+    if(!tagList) {
+        return
+    }
 
     const handleAddTag = async () => {
+        tagList.push({ id, name, description })
+
         const tags: IUpdateBookTagRequest = {
-            tags: [id]
-        };
+            tags: tagList.map((tag => (
+                tag.id
+            )))
+        }
 
         await AddTagHandler(bookId, tags);
-    };
+    }
 
     return (
         <div className={classes.container} onClick={handleAddTag}>
