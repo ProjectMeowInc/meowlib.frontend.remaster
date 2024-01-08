@@ -20,7 +20,6 @@ export const useMainUpdateBookPage = (bookId: number) => {
         })
     }, [])
 
-
     useEffect(() => {
         BookService.getBookById(bookId).then(getTagsResult => {
             if(getTagsResult.hasError()) {
