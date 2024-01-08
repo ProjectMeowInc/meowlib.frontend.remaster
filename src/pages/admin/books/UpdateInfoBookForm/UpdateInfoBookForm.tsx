@@ -20,9 +20,9 @@ const UpdateInfoBookForm:FC<IUpdateBookFormProps> = ({ params: {bookId} }) => {
     return (
      <div className={classes.container}>
        <form onSubmit={SubmitInfoHandler}>
-           <Input name={"name"} placeholder={'Введите название книги'} onChange={ChangeInfoHandler} style={{margin: 10}} />
-           <Input name={"description"} placeholder={'Введите описание книги'} onChange={ChangeInfoHandler} style={{margin: 10}} />
-           <Button styles={{width: '105%'}}>Отправить</Button>
+           <Input name={"name"} placeholder={'Введите название книги'} onChange={ChangeInfoHandler} style={{ margin: 10, width: 95 }} />
+           <Input name={"description"} placeholder={'Введите описание книги'} onChange={ChangeInfoHandler} style={{ margin: 10, width: 95 }}  />
+           <Button styles={{ width: '100%' }}>Отправить</Button>
        </form>
      </div>
 

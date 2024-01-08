@@ -15,11 +15,11 @@ const CreateBookPage = () => {
         <div className={classes.container}>
             <form className={classes.form} onSubmit={SubmitHandler}>
                 <h1>Создание книги</h1>
-                <Input onChange={ChangeHandler} name={"name"} placeholder={"Введите название книги"} type={"text"} />
+                <Input onChange={ChangeHandler} name={"name"} placeholder={"Введите название книги"} type={"text"} style={{ width: 95 }}/>
 
-                <Input onChange={ChangeHandler} name={"description"} placeholder={"Введите описание книги"} type={"text"} />
+                <Input onChange={ChangeHandler} name={"description"} placeholder={"Введите описание книги"} type={"text"} style={{ width: 95 }} />
 
-                <Button styles={{ width: "105%" }}>Создать книгу</Button>
+                <Button styles={{ width: "100%" }}>Создать книгу</Button>
             </form>
         </div>
     );
