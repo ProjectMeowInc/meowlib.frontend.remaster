@@ -13,14 +13,14 @@ export const useCreateForm = () => {
 
     const router = useRouter()
 
-    const ChangeHandler = ({ name, newValue }: IOnChangeEvent) => {
+    const ChangeCreateBookHandler = ({ name, newValue }: IOnChangeEvent) => {
         setData((prevState) => ({
             ...prevState,
             [name]: newValue,
         }))
     }
 
-    const SubmitHandler = async (e: FormEvent) => {
+    const SubmitCreateBookHandler = async (e: FormEvent) => {
         e.preventDefault()
 
         const result = await BookService.createBook(data)
@@ -35,7 +35,7 @@ export const useCreateForm = () => {
     }
 
     return {
-        SubmitHandler,
-        ChangeHandler,
+        SubmitCreateBookHandler,
+        ChangeCreateBookHandler,
     }
 }
