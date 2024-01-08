@@ -7,6 +7,7 @@ import { ICreateBook } from "@/entities/Book/models/requests/CreateBookRequest"
 import { IBookDto } from "@/entities/Book/models/dto/BookDto"
 import { IShortBookDto } from "@/entities/Book/models/dto/ShortBookDto"
 import { DEFAULT_BOOK_IMAGE } from "@/app/consts"
+import {IAddPeopleToBookRequest} from "@/entities/Book/models/requests/AddPeopleToBookRequest";
 
 export class BookService {
     static async getBooks(): Promise<Result<IShortBookDto[]>> {
@@ -47,15 +48,19 @@ export class BookService {
         return await BookApi.updateBookInfo(bookId, updateData)
     }
 
-    static async updateBookAuthor(bookId: number, authorId: number): Promise<EmptyResult> {
-        return await BookApi.updateBookAuthor(bookId, authorId)
-    }
-
     static async updateBookTags(bookId: number, requestData: IUpdateBookTagRequest): Promise<EmptyResult> {
         return await BookApi.updateBookTags(bookId, requestData)
     }
 
     static async uploadImageBook(bookId: number, image: FormData): Promise<EmptyResult> {
         return await BookApi.uploadImageBook(bookId, image)
+    }
+
+    static async addPeopleToBook(bookId: number, requestData: IAddPeopleToBookRequest): Promise<EmptyResult> {
+        return await BookApi.addPeopleToBook(bookId, requestData)
+    }
+
+    static async deletePeopleBook(bookId: number, peopleId: number): Promise<EmptyResult> {
+        return await BookApi.deletePeopleBook(bookId, peopleId)
     }
 }

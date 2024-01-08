@@ -1,0 +1,26 @@
+.container {
+    width: 20%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 30px;
+    font-size: 20px;
+    border: 1px solid #545f71;
+}
+
+.container > p {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    cursor: default;
+}
+
+.container:hover {
+    box-shadow: 0 0 10px 0 #00000040;
+    transition: 0.4s, all;
+}
+
+.container > p:nth-of-type(3) {
+    color: red;
+    cursor: pointer;
+}
