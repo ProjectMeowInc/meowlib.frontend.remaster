@@ -10,13 +10,13 @@ import Link from "next/link";
 import {useMainUpdateBookPage} from "@/pages/admin/books/MainUpdateBookPage/useMainUpdateBookPage";
 import Preloader from "@/pages/admin/UI/Preloader/Preloader";
 
-interface IUpdateBookPageProps {
+interface IMainUpdateBookPageProps {
    params: {
        bookId: number
    }
 }
 
-const MainUpdateBookPage: FC<IUpdateBookPageProps> = ({ params: {bookId} }) => {
+const MainUpdateBookPage: FC<IMainUpdateBookPageProps> = ({ params: {bookId} }) => {
 
     const { peopleList, tagList } = useMainUpdateBookPage(bookId)
 
