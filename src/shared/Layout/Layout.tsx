@@ -7,8 +7,10 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
     return (
         <div className={classes.container}>
             <Header />
-            <Menu />
-            {children}
+            <div className={classes.wrapper}>
+                <Menu />
+                {children}
+            </div>
         </div>
     )
 }

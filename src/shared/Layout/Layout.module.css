@@ -1,5 +1,11 @@
 @media (max-width: 768px) {
-    .container > aside {
+    .container > .wrapper aside {
         display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        display: flex;
     }
 }
