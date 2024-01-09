@@ -1,11 +1,11 @@
 import React, { useState } from "react"
+import { ILogInRequest } from "@/entities/Auth/models/requests/LogInRequest"
+import { IOnChangeEvent } from "@/shared/models/events/IOnChangeEvent"
 import { AuthService } from "@/entities/Auth/service/AuthService"
 import { AlertService } from "@/shared/services/AlertService"
-import { ILogInRequest } from "@/entities/Auth/models/requests/LogInRequest"
 import { TokenService } from "@/shared/services/TokenService"
-import { IOnChangeEvent } from "@/shared/models/events/IOnChangeEvent"
 
-export const useAuthorization = () => {
+export const useAuthorizationForm = () => {
     const [formData, setFormData] = useState<ILogInRequest>({
         login: "",
         password: "",
@@ -43,8 +43,8 @@ export const useAuthorization = () => {
     }
 
     return {
-        handleCheckbox,
         handleInputChange,
         handleSubmit,
+        handleCheckbox,
     }
 }

@@ -1,14 +1,14 @@
 "use client"
 
-import React, { useState } from "react"
-
+import React from "react"
 import classes from "@/pages/AuthPage/UI/NavAuth/NavAuth.module.css"
 import Image from "next/image"
 import RegistrationForm from "@/pages/AuthPage/UI/RegistrationForm/RegistrationForm"
 import AuthorizationForm from "@/pages/AuthPage/UI/AuthorizationForm/AuthorizationForm"
+import { useNavAuth } from "@/pages/AuthPage/UI/NavAuth/useNavAuth"
 
 const NavAuth = () => {
-    const [isRegPage, setIsRegPage] = useState<boolean>(false)
+    const { isRegPage, setIsRegPage } = useNavAuth()
 
     return (
         <div className={classes.container__nav_auth}>

@@ -1,4 +1,4 @@
-import { UserRoleEnum } from "@/entities/User/User";
+import { UserRoleEnum } from "@/entities/User/models/UserEntity"
 
 export interface IUpdateUserByIdRequest {
     login: string

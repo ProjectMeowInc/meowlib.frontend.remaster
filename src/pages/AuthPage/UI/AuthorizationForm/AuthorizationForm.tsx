@@ -2,11 +2,11 @@ import React from "react"
 import InputAuthorization from "@/shared/UI/InputAuthorization/InputAuthorization"
 import Button from "@/shared/UI/button/Button"
 import classes from "@/pages/AuthPage/UI/AuthorizationForm/AuthorizationForm.module.css"
-import { useAuthorization } from "@/entities/Auth/hooks/useAuthorization"
 import Checkbox from "@/shared/UI/inputCheckbox/Checkbox"
+import { useAuthorizationForm } from "@/pages/AuthPage/UI/AuthorizationForm/useAuthorizationForm"
 
 const AuthorizationForm = () => {
-    const { handleSubmit, handleInputChange, handleCheckbox } = useAuthorization()
+    const { handleSubmit, handleInputChange, handleCheckbox } = useAuthorizationForm()
 
     return (
         <div className={classes.container__auth_form}>
