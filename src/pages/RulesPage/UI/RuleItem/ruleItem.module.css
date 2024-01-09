@@ -6,10 +6,9 @@
     border-radius: 5px;
     padding: 10px;
     cursor: pointer;
-    transition: .4s all;
+    transition: 0.4s all;
     user-select: none;
     font-size: 18px;
-
 }
 
 .active {
@@ -22,7 +21,7 @@
     flex-direction: column;
     padding: 10px;
     cursor: pointer;
-    transition: .4s all;
+    transition: 0.4s all;
     user-select: none;
     font-size: 18px;
 }
@@ -38,13 +37,12 @@
 .caption {
     font-weight: 600;
     font-size: 20px;
-    transition: .2s all;
+    transition: 0.2s all;
 }
 
 .caption_active {
     color: #6d5bfd;
     font-weight: 600;
     font-size: 20px;
-    transition: .2s all;
-
+    transition: 0.2s all;
 }

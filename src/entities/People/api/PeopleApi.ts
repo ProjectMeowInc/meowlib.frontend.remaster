@@ -8,9 +8,7 @@ import { IUpdatePeopleResponse } from "@/entities/People/models/responses/IUpdat
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
 import { IGetPeopleByIdResponse } from "@/entities/People/models/responses/IGetPeopleByIdResponse"
 
-
 export class PeopleApi {
-
     static async getAllAsync(pageNumber?: number): Promise<Result<IGetAllPeopleResponse>> {
         const result = await new HTTPResult<IGetAllPeopleResponse>()
             .withUrl(`/v1/people?page=${pageNumber ?? ""}`)
@@ -39,7 +37,10 @@ export class PeopleApi {
         return Result.withOk(result.unwrap())
     }
 
-    static async updateByIdAsync(peopleId: number, requestData: IUpdatePeopleRequest): Promise<Result<IUpdatePeopleResponse>> {
+    static async updateByIdAsync(
+        peopleId: number,
+        requestData: IUpdatePeopleRequest,
+    ): Promise<Result<IUpdatePeopleResponse>> {
         const result = await new HTTPResult<IUpdatePeopleResponse>()
             .withUrl(`/v1/people/${peopleId}`)
             .withPutMethod()

@@ -12,7 +12,7 @@ const Menu = () => {
 
                 <MenuItem img={"/img/7.png"} text={"Админ панель"} href={"/admin"} />
 
-                <MenuItem img={""} text={"FAQ"} href={"/rules"}/>
+                <MenuItem img={""} text={"FAQ"} href={"/rules"} />
             </div>
 
             <div className={classes.bottom_part}>

@@ -1,4 +1,4 @@
-import {PeopleRoleType} from "@/entities/People/types/PeopleRoleType";
+import { PeopleRoleType } from "@/entities/People/types/PeopleRoleType"
 
 export interface IBookDto {
     id: number

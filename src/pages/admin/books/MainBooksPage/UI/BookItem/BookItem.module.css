@@ -38,7 +38,8 @@
     margin: 350px 0 0 -650px;
 }
 
-.delete_btn, .link_text {
+.delete_btn,
+.link_text {
     transition: 0.4s, all;
     text-decoration: none;
     color: black;

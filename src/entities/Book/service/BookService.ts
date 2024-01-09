@@ -7,7 +7,7 @@ import { ICreateBook } from "@/entities/Book/models/requests/CreateBookRequest"
 import { IBookDto } from "@/entities/Book/models/dto/BookDto"
 import { IShortBookDto } from "@/entities/Book/models/dto/ShortBookDto"
 import { DEFAULT_BOOK_IMAGE } from "@/app/consts"
-import {IAddPeopleToBookRequest} from "@/entities/Book/models/requests/AddPeopleToBookRequest";
+import { IAddPeopleToBookRequest } from "@/entities/Book/models/requests/AddPeopleToBookRequest"
 
 export class BookService {
     static async getBooks(): Promise<Result<IShortBookDto[]>> {

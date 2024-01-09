@@ -7,7 +7,6 @@ import { PeopleEntity } from "@/entities/People/PeopleEntity"
 import { ILongPeopleDto } from "@/entities/People/models/dto/ILongPeopleDto"
 
 export class PeopleService {
-
     static async getAllAsync(pageNumber?: number): Promise<Result<IPeopleDto[]>> {
         const result = await PeopleApi.getAllAsync(pageNumber)
 
