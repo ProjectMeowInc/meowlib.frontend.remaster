@@ -1,0 +1,12 @@
+.wrapper {
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rules {
+    width: 70%;
+    margin: 50px 0;
+}
