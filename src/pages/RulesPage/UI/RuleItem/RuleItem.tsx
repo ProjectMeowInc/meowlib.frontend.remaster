@@ -3,12 +3,12 @@
 import { FC, useState } from "react"
 import classes from "./ruleItem.module.css"
 
-interface IRuleProps {
+interface IRuleItemProps {
     caption: string
     description: string
 }
 
-const RuleItem: FC<IRuleProps> = ({caption, description}) => {
+const RuleItem: FC<IRuleItemProps> = ({caption, description}) => {
     const [isActive, setIsActive] = useState<boolean>(false)
 
     return (
