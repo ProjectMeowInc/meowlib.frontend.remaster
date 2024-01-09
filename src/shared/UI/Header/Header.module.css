@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 45px 56px;
+}
+
+.header > div:nth-of-type(1) {
+    display: none;
+}
+
+.profile_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.profile_info {
+    font-family: Ubuntu, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 15px;
+    }
+
+    .header > div:nth-of-type(1) {
+        display: flex;
+    }
+
+    .header > img:nth-of-type(1) {
+        display: none;
+    }
+}
+
+@media (width: 768px) {
+    .header {
+        padding: 30px 25px 0 25px;
+    }
+}

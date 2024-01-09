@@ -1,0 +1,48 @@
+.none_active {
+    margin-top: 30px;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    min-height: 60px;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.4s all;
+    user-select: none;
+    font-size: 18px;
+}
+
+.active {
+    margin-top: 30px;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    min-height: 60px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.4s all;
+    user-select: none;
+    font-size: 18px;
+}
+
+.description_none {
+    display: none;
+}
+
+.description_active {
+    margin-top: 20px;
+}
+
+.caption {
+    font-weight: 600;
+    font-size: 20px;
+    transition: 0.2s all;
+}
+
+.caption_active {
+    color: #6d5bfd;
+    font-weight: 600;
+    font-size: 20px;
+    transition: 0.2s all;
+}

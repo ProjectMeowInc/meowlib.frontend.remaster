@@ -1,0 +1,36 @@
+.inp_with_icon__container {
+    width: 40vh;
+    height: 48px;
+    display: flex;
+}
+
+.inp_with_icon {
+    width: 40vh;
+    height: 48px;
+    padding-left: 12px;
+    border-radius: 6px;
+    border: 1px solid #545f71;
+}
+
+.inp_with_icon:focus {
+    outline: 0;
+}
+
+.inp_with_icon::placeholder {
+    color: #9ba5b7;
+    font-family: Inter, serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    width: 622px;
+    height: 22px;
+}
+
+.icon {
+    cursor: pointer;
+    z-index: 10;
+    margin: 15px -30px;
+    width: 19px;
+    height: 19px;
+}

@@ -1,0 +1,39 @@
+.container__auth_form {
+    position: absolute;
+    top: 107px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 396px;
+    height: 225px;
+}
+
+.container__auth_form h2 {
+    font-family: Ubuntu, serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16px;
+    letter-spacing: 0;
+    text-align: left;
+    color: #808080;
+    margin-left: 110px;
+    width: 230px;
+    height: 16px;
+}
+
+.container__auth_form hr {
+    width: 312px;
+    border: 1px solid rgba(229, 229, 229, 75%);
+}
+
+.auth_form__hr_one {
+    position: absolute;
+    top: 30px;
+    left: 42px;
+}
+
+.auth_form__hr_two {
+    position: absolute;
+    top: 180px;
+    left: 42px;
+}

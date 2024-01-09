@@ -1,0 +1,35 @@
+.container__account_settings h2 {
+    font-family: Ubuntu, serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+    margin-bottom: 25px;
+    color: #545f71;
+}
+
+.container__account_settings p {
+    font-family: Inter, serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: -0.02em;
+    color: #545f71;
+}
+
+.account_settings__current_email {
+    display: flex;
+    flex-direction: column;
+}
+
+.account_settings__current_email_header {
+    margin-top: 94px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 285px;
+}
+
+.account_settings__current_email img {
+    cursor: pointer;
+}

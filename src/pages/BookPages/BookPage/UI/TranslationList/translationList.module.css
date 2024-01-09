@@ -1,0 +1,20 @@
+@media (min-width: 320px) {
+    .no_translation {
+        font-family: "Ubuntu", serif;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 18px;
+    }
+
+    .translation_item {
+        display: flex;
+        padding: 10px;
+        background-color: #f8f8f8;
+        border-radius: 7px;
+        margin-top: 10px;
+        cursor: pointer;
+        user-select: none;
+        font-family: "Ubuntu", serif;
+        font-weight: 500;
+    }
+}
