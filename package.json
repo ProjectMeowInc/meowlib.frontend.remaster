@@ -4,7 +4,9 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "style-fix": "dotnet ./.tools/auto-prettier/AutoPrettier.dll",
+        "style-fix": "dotnet ./.tools/auto-prettier/AutoPrettier.dll --style-fix",
+        "custom-lint": "dotnet ./.tools/auto-prettier/AutoPrettier.dll --lint",
+        "custom-lint-auto-fix": "dotnet ./.tools/auto-prettier/AutoPrettier.dll --lint --lint-auto-fix",
         "build": "next build",
         "start": "next start",
         "lint": "next lint"
