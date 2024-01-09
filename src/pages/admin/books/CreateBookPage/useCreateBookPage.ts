@@ -1,11 +1,11 @@
-import {FormEvent, useState} from "react";
-import {useRouter} from "next/navigation";
-import {IOnChangeEvent} from "@/shared/models/events/IOnChangeEvent";
-import {AlertService} from "@/shared/services/AlertService";
-import {BookService} from "@/entities/Book/service/BookService";
-import {ICreateBook} from "@/entities/Book/models/requests/CreateBookRequest";
+import { FormEvent, useState } from "react"
+import { useRouter } from "next/navigation"
+import { IOnChangeEvent } from "@/shared/models/events/IOnChangeEvent"
+import { AlertService } from "@/shared/services/AlertService"
+import { BookService } from "@/entities/Book/service/BookService"
+import { ICreateBook } from "@/entities/Book/models/requests/CreateBookRequest"
 
-export const useCreateForm = () => {
+export const useCreateBookPage = () => {
     const [data, setData] = useState<ICreateBook>({
         name: "",
         description: "",

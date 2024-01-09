@@ -1,8 +1,8 @@
 "use client"
 
 import React, { FC } from "react"
-import AddTagListItem from "@/pages/admin/books/UpdateBookTagsPage/UI/AddTagListItem/AddTagListItem"
-import { useAddBookTagList } from "@/pages/admin/books/UpdateBookTagsPage/UI/useAddBookTagList"
+import AddTagListItem from "@/pages/admin/books/UpdateBookTagsForm/UI/AddTagListItem/AddTagListItem"
+import { useAddBookTagList } from "@/pages/admin/books/UpdateBookTagsForm/UI/useAddBookTagList"
 import classes from "./AddBookTagList.module.css"
 import EmptyTag from "@/shared/UI/EmptyTag/EmptyTag"
 

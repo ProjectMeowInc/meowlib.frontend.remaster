@@ -4,7 +4,7 @@ import { BookService } from "@/entities/Book/service/BookService"
 import { AlertService } from "@/shared/services/AlertService"
 import { IOnChangeEvent } from "@/shared/models/events/IOnChangeEvent"
 
-export const useUpdateInfoBookPage = (bookId: number) => {
+export const useUpdateInfoBookForm = (bookId: number) => {
     const [info, setInfo] = useState<IUpdateBookRequest>({
         name: "",
         description: "",

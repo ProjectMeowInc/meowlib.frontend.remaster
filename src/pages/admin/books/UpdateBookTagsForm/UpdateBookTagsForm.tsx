@@ -1,28 +1,21 @@
 "use client"
 
 import React, { FC, useState } from "react"
-import classes from "./UpdateBookTagsPage.module.css"
-import { useUpdateBookTagsPage } from "@/pages/admin/books/UpdateBookTagsPage/useUpdateBookTagsPage"
-import DeleteTagListItem from "@/pages/admin/books/UpdateBookTagsPage/UI/DeleteTagListItem/DeleteTagListItem"
-import AddBookTagList from "@/pages/admin/books/UpdateBookTagsPage/UI/AddBookTagList/AddBookTagList"
+import classes from "./UpdateBookTagsForm.module.css"
+import { useUpdateBookTagsForm } from "@/pages/admin/books/UpdateBookTagsForm/useUpdateBookTagsForm"
+import DeleteTagListItem from "@/pages/admin/books/UpdateBookTagsForm/UI/DeleteTagListItem/DeleteTagListItem"
+import AddBookTagList from "@/pages/admin/books/UpdateBookTagsForm/UI/AddBookTagList/AddBookTagList"
+import EmptyTag from "@/shared/UI/EmptyTag/EmptyTag"
 
-interface IUpdateBookTagsPageProps {
-    params: {
-        bookId: number
-    }
+interface IUpdateBookTagsFormProps {
+    bookId: number
 }
 
-const UpdateBookTagsPage: FC<IUpdateBookTagsPageProps> = ({ params: { bookId } }) => {
-    const { tagList } = useUpdateBookTagsPage(bookId)
-
-    const [showTags, setShowTags] = useState<boolean>(false)
-
-    const handleAddTagsClick = () => {
-        setShowTags((prevState) => !prevState)
-    }
+const UpdateBookTagsForm: FC<IUpdateBookTagsFormProps> = ({ bookId }) => {
+    const { tagList, showTags, handleAddTagsClick } = useUpdateBookTagsForm(bookId)
 
     if (!tagList) {
-        return
+        return <EmptyTag />
     }
 
     return (
@@ -51,4 +44,4 @@ const UpdateBookTagsPage: FC<IUpdateBookTagsPageProps> = ({ params: { bookId } }
     )
 }
 
-export default UpdateBookTagsPage
+export default UpdateBookTagsForm

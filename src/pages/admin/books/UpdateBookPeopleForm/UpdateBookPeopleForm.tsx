@@ -1,20 +1,18 @@
 "use client"
 
 import React, { FC, useState } from "react"
-import DeleteBookPeopleItem from "@/pages/admin/books/UpdateBookPeoplePage/UI/DeleteBookPeopleItem/DeleteBookPeopleItem"
-import classes from "./UpdateBookPeoplePage.module.css"
-import { useUpdateBookPeoplePage } from "@/pages/admin/books/UpdateBookPeoplePage/useUpdateBookPeoplePage"
-import AddBookPeopleList from "@/pages/admin/books/UpdateBookPeoplePage/UI/AddBookPeopleList/AddBookPeopleList"
+import DeleteBookPeopleItem from "@/pages/admin/books/UpdateBookPeopleForm/UI/DeleteBookPeopleItem/DeleteBookPeopleItem"
+import classes from "./UpdateBookPeopleForm.module.css"
+import { useUpdateBookPeopleForm } from "@/pages/admin/books/UpdateBookPeopleForm/useUpdateBookPeopleForm"
+import AddBookPeopleList from "@/pages/admin/books/UpdateBookPeopleForm/UI/AddBookPeopleList/AddBookPeopleList"
 import EmptyTag from "@/shared/UI/EmptyTag/EmptyTag"
 
-interface IUpdateBookPeopleProps {
-    params: {
-        bookId: number
-    }
+interface IUpdateBookPeopleFormProps {
+    bookId: number
 }
 
-const UpdateBookPeoplePage: FC<IUpdateBookPeopleProps> = ({ params: { bookId } }) => {
-    const { peopleList } = useUpdateBookPeoplePage(bookId)
+const UpdateBookPeopleForm: FC<IUpdateBookPeopleFormProps> = ({ bookId }) => {
+    const { peopleList } = useUpdateBookPeopleForm(bookId)
 
     const [showPeople, setShowPeople] = useState<boolean>(false)
 
@@ -52,4 +50,4 @@ const UpdateBookPeoplePage: FC<IUpdateBookPeopleProps> = ({ params: { bookId } }
     )
 }
 
-export default UpdateBookPeoplePage
+export default UpdateBookPeopleForm

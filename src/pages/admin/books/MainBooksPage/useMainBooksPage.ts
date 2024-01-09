@@ -1,8 +1,8 @@
-import {useRouter} from "next/navigation";
-import {AlertService} from "@/shared/services/AlertService";
-import {BookService} from "@/entities/Book/service/BookService";
+import { useRouter } from "next/navigation"
+import { AlertService } from "@/shared/services/AlertService"
+import { BookService } from "@/entities/Book/service/BookService"
 
-export const useMainPageBooks = () => {
+export const useMainBooksPage = () => {
     const router = useRouter()
 
     const DeleteBookHandler = async (bookId: number) => {

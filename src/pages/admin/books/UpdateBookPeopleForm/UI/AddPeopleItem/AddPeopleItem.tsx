@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import classes from "./AddPeopleItem.module.css"
 import { PeopleRoleType } from "@/entities/People/types/PeopleRoleType"
-import { useAddPeopleItem } from "@/pages/admin/books/UpdateBookPeoplePage/UI/AddPeopleItem/useAddPeopleItem"
+import { useAddPeopleItem } from "@/pages/admin/books/UpdateBookPeopleForm/UI/AddPeopleItem/useAddPeopleItem"
 
 interface IAddPeopleItemProps {
     params: {

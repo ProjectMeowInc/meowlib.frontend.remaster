@@ -1,9 +1,9 @@
 "use client"
 
 import React, { FC, useState } from "react"
-import AddPeopleItem from "@/pages/admin/books/UpdateBookPeoplePage/UI/AddPeopleItem/AddPeopleItem"
+import AddPeopleItem from "@/pages/admin/books/UpdateBookPeopleForm/UI/AddPeopleItem/AddPeopleItem"
 import classes from "./AddBookPeopleList.module.css"
-import { useAddBookPeople } from "@/pages/admin/books/UpdateBookPeoplePage/UI/AddBookPeopleList/useAddBookPeopleList"
+import { useAddBookPeople } from "@/pages/admin/books/UpdateBookPeopleForm/UI/AddBookPeopleList/useAddBookPeopleList"
 import EmptyTag from "@/shared/UI/EmptyTag/EmptyTag"
 
 interface IAddBookPeopleListProps {

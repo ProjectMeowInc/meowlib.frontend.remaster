@@ -2,7 +2,7 @@ import React, { FormEvent, useState } from "react"
 import { BookService } from "@/entities/Book/service/BookService"
 import { AlertService } from "@/shared/services/AlertService"
 
-export const useUpdateImageBookPage = (bookId: number) => {
+export const useUpdateImageBookForm = (bookId: number) => {
     const [image, setImage] = useState<FormData | null>(null)
 
     function UpdateImageHandler(event: React.ChangeEvent<HTMLInputElement>) {

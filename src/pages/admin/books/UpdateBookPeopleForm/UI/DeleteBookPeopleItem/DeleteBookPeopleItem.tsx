@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import { PeopleRoleType } from "@/entities/People/types/PeopleRoleType"
 import classes from "./DeleteBookPeopleItem.module.css"
-import { useDeleteBookPeopleItem } from "@/pages/admin/books/UpdateBookPeoplePage/UI/DeleteBookPeopleItem/useDeleteBookPeopleItem"
+import { useDeleteBookPeopleItem } from "@/pages/admin/books/UpdateBookPeopleForm/UI/DeleteBookPeopleItem/useDeleteBookPeopleItem"
 
 interface IDeleteBookPeopleItemProps {
     bookId: number

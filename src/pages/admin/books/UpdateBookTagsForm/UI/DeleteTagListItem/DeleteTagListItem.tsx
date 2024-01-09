@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import classes from "./DeleteTagListItem.module.css"
-import { useDeleteTagListItem } from "@/pages/admin/books/UpdateBookTagsPage/UI/DeleteTagListItem/useDeleteTagListItem"
+import { useDeleteTagListItem } from "@/pages/admin/books/UpdateBookTagsForm/UI/DeleteTagListItem/useDeleteTagListItem"
 
 interface IDeleteTagListItemProps {
     bookId: number

@@ -2,10 +2,10 @@
 
 import React, { FC } from "react"
 import classes from "./MainUpdateBookPage.module.css"
-import UpdateImageBookPage from "@/pages/admin/books/UpdateImageBookPage/UpdateImageBookPage"
-import UpdateBookPeople from "@/pages/admin/books/UpdateBookPeoplePage/UpdateBookPeoplePage"
-import UpdateInfoBookPage from "@/pages/admin/books/UpdateInfoBookPage/UpdateInfoBookPage"
-import UpdateBookTagsPage from "@/pages/admin/books/UpdateBookTagsPage/UpdateBookTagsPage"
+import UpdateImageBookForm from "@/pages/admin/books/UpdateImageBookForm/UpdateImageBookForm"
+import UpdateBookPeopleForm from "@/pages/admin/books/UpdateBookPeopleForm/UpdateBookPeopleForm"
+import UpdateInfoBookForm from "@/pages/admin/books/UpdateInfoBookPage/UpdateInfoBookForm"
+import UpdateBookTagsForm from "@/pages/admin/books/UpdateBookTagsForm/UpdateBookTagsForm"
 import Link from "next/link"
 import { useMainUpdateBookPage } from "@/pages/admin/books/MainUpdateBookPage/useMainUpdateBookPage"
 import Preloader from "@/pages/admin/UI/Preloader/Preloader"
@@ -26,13 +26,13 @@ const MainUpdateBookPage: FC<IMainUpdateBookPageProps> = ({ params: { bookId } }
     return (
         <div className={classes.container}>
             <h1>Обновление книги</h1>
-            <UpdateInfoBookPage params={{ bookId }} />
+            <UpdateInfoBookForm bookId={bookId} />
             <hr />
-            <UpdateImageBookPage params={{ bookId }} />
+            <UpdateImageBookForm bookId={bookId} />
             <hr />
-            <UpdateBookPeople params={{ bookId }} />
+            <UpdateBookPeopleForm bookId={bookId} />
             <hr />
-            <UpdateBookTagsPage params={{ bookId }} />
+            <UpdateBookTagsForm bookId={bookId} />
             <hr />
             <Link href={"/admin/books"}>Сохранить</Link>
         </div>

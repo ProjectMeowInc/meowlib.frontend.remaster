@@ -2,17 +2,15 @@
 
 import React, { FC } from "react"
 import Button from "@/shared/UI/button/Button"
-import classes from "./UpdateImageBookPage.module.css"
-import { useUpdateImageBookPage } from "@/pages/admin/books/UpdateImageBookPage/useUpdateImageBookPage"
+import classes from "./UpdateImageBookForm.module.css"
+import { useUpdateImageBookForm } from "@/pages/admin/books/UpdateImageBookForm/useUpdateImageBookForm"
 
-interface IUpdateImageBookPageProps {
-    params: {
-        bookId: number
-    }
+interface IUpdateImageBookFormProps {
+    bookId: number
 }
 
-const UpdateImageBookPage: FC<IUpdateImageBookPageProps> = ({ params: { bookId } }) => {
-    const { UpdateImageHandler, SubmitImageHandler } = useUpdateImageBookPage(bookId)
+const UpdateImageBookForm: FC<IUpdateImageBookFormProps> = ({ bookId }) => {
+    const { UpdateImageHandler, SubmitImageHandler } = useUpdateImageBookForm(bookId)
 
     return (
         <div className={classes.container}>
@@ -24,4 +22,4 @@ const UpdateImageBookPage: FC<IUpdateImageBookPageProps> = ({ params: { bookId }
         </div>
     )
 }
-export default UpdateImageBookPage
+export default UpdateImageBookForm

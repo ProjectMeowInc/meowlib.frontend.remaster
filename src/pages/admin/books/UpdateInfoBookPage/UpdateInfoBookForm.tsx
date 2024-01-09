@@ -3,17 +3,15 @@
 import React, { FC } from "react"
 import Input from "@/shared/UI/Input/Input"
 import Button from "@/shared/UI/button/Button"
-import classes from "./UpdateInfoBookPage.module.css"
-import { useUpdateInfoBookPage } from "@/pages/admin/books/UpdateInfoBookPage/useUpdateInfoBookPage"
+import classes from "./UpdateInfoBookForm.module.css"
+import { useUpdateInfoBookForm } from "@/pages/admin/books/UpdateInfoBookPage/useUpdateInfoBookForm"
 
-export interface IUpdateBookPageProps {
-    params: {
-        bookId: number
-    }
+export interface IUpdateInfoBookFormProps {
+    bookId: number
 }
 
-const UpdateInfoBookPage: FC<IUpdateBookPageProps> = ({ params: { bookId } }) => {
-    const { ChangeInfoHandler, SubmitInfoHandler } = useUpdateInfoBookPage(bookId)
+const UpdateInfoBookForm: FC<IUpdateInfoBookFormProps> = ({ bookId }) => {
+    const { ChangeInfoHandler, SubmitInfoHandler } = useUpdateInfoBookForm(bookId)
 
     return (
         <div className={classes.container}>
@@ -36,4 +34,4 @@ const UpdateInfoBookPage: FC<IUpdateBookPageProps> = ({ params: { bookId } }) =>
     )
 }
 
-export default UpdateInfoBookPage
+export default UpdateInfoBookForm

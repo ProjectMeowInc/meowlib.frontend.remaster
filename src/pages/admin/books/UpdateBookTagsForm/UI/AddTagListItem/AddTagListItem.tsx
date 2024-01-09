@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import classes from "./AddTagListItem.module.css"
-import { useAddTagListItem } from "@/pages/admin/books/UpdateBookTagsPage/UI/AddTagListItem/useAddTagListItem"
+import { useAddTagListItem } from "@/pages/admin/books/UpdateBookTagsForm/UI/AddTagListItem/useAddTagListItem"
 
 interface IAddTagListItemProps {
     params: {
@@ -13,7 +13,6 @@ interface IAddTagListItemProps {
 
 const AddTagListItem: FC<IAddTagListItemProps> = ({ params: { bookId }, id, name, description }) => {
     const { handleAddTag } = useAddTagListItem(bookId, id, name, description)
-
 
     return (
         <div className={classes.container} onClick={handleAddTag}>

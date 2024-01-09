@@ -9,7 +9,7 @@ interface IGetPeople {
     role: PeopleRoleType
 }
 
-export const useUpdateBookPeoplePage = (bookId: number) => {
+export const useUpdateBookPeopleForm = (bookId: number) => {
     const [peopleList, setPeopleList] = useState<IGetPeople[] | null>(null)
 
     useEffect(() => {
