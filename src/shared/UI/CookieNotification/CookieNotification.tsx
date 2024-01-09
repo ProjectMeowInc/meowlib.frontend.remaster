@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Button from "@/shared/UI/button/Button"
 import classes from "@/shared/UI/CookieNotification/CookieNotification.module.css"
 import Image from "next/image"
 import { useCookies } from "react-cookie"
+import { useFirstLoading } from "@/shared/hooks/useFirstLoading"
 
 const CookieNotification = () => {
     const [cookies, setCookie] = useCookies(["notificationShown"])
     const [showNotification, setShowNotification] = useState(true)
 
-    useEffect(() => {
+    useFirstLoading(() => {
         if (!cookies.notificationShown) {
             setShowNotification(true)
         }
-    }, [])
+    })
 
     const closeNotificationSetCook = () => {
         setCookie("notificationShown", true)
