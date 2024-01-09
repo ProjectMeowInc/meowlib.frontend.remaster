@@ -1,16 +1,16 @@
-import {FormEvent, useState} from "react"
-import {IOnChangeEvent} from "@/shared/models/events/IOnChangeEvent"
-import {AlertService} from "@/shared/services/AlertService"
-import {useRouter} from "next/navigation"
-import {UserRoleEnum} from "@/entities/User/User";
-import {UsersService} from "@/entities/Users/service/UsersService";
-import {IUpdateUserDTO} from "@/entities/Users/models/dto/IUpdateUserDTO";
+import { FormEvent, useState } from "react"
+import { IOnChangeEvent } from "@/shared/models/events/IOnChangeEvent"
+import { AlertService } from "@/shared/services/AlertService"
+import { useRouter } from "next/navigation"
+import { UsersService } from "@/entities/User/service/UsersService"
+import { IUpdateUserDTO } from "@/entities/User/models/dto/IUpdateUserDTO"
+import { UserRoleEnum } from "@/entities/User/models/UserEntity"
 
 export const useUpdateUserForm = (id: number) => {
     const [data, setData] = useState<IUpdateUserDTO>({
         login: "",
         password: "",
-        role: UserRoleEnum.User
+        role: UserRoleEnum.User,
     })
 
     const router = useRouter()

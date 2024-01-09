@@ -1,15 +1,15 @@
-import {Result} from "@/shared/services/Result/Result";
-import {IUserDTO} from "@/entities/Users/models/dto/IUserDTO";
-import {UsersApi} from "@/entities/Users/api/UsersApi";
-import {IUpdateUserDTO} from "@/entities/Users/models/dto/IUpdateUserDTO";
+import { Result } from "@/shared/services/Result/Result"
+import { IUserDTO } from "@/entities/User/models/dto/IUserDTO"
+import { UsersApi } from "@/entities/User/api/UsersApi"
+import { IUpdateUserDTO } from "@/entities/User/models/dto/IUpdateUserDTO"
 
 export class UsersService {
     static async getAllUsers(): Promise<Result<IUserDTO[]>> {
         const result = await UsersApi.getAllUsers()
 
-            if (result.hasError()) {
-                return Result.withError(result.getError())
-            }
+        if (result.hasError()) {
+            return Result.withError(result.getError())
+        }
 
         return Result.withOk(result.unwrap().items)
     }

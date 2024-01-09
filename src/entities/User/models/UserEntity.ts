@@ -5,7 +5,7 @@ export enum UserRoleEnum {
     Admin = "Admin",
 }
 
-export interface User {
+export interface UserEntity {
     id: number
     login: string
     role: UserRoleEnum

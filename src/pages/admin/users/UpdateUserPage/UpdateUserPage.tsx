@@ -1,6 +1,6 @@
-import React, {FC} from 'react';
-import {UsersService} from "@/entities/Users/service/UsersService";
-import UpdateUserForm from "@/pages/admin/users/UI/UpdateUserForm/UpdateUserForm";
+import React, { FC } from "react"
+import { UsersService } from "@/entities/User/service/UsersService"
+import UpdateUserForm from "@/pages/admin/users/UI/UpdateUserForm/UpdateUserForm"
 
 interface IUpdateUserPageProps {
     params: {
@@ -19,10 +19,9 @@ const UpdateUserPage: FC<IUpdateUserPageProps> = async ({ params: { userId } }) 
 
     return (
         <div>
-            <UpdateUserForm user={user}/>
+            <UpdateUserForm user={user} />
         </div>
+    )
+}
 
-    );
-};
-
-export default UpdateUserPage;
+export default UpdateUserPage

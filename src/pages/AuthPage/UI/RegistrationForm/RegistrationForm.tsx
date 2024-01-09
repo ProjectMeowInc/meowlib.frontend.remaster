@@ -2,10 +2,10 @@ import React from "react"
 import InputAuthorization from "@/shared/UI/InputAuthorization/InputAuthorization"
 import Button from "@/shared/UI/button/Button"
 import classes from "./RegistrationForm.module.css"
-import { useRegistration } from "@/entities/Auth/hooks/useRegistration"
+import { useRegistrationForm } from "@/pages/AuthPage/UI/RegistrationForm/useRegistrationForm"
 
 const RegistrationForm = () => {
-    const { handleInputChange, handleSubmit } = useRegistration()
+    const { handleInputChange, handleSubmit } = useRegistrationForm()
 
     return (
         <div className={classes.container__reg_form}>
