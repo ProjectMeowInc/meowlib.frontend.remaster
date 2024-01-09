@@ -6,11 +6,13 @@ const Menu = () => {
     return (
         <aside className={classes.aside}>
             <div className={classes.top_part}>
-                <MenuItem img={"/img/icon.png"} text={"Главная"} href={""} />
+                <MenuItem img={"/img/icon.png"} text={"Главная"} href={"/"} />
 
                 <MenuItem img={"/img/6.png"} text={"Избранное"} href={""} />
 
-                <MenuItem img={"/img/7.png"} text={"Админ панель"} href={""} />
+                <MenuItem img={"/img/7.png"} text={"Админ панель"} href={"/admin"} />
+
+                <MenuItem img={""} text={"FAQ"} href={"/rules"}/>
             </div>
 
             <div className={classes.bottom_part}>
