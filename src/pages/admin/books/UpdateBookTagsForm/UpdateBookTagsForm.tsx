@@ -1,6 +1,6 @@
 "use client"
 
-import React, { FC, useState } from "react"
+import React, { FC } from "react"
 import classes from "./UpdateBookTagsForm.module.css"
 import { useUpdateBookTagsForm } from "@/pages/admin/books/UpdateBookTagsForm/useUpdateBookTagsForm"
 import DeleteTagListItem from "@/pages/admin/books/UpdateBookTagsForm/UI/DeleteTagListItem/DeleteTagListItem"

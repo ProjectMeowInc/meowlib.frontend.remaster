@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { BookService } from "@/entities/Book/service/BookService"
 import { AlertService } from "@/shared/services/AlertService"
 import { ITagDTO } from "@/entities/Tag/models/dto/ITagDTO"
+import { useFirstLoadingAsync } from "@/shared/hooks/useFirstLoadingAsync"
 
 export const useUpdateBookTagsForm = (bookId: number) => {
     const [tagList, setTagList] = useState<ITagDTO[] | null>(null)
@@ -11,15 +12,14 @@ export const useUpdateBookTagsForm = (bookId: number) => {
         setShowTags((prevState) => !prevState)
     }
 
-    useEffect(() => {
-        BookService.getBookById(bookId).then((getTagsResult) => {
-            if (getTagsResult.hasError()) {
-                return AlertService.errorMessage(getTagsResult.getError().errorMessage)
-            }
+    useFirstLoadingAsync(async () => {
+        const getBookResult = await BookService.getBookById(bookId)
+        if (getBookResult.hasError()) {
+            return AlertService.errorMessage(getBookResult.getError().errorMessage)
+        }
 
-            setTagList(getTagsResult.unwrap().tags)
-        })
-    }, [])
+        setTagList(getBookResult.unwrap().tags)
+    })
 
     return {
         tagList,

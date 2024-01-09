@@ -2,6 +2,7 @@ import { IUpdateBookTagRequest } from "@/entities/Book/models/requests/UpdateBoo
 import { BookService } from "@/entities/Book/service/BookService"
 import { AlertService } from "@/shared/services/AlertService"
 import { useEffect, useState } from "react"
+import { useFirstLoadingAsync } from "@/shared/hooks/useFirstLoadingAsync"
 
 interface IGetBookTags {
     id: number
@@ -12,15 +13,14 @@ interface IGetBookTags {
 export const useDeleteTagListItem = (bookId: number) => {
     const [tagList, setTagList] = useState<IGetBookTags[] | null>(null)
 
-    useEffect(() => {
-        BookService.getBookById(bookId).then((getTagsResult) => {
-            if (getTagsResult.hasError()) {
-                return AlertService.errorMessage(getTagsResult.getError().errorMessage)
-            }
+    useFirstLoadingAsync(async () => {
+        const getBookResult = await BookService.getBookById(bookId)
+        if (getBookResult.hasError()) {
+            return AlertService.errorMessage(getBookResult.getError().errorMessage)
+        }
 
-            setTagList(getTagsResult.unwrap().tags)
-        })
-    }, [])
+        setTagList(getBookResult.unwrap().tags)
+    })
 
     const RemoveTagHandler = async (bookId: number, updatedTagList: IGetBookTags[]) => {
         const tags: IUpdateBookTagRequest = {

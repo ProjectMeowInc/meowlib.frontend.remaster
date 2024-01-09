@@ -3,19 +3,19 @@ import { AlertService } from "@/shared/services/AlertService"
 import { IUpdateBookTagRequest } from "@/entities/Book/models/requests/UpdateBookTagRequest"
 import { useEffect, useState } from "react"
 import { ITagDTO } from "@/entities/Tag/models/dto/ITagDTO"
+import { useFirstLoadingAsync } from "@/shared/hooks/useFirstLoadingAsync"
 
 export const useAddTagListItem = (bookId: number, id: number, name: string, description: string) => {
     const [tagList, setTagList] = useState<ITagDTO[] | null>(null)
 
-    useEffect(() => {
-        BookService.getBookById(bookId).then((getTagsResult) => {
-            if (getTagsResult.hasError()) {
-                return AlertService.errorMessage(getTagsResult.getError().errorMessage)
-            }
+    useFirstLoadingAsync(async () => {
+        const getBookResult = await BookService.getBookById(bookId)
+        if (getBookResult.hasError()) {
+            return AlertService.errorMessage(getBookResult.getError().errorMessage)
+        }
 
-            setTagList(getTagsResult.unwrap().tags)
-        })
-    }, [])
+        setTagList(getBookResult.unwrap().tags)
+    })
 
     const AddTagHandler = async (bookId: number, tags: IUpdateBookTagRequest) => {
         const result = await BookService.updateBookTags(bookId, tags)

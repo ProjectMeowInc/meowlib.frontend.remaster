@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { BookService } from "@/entities/Book/service/BookService"
 import { PeopleRoleType } from "@/entities/People/types/PeopleRoleType"
 import { AlertService } from "@/shared/services/AlertService"
+import { useFirstLoadingAsync } from "@/shared/hooks/useFirstLoadingAsync"
 
 interface IGetPeople {
     id: number
@@ -12,15 +13,14 @@ interface IGetPeople {
 export const useUpdateBookPeopleForm = (bookId: number) => {
     const [peopleList, setPeopleList] = useState<IGetPeople[] | null>(null)
 
-    useEffect(() => {
-        BookService.getBookById(bookId).then((getPeoplesResult) => {
-            if (getPeoplesResult.hasError()) {
-                return AlertService.errorMessage(getPeoplesResult.getError().errorMessage)
-            }
+    useFirstLoadingAsync(async () => {
+        const getBookResult = await BookService.getBookById(bookId)
+        if (getBookResult.hasError()) {
+            return AlertService.errorMessage(getBookResult.getError().errorMessage)
+        }
 
-            setPeopleList(getPeoplesResult.unwrap().peoples)
-        })
-    }, [])
+        setPeopleList(getBookResult.unwrap().peoples)
+    })
 
     return {
         peopleList,
