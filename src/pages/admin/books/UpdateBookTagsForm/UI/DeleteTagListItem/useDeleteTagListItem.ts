@@ -1,7 +1,7 @@
 import { IUpdateBookTagRequest } from "@/entities/Book/models/requests/UpdateBookTagRequest"
 import { BookService } from "@/entities/Book/service/BookService"
 import { AlertService } from "@/shared/services/AlertService"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useFirstLoadingAsync } from "@/shared/hooks/useFirstLoadingAsync"
 
 interface IGetBookTags {

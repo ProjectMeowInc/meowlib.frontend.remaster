@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { BookService } from "@/entities/Book/service/BookService"
 import { PeopleRoleType } from "@/entities/People/types/PeopleRoleType"
 import { AlertService } from "@/shared/services/AlertService"
