@@ -13,8 +13,8 @@ interface IDeleteBookPeopleItemProps {
 const DeleteBookPeopleItem: FC<IDeleteBookPeopleItemProps> = ({ bookId, id, name, role }) => {
     const { DeletePeopleHandler } = useDeleteBookPeopleItem()
 
-    const handleDeleteClick = () => {
-        DeletePeopleHandler(bookId, id)
+    const handleDeleteClick = async () => {
+        await DeletePeopleHandler(bookId, id)
     }
 
     return (

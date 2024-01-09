@@ -18,8 +18,8 @@ export const useAddPeopleItem = (bookId: number, id: number, role: PeopleRoleTyp
         return AlertService.successMessage("Человек успешно добавлен к книге")
     }
 
-    const handleAddClick = () => {
-        AddPeopleHandler(bookId, id, role)
+    const handleAddClick = async () => {
+        await AddPeopleHandler(bookId, id, role)
     }
 
     return {
