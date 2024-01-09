@@ -26,6 +26,7 @@ const CommentList: FC<ICommentListProps> = () => {
         <div className={classes.list}>
             {comments.map((comment) => (
                 <CommentItem
+                    key={comment.id}
                     authorName={comment.author.login}
                     authorImage={"https://i.pinimg.com/736x/fa/f2/11/faf2114584ee9a58c797b84c9c362264.jpg"}
                     postedAt={comment.postedAt}

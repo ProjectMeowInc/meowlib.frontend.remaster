@@ -6,6 +6,7 @@ import { IUpdateBookTagRequest } from "@/entities/Book/models/requests/UpdateBoo
 import { ICreateBook } from "@/entities/Book/models/requests/CreateBookRequest"
 import { IGetBookByIdResponse } from "@/entities/Book/models/response/IGetBookByIdResponse"
 import { IGetAllBookResponse } from "@/entities/Book/models/response/IGetAllBookResponse"
+import {IAddPeopleToBookRequest} from "@/entities/Book/models/requests/AddPeopleToBookRequest";
 
 export class BookApi {
     static async getBooks(): Promise<Result<IGetAllBookResponse>> {
@@ -45,7 +46,7 @@ export class BookApi {
 
     static async getBookById(id: number): Promise<Result<IGetBookByIdResponse>> {
         const result = await new HTTPResult<IGetBookByIdResponse>()
-            .withUrl(`/v1/books/${id}`)
+            .withUrl(`/v2/books/${id}`)
             .withGetMethod()
             .sendAsync()
 
@@ -113,5 +114,36 @@ export class BookApi {
         }
 
         return EmptyResult.withOk()
+    }
+
+    static async addPeopleToBook(bookId: number, requestData: IAddPeopleToBookRequest): Promise<EmptyResult> {
+        const result = await new HTTPResult<void>()
+            .withUrl(`/v1/books/${bookId}/people`)
+            .withAuth()
+            .withBody(requestData)
+            .withPostMethod()
+            .sendAsync()
+
+        if (result.hasError()) {
+            return EmptyResult.withError(result.getError())
+        }
+
+        return EmptyResult.withOk()
+    }
+
+    static async deletePeopleBook(bookId: number, peopleId: number): Promise<EmptyResult> {
+        const result = await new HTTPResult<void>()
+            .withUrl(`/v1/books/${bookId}/people/${peopleId}`)
+            .withAuth()
+            .withBody({bookId, peopleId})
+            .withDeleteMethod()
+            .sendAsync()
+
+        if (result.hasError()) {
+            return EmptyResult.withError(result.getError())
+        }
+
+        return EmptyResult.withOk()
+
     }
 }
