@@ -1,37 +1,28 @@
-import {useEffect, useState} from "react";
-import {BookService} from "@/entities/Book/service/BookService";
-import {AlertService} from "@/shared/services/AlertService";
-import {IPeopleDto} from "@/entities/People/models/dto/IPeopleDto";
-import {ITagDTO} from "@/entities/Tag/models/dto/ITagDTO";
+import { useEffect, useState } from "react"
+import { BookService } from "@/entities/Book/service/BookService"
+import { AlertService } from "@/shared/services/AlertService"
+import { IPeopleDto } from "@/entities/People/models/dto/IPeopleDto"
+import { ITagDTO } from "@/entities/Tag/models/dto/ITagDTO"
+import { useFirstLoadingAsync } from "@/shared/hooks/useFirstLoadingAsync"
 
 export const useMainUpdateBookPage = (bookId: number) => {
-
     const [peopleList, setPeopleList] = useState<IPeopleDto[] | null>(null)
     const [tagList, setTagList] = useState<ITagDTO[] | null>(null)
 
-    useEffect(() => {
-        BookService.getBookById(bookId).then(getPeoplesResult => {
-            if(getPeoplesResult.hasError()) {
-                return AlertService.errorMessage(getPeoplesResult.getError().errorMessage)
-            }
+    useFirstLoadingAsync(async () => {
+        const getBookResult = await BookService.getBookById(bookId)
 
-            setPeopleList(getPeoplesResult.unwrap().peoples)
+        if (getBookResult.hasError()) {
+            return AlertService.errorMessage(getBookResult.getError().errorMessage)
+        }
 
-        })
-    }, [])
-
-    useEffect(() => {
-        BookService.getBookById(bookId).then(getTagsResult => {
-            if(getTagsResult.hasError()) {
-                return AlertService.errorMessage(getTagsResult.getError().errorMessage)
-            }
-
-            setTagList(getTagsResult.unwrap().tags)
-        })
-    }, []);
+        const book = getBookResult.unwrap()
+        setPeopleList(book.peoples)
+        setTagList(book.tags)
+    })
 
     return {
         peopleList,
-        tagList
+        tagList,
     }
 }
