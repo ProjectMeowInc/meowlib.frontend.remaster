@@ -1,6 +1,6 @@
 import { ICreateTagRequest } from "@/entities/Tag/models/requests/ICreateTagRequest"
 import { Result } from "@/shared/services/Result/Result"
-import { HTTPResult } from "@/shared/services/HTTPResult/HTTPResult"
+import { HTTPRequest } from "@/shared/services/HTTPResult/HTTPRequest"
 import { IGetAllTagResponse } from "@/entities/Tag/models/responses/IGetAllTagResponse"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
 import { IUpdateTagRequest } from "@/entities/Tag/models/requests/IUpdateTagRequest"
@@ -10,7 +10,7 @@ import { IGetTagByIdResponse } from "@/entities/Tag/models/responses/IGetTagById
 
 export class TagApi {
     static async createAsync(requestData: ICreateTagRequest): Promise<Result<ICreateTagResponse>> {
-        const result = await new HTTPResult<ICreateTagResponse>()
+        const result = await new HTTPRequest<ICreateTagResponse>()
             .withUrl("/v1/tags")
             .withPostMethod()
             .withAuth()
@@ -25,7 +25,7 @@ export class TagApi {
     }
 
     static async getAllAsync(): Promise<Result<IGetAllTagResponse>> {
-        const result = await new HTTPResult<IGetAllTagResponse>().withUrl("/v1/tags").withGetMethod().sendAsync()
+        const result = await new HTTPRequest<IGetAllTagResponse>().withUrl("/v1/tags").withGetMethod().sendAsync()
 
         if (result.hasError()) {
             return Result.withError(result.getError())
@@ -35,7 +35,7 @@ export class TagApi {
     }
 
     static async deleteByIdAsync(tagId: number): Promise<EmptyResult> {
-        const result = await new HTTPResult<void>()
+        const result = await new HTTPRequest<void>()
             .withUrl(`/v1/tags/${tagId}`)
             .withDeleteMethod()
             .withAuth()
@@ -52,7 +52,7 @@ export class TagApi {
         tagId: number,
         requestData: IUpdateTagRequest,
     ): Promise<Result<IUpdateTagByIdResponse>> {
-        const result = await new HTTPResult<IUpdateTagByIdResponse>()
+        const result = await new HTTPRequest<IUpdateTagByIdResponse>()
             .withUrl(`/v1/tags/${tagId}`)
             .withPutMethod()
             .withBody(requestData)
@@ -67,7 +67,7 @@ export class TagApi {
     }
 
     static async getByIdAsync(tagId: number): Promise<Result<IGetTagByIdResponse>> {
-        const result = await new HTTPResult<IGetTagByIdResponse>()
+        const result = await new HTTPRequest<IGetTagByIdResponse>()
             .withUrl(`/v1/tags/${tagId}`)
             .withGetMethod()
             .sendAsync()
