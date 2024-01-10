@@ -5,9 +5,12 @@ import { TokenService } from "@/shared/services/TokenService"
 import { IBaseErrorResponse } from "@/shared/models/IBaseErrorResponse"
 import { IValidationErrorResponse } from "@/shared/models/IValidationErrorResponse"
 import { LogService } from "@/shared/services/LogService"
+import { NotImplementException } from "@/shared/exception/NotImplementException"
+import { AuthService } from "@/entities/Auth/service/AuthService"
 
 type MethodsType = "GET" | "POST" | "PUT" | "DELETE"
-const BASE_URL: string = "http://localhost:5000/api"
+const BaseUrl: string = "http://localhost:5000/api"
+const EmptyAuthToken: string = "EMPTYAUTH"
 
 export class HTTPResult<TContent> {
     private method: MethodsType = "GET"
@@ -25,7 +28,7 @@ export class HTTPResult<TContent> {
         }
 
         let config: AxiosRequestConfig = {
-            baseURL: BASE_URL,
+            baseURL: BaseUrl,
             method: this.method,
             url: this.url,
         }
@@ -37,7 +40,7 @@ export class HTTPResult<TContent> {
         if (this.isAuth) {
             config.headers = {
                 ...config.headers,
-                Authorization: TokenService.getAccessToken(),
+                Authorization: TokenService.getAccessToken() ?? EmptyAuthToken,
             }
         }
 
@@ -128,3 +131,50 @@ export class HTTPResult<TContent> {
         return this
     }
 }
+
+axios.interceptors.request.use(
+    async (config) => {
+        if (!config.headers.Authorization) {
+            return config
+        }
+
+        const token = config.headers.Authorization as string
+        if (token != EmptyAuthToken) {
+            const parseAccessTokenResult = TokenService.parseAccessToken(token)
+            if (parseAccessTokenResult.hasError()) {
+                throw new NotImplementException()
+            }
+
+            const accessTokenData = parseAccessTokenResult.unwrap()
+
+            // current milliseconds to seconds
+            const currentTimestamp = new Date().getTime() / 1000
+            // if NOT expired
+            if (accessTokenData.expiredTimestamp > currentTimestamp) {
+                return config
+            }
+        }
+
+        const currentRefreshToken = TokenService.getRefreshToken()
+        // todo: add normal handling
+        if (!currentRefreshToken) {
+            return config
+        }
+
+        const updateAuthResult = await AuthService.updateAuth(currentRefreshToken)
+        // todo: add normal handling
+        if (updateAuthResult.hasError()) {
+            return config
+        }
+
+        const { accessToken, refreshToken } = updateAuthResult.unwrap()
+        TokenService.setAccessToken(accessToken)
+        TokenService.setRefreshToken(refreshToken)
+
+        config.headers.Authorization = accessToken
+        return config
+    },
+    (error) => {
+        return Promise.reject(error)
+    },
+)
