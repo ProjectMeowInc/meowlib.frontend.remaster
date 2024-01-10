@@ -5,7 +5,6 @@ import { TokenService } from "@/shared/services/TokenService"
 import { IBaseErrorResponse } from "@/shared/models/IBaseErrorResponse"
 import { IValidationErrorResponse } from "@/shared/models/IValidationErrorResponse"
 import { LogService } from "@/shared/services/LogService"
-import { NotImplementException } from "@/shared/exception/NotImplementException"
 import { AuthService } from "@/entities/Auth/service/AuthService"
 
 type MethodsType = "GET" | "POST" | "PUT" | "DELETE"

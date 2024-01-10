@@ -2,9 +2,7 @@ import Cookie from "js-cookie"
 import { IAccessTokenDto } from "@/entities/Auth/models/dto/AccessTokenDto"
 import { Result } from "@/shared/services/Result/Result"
 import { jwtDecode } from "jwt-decode"
-import { LogService } from "@/shared/services/LogService"
 import { IAccessTokenData } from "@/entities/Auth/models/dto/AccessTokenData"
-import { UserRoleEnum } from "@/entities/User/models/UserEntity"
 
 export class TokenService {
     static setAccessToken(accessToken: string) {
