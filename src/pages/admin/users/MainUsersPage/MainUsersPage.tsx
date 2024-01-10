@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import classes from "./MainUsersPage.module.css"
 import { UsersService } from "@/entities/User/service/UsersService"
 import UserItem from "@/pages/admin/users/UI/UserItem/UserItem"
