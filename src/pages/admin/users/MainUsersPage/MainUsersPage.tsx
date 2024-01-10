@@ -6,19 +6,20 @@ import { UsersService } from "@/entities/User/service/UsersService"
 import UserItem from "@/pages/admin/users/UI/UserItem/UserItem"
 import { IUserDTO } from "@/entities/User/models/dto/IUserDTO"
 import Preloader from "@/pages/admin/UI/Preloader/Preloader"
+import { useFirstLoadingAsync } from "@/shared/hooks/useFirstLoadingAsync"
+import { AlertService } from "@/shared/services/AlertService"
 
 const MainUsersPage = () => {
     const [usersList, setUsersList] = useState<IUserDTO[] | null>(null)
 
-    useEffect(() => {
-        UsersService.getAllUsers().then((getUserResult) => {
-            if (getUserResult.hasError()) {
-                return <div>{getUserResult.getError().errorMessage}</div>
-            }
+    useFirstLoadingAsync(async () => {
+        const getUserResult = await UsersService.getAllUsers()
+        if (getUserResult.hasError()) {
+            return AlertService.errorMessage(getUserResult.getError().errorMessage)
+        }
 
-            setUsersList(getUserResult.unwrap())
-        })
-    }, [])
+        setUsersList(getUserResult.unwrap())
+    })
 
     if (!usersList) {
         return <Preloader />
