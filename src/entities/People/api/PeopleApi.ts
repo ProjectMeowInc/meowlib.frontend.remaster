@@ -1,5 +1,5 @@
 import { Result } from "@/shared/services/Result/Result"
-import { HTTPResult } from "@/shared/services/HTTPResult/HTTPResult"
+import { HTTPRequest } from "@/shared/services/HTTPResult/HTTPRequest"
 import { IGetAllPeopleResponse } from "@/entities/People/models/responses/IGetAllPeopleResponse"
 import { ICreatePeopleRequest } from "@/entities/People/models/requests/ICreatePeopleRequest"
 import { ICreatePeopleResponse } from "@/entities/People/models/responses/ICreatePeopleResponse"
@@ -10,7 +10,7 @@ import { IGetPeopleByIdResponse } from "@/entities/People/models/responses/IGetP
 
 export class PeopleApi {
     static async getAllAsync(pageNumber?: number): Promise<Result<IGetAllPeopleResponse>> {
-        const result = await new HTTPResult<IGetAllPeopleResponse>()
+        const result = await new HTTPRequest<IGetAllPeopleResponse>()
             .withUrl(`/v1/people?page=${pageNumber ?? ""}`)
             .withGetMethod()
             .sendAsync()
@@ -23,7 +23,7 @@ export class PeopleApi {
     }
 
     static async createAsync(requestData: ICreatePeopleRequest): Promise<Result<ICreatePeopleResponse>> {
-        const result = await new HTTPResult<ICreatePeopleResponse>()
+        const result = await new HTTPRequest<ICreatePeopleResponse>()
             .withUrl("/v1/people")
             .withPostMethod()
             .withAuth()
@@ -41,7 +41,7 @@ export class PeopleApi {
         peopleId: number,
         requestData: IUpdatePeopleRequest,
     ): Promise<Result<IUpdatePeopleResponse>> {
-        const result = await new HTTPResult<IUpdatePeopleResponse>()
+        const result = await new HTTPRequest<IUpdatePeopleResponse>()
             .withUrl(`/v1/people/${peopleId}`)
             .withPutMethod()
             .withBody(requestData)
@@ -56,7 +56,7 @@ export class PeopleApi {
     }
 
     static async deleteByIdAsync(peopleId: number): Promise<EmptyResult> {
-        const result = await new HTTPResult<void>()
+        const result = await new HTTPRequest<void>()
             .withUrl(`/v1/people/${peopleId}`)
             .withAuth()
             .withDeleteMethod()
@@ -70,7 +70,7 @@ export class PeopleApi {
     }
 
     static async getByIdAsync(peopleId: number): Promise<Result<IGetPeopleByIdResponse>> {
-        const result = await new HTTPResult<IGetPeopleByIdResponse>()
+        const result = await new HTTPRequest<IGetPeopleByIdResponse>()
             .withUrl(`/v1/people/${peopleId}`)
             .withGetMethod()
             .sendAsync()

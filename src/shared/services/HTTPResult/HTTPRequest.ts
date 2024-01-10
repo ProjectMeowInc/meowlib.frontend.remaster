@@ -11,7 +11,7 @@ type MethodsType = "GET" | "POST" | "PUT" | "DELETE"
 const BaseUrl: string = "http://localhost:5000/api"
 const EmptyAuthToken: string = "EMPTYAUTH"
 
-export class HTTPResult<TContent> {
+export class HTTPRequest<TContent> {
     private method: MethodsType = "GET"
     private url: string | null = null
     private body: object | null = null
@@ -92,7 +92,7 @@ export class HTTPResult<TContent> {
      * @param url - ссылка формата "/user/login"
      */
     withUrl(url: string) {
-        if (!HTTPResult.validateUrl(url)) {
+        if (!HTTPRequest.validateUrl(url)) {
             throw new IncorrectUrlException("Неправильный формат ссылки")
         }
 
@@ -125,7 +125,7 @@ export class HTTPResult<TContent> {
         return this
     }
 
-    withAuth(): HTTPResult<TContent> {
+    withAuth(): HTTPRequest<TContent> {
         this.isAuth = true
         return this
     }

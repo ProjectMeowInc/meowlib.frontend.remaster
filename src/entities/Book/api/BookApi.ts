@@ -1,5 +1,5 @@
 import { Result } from "@/shared/services/Result/Result"
-import { HTTPResult } from "@/shared/services/HTTPResult/HTTPResult"
+import { HTTPRequest } from "@/shared/services/HTTPResult/HTTPRequest"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
 import { IUpdateBookRequest } from "@/entities/Book/models/requests/UpdateBookRequest"
 import { IUpdateBookTagRequest } from "@/entities/Book/models/requests/UpdateBookTagRequest"
@@ -10,7 +10,7 @@ import { IAddPeopleToBookRequest } from "@/entities/Book/models/requests/AddPeop
 
 export class BookApi {
     static async getBooks(): Promise<Result<IGetAllBookResponse>> {
-        const result = await new HTTPResult<IGetAllBookResponse>().withUrl("/v2/books").withGetMethod().sendAsync()
+        const result = await new HTTPRequest<IGetAllBookResponse>().withUrl("/v2/books").withGetMethod().sendAsync()
 
         if (result.hasError()) {
             return Result.withError(result.getError())
@@ -20,7 +20,7 @@ export class BookApi {
     }
 
     static async createBook(requestData: ICreateBook): Promise<EmptyResult> {
-        const result = await new HTTPResult<void>()
+        const result = await new HTTPRequest<void>()
             .withUrl("/v1/books")
             .withPostMethod()
             .withAuth()
@@ -35,7 +35,11 @@ export class BookApi {
     }
 
     static async deleteBookById(id: number): Promise<EmptyResult> {
-        const result = await new HTTPResult<void>().withUrl(`/v1/books/${id}`).withDeleteMethod().withAuth().sendAsync()
+        const result = await new HTTPRequest<void>()
+            .withUrl(`/v1/books/${id}`)
+            .withDeleteMethod()
+            .withAuth()
+            .sendAsync()
 
         if (result.hasError()) {
             return EmptyResult.withError(result.getError())
@@ -45,7 +49,7 @@ export class BookApi {
     }
 
     static async getBookById(id: number): Promise<Result<IGetBookByIdResponse>> {
-        const result = await new HTTPResult<IGetBookByIdResponse>()
+        const result = await new HTTPRequest<IGetBookByIdResponse>()
             .withUrl(`/v2/books/${id}`)
             .withGetMethod()
             .sendAsync()
@@ -58,7 +62,7 @@ export class BookApi {
     }
 
     static async updateBookInfo(bookId: number, updateData: IUpdateBookRequest): Promise<EmptyResult> {
-        const result = await new HTTPResult<void>()
+        const result = await new HTTPRequest<void>()
             .withUrl(`/v1/books/${bookId}/info`)
             .withBody(updateData)
             .withAuth()
@@ -73,7 +77,7 @@ export class BookApi {
     }
 
     static async updateBookAuthor(bookId: number, authorId: number): Promise<EmptyResult> {
-        const result = await new HTTPResult<void>()
+        const result = await new HTTPRequest<void>()
             .withUrl(`/v1/books/${bookId}/author/${authorId}`)
             .withAuth()
             .withPutMethod()
@@ -87,7 +91,7 @@ export class BookApi {
     }
 
     static async updateBookTags(bookId: number, requestData: IUpdateBookTagRequest): Promise<EmptyResult> {
-        const result = await new HTTPResult<void>()
+        const result = await new HTTPRequest<void>()
             .withUrl(`/v1/books/${bookId}/tags`)
             .withBody(requestData)
             .withAuth()
@@ -102,7 +106,7 @@ export class BookApi {
     }
 
     static async uploadImageBook(bookId: number, image: FormData): Promise<EmptyResult> {
-        const result = await new HTTPResult<void>()
+        const result = await new HTTPRequest<void>()
             .withUrl(`/v1/books/${bookId}/image`)
             .withAuth()
             .withBody(image)
@@ -117,7 +121,7 @@ export class BookApi {
     }
 
     static async addPeopleToBook(bookId: number, requestData: IAddPeopleToBookRequest): Promise<EmptyResult> {
-        const result = await new HTTPResult<void>()
+        const result = await new HTTPRequest<void>()
             .withUrl(`/v1/books/${bookId}/people`)
             .withAuth()
             .withBody(requestData)
@@ -132,7 +136,7 @@ export class BookApi {
     }
 
     static async deletePeopleBook(bookId: number, peopleId: number): Promise<EmptyResult> {
-        const result = await new HTTPResult<void>()
+        const result = await new HTTPRequest<void>()
             .withUrl(`/v1/books/${bookId}/people/${peopleId}`)
             .withAuth()
             .withBody({ bookId, peopleId })
