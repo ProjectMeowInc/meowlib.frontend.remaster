@@ -22,7 +22,7 @@ export const useAuthorizationForm = () => {
 
     async function handleSubmit(event: React.FormEvent): Promise<void> {
         event.preventDefault()
-        const result = await AuthService.authorization(formData)
+        const result = await AuthService.authorization(formData.login, formData.password, formData.isLongSession)
 
         if (result.hasError()) {
             return AlertService.errorMessage(result.getError().errorMessage)
