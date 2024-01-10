@@ -21,7 +21,7 @@ const BookPreview: React.FC<IBookPreview> = ({ id, image, name, author }) => {
             <h4>{name}</h4>
             <p>{author}</p>
             <div className={classes.favorite} onMouseEnter={handleHover} onMouseLeave={handleHover}>
-                {hover ? <img src={"/img/12 (2).png"} /> : <img src={"/img/11.png"} />}
+                {hover ? <img src={"/img/12.png"} alt={''} /> : <img src={"/img/11.png"} alt={''}/>}
             </div>
         </div>
     )
