@@ -1,8 +1,8 @@
-import { IUserFavoriteCategoryModel } from "@/entities/UserFavorite/models/categoryModel/IUserFavoriteCategoryModel"
+import { UserBookStatus } from "@/entities/UserFavorite/UserBookStatuses"
 
 export interface IGetAllBooksInFavoriteResponse {
     items: {
-        status: IUserFavoriteCategoryModel
+        status: UserBookStatus
         books: {
             id: number
             name: string

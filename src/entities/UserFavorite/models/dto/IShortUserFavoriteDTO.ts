@@ -1,8 +1,8 @@
-import {IUserFavoriteCategoryModel} from "@/entities/UserFavorite/models/categoryModel/IUserFavoriteCategoryModel";
+import { UserBookStatus } from "@/entities/UserFavorite/UserBookStatuses"
 
 export interface IShortUserFavoriteDTO {
     id: number
-    status: IUserFavoriteCategoryModel
+    status: UserBookStatus
     book: {
         id: number
         name: string

@@ -1,6 +1,6 @@
-import { IUserFavoriteCategoryModel } from "@/entities/UserFavorite/models/categoryModel/IUserFavoriteCategoryModel"
+import { UserBookStatus } from "@/entities/UserFavorite/UserBookStatuses"
 
 export interface IAddBookInFavoriteRequest {
     bookId: number
-    status: IUserFavoriteCategoryModel
+    status: UserBookStatus
 }
