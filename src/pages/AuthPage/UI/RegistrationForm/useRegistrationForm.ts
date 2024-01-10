@@ -20,7 +20,7 @@ export const useRegistrationForm = () => {
 
     const handleSubmit = async (event: React.FormEvent): Promise<void> => {
         event.preventDefault()
-        const result = await AuthService.registration(formData)
+        const result = await AuthService.registration(formData.login, formData.password)
 
         setFormData({
             login: "",
