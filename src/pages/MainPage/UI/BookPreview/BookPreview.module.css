@@ -11,6 +11,28 @@
     height: 312px;
 }
 
+.favorite {
+    width: 32px;
+    height: 32px;
+    margin: -20px 0 0 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.favorite:hover {
+    transition: 0.5s all;
+    background-color: #6d5bfd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 #00000040;
+}
+
+.favorite > img {
+    width: 24px;
+    height: 24px;
+}
+
 .container > h4,
 .container > p {
     font-family: Raleway, sans-serif;
