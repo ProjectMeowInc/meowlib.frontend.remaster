@@ -142,7 +142,7 @@ axios.interceptors.request.use(
         if (token != EmptyAuthToken) {
             const parseAccessTokenResult = TokenService.parseAccessToken(token)
             if (parseAccessTokenResult.hasError()) {
-                throw new NotImplementException()
+                return config
             }
 
             const accessTokenData = parseAccessTokenResult.unwrap()
