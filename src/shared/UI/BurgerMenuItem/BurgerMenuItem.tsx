@@ -10,7 +10,7 @@ interface IBurgerMenuItemProps {
 const BurgerMenuItem: FC<IBurgerMenuItemProps> = ({ href, imageHref, text }) => {
     return (
         <a className={classes.menu_item} href={href}>
-            <img src={imageHref} />
+            <img src={imageHref} alt={""}/>
             {text}
         </a>
     )
