@@ -1,0 +1,32 @@
+@media (min-width: 320px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .top {
+        display: flex;
+        align-items: center;
+    }
+
+    .name {
+        text-overflow: ellipsis;
+        color: white;
+        font-family: "Ubuntu", serif;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .caption {
+        text-overflow: ellipsis;
+        color: white;
+    }
+
+    .text {
+        color: white;
+        font-family: "Ubuntu", serif;
+        font-size: 16px;
+        font-weight: 400;
+    }
+}
