@@ -1,0 +1,19 @@
+@media (min-width: 320px) {
+    .container {
+        margin-top: 20px;
+        background-color: #202020;
+        padding: 10px;
+    }
+
+    .caption_block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .caption {
+        color: #FFF;
+        font-family: "Ubuntu", serif;
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
