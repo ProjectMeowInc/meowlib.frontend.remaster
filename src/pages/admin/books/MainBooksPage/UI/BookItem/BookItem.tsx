@@ -9,11 +9,10 @@ interface IBookItemProps {
     name: string
     description: string
     imageUrl: string
-    author: string | undefined
     onDelete: (id: number) => Promise<void>
 }
 
-const BookItem: FC<IBookItemProps> = ({ id, name, description, imageUrl, author, onDelete }) => {
+const BookItem: FC<IBookItemProps> = ({ id, name, description, imageUrl, onDelete }) => {
     const pathname = usePathname()
 
     return (
