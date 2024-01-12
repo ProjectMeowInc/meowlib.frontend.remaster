@@ -18,7 +18,7 @@ const BookItem: FC<IBookItemProps> = ({ id, name, description, imageUrl, author,
 
     return (
         <div className={classes.container}>
-            <BookPreview id={id} image={imageUrl} name={name} author={author} />
+            <BookPreview id={id} image={imageUrl} name={name} />
             <h4>Описание:</h4>
             <p>{description}</p>
             <div className={classes.btns}>

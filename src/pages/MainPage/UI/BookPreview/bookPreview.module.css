@@ -1,0 +1,24 @@
+@media (min-width: 320px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        cursor: pointer;
+        align-items: center;
+    }
+
+    .image {
+        border-radius: 10px;
+        width: 120px;
+        height: 180px;
+    }
+
+    .name {
+        color: white;
+        font-family: "Raleway", serif;
+        font-size: 20px;
+        text-align: center;
+        font-weight: 400;
+        margin-left: 20px;
+    }
+}
