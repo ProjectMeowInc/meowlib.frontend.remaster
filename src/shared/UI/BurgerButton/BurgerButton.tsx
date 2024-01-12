@@ -1,14 +1,11 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 import BurgerMenu from "@/shared/UI/BurgerMenu/BurgerMenu"
+import { useBurgerButton } from "@/shared/UI/BurgerButton/useBurgerButton"
 
 const BurgerButton = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(true)
-
-    const handleChangeStateClose = () => {
-        setIsOpen((prevState) => !prevState)
-    }
+    const {isOpen, handleChangeStateClose} = useBurgerButton()
 
     return (
         <div>
