@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 import Button from "@/shared/UI/button/Button"
 import UserSettingsInput from "@/pages/UserSettingsPage/UI/UserSettingsInput/UserSettingsInput"
