@@ -5,7 +5,7 @@ const LastReviews = () => {
     return (
         <div className={classes.container}>
             <div className={classes.caption}>Последние ревью</div>
-            <div>
+            <div className={classes.reviews}>
                 <ReviewPreview
                     name={"Очень очень очень длинное название"}
                     caption={"Очень очень очень длинное название"}

@@ -19,3 +19,23 @@
         overflow-x: scroll;
     }
 }
+
+@media (min-width: 768px) {
+
+    .block_text {
+        display: block;
+    }
+
+    .container {
+        padding: 20px;
+        border-radius: 5px;
+        margin: 20px auto 0 auto;
+        width: 75%;
+    }
+
+    .block_list {
+        overflow-x: visible;
+        padding: 15px;
+        flex-wrap: wrap;
+    }
+}

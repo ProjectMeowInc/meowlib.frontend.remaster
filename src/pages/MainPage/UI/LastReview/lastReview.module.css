@@ -17,3 +17,24 @@
         font-weight: 700;
     }
 }
+
+@media (min-width: 768px) {
+    .container {
+        margin: 0 auto;
+        width: 75%;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    .reviews {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        width: 49%;
+    }
+}

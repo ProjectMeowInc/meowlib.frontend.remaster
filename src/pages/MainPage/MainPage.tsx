@@ -7,9 +7,10 @@ import LastReviews from "@/pages/MainPage/UI/LastReview/LastReviews"
 const MainPage = () => {
     return (
         <div className={classes.container}>
-            <InputWithIcon placeholder={"Начните вводить"} icon={"/img/10.png"} />
             <LastBookUpdates />
-            <LastReviews/>
+            <div className={classes.reviews}>
+                <LastReviews/>
+            </div>
         </div>
     )
 }
