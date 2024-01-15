@@ -7,7 +7,7 @@
     margin-left: 10px;
     color: white;
     font-family: "Ubuntu", serif;
-    font-size: 25px;
+    font-size: 28px;
     font-weight: 700;
 }
 
@@ -19,6 +19,6 @@
 
 @media (min-width: 768px) {
     .logo {
-        display: block;
+        display: flex;
     }
 }
