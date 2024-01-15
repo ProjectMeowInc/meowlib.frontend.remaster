@@ -11,10 +11,41 @@
         width: 100%;
         z-index: 1000;
     }
+
+    .wrapper {
+        display: none;
+    }
+
+    .left_side {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 @media (min-width: 768px) {
     .header {
         position: relative;
+    }
+
+    .wrapper {
+        display: block;
+    }
+
+    .left_side {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .left_side {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .left_side {
+        width: 30%;
     }
 }
