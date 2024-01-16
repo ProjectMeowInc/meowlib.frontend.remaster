@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 import InputWithIcon from "@/shared/UI/inputWithIcon/InputWithIcon"
 import classes from "@/pages/UserSettingsPage/UI/AccountSettings/AccountSettings.module.css"

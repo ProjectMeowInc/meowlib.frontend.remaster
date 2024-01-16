@@ -1,0 +1,40 @@
+@media (min-width: 320px) {
+    .container {
+        margin-top: 20px;
+        background-color: #202020;
+        padding: 10px;
+    }
+
+    .caption_block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .caption {
+        color: #FFF;
+        font-family: "Ubuntu", serif;
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        margin: 0 auto;
+        width: 75%;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    .reviews {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        width: 49%;
+    }
+}

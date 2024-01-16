@@ -1,0 +1,51 @@
+@media (min-width: 320px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+
+    .top {
+        display: flex;
+        align-items: center;
+    }
+
+    .main_data {
+        margin-left: 10px;
+        width: 90%;
+    }
+
+    .name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: white;
+        font-family: "Ubuntu", serif;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .caption {
+        text-overflow: ellipsis;
+        color: white;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 120px;
+        color: white;
+        font-family: "Ubuntu", serif;
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 15px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 49%;
+    }
+}

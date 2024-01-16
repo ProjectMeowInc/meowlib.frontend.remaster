@@ -1,0 +1,74 @@
+@media (min-width: 320px) {
+    .container {
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        cursor: pointer;
+        align-items: center;
+        width: 40dvw;
+        height: 30dvh;
+        text-decoration: none;
+    }
+
+    .image {
+        border-radius: 10px;
+        width: 100%;
+        height: 90%;
+    }
+
+    .name {
+        width: 40dvw;
+        color: white;
+        font-family: "Raleway", serif;
+        font-size: 20px;
+        text-align: center;
+        font-weight: 400;
+        margin-left: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 20dvw;
+    }
+
+    .name {
+        width: 20dvw;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: 15dvw;
+    }
+
+    .name {
+        width: 15dvw;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        width: 12dvw;
+    }
+
+    .name {
+        width: 12dvw;
+    }
+}
+
+@media (min-width: 1920px) {
+    .container {
+        width: 9dvw;
+    }
+
+    .name {
+        width: 9dvw;
+    }
+}

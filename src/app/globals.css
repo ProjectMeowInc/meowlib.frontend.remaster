@@ -17,3 +17,7 @@
     box-sizing: border-box;
     font-family: "Ubuntu", serif;
 }
+
+body {
+    background-color: #0A0A0A;
+}
