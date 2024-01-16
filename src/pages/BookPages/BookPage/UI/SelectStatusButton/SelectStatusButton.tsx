@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, {FC} from "react"
 import { UserBookStatus, UserBookStatuses } from "@/entities/UserFavorite/UserBookStatuses"
 import classes from "./selectStatusButton.module.css"
 import { useSelectStatusButton } from "@/pages/BookPages/BookPage/UI/SelectStatusButton/useSelectStatusButton"
@@ -11,11 +11,11 @@ interface ISelectStatusButton {
 }
 
 const SelectStatusButton: FC<ISelectStatusButton> = ({ bookId, selectedStatus }) => {
-    const { ClickStatusHandler, ClickHandler, isOpen } = useSelectStatusButton(bookId)
+    const { ClickStatusHandler, ClickHandler, isOpen  } = useSelectStatusButton(bookId)
 
     return (
         <div className={classes.wrapper}>
-            <Button onClick={ClickHandler} styles={{ margin: "15px" }}>
+            <Button onClick={ ClickHandler } styles={{ margin: "15px" }}>
                 Изменить статус
             </Button>
             <div className={isOpen ? classes.select_list_active : classes.select_list}>

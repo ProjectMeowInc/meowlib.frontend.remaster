@@ -19,7 +19,6 @@ export const useSelectStatusButton = (bookId: number) => {
 
         return true
     }
-
     async function ClickStatusHandler(status: UserBookStatus) {
         const result = await UserFavoriteService.addBookInFavorite({
             bookId,
@@ -28,6 +27,7 @@ export const useSelectStatusButton = (bookId: number) => {
 
         if (!isLogIn()) {
             window.location.href = "/auth"
+            return AlertService.errorMessage('Вам нужно авторизоваться')
         }
 
         if (result.hasError()) {
