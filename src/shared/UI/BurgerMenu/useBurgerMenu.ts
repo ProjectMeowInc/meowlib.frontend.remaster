@@ -1,6 +1,6 @@
 
 export const useBurgerMenu = () => {
-    // todo: change this
+    //todo: change this
     const isDisplayAdminRoutes = true
     const isAuth = false
 
