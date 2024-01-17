@@ -37,7 +37,7 @@ export class UserFavoriteApi {
 
     static async getBookInFavoriteById(bookId: number): Promise<Result<IGetBookInFavoriteByIdResponse>> {
         const result = await new HTTPRequest<IGetBookInFavoriteByIdResponse>()
-            .withUrl(`/v1/ysers/favorite/my/book/${bookId}`)
+            .withUrl(`/v1/users/favorite/my/book/${bookId}`)
             .withGetMethod()
             .withAuth()
             .sendAsync()
