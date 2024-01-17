@@ -3,6 +3,7 @@ import { TokenService } from "@/shared/services/TokenService"
 import { UserBookStatus } from "@/entities/UserFavorite/UserBookStatuses"
 import { UserFavoriteService } from "@/entities/UserFavorite/service/UserFavoriteService"
 import { AlertService } from "@/shared/services/AlertService"
+import { RedirectService } from "@/shared/services/RedirectService";
 
 export const useSelectStatusButton = ( bookId: number ) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -11,11 +12,11 @@ export const useSelectStatusButton = ( bookId: number ) => {
         setIsOpen((prevState) => !prevState)
     }
 
-    async function ClickStatusHandler(status: UserBookStatus) {
+    async function ClickStatusHandler ( status: UserBookStatus ) {
         const result = await UserFavoriteService.addBookInFavorite(bookId, status)
 
         if (!TokenService.isLogIn()) {
-            window.location.href = "/auth"
+            RedirectService.redirect('/auth')
             return AlertService.errorMessage('Вам нужно авторизоваться')
         }
 
