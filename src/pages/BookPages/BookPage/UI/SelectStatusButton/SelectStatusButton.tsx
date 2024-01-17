@@ -25,7 +25,12 @@ const SelectStatusButton: FC<ISelectStatusButtonProps> = ({ bookId, selectedStat
                     </p>
                 ))}
             </div>
-            <div className={classes.selected_status}>Текущий статус: {selectedStatus}</div>
+            <div className={classes.selected_status}>
+                {selectedStatus
+                    ? <p>Текущий статус: {selectedStatus}</p>
+                    : <p>Статус отсутствует</p>
+                }
+            </div>
         </div>
     )
 }
