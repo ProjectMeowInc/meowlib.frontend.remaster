@@ -22,7 +22,6 @@ const BookImage: FC<IBookImageProps> = ({ image, bookId }) => {
             </div>
             <div className={classes.buttons}>
                 <Button className={classes.button}>Продолжить читать</Button>
-                <Button className={classes.button}>Добавить в список</Button>
                 <SelectStatusButton
                     bookId={bookId}
                 />
