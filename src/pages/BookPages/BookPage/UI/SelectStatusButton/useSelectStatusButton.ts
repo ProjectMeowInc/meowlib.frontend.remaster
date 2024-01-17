@@ -4,7 +4,7 @@ import { UserBookStatus } from "@/entities/UserFavorite/UserBookStatuses"
 import { UserFavoriteService } from "@/entities/UserFavorite/service/UserFavoriteService"
 import { AlertService } from "@/shared/services/AlertService"
 
-export const useSelectStatusButton = (bookId: number) => {
+export const useSelectStatusButton = ( bookId: number ) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     const ClickHandler = () => {

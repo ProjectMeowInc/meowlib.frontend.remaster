@@ -4,13 +4,13 @@ import classes from "./selectStatusButton.module.css"
 import { useSelectStatusButton } from "@/pages/BookPages/BookPage/UI/SelectStatusButton/useSelectStatusButton"
 import Button from "@/shared/UI/button/Button"
 
-interface ISelectStatusButton {
+interface ISelectStatusButtonProps {
     bookId: number
     selectedStatus: UserBookStatus | null
     onStatusChanged?: (updateStatus: UserBookStatus) => void
 }
 
-const SelectStatusButton: FC<ISelectStatusButton> = ({ bookId, selectedStatus }) => {
+const SelectStatusButton: FC<ISelectStatusButtonProps> = ({ bookId, selectedStatus }) => {
     const { ClickStatusHandler, ClickHandler, isOpen  } = useSelectStatusButton(bookId)
 
     return (
