@@ -3,11 +3,11 @@ import {UserFavoriteApi} from "@/entities/UserFavorite/api/UserFavoriteApi";
 import {Result} from "@/shared/services/Result/Result";
 import {IUserFavoriteDTO} from "@/entities/UserFavorite/models/dto/IUserFavoriteDTO";
 import {IShortUserFavoriteDTO} from "@/entities/UserFavorite/models/dto/IShortUserFavoriteDTO";
-import {IAddUserFavoriteDTO} from "@/entities/UserFavorite/models/dto/IAddUserFavoriteDTO";
+import {UserBookStatus} from "@/entities/UserFavorite/UserBookStatuses";
 
 export class UserFavoriteService {
-    static async addBookInFavorite(requestData: IAddUserFavoriteDTO): Promise<EmptyResult> {
-        return await UserFavoriteApi.addBookInFavorite(requestData)
+    static async addBookInFavorite(bookId: number, status: UserBookStatus): Promise<EmptyResult> {
+        return await UserFavoriteApi.addBookInFavorite({bookId, status})
     }
 
     static async getAllBooksInFavorite(): Promise<Result<IUserFavoriteDTO>> {
