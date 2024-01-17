@@ -48,4 +48,13 @@ export class TokenService {
 
         return refreshToken
     }
+
+    static isLogIn(): boolean {
+        // todo: change to normal check
+        if (!TokenService.getAccessToken()) {
+            return false
+        }
+
+        return true
+    }
 }

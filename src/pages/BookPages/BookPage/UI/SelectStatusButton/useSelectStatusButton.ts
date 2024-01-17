@@ -11,18 +11,10 @@ export const useSelectStatusButton = ( bookId: number ) => {
         setIsOpen((prevState) => !prevState)
     }
 
-    function isLogIn(): boolean {
-        // todo: change to normal check
-        if (!TokenService.getAccessToken()) {
-            return false
-        }
-
-        return true
-    }
     async function ClickStatusHandler(status: UserBookStatus) {
         const result = await UserFavoriteService.addBookInFavorite(bookId, status)
 
-        if (!isLogIn()) {
+        if (!TokenService.isLogIn()) {
             window.location.href = "/auth"
             return AlertService.errorMessage('Вам нужно авторизоваться')
         }

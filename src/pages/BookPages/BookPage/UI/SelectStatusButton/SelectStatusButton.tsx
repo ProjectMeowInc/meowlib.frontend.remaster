@@ -1,3 +1,5 @@
+'use client'
+
 import React, { FC } from "react"
 import { UserBookStatus, UserBookStatuses } from "@/entities/UserFavorite/UserBookStatuses"
 import classes from "./selectStatusButton.module.css"
