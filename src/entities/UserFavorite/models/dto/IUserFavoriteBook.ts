@@ -1,6 +1,6 @@
 import { UserBookStatus } from "@/entities/UserFavorite/UserBookStatuses"
 
-export interface IShortUserFavoriteDTO {
+export interface IUserFavoriteBook {
     id: number
     status: UserBookStatus
     book: {
