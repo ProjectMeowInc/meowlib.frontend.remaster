@@ -18,7 +18,7 @@ export const useSelectStatusButton = (bookId: number) => {
         const result = await UserFavoriteService.addBookInFavorite(bookId, status)
 
         if (!TokenService.isLogIn()) {
-            RedirectService.redirect("/auth")
+            RedirectService.redirectToAuthPage()
             return AlertService.errorMessage("Вам нужно авторизоваться")
         }
 
