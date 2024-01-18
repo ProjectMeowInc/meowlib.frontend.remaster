@@ -1,0 +1,24 @@
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo_text {
+    margin-left: 10px;
+    color: white;
+    font-family: "Ubuntu", serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+@media (min-width: 320px) {
+    .logo {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .logo {
+        display: flex;
+    }
+}

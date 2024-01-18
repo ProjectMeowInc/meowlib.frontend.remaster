@@ -9,16 +9,15 @@ interface IBookItemProps {
     name: string
     description: string
     imageUrl: string
-    author: string | undefined
     onDelete: (id: number) => Promise<void>
 }
 
-const BookItem: FC<IBookItemProps> = ({ id, name, description, imageUrl, author, onDelete }) => {
+const BookItem: FC<IBookItemProps> = ({ id, name, description, imageUrl, onDelete }) => {
     const pathname = usePathname()
 
     return (
         <div className={classes.container}>
-            <BookPreview id={id} image={imageUrl} name={name} author={author} />
+            <BookPreview id={id} image={imageUrl} name={name} />
             <h4>Описание:</h4>
             <p>{description}</p>
             <div className={classes.btns}>
