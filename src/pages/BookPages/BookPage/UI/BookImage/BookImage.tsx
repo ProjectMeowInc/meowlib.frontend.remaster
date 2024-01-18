@@ -1,4 +1,6 @@
-import { FC } from "react"
+'use client'
+
+import {FC} from "react"
 import classes from "./bookImage.module.css"
 import Button from "@/shared/UI/button/Button"
 import SelectStatusButton from "@/pages/BookPages/BookPage/UI/SelectStatusButton/SelectStatusButton"
