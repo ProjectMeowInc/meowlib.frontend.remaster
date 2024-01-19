@@ -5,6 +5,8 @@ import {getPrettyBookStatusName, UserBookStatus, UserBookStatuses} from "@/entit
 import classes from "./selectStatusButton.module.css"
 import { useSelectStatusButton } from "@/pages/BookPages/BookPage/UI/SelectStatusButton/useSelectStatusButton"
 import Button from "@/shared/UI/button/Button"
+import Image from "next/image"
+import icon from "@/public/img/icons/chevron-down.png"
 
 interface ISelectStatusButtonProps {
     bookId: number
@@ -15,11 +17,12 @@ const SelectStatusButton: FC<ISelectStatusButtonProps> = ({ bookId }) => {
 
     return (
         <div className={classes.wrapper}>
-            <Button onClick={ClickHandler} styles={{margin: "15px", width: '217px'}} className={classes.btn}>
+            <Button onClick={ClickHandler} className={classes.btn}>
                 {selectedStatus
-                    ? <>{getPrettyBookStatusName(selectedStatus)}</>
-                    : <>Добавить в список</>
+                    ? getPrettyBookStatusName(selectedStatus)
+                    : "Добавить в список"
                 }
+                <Image className={isOpen ? classes.down_active : classes.down} src={icon} alt={"arrow-down-icon"}/>
             </Button>
             <div className={isOpen ? classes.select_list_active : classes.select_list}>
                 {UserBookStatuses.map((status: UserBookStatus, index) => (
