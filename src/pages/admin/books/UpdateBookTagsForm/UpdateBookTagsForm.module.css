@@ -40,7 +40,7 @@
 
 .add_btn:hover {
     box-shadow: 0 0 10px 0 #00000060;
-    transition: 0.4s, all;
+    transition: 0.4s all;
     background-color: #6d5bfd;
     color: white;
 }

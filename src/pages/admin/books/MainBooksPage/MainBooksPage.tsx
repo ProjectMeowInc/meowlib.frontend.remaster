@@ -26,7 +26,6 @@ const MainBooksPage = () => {
                         name={book.name}
                         description={book.description}
                         imageUrl={book.imageUrl}
-                        author={book.author?.name}
                         onDelete={async (id) => await DeleteBookHandler(id)}
                     />
                 ))

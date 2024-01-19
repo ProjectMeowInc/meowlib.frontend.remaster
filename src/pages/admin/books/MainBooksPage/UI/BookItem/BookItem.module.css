@@ -40,7 +40,7 @@
 
 .delete_btn,
 .link_text {
-    transition: 0.4s, all;
+    transition: 0.4s all;
     text-decoration: none;
     color: black;
     cursor: pointer;

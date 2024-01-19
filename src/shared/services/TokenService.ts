@@ -3,6 +3,8 @@ import { IAccessTokenDto } from "@/entities/Auth/models/dto/AccessTokenDto"
 import { Result } from "@/shared/services/Result/Result"
 import { jwtDecode } from "jwt-decode"
 import { IAccessTokenData } from "@/entities/Auth/models/dto/AccessTokenData"
+import { LogService } from "@/shared/services/LogService"
+import { UserRoleEnum } from "@/entities/User/models/UserEntity"
 
 export class TokenService {
     static setAccessToken(accessToken: string) {
@@ -47,5 +49,29 @@ export class TokenService {
         }
 
         return refreshToken
+    }
+
+    static isLogIn(): boolean {
+        // todo: change to normal check
+        if (!TokenService.getAccessToken()) {
+            return false
+        }
+
+        return true
+    }
+
+    static isAdmin(): boolean {
+        const token = TokenService.getAccessToken()
+        if (!token) {
+            return false
+        }
+
+        const parseTokenResult = TokenService.parseAccessToken(token)
+        if (parseTokenResult.hasError()) {
+            LogService.error(`Ошибка парсинга токена: ${parseTokenResult.getError().errorMessage}`, "TokenService")
+            return false
+        }
+
+        return parseTokenResult.unwrap().userRole === UserRoleEnum.Admin
     }
 }
