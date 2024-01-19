@@ -27,7 +27,7 @@ export class TeamService {
         return await TeamApi.invitePeopleToTeamAsync(teamId, userId)
     }
 
-    static async removePeopleFromTeamAsync(teamId: number, userId: number) {
+    static async removePeopleFromTeamAsync(teamId: number, userId: number): Promise<EmptyResult> {
         return await TeamApi.removePeopleFromTeamAsync(teamId, userId)
     }
 }
