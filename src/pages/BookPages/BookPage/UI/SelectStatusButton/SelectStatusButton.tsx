@@ -15,10 +15,10 @@ const SelectStatusButton: FC<ISelectStatusButtonProps> = ({ bookId }) => {
 
     return (
         <div className={classes.wrapper}>
-            <Button onClick={ClickHandler} styles={{margin: "15px"}}>
+            <Button onClick={ClickHandler} styles={{margin: "15px", width: '217px'}} className={classes.btn}>
                 {selectedStatus
-                    ? <p>{getPrettyBookStatusName(selectedStatus)}</p>
-                    : <p>Добавить в список</p>
+                    ? <>{getPrettyBookStatusName(selectedStatus)}</>
+                    : <>Добавить в список</>
                 }
             </Button>
             <div className={isOpen ? classes.select_list_active : classes.select_list}>
