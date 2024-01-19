@@ -12,7 +12,7 @@ interface IBookImageProps {
 
 const BookImage: FC<IBookImageProps> = ({ image, bookId }) => {
     return (
-        <div className={"null"}>
+        <div className={classes.book_image}>
             <div
                 className={classes.background_image}
                 style={{ backgroundImage: `url(${image})`, backgroundSize: "cover" }}
