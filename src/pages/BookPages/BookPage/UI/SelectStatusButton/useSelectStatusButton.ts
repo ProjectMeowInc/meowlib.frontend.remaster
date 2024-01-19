@@ -1,13 +1,18 @@
-import {useEffect, useState} from "react"
+import { useState } from "react"
 import { TokenService } from "@/shared/services/TokenService"
 import { UserBookStatus } from "@/entities/UserFavorite/UserBookStatuses"
 import { UserFavoriteService } from "@/entities/UserFavorite/service/UserFavoriteService"
 import { AlertService } from "@/shared/services/AlertService"
-import { RedirectService } from "@/shared/services/RedirectService";
+import { RedirectService } from "@/shared/services/RedirectService"
+import { useFirstLoadingAsync } from "@/shared/hooks/useFirstLoadingAsync"
 
-export const useSelectStatusButton = ( bookId: number ) => {
+export const useSelectStatusButton = (bookId: number) => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const [selectedStatus, setSelectedStatus] = useState<UserBookStatus | null>(null)
+
+    useFirstLoadingAsync(async () => {
+        await GetBookStatus()
+    })
 
     const ClickHandler = () => {
         setIsOpen((prevState) => !prevState)
@@ -18,19 +23,20 @@ export const useSelectStatusButton = ( bookId: number ) => {
     // CapitalizeName vs camelCase:
     // ClickHandler / clickHandler
 
-    async function ClickStatusHandler ( status: UserBookStatus ) {
+    async function ClickStatusHandler(status: UserBookStatus): Promise<void> {
         const result = await UserFavoriteService.addBookInFavorite(bookId, status)
 
         if (!TokenService.isLogIn()) {
             RedirectService.redirectToAuthPage()
-            return AlertService.errorMessage('Вам нужно авторизоваться')
+            return AlertService.errorMessage("Вам нужно авторизоваться")
         }
 
         if (result.hasError()) {
             return AlertService.errorMessage(result.getError().errorMessage)
         }
 
-        return AlertService.successMessage("Книга была добавлена")
+        AlertService.successMessage("Книга была добавлена")
+        await GetBookStatus()
     }
 
     async function GetBookStatus() {
@@ -40,17 +46,13 @@ export const useSelectStatusButton = ( bookId: number ) => {
             return AlertService.errorMessage(result.getError().errorMessage)
         }
 
-       return setSelectedStatus(result.unwrap().status)
+        return setSelectedStatus(result.unwrap().status)
     }
-
-    useEffect(() => {
-        GetBookStatus()
-    }, [bookId])
 
     return {
         ClickStatusHandler,
         ClickHandler,
         isOpen,
-        selectedStatus
+        selectedStatus,
     }
 }
