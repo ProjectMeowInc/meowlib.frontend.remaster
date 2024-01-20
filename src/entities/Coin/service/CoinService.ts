@@ -8,11 +8,29 @@ export class CoinService {
         return await CoinApi.updateCoins({ userId, updateCoins })
     }
 
-    static async getHistoryUpdateCoins(): Promise<Result<ICoinsDTO>> {
-        return await CoinApi.getHistoryUpdateCoins()
+    static async getHistoryUpdateCoins(): Promise<Result<ICoinsDTO[]>> {
+        const result = await CoinApi.getHistoryUpdateCoins()
+
+        if (result.hasError()) {
+            return Result.withError(result.getError())
+        }
+
+        return Result.withOk(result.unwrap().items.map((coin) => ({
+            ...coin
+            }))
+        )
     }
 
-    static async getHistoryUpdateCoinsById(userId: number): Promise<Result<ICoinsDTO>> {
-        return await CoinApi.getHistoryUpdateCoinsById(userId)
+    static async getHistoryUpdateCoinsById(userId: number): Promise<Result<ICoinsDTO[]>> {
+        const result = await CoinApi.getHistoryUpdateCoinsById(userId)
+
+        if (result.hasError()) {
+            return Result.withError(result.getError())
+        }
+
+        return Result.withOk(result.unwrap().items.map((coin) => ({
+                ...coin
+            }))
+        )
     }
 }
