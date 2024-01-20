@@ -1,3 +1,3 @@
-import CoinsMainPage from "@/pages/admin/coins/CoinsMainPage/CoinsMainPage";
+import UpdateCoinsPage from "@/pages/admin/coins/UpdateCoinsPage/UpdateCoinsPage";
 
-export default CoinsMainPage
+export default UpdateCoinsPage
