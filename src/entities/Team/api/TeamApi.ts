@@ -4,6 +4,7 @@ import { HTTPRequest } from "@/shared/services/HTTPResult/HTTPRequest"
 import { Result } from "@/shared/services/Result/Result"
 import { IGetTeamByIdResponse } from "@/entities/Team/models/responses/IGetTeamByIdResponse"
 import { IUpdateTeamRoleRequest } from "@/entities/Team/models/requests/IUpdateTeamRoleRequest"
+import { IGetAllTeamsResponse } from "@/entities/Team/models/responses/IGetAllTeamsResponse"
 
 export class TeamApi {
 
@@ -90,5 +91,18 @@ export class TeamApi {
         }
 
         return EmptyResult.withOk()
+    }
+
+    static async getAllTeamsAsync(pageNumber: number): Promise<Result<IGetAllTeamsResponse>> {
+        const result = await new HTTPRequest<IGetAllTeamsResponse>()
+            .withUrl(`/v1/team?page=${pageNumber}`)
+            .withGetMethod()
+            .sendAsync()
+
+        if (result.hasError()) {
+            return Result.withError(result.getError())
+        }
+
+        return Result.withOk(result.unwrap())
     }
 }
