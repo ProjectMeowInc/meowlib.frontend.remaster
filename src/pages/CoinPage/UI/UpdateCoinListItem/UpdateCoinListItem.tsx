@@ -1,12 +1,22 @@
-import React from "react"
+import React, { FC } from "react"
 import classes from "./updateCoinListItem.module.css"
+import { CoinReason } from "@/entities/Coin/models/CoinReasons"
 
-const UpdateCoinListItem = () => {
+interface IUpdateCoinListItemProps {
+    id: number
+    value: number
+    reason: CoinReason
+    date: string
+}
+
+const UpdateCoinListItem: FC<IUpdateCoinListItemProps> = ({ value, reason, date }) => {
     return (
         <div className={classes.container}>
             <img src={"/img/icons/coin.png"} />
-            <p className={classes.info}>Начисление +500 MeowCoin за пополение</p>
-            <p className={classes.date}>12:12</p>
+            <p className={classes.info}>
+                Начисление {value} MeowCoin за {reason}
+            </p>
+            <p className={classes.date}>{date}</p>
         </div>
     )
 }
