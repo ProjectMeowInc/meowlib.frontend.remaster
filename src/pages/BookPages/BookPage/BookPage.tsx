@@ -40,7 +40,7 @@ const BookPage: FC<IBookPageProps> = async ({ params, searchParams }) => {
 
     return (
         <div className={classes.page}>
-            <BookImage image={bookData.imageUrl ?? DEFAULT_BOOK_IMAGE} />
+            <BookImage image={bookData.imageUrl ?? DEFAULT_BOOK_IMAGE} bookId={params.bookId} />
             <div className={classes.info_block}>
                 <BookName name={bookData.name} />
                 <SectionSelector />

@@ -2,7 +2,7 @@ import React from "react"
 import classes from "./Button.module.css"
 
 interface IButtonProps {
-    children: string
+    children: any
     onClick?: () => void
     lockFunction?: () => Promise<void>
     styles?: {
