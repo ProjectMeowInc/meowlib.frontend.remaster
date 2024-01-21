@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react"
 import { useUpdateCoinList } from "@/pages/CoinPage/UI/UpdateCoinList/useUpdateCoinList"
 import Preloader from "@/pages/admin/UI/Preloader/Preloader"
@@ -7,7 +9,7 @@ const UpdateCoinList = () => {
     const { coins } = useUpdateCoinList()
 
     if (!coins) {
-        return <Preloader />
+        return <Preloader/>
     }
 
     return (
