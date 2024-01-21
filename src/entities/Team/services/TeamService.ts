@@ -31,8 +31,7 @@ export class TeamService {
         return await TeamApi.removePeopleFromTeamAsync(teamId, userId)
     }
 
-    //TODO: Поменять возвращаемое значение
-    static async getAllTeamsAsync(pageNumber: number): Promise<Result<{id: number, name: string}[]>> {
+    static async getAllTeamsAsync(pageNumber: number): Promise<Result<IShortTeamDto[]>> {
         const result = await TeamApi.getAllTeamsAsync(pageNumber)
 
         if (result.hasError()) {
