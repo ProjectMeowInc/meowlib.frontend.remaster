@@ -6,7 +6,7 @@ import { EmptyResult } from "@/shared/services/Result/EmptyResult"
 export class NotificationApi {
     static async getAllNotifications(): Promise<Result<IGetAllNotificationsResponse>> {
         const result = await new HTTPRequest<IGetAllNotificationsResponse>()
-            .withUrl("/v1/notification/my")
+            .withUrl("/v1/notifications/my")
             .withGetMethod()
             .withAuth()
             .sendAsync()
@@ -20,7 +20,7 @@ export class NotificationApi {
 
     static async markReadNotificationAsync(notificationId: number): Promise<EmptyResult> {
         const result = await new HTTPRequest<void>()
-            .withUrl(`/v1/notification/my/watch/${notificationId}`)
+            .withUrl(`/v1/notifications/my/watch/${notificationId}`)
             .withPostMethod()
             .withAuth()
             .sendAsync()
