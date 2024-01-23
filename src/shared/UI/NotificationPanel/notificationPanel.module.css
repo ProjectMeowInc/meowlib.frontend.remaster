@@ -1,8 +1,17 @@
 .wrapper {
-    width: 30%;
+    width: 25%;
     height: 30dvh;
     background-color: #202020;
-    transform: translateY(205px);
+    transform: translate(-95%, 70px);
     position: absolute;
     border-radius: 5px;
+    padding: 20px;
+    overflow: scroll;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.wrapper::-webkit-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    display: none;
 }
