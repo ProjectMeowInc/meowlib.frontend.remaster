@@ -5,6 +5,7 @@ import { Result } from "@/shared/services/Result/Result"
 import { IGetTeamByIdResponse } from "@/entities/Team/models/responses/IGetTeamByIdResponse"
 import { IUpdateTeamRoleRequest } from "@/entities/Team/models/requests/IUpdateTeamRoleRequest"
 import { IGetAllTeamsResponse } from "@/entities/Team/models/responses/IGetAllTeamsResponse"
+import { IAcceptTeamInviteRequest } from "@/entities/Team/models/requests/IAcceptTeamInviteRequest"
 
 export class TeamApi {
 
@@ -104,5 +105,20 @@ export class TeamApi {
         }
 
         return Result.withOk(result.unwrap())
+    }
+
+    static async acceptTeamInviteAsync(requestData: IAcceptTeamInviteRequest): Promise<EmptyResult> {
+        const result = await new HTTPRequest<void>()
+            .withUrl("/v1/team/invite/accept")
+            .withPostMethod()
+            .withBody(requestData)
+            .withAuth()
+            .sendAsync()
+
+        if (result.hasError()) {
+            return EmptyResult.withError(result.getError())
+        }
+
+        return EmptyResult.withOk()
     }
 }
