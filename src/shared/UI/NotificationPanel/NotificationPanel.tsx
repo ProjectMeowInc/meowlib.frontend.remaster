@@ -1,21 +1,23 @@
 "use client"
 
 import classes from "./notificationPanel.module.css"
-import { useNotificationPanel } from "@/shared/UI/NotificationPanel/useNotificationPanel"
-import Preloader from "@/pages/admin/UI/Preloader/Preloader"
 import NotificationItem from "@/shared/UI/NotificationItem/NotificationItem"
+import { useNotificationPanel } from "@/shared/UI/NotificationPanel/useNotificationPanel"
+import EmptyTag from "@/shared/UI/EmptyTag/EmptyTag"
 
 const NotificationPanel = () => {
 
-    const {notifications} = useNotificationPanel()
+    const {notifications, getTitle} = useNotificationPanel()
 
-    // if (!notifications) {
-    //     return <Preloader/>
-    // }
+    if (!notifications) {
+        return <EmptyTag/>
+    }
 
     return (
         <div className={classes.wrapper}>
-            <NotificationItem/>
+            {notifications.map(n => (
+                <NotificationItem key={n.id} id={n.id} type={n.type} title={getTitle(n.type, n.payload)} payload={n.payload}/>
+            ))}
         </div>
     )
 }
