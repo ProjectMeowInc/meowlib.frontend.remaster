@@ -1,0 +1,14 @@
+.wrapper {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .4s all;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.wrapper:hover {
+    background-color: #3F3F3F;
+}
