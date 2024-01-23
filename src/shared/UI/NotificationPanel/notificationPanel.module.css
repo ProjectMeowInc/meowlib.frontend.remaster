@@ -1,0 +1,8 @@
+.wrapper {
+    width: 30%;
+    height: 30dvh;
+    background-color: #202020;
+    transform: translateY(205px);
+    position: absolute;
+    border-radius: 5px;
+}
