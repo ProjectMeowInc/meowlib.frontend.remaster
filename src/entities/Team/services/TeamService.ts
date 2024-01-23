@@ -42,4 +42,10 @@ export class TeamService {
 
         return Result.withOk(items)
     }
+
+    static async acceptTeamInviteAsync(payload: string): Promise<EmptyResult> {
+        return await TeamApi.acceptTeamInviteAsync({
+            data: payload
+        })
+    }
 }
