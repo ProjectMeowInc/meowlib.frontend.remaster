@@ -32,7 +32,7 @@ const TeamsPage: FC<ITeamsPageProps> = async ({searchParams: {page}}) => {
                     />
                 ))}
             </div>
-            <Controls page={page}/>
+            <Controls page={Number(page)}/>
         </div>
     )
 }
