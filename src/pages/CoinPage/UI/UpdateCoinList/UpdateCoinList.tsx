@@ -14,31 +14,34 @@ const UpdateCoinList: React.FC = () => {
     }
     return (
         <div>
-
             {Object.entries(groupedCoins)
                 .sort(([dateA], [dateB]) => new Date(dateB).getTime() - new Date(dateA).getTime())
                 .map(([date, coinsGroup]) => (
                     <div key={date} className={classes.date_list}>
                         <div className={classes.date}>
-                            <hr/>
+                            <hr />
                             <div className={classes.circle}></div>
                             <h3>{new Date(date).toLocaleDateString(undefined, { day: "numeric" })}</h3>
                             <h3>{getMonth(date.split("-")[1])}</h3>
                         </div>
-                        {coinsGroup.map((coin, index) => (
-                            <div key={coin.id}>
-                                <UpdateCoinListItem
-                                    id={coin.id}
-                                    value={coin.value}
-                                    reason={coin.reason}
-                                    date={coin.date}
-                                />
-                                {index < coinsGroup.length - 1 && <hr className={classes.line} />}
-                            </div>
-                        ))}
+                        {coinsGroup.map((coin, index) =>
+                            coin ? (
+                                <div key={coin.id}>
+                                    <UpdateCoinListItem
+                                        id={coin.id}
+                                        value={coin.value}
+                                        reason={coin.reason}
+                                        date={coin.date}
+                                    />
+                                    {index < coinsGroup.length - 1 && <hr className={classes.line} />}
+                                </div>
+                            ) : (
+                                <p key={index}>Здесь пока ничего нет</p>
+                            ),
+                        )}
                     </div>
                 ))}
-            <hr className={classes.run}/>
+            <hr className={classes.run} />
         </div>
     )
 }
