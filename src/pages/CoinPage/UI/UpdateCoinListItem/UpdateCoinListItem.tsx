@@ -17,7 +17,7 @@ const UpdateCoinListItem: FC<IUpdateCoinListItemProps> = ({ value, reason, date 
         <div className={classes.container}>
             <img src={"/img/icons/coin.png"} alt={''}/>
             <p className={classes.info}>
-                Начисление +{value} MeowCoin за {getCoinReason(reason)}
+                Начисление +{value} MeowCoin {getCoinReason(reason)}
             </p>
             <p className={classes.date}>{getTime(date)}</p>
         </div>

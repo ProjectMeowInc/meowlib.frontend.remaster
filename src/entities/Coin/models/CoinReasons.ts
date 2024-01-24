@@ -7,8 +7,8 @@ export function getCoinReason(reason: CoinReason): string {
         case "AdminAddition":
             return "выдачу администратора"
         case "UserAddition":
-            return "покупку"
+            return "за покупку"
         case "BuyChapter":
-            return "покупку главы"
+            return "за покупку главы"
     }
 }
