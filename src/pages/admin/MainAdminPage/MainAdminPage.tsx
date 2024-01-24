@@ -11,7 +11,7 @@ const MainAdminPage = () => {
                     <MainAdminPageListItem href={"/admin/users"}>Пользователи</MainAdminPageListItem>
                     <MainAdminPageListItem href={"/admin/books"}>Книги</MainAdminPageListItem>
                     <MainAdminPageListItem href={"/admin/people?page=1"}>Люди</MainAdminPageListItem>
-                    <MainAdminPageListItem href={"/admin/coins-history"}>Монеты</MainAdminPageListItem>
+                    <MainAdminPageListItem href={"/admin/coins"}>Монеты</MainAdminPageListItem>
                 </div>
             </div>
         </div>
