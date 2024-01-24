@@ -3,6 +3,7 @@ import { IUpdateCoinsRequest } from "@/entities/Coin/models/requests/IUpdateCoin
 import { AlertService } from "@/shared/services/AlertService"
 import { CoinService } from "@/entities/Coin/service/CoinService"
 import { IOnChangeEvent } from "@/shared/models/events/IOnChangeEvent"
+import { RedirectService } from "@/shared/services/RedirectService"
 
 export const useUpdateCoinsPage = () => {
     const [info, setInfo] = useState<IUpdateCoinsRequest>({
@@ -22,6 +23,19 @@ export const useUpdateCoinsPage = () => {
         return AlertService.successMessage("Монеты успешно обновлены")
     }
 
+    const SubmitIdHandler = async (e: FormEvent) => {
+        e.preventDefault()
+
+        const result = await CoinService.getHistoryUpdateCoinsById(info.userId)
+
+        if (result.hasError()) {
+            return AlertService.errorMessage(result.getError().errorMessage)
+        }
+        RedirectService.redirect(`/admin/coins/${info.userId}`)
+
+        return
+    }
+
     const ChangeInfoHandler = ({ name, newValue }: IOnChangeEvent) => {
         setInfo((prevState) => ({
             ...prevState,
@@ -32,5 +46,6 @@ export const useUpdateCoinsPage = () => {
     return {
         SubmitInfoHandler,
         ChangeInfoHandler,
+        SubmitIdHandler,
     }
 }
