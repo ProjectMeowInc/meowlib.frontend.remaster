@@ -5,7 +5,7 @@ export type CoinReason = (typeof CoinReasons)[number]
 export function getCoinReason(reason: CoinReason): string {
     switch (reason) {
         case "AdminAddition":
-            return "выдачу администратора"
+            return "выдано администратором"
         case "UserAddition":
             return "за покупку"
         case "BuyChapter":
