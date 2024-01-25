@@ -27,6 +27,7 @@ const TeamsPage: FC<ITeamsPageProps> = async ({searchParams: {page}}) => {
                 {teams.map(t => (
                     <TeamView
                         key={t.id}
+                        id={t.id}
                         name={t.name}
                         description={t.description}
                     />
