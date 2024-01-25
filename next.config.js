@@ -9,6 +9,14 @@ const nextConfig = {
             },
         ],
     },
+    webpack: (config) => {
+        config.module.rules.push({
+            test: "/.ts$/",
+            use: "ts-loader",
+        })
+
+        return config
+    },
 }
 
 module.exports = nextConfig
