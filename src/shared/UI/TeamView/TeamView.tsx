@@ -5,15 +5,17 @@ import StatItem from "@/shared/UI/TeamView/UI/StatItem/StatItem"
 import people from "@/public/img/icons/user-group.png"
 import heart from "@/public/img/icons/heart.png"
 import collections from "@/public/img/icons/collection.png"
+import Link from "next/link"
 
 interface ITeamViewProps {
+    id: number
     name: string
     description: string
 }
 
-const TeamView: FC<ITeamViewProps> = ({name, description}) => {
+const TeamView: FC<ITeamViewProps> = ({id, name, description}) => {
     return (
-        <div className={classes.wrapper}>
+        <Link href={`/teams/${id}`} className={classes.wrapper}>
             <div className={classes.img}>
 
             </div>
@@ -27,7 +29,7 @@ const TeamView: FC<ITeamViewProps> = ({name, description}) => {
                     <StatItem count={0} image={collections} />
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 
