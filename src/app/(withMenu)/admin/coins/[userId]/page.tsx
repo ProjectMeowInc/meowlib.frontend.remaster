@@ -1,3 +1,3 @@
-import UpdateCoinsHistoryByIdPage from "@/pages/admin/coins/UpdateCoinsHistory/UpdateCoinsHistoryByIdPage"
+import UpdateCoinsHistoryByIdPage from "@/pages/admin/coins/UpdateCoinsHistoryByIdPage/UpdateCoinsHistoryByIdPage"
 
 export default UpdateCoinsHistoryByIdPage

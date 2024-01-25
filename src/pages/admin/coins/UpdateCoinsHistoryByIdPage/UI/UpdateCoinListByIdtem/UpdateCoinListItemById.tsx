@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import classes from "./updateCoinListItemById.module.css"
 import { CoinReason, getCoinReason } from "@/entities/Coin/models/CoinReasons"
-import { useUpdateCoinListItemById } from "@/pages/admin/coins/UpdateCoinsHistory/UI/UpdateCoinListByIdtem/useUpdateCoinListItemById"
+import { useUpdateCoinListItemById } from "@/pages/admin/coins/UpdateCoinsHistoryByIdPage/UI/UpdateCoinListByIdtem/useUpdateCoinListItemById"
 
 interface IUpdateCoinListItemProps {
     id: number

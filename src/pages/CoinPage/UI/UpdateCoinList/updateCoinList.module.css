@@ -3,21 +3,23 @@
 }
 
 .date {
+    position: relative;
+    z-index: 10;
     display: flex;
     align-items: center;
     width: 115px;
     justify-content: space-between;
-    margin: 0 0 25px 35px;
+    margin: 0 50px 25px 35px;
 }
 
-.run {
+.vertical {
     position: absolute;
-    z-index: -1;
-    left: 309px;
+    z-index: 1;
+    left: 304px;
     top: 205px;
     width: 1px;
     height: 100%;
-    color: #FFFFFF80;
+    color: #ffffff80;
 }
 
 .circle {

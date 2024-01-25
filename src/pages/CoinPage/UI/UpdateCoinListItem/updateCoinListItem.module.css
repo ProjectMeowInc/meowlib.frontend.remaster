@@ -1,4 +1,6 @@
 .container {
+    position: relative;
+    z-index: 10;
     background-color: #202020;
     width: 73vw;
     height: 80px;

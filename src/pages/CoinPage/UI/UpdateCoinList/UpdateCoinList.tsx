@@ -19,13 +19,12 @@ const UpdateCoinList: React.FC = () => {
                 .map(([date, coinsGroup]) => (
                     <div key={date} className={classes.date_list}>
                         <div className={classes.date}>
-                            <hr />
                             <div className={classes.circle}></div>
                             <h3>{new Date(date).toLocaleDateString(undefined, { day: "numeric" })}</h3>
                             <h3>{getMonth(date.split("-")[1])}</h3>
                         </div>
                         {coinsGroup.map((coin, index) =>
-                            coin ? (
+                            coinsGroup.length > 0 ? (
                                 <div key={coin.id}>
                                     <UpdateCoinListItem
                                         id={coin.id}
@@ -34,6 +33,7 @@ const UpdateCoinList: React.FC = () => {
                                         date={coin.date}
                                     />
                                     {index < coinsGroup.length - 1 && <hr className={classes.line} />}
+                                    <hr className={classes.vertical} />
                                 </div>
                             ) : (
                                 <p key={index}>Здесь пока ничего нет</p>
@@ -41,7 +41,6 @@ const UpdateCoinList: React.FC = () => {
                         )}
                     </div>
                 ))}
-            <hr className={classes.run} />
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import classes from "./updateCoinsHistoryByIdPage.module.css"
-import UpdateCoinListById from "@/pages/admin/coins/UpdateCoinsHistory/UI/UpdateCoinListById/UpdateCoinListById"
+import UpdateCoinListById from "@/pages/admin/coins/UpdateCoinsHistoryByIdPage/UI/UpdateCoinListById/UpdateCoinListById"
 
 interface IUpdateCoinsHistoryByIdPageProps {
     params: {

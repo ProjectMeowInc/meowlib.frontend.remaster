@@ -3,8 +3,8 @@
 import React, { FC } from "react"
 import Preloader from "@/pages/admin/UI/Preloader/Preloader"
 import classes from "./updateCoinListById.module.css"
-import UpdateCoinListItemById from "@/pages/admin/coins/UpdateCoinsHistory/UI/UpdateCoinListByIdtem/UpdateCoinListItemById"
-import useUpdateCoinListById from "@/pages/admin/coins/UpdateCoinsHistory/UI/UpdateCoinListById/useUpdateCoinListById"
+import UpdateCoinListItemById from "@/pages/admin/coins/UpdateCoinsHistoryByIdPage/UI/UpdateCoinListByIdtem/UpdateCoinListItemById"
+import useUpdateCoinListById from "@/pages/admin/coins/UpdateCoinsHistoryByIdPage/UI/UpdateCoinListById/useUpdateCoinListById"
 
 interface IUpdateCoinListByIdProps {
     userId: number
@@ -23,10 +23,9 @@ const UpdateCoinListById: FC<IUpdateCoinListByIdProps> = ({ userId }) => {
                 .map(([date, coinsGroup]) => (
                     <div key={date} className={classes.date_list}>
                         <div className={classes.date}>
-                            <hr />
                             <div className={classes.circle}></div>
                             <h3>{new Date(date).toLocaleDateString(undefined, { day: "numeric" })}</h3>
-                            <h3>{getMonth(date.split("-")[1])}</h3>
+                            <h3>{String(getMonth(date.split("-")[1]))}</h3>
                         </div>
                         {coinsGroup.map((coin, index) =>
                             coin ? (
@@ -38,6 +37,7 @@ const UpdateCoinListById: FC<IUpdateCoinListByIdProps> = ({ userId }) => {
                                         date={coin.date}
                                     />
                                     {index < coinsGroup.length - 1 && <hr className={classes.line} />}
+                                    <hr className={classes.vertical} />
                                 </div>
                             ) : (
                                 <p key={index}>Здесь пока ничего нет</p>
@@ -45,7 +45,6 @@ const UpdateCoinListById: FC<IUpdateCoinListByIdProps> = ({ userId }) => {
                         )}
                     </div>
                 ))}
-            <hr className={classes.run} />
         </div>
     )
 }
