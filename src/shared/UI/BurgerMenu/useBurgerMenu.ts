@@ -1,12 +1,16 @@
-import { TokenService } from "@/shared/services/TokenService"
+import { useRouter } from "next/navigation"
 
 export const useBurgerMenu = () => {
+
+    const router = useRouter()
+
     //todo: change this
-    const isAuth = TokenService.isLogIn()
-    const isDisplayAdminRoutes = TokenService.isAdmin()
+    const isAuth = true
+    const isDisplayAdminRoutes = true
 
     return {
         isDisplayAdminRoutes,
         isAuth,
+        router
     }
 }
