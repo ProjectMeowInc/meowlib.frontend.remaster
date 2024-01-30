@@ -35,3 +35,10 @@
     font-weight: 400;
     line-height: normal;
 }
+
+.info {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
