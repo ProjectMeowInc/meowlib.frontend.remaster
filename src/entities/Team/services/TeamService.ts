@@ -4,10 +4,11 @@ import { TeamApi } from "@/entities/Team/api/TeamApi"
 import { Result } from "@/shared/services/Result/Result"
 import { TeamEntity } from "@/entities/Team/TeamEntity"
 import { TeamRoleType } from "@/entities/Team/types/TeamRoleType"
+import { ICreateTeam } from "@/entities/Team/models/dto/CreateTeam"
 
 export class TeamService {
     
-    static async createTeamAsync(requestData: IShortTeamDto): Promise<EmptyResult> {
+    static async createTeamAsync(requestData: ICreateTeam): Promise<EmptyResult> {
         return await TeamApi.createTeamAsync(requestData)
     }
     
