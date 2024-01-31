@@ -6,8 +6,9 @@
 }
 
 .teams {
+    margin-top: 35px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 35px;
 }
