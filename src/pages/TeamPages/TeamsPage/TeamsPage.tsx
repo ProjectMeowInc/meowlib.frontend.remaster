@@ -4,6 +4,7 @@ import { FC } from "react"
 import EmptyTag from "@/shared/UI/EmptyTag/EmptyTag"
 import classes from "./teamsPage.module.css"
 import Controls from "@/pages/TeamPages/TeamsPage/UI/Controls/Controls"
+import CreateTeam from "@/pages/TeamPages/TeamsPage/UI/CreateTeam/CreateTeam"
 
 interface ITeamsPageProps {
     searchParams: {
@@ -23,6 +24,7 @@ const TeamsPage: FC<ITeamsPageProps> = async ({searchParams: {page}}) => {
 
     return (
         <div className={classes.wrapper}>
+            <CreateTeam/>
             <div className={classes.teams}>
                 {teams.map(t => (
                     <TeamView
