@@ -1,11 +1,10 @@
 import { TeamService } from "@/entities/Team/services/TeamService"
-import { useParams, useRouter } from "next/navigation"
+import { useParams } from "next/navigation"
 import { AlertService } from "@/shared/services/AlertService"
 
 export const useLeaveFromTeam = () => {
 
     const params = useParams<{teamId: string}>()
-    const router = useRouter()
 
     const LeaveFromTeam = async () => {
 
