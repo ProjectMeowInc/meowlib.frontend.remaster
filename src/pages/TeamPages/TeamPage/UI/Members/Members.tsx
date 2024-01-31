@@ -7,6 +7,7 @@ import Member from "@/pages/TeamPages/TeamPage/UI/Members/UI/Member/Member"
 import { useMembers } from "@/pages/TeamPages/TeamPage/UI/Members/useMembers"
 import AddMember from "@/pages/TeamPages/TeamPage/UI/Members/UI/AddMember/AddMember"
 import UserModal from "@/pages/TeamPages/TeamPage/UI/UserModal/UserModal"
+import LeaveFromTeam from "@/pages/TeamPages/TeamPage/UI/Members/UI/LeaveFromTeam/LeaveFromTeam"
 
 interface IMembersProps {
     members: {
@@ -18,7 +19,7 @@ interface IMembersProps {
 
 const Members: FC<IMembersProps> = ({members}) => {
 
-    const {userIsAdmin, modalIsActive, setModalIsActive} = useMembers(members)
+    const {userIsAdmin, modalIsActive, setModalIsActive, isUserInTeam} = useMembers(members)
 
     return (
         <div className={classes.wrapper}>
@@ -34,6 +35,7 @@ const Members: FC<IMembersProps> = ({members}) => {
             ))}
             {userIsAdmin && <AddMember onClick={() => setModalIsActive(true)}/>}
             {modalIsActive && <UserModal onClick={() => setModalIsActive(false)}/>}
+            {isUserInTeam && <LeaveFromTeam/>}
         </div>
     )
 }
