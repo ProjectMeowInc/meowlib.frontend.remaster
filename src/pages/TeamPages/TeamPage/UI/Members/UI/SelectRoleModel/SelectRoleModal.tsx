@@ -8,7 +8,6 @@ import Image from "next/image"
 import Button from "@/shared/UI/button/Button"
 
 import defaultImage from "@/public/img/defaultImage.png"
-import cross from "@/public/img/icons/cross.png"
 
 interface ISelectRoleModalProps {
     id: number
