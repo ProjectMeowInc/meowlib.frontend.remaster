@@ -7,6 +7,7 @@ import Image from "next/image"
 
 import cross from "@/public/img/icons/cross.png"
 import { useMember } from "@/pages/TeamPages/TeamPage/UI/Members/UI/Member/useMember"
+import SelectRoleModal from "@/pages/TeamPages/TeamPage/UI/Members/UI/SelectRoleModel/SelectRoleModal"
 
 interface IMemberProps {
     id: number
@@ -15,12 +16,12 @@ interface IMemberProps {
     userIsAdmin: boolean
 }
 
-const Member: FC<IMemberProps> = ({id, login, role}) => {
+const Member: FC<IMemberProps> = ({id, login, role, userIsAdmin}) => {
 
-    const {DeleteHandler} = useMember()
+    const {DeleteHandler, modalIsOpen, setModalIsOpen} = useMember()
 
     return (
-        <div className={classes.wrapper}>
+        <div className={classes.wrapper} onClick={() => setModalIsOpen(true)}>
             <div className={classes.img}>
 
             </div>
@@ -29,7 +30,8 @@ const Member: FC<IMemberProps> = ({id, login, role}) => {
                     <p className={classes.login}>{login}</p>
                     <p className={classes.role}>{role}</p>
                 </div>
-                <Image src={cross} alt={"cross icon"} width={40} height={40} onClick={async () => DeleteHandler(id)}/>
+                {userIsAdmin && <Image src={cross} alt={"cross icon"} width={40} height={40} onClick={async () => DeleteHandler(id)}/>}
+                {modalIsOpen && <SelectRoleModal id={id} login={login} role={role} onClick={() => setModalIsOpen(false)}/>}
             </div>
         </div>
     )

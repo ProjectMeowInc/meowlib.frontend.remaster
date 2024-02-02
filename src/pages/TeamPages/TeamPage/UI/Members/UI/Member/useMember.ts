@@ -1,11 +1,13 @@
 import { TeamService } from "@/entities/Team/services/TeamService"
 import { AlertService } from "@/shared/services/AlertService"
 import { useParams, useRouter } from "next/navigation"
+import { useState } from "react"
 
 export const useMember = () => {
 
     const params = useParams<{teamId: string}>()
     const router = useRouter()
+    const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
 
     const DeleteHandler = async (userId: number): Promise<void> => {
 
@@ -24,6 +26,8 @@ export const useMember = () => {
     }
 
     return {
-        DeleteHandler
+        DeleteHandler,
+        modalIsOpen,
+        setModalIsOpen
     }
 }
