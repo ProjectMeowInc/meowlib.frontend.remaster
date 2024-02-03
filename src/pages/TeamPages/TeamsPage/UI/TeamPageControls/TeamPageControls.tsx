@@ -1,13 +1,13 @@
 import React, { FC } from "react"
 import Link from "next/link"
-import classes from "./controls.module.css"
+import classes from "./teamPageControls.module.css"
 import EmptyTag from "@/shared/UI/EmptyTag/EmptyTag"
 
-interface IControlsProps {
+interface ITeamPageControlsProps {
     page: number
 }
 
-const Controls: FC<IControlsProps> = ({page}) => {
+const TeamPageControls: FC<ITeamPageControlsProps> = ({page}) => {
     return (
         <div className={classes.wrapper}>
             {Number(page) > 1 ?
@@ -22,4 +22,4 @@ const Controls: FC<IControlsProps> = ({page}) => {
     )
 }
 
-export default Controls
+export default TeamPageControls

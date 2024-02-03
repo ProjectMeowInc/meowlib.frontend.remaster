@@ -3,6 +3,7 @@ import { ICreateTeam } from "@/entities/Team/models/dto/CreateTeam"
 import { IOnChangeEvent } from "@/shared/models/events/IOnChangeEvent"
 import { TeamService } from "@/entities/Team/services/TeamService"
 import { AlertService } from "@/shared/services/AlertService"
+import { usePage } from "@/shared/hooks/usePage"
 
 export const useCreateTeamForm = () => {
 
@@ -10,6 +11,7 @@ export const useCreateTeamForm = () => {
         name: "",
         description: ""
     })
+    const page = usePage()
 
     const ChangeHandler = ({name, newValue}: IOnChangeEvent) => {
         setRequestData(prevState => ({
@@ -29,7 +31,7 @@ export const useCreateTeamForm = () => {
         }
 
         AlertService.successMessage("Команда успешно создана")
-        window.location.reload()
+        page.reload()
     }
 
     return {

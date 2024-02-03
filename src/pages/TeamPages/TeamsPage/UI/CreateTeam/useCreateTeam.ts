@@ -7,7 +7,6 @@ export const useCreateTeam = () => {
     const [formIsActive, setFormIsActive] = useState<boolean>(false)
     const [userIsLogin, setUserIsLogin] = useState<boolean>(false)
 
-
     useFirstLoading(() => {
         const token = TokenService.getAccessToken()
 

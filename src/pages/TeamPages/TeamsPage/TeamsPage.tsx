@@ -3,18 +3,18 @@ import { TeamService } from "@/entities/Team/services/TeamService"
 import { FC } from "react"
 import EmptyTag from "@/shared/UI/EmptyTag/EmptyTag"
 import classes from "./teamsPage.module.css"
-import Controls from "@/pages/TeamPages/TeamsPage/UI/Controls/Controls"
+import TeamPageControls from "@/pages/TeamPages/TeamsPage/UI/TeamPageControls/TeamPageControls"
 import CreateTeam from "@/pages/TeamPages/TeamsPage/UI/CreateTeam/CreateTeam"
 
 interface ITeamsPageProps {
     searchParams: {
-        page: string
+        page: number
     }
 }
 
 const TeamsPage: FC<ITeamsPageProps> = async ({searchParams: {page}}) => {
 
-    const getTeamsResult = await TeamService.getAllTeamsAsync(Number(page))
+    const getTeamsResult = await TeamService.getAllTeamsAsync(page)
 
     if (getTeamsResult.hasError()) {
         return <EmptyTag>{getTeamsResult.getError().errorMessage}</EmptyTag>
@@ -35,7 +35,7 @@ const TeamsPage: FC<ITeamsPageProps> = async ({searchParams: {page}}) => {
                     />
                 ))}
             </div>
-            <Controls page={Number(page)}/>
+            <TeamPageControls page={page}/>
         </div>
     )
 }
