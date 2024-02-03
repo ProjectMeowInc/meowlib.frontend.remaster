@@ -1,7 +1,7 @@
-import classes from "./books.module.css"
+import classes from "./bookList.module.css"
 import BookPreview from "@/pages/MainPage/UI/BookPreview/BookPreview"
 
-const Books = () => {
+const BooksList = () => {
     return (
         <div className={classes.wrapper}>
             {new Array(8).fill(0).map(() => (
@@ -11,4 +11,4 @@ const Books = () => {
     )
 }
 
-export default Books
+export default BooksList
