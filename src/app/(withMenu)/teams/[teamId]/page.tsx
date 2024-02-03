@@ -14,7 +14,7 @@ export const generateMetadata = async ({params: {teamId}}: ITeamPageProps): Prom
     if (getTeamsResult.hasError()) {
         return {
             title: "MeowLib",
-            description: "The best library of ranobe in the world",
+            description: "Лучшая библиотека с ранобе в мире",
         }
     }
 
