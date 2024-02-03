@@ -1,17 +1,17 @@
 import React, { FC } from "react"
-import { useAddUserModal } from "@/pages/TeamPages/TeamPage/UI/UserModal/useAddUserModal"
-import classes from "./userModal.module.css"
+import classes from "./teamUserModal.module.css"
 import Preloader from "@/pages/admin/UI/Preloader/Preloader"
-import UserItem from "@/pages/TeamPages/TeamPage/UI/UserModal/UI/UserItem/UserItem"
 import Image from "next/image"
 
 import cross from "@/public/img/icons/cross.png"
+import { useAddUserModal } from "@/pages/TeamPages/TeamPage/UI/TeamUserModal/useAddUserModal"
+import UserItem from "@/pages/admin/users/UI/UserItem/UserItem"
 
-interface IUserModalProps {
+interface ITeamUserModalProps {
     onClick?: () => void
 }
 
-const UserModal: FC<IUserModalProps> = ({onClick}) => {
+const TeamUserModal: FC<ITeamUserModalProps> = ({onClick}) => {
 
     const {users} = useAddUserModal()
 
@@ -27,11 +27,11 @@ const UserModal: FC<IUserModalProps> = ({onClick}) => {
                     <Image onClick={onClick} className={classes.cross} src={cross} alt={"cross icon"} width={40} height={40}/>
                 </div>
                 {users.map(u => (
-                    <UserItem key={u.id} id={u.id} login={u.login}/>
+                    <UserItem key={u.id} id={u.id} login={u.login} role={u.role}/>
                 ))}
             </div>
         </div>
     )
 }
 
-export default UserModal
+export default TeamUserModal

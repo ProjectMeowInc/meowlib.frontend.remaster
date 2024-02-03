@@ -6,19 +6,20 @@ import React, { FC } from "react"
 import Image from "next/image"
 
 import cross from "@/public/img/icons/cross.png"
-import { useMember } from "@/pages/TeamPages/TeamPage/UI/Members/UI/Member/useMember"
-import SelectRoleModal from "@/pages/TeamPages/TeamPage/UI/Members/UI/SelectRoleModel/SelectRoleModal"
+import { useMember } from "@/pages/TeamPages/TeamPage/UI/MemberList/UI/Member/useMember"
+import SelectRoleModal from "@/pages/TeamPages/TeamPage/UI/MemberList/UI/SelectRoleModel/SelectRoleModal"
 
 interface IMemberProps {
     id: number
     login: string
     role: TeamRoleType
     userIsAdmin: boolean
+    teamId: number
 }
 
-const Member: FC<IMemberProps> = ({id, login, role, userIsAdmin}) => {
+const Member: FC<IMemberProps> = ({id, login, role, userIsAdmin, teamId}) => {
 
-    const {DeleteHandler, modalIsOpen, setModalIsOpen} = useMember()
+    const {DeleteHandler, modalIsOpen, setModalIsOpen} = useMember(teamId)
 
     return (
         <div className={classes.wrapper} onClick={() => setModalIsOpen(true)}>

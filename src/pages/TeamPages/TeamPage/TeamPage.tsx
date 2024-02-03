@@ -2,9 +2,9 @@ import classes from "./teamPage.module.css"
 import { FC } from "react"
 import { TeamService } from "@/entities/Team/services/TeamService"
 import EmptyTag from "@/shared/UI/EmptyTag/EmptyTag"
-import TeamInfo from "@/pages/TeamPages/TeamPage/UI/TeamInfo/TeamInfo"
-import Members from "@/pages/TeamPages/TeamPage/UI/Members/Members"
-import Books from "@/pages/TeamPages/TeamPage/UI/Books/Books"
+import TeamInfoBlock from "@/pages/TeamPages/TeamPage/UI/TeamInfoBlock/TeamInfoBlock"
+import MemberList from "@/pages/TeamPages/TeamPage/UI/MemberList/MemberList"
+import BooksList from "@/pages/TeamPages/TeamPage/UI/BookList/BooksList"
 
 interface ITeamPageProps {
     params: {
@@ -24,10 +24,10 @@ const TeamPage: FC<ITeamPageProps> = async ({params: {teamId}}) => {
 
     return (
         <div>
-            <TeamInfo name={team.name} description={team.description}/>
+            <TeamInfoBlock name={team.name} description={team.description}/>
             <div className={classes.info}>
-                <Books/>
-                <Members members={team.members}/>
+                <BooksList/>
+                <MemberList teamId={team.id} members={team.members}/>
             </div>
         </div>
     )

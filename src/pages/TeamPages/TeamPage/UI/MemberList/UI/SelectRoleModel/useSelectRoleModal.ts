@@ -4,7 +4,7 @@ import { TeamService } from "@/entities/Team/services/TeamService"
 import { useParams, useRouter } from "next/navigation"
 import { AlertService } from "@/shared/services/AlertService"
 
-export const useSelectRoleModal = (role: TeamRoleType, closeModalFunc: () => void) => {
+export const useSelectRoleModal = (role: TeamRoleType, onCloseModal: () => void) => {
 
     const [requestData, setRequestData] = useState<TeamRoleType>(role)
     const params = useParams<{teamId: string}>()
@@ -22,7 +22,7 @@ export const useSelectRoleModal = (role: TeamRoleType, closeModalFunc: () => voi
             return AlertService.errorMessage(result.getError().errorMessage)
         }
 
-        closeModalFunc.call(null)
+        onCloseModal.call(null)
         router.refresh()
     }
 

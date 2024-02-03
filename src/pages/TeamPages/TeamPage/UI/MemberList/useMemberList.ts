@@ -9,9 +9,9 @@ interface IUseMembersProps {
     role: TeamRoleType
 }
 
-export const useMembers = (members: IUseMembersProps[]) => {
+export const useMemberList = (members: IUseMembersProps[]) => {
 
-    const [userIsAdmin, setUserIsAdmin] = useState<boolean>(false)
+    const [userIsTeamAdmin, setUserIsTeamAdmin] = useState<boolean>(false)
     const [modalIsActive, setModalIsActive] = useState<boolean>(false)
     const [isUserInTeam, setIsUserInTeam] = useState<boolean>(false)
 
@@ -32,7 +32,7 @@ export const useMembers = (members: IUseMembersProps[]) => {
 
         members.find(u => {
             if (u.id === user.id && u.role === "Admin") {
-                setUserIsAdmin(true)
+                setUserIsTeamAdmin(true)
             }
 
             if (u.id === user.id) {
@@ -42,7 +42,7 @@ export const useMembers = (members: IUseMembersProps[]) => {
     })
 
     return {
-        userIsAdmin,
+        userIsTeamAdmin,
         modalIsActive,
         setModalIsActive,
         isUserInTeam

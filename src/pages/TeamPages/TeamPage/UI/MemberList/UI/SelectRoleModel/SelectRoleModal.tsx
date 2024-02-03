@@ -3,11 +3,11 @@
 import React, { FC } from "react"
 import classes from "./selectRoleModal.module.css"
 import { TeamRoleType } from "@/entities/Team/types/TeamRoleType"
-import { useSelectRoleModal } from "@/pages/TeamPages/TeamPage/UI/Members/UI/SelectRoleModel/useSelectRoleModal"
 import Image from "next/image"
 import Button from "@/shared/UI/button/Button"
 
 import defaultImage from "@/public/img/defaultImage.png"
+import { useSelectRoleModal } from "@/pages/TeamPages/TeamPage/UI/MemberList/UI/SelectRoleModel/useSelectRoleModal"
 
 interface ISelectRoleModalProps {
     id: number

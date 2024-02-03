@@ -1,13 +1,13 @@
-import classes from "./stats.module.css"
+import classes from "./teamStats.module.css"
 import { FC } from "react"
 
-interface IStatsProps {
+interface ITeamStatsProps {
     likes: number
     titles: number
     chapters: number
 }
 
-const Stats: FC<IStatsProps> = ({likes, chapters, titles}) => {
+const TeamStats: FC<ITeamStatsProps> = ({likes, chapters, titles}) => {
     return (
         <div className={classes.wrapper}>
             <div className={classes.item}>
@@ -28,4 +28,4 @@ const Stats: FC<IStatsProps> = ({likes, chapters, titles}) => {
     )
 }
 
-export default Stats
+export default TeamStats
