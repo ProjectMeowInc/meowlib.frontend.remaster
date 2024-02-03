@@ -1,0 +1,1 @@
+export type TeamRoleType = "Standard" | "Translator" | "Redactor" | "Admin"

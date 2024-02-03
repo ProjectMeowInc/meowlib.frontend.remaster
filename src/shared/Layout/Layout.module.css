@@ -6,6 +6,7 @@
 
 @media (min-width: 768px) {
     .wrapper {
-        display: flex;
+        width: 70%;
+        margin: 30px auto 0 auto;
     }
 }

@@ -1,0 +1,38 @@
+.wrapper {
+    width: 100dvw;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: multiply;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+}
+
+.modal::-webkit-scrollbar {
+    width: 0;
+}
+
+.modal {
+    width: 50%;
+    height: 70%;
+    overflow: scroll;
+    padding: 20px;
+    background-color: #202020;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cross {
+    cursor: pointer;
+}

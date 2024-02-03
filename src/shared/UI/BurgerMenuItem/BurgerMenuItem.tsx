@@ -1,5 +1,8 @@
+"use client"
+
 import classes from "./burgerMenuItem.module.css"
 import { FC } from "react"
+import Link from "next/link"
 
 interface IBurgerMenuItemProps {
     href: string
@@ -9,10 +12,10 @@ interface IBurgerMenuItemProps {
 
 const BurgerMenuItem: FC<IBurgerMenuItemProps> = ({ href, imageHref, text }) => {
     return (
-        <a className={classes.menu_item} href={href}>
+        <Link href={href} className={classes.menu_item}>
             <img src={imageHref} alt={""}/>
             {text}
-        </a>
+        </Link>
     )
 }
 

@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.item {
+    display: flex;
+    gap: 5px;
+}
+
+.count {
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.description {
+    color: rgba(255, 255, 255, 0.70);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
