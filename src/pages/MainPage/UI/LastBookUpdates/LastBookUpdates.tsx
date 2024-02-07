@@ -14,19 +14,10 @@ const LastBookUpdates = async () => {
 
     return (
         <div className={classes.container}>
-            <div className={classes.block_text}>
-                Последние обновления
-            </div>
+            <div className={classes.block_text}>Последние обновления</div>
             <div className={classes.block_list}>
                 {books.length > 0 ? (
-                    books.map((book) => (
-                        <BookPreview
-                            key={book.id}
-                            id={book.id}
-                            image={book.imageUrl}
-                            name={book.name}
-                        />
-                    ))
+                    books.map((book) => <BookPreview key={book.id} id={book.id} image={book.image} name={book.name} />)
                 ) : (
                     <h1>Результатов не найдено</h1>
                 )}

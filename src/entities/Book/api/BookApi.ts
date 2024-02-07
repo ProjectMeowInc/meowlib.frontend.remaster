@@ -21,7 +21,7 @@ export class BookApi {
 
     static async createBook(requestData: ICreateBook): Promise<EmptyResult> {
         const result = await new HTTPRequest<void>()
-            .withUrl("/v1/books")
+            .withUrl("/v2/books")
             .withPostMethod()
             .withAuth()
             .withBody(requestData)
