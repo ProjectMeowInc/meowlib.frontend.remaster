@@ -21,7 +21,7 @@ export class BookService {
             result.unwrap().items.map((book) => ({
                 ...book,
                 // todo: create valid link
-                imageUrl: book.imageUrl ?? DEFAULT_BOOK_IMAGE,
+                image: book.image ?? DEFAULT_BOOK_IMAGE,
             })),
         )
     }

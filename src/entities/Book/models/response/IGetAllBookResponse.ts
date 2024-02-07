@@ -3,7 +3,7 @@ export interface IGetAllBookResponse {
         id: number
         name: string
         description: string
-        imageUrl?: string
+        image?: string
         author?: {
             id: number
             name: string
