@@ -7,7 +7,7 @@ import Button from "@/shared/UI/button/Button"
 import { useCreateBookPage } from "@/pages/admin/books/CreateBookPage/useCreateBookPage"
 
 const CreateBookPage = () => {
-    const { SubmitCreateBookHandler, ChangeCreateBookHandler } = useCreateBookPage()
+    const { SubmitCreateBookHandler, ChangeCreateBookHandler, UploadImageHandler } = useCreateBookPage()
 
     return (
         <div className={classes.container}>
@@ -27,6 +27,12 @@ const CreateBookPage = () => {
                     placeholder={"Введите описание книги"}
                     type={"text"}
                     style={{ width: 95 }}
+                />
+
+                <input
+                    placeholder={"Выберите изображение"}
+                    type={"file"}
+                    onChange={async (e) => await UploadImageHandler(e)}
                 />
 
                 <Button styles={{ width: "100%" }}>Создать книгу</Button>
