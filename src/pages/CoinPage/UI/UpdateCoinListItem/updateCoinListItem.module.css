@@ -1,0 +1,33 @@
+.container {
+    position: relative;
+    z-index: 10;
+    background-color: #202020;
+    width: 73vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+}
+
+.container > p {
+    font-family: Ubuntu, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
+}
+
+.info {
+    color: #ffffff;
+    flex: 1;
+}
+
+.date {
+    color: #ffffffb2;
+}
+
+.container > img {
+    width: 24px;
+    height: 24px;
+    margin-right: 20px;
+}
