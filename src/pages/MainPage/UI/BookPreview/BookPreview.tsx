@@ -7,14 +7,12 @@ interface IBookPreview {
     id: number
     image: string | null
     name: string
+    onClick?: () => void
 }
 
-const BookPreview: React.FC<IBookPreview> = ({ id, image, name }) => {
+const BookPreview: React.FC<IBookPreview> = ({ id, image, name, onClick }) => {
     return (
-        <Link
-            className={classes.container}
-            href={`/books/${id}`}
-        >
+        <Link className={classes.container} href={`/books/${id}`} onClick={onClick}>
             <AdaptiveImage url={image ?? "NONE"} className={classes.image} />
             <div className={classes.name}>{name}</div>
         </Link>
