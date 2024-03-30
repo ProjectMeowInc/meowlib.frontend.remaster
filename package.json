@@ -20,7 +20,7 @@
         "react-cookie": "^7.0.2",
         "react-dom": "^18",
         "react-toastify": "^10.0.4",
-        "result": "github:ProjectMeowInc/TsResult#semver:1.0.1"
+        "ts-result-meow": "^0.0.2"
     },
     "devDependencies": {
         "@types/js-cookie": "^3.0.6",
