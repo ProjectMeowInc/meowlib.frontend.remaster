@@ -7,6 +7,7 @@ import { IUpdateTagRequest } from "@/entities/Tag/models/requests/IUpdateTagRequ
 import { ICreateTagResponse } from "@/entities/Tag/models/responses/ICreateTagResponse"
 import { IUpdateTagByIdResponse } from "@/entities/Tag/models/responses/IUpdateTagByIdResponse"
 import { IGetTagByIdResponse } from "@/entities/Tag/models/responses/IGetTagByIdResponse"
+import { error, ok } from "ts-result-meow"
 
 export class TagApi {
     static async createAsync(requestData: ICreateTagRequest): Promise<Result<ICreateTagResponse>> {
@@ -18,20 +19,20 @@ export class TagApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 
     static async getAllAsync(): Promise<Result<IGetAllTagResponse>> {
         const result = await new HTTPRequest<IGetAllTagResponse>().withUrl("/v1/tags").withGetMethod().sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 
     static async deleteByIdAsync(tagId: number): Promise<EmptyResult> {
@@ -60,10 +61,10 @@ export class TagApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 
     static async getByIdAsync(tagId: number): Promise<Result<IGetTagByIdResponse>> {
@@ -73,9 +74,9 @@ export class TagApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 }

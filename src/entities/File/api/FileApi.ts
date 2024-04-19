@@ -1,6 +1,7 @@
 import { Result } from "@/shared/services/Result/Result"
 import { IUploadImageResponse } from "@/entities/File/models/responses/IUploadImageResponse"
 import { HTTPRequest } from "@/shared/services/HTTPResult/HTTPRequest"
+import { error, ok } from "ts-result-meow"
 
 export class FileApi {
     public static async uploadImageAsync(image: FormData): Promise<Result<IUploadImageResponse>> {
@@ -12,9 +13,9 @@ export class FileApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 }

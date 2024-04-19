@@ -5,19 +5,19 @@ import { Result } from "@/shared/services/Result/Result"
 import { TeamEntity } from "@/entities/Team/TeamEntity"
 import { TeamRoleType } from "@/entities/Team/types/TeamRoleType"
 import { ICreateTeam } from "@/entities/Team/models/dto/CreateTeam"
+import { error, ok } from "ts-result-meow"
 
 export class TeamService {
-    
     static async createTeamAsync(requestData: ICreateTeam): Promise<EmptyResult> {
         return await TeamApi.createTeamAsync(requestData)
     }
-    
+
     static async getTeamByIdAsync(teamId: number): Promise<Result<TeamEntity>> {
         return await TeamApi.getTeamByIdAsync(teamId)
     }
 
     static async updateTeamRoleAsync(teamId: number, userId: number, newRole: TeamRoleType): Promise<EmptyResult> {
-        return await TeamApi.updateTeamRoleAsync(teamId, userId, {newRole})
+        return await TeamApi.updateTeamRoleAsync(teamId, userId, { newRole })
     }
 
     static async leaveTeamAsync(teamId: number): Promise<EmptyResult> {
@@ -36,17 +36,17 @@ export class TeamService {
         const result = await TeamApi.getAllTeamsAsync(pageNumber)
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        const {items} = result.unwrap()
+        const { items } = result.unwrap()
 
-        return Result.withOk(items)
+        return ok(items)
     }
 
     static async acceptTeamInviteAsync(payload: string): Promise<EmptyResult> {
         return await TeamApi.acceptTeamInviteAsync({
-            data: payload
+            data: payload,
         })
     }
 }

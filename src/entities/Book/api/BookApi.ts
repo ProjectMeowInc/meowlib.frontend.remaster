@@ -7,16 +7,17 @@ import { ICreateBook } from "@/entities/Book/models/requests/CreateBookRequest"
 import { IGetBookByIdResponse } from "@/entities/Book/models/response/IGetBookByIdResponse"
 import { IGetAllBookResponse } from "@/entities/Book/models/response/IGetAllBookResponse"
 import { IAddPeopleToBookRequest } from "@/entities/Book/models/requests/AddPeopleToBookRequest"
+import { error, ok } from "ts-result-meow"
 
 export class BookApi {
     static async getBooks(): Promise<Result<IGetAllBookResponse>> {
         const result = await new HTTPRequest<IGetAllBookResponse>().withUrl("/v2/books").withGetMethod().sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 
     static async createBook(requestData: ICreateBook): Promise<EmptyResult> {
@@ -55,10 +56,10 @@ export class BookApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 
     static async updateBookInfo(bookId: number, updateData: IUpdateBookRequest): Promise<EmptyResult> {

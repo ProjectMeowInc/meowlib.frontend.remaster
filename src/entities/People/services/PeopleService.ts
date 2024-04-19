@@ -5,16 +5,17 @@ import { IPeopleDto } from "@/entities/People/models/dto/IPeopleDto"
 import { IShortPeopleDto } from "@/entities/People/models/dto/IShortPeopleDto"
 import { PeopleEntity } from "@/entities/People/PeopleEntity"
 import { ILongPeopleDto } from "@/entities/People/models/dto/ILongPeopleDto"
+import { error, ok } from "ts-result-meow"
 
 export class PeopleService {
     static async getAllAsync(pageNumber?: number): Promise<Result<IPeopleDto[]>> {
         const result = await PeopleApi.getAllAsync(pageNumber)
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap().items)
+        return ok(result.unwrap().items)
     }
 
     static async createAsync(requestData: IShortPeopleDto): Promise<Result<PeopleEntity>> {

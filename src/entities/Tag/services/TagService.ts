@@ -5,6 +5,7 @@ import { ITagDTO } from "@/entities/Tag/models/dto/ITagDTO"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
 import { IUpdateTagDTO } from "@/entities/Tag/models/dto/IUpdateTagDTO"
 import { TagEntity } from "@/entities/Tag/TagEntity"
+import { error, ok } from "ts-result-meow"
 
 export class TagService {
     static async createAsync(requestData: ICreateTagDTO): Promise<Result<TagEntity>> {
@@ -15,10 +16,10 @@ export class TagService {
         const result = await TagApi.getAllAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap().items)
+        return ok(result.unwrap().items)
     }
 
     static async deleteAsync(tagId: number): Promise<EmptyResult> {

@@ -6,9 +6,9 @@ import { IGetTeamByIdResponse } from "@/entities/Team/models/responses/IGetTeamB
 import { IUpdateTeamRoleRequest } from "@/entities/Team/models/requests/IUpdateTeamRoleRequest"
 import { IGetAllTeamsResponse } from "@/entities/Team/models/responses/IGetAllTeamsResponse"
 import { IAcceptTeamInviteRequest } from "@/entities/Team/models/requests/IAcceptTeamInviteRequest"
+import { error, ok } from "ts-result-meow"
 
 export class TeamApi {
-
     static async createTeamAsync(requestData: ICreateTeamRequest): Promise<EmptyResult> {
         const result = await new HTTPRequest<void>()
             .withUrl("/v1/team")
@@ -31,13 +31,17 @@ export class TeamApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 
-    static async updateTeamRoleAsync(teamId: number, userId: number, requestData: IUpdateTeamRoleRequest): Promise<EmptyResult> {
+    static async updateTeamRoleAsync(
+        teamId: number,
+        userId: number,
+        requestData: IUpdateTeamRoleRequest,
+    ): Promise<EmptyResult> {
         const result = await new HTTPRequest<void>()
             .withUrl(`/v1/team/${teamId}/members/${userId}/role`)
             .withPostMethod()
@@ -101,10 +105,10 @@ export class TeamApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 
     static async acceptTeamInviteAsync(requestData: IAcceptTeamInviteRequest): Promise<EmptyResult> {
