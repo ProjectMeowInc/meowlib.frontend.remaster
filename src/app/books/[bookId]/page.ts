@@ -1,6 +1,6 @@
-import BookPage from "@/pages/BookPages/BookPage/BookPage"
+import BookPage from "@/_pages/BookPages/BookPage/BookPage"
 import { BookService } from "@/entities/Book/service/BookService"
-import { AvailableSections } from "@/pages/BookPages/BookPage/UI/SectionSelector/useSectionSelector"
+import { AvailableSections } from "@/_pages/BookPages/BookPage/UI/SectionSelector/useSectionSelector"
 import { Metadata } from "next"
 
 interface IBookPageProps {

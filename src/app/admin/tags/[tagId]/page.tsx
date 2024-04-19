@@ -1,3 +1,3 @@
-import UpdateTagPage from "@/pages/admin/tags/UpdateTagPage/UpdateTagPage"
+import UpdateTagPage from "@/_pages/admin/tags/UpdateTagPage/UpdateTagPage"
 
 export default UpdateTagPage

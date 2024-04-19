@@ -1,4 +1,4 @@
-import MainPage from "@/pages/MainPage/MainPage"
+import MainPage from "@/_pages/MainPage/MainPage"
 
 export const revalidate = 120
 

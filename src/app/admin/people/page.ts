@@ -1,3 +1,3 @@
-import PeopleMainPage from "@/pages/admin/people/PeopleMainPage/PeopleMainPage"
+import PeopleMainPage from "@/_pages/admin/people/PeopleMainPage/PeopleMainPage"
 
 export default PeopleMainPage

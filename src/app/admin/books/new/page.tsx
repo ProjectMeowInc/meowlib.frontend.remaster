@@ -1,3 +1,3 @@
-import CreateBookPage from "@/pages/admin/books/CreateBookPage/CreateBookPage"
+import CreateBookPage from "@/_pages/admin/books/CreateBookPage/CreateBookPage"
 
 export default CreateBookPage

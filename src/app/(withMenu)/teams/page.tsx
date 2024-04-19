@@ -1,3 +1,3 @@
-import TeamsPage from "@/pages/TeamPages/TeamsPage/TeamsPage"
+import TeamsPage from "@/_pages/TeamPages/TeamsPage/TeamsPage"
 
 export default TeamsPage
