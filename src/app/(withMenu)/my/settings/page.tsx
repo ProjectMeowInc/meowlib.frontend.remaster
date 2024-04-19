@@ -1,3 +1,3 @@
-import UserSettingsPage from "@/pages/UserSettingsPage/UserSettingsPage"
+import UserSettingsPage from "@/_pages/UserSettingsPage/UserSettingsPage"
 
 export default UserSettingsPage

@@ -1,3 +1,3 @@
-import MainAdminPage from "@/pages/admin/MainAdminPage/MainAdminPage"
+import MainAdminPage from "@/_pages/admin/MainAdminPage/MainAdminPage"
 
 export default MainAdminPage
