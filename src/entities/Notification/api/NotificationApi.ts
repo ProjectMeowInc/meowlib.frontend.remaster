@@ -2,6 +2,7 @@ import { Result } from "@/shared/services/Result/Result"
 import { IGetAllNotificationsResponse } from "@/entities/Notification/models/responses/IGetAllNotificationsResponse"
 import { HTTPRequest } from "@/shared/services/HTTPResult/HTTPRequest"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
+import { error, ok } from "ts-result-meow"
 
 export class NotificationApi {
     static async getAllNotifications(): Promise<Result<IGetAllNotificationsResponse>> {
@@ -12,10 +13,10 @@ export class NotificationApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 
     static async markReadNotificationAsync(notificationId: number): Promise<EmptyResult> {

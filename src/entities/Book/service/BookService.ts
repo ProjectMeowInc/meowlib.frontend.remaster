@@ -8,16 +8,17 @@ import { IBookDto } from "@/entities/Book/models/dto/BookDto"
 import { IShortBookDto } from "@/entities/Book/models/dto/ShortBookDto"
 import { DEFAULT_BOOK_IMAGE } from "@/app/consts"
 import { IAddPeopleToBookRequest } from "@/entities/Book/models/requests/AddPeopleToBookRequest"
+import { error, ok } from "ts-result-meow"
 
 export class BookService {
     static async getBooks(): Promise<Result<IShortBookDto[]>> {
         const result = await BookApi.getBooks()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(
+        return ok(
             result.unwrap().items.map((book) => ({
                 ...book,
                 // todo: create valid link
@@ -37,11 +38,11 @@ export class BookService {
     static async getBookById(id: number): Promise<Result<IBookDto>> {
         const getBookResult = await BookApi.getBookById(id)
         if (getBookResult.hasError()) {
-            return Result.withError(getBookResult.getError())
+            return error(getBookResult.getError())
         }
 
         const data = getBookResult.unwrap()
-        return Result.withOk(data)
+        return ok(data)
     }
 
     static async updateBookInfo(bookId: number, updateData: IUpdateBookRequest): Promise<EmptyResult> {

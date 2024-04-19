@@ -5,6 +5,7 @@ import { jwtDecode } from "jwt-decode"
 import { IAccessTokenData } from "@/entities/Auth/models/dto/AccessTokenData"
 import { LogService } from "@/shared/services/LogService"
 import { UserRoleEnum } from "@/entities/User/models/UserEntity"
+import { error, ok } from "ts-result-meow"
 
 export class TokenService {
     static setAccessToken(accessToken: string) {
@@ -18,13 +19,13 @@ export class TokenService {
     static parseAccessToken(token: string): Result<IAccessTokenDto> {
         const decodedToken = jwtDecode<IAccessTokenData>(token)
         if (!decodedToken.exp) {
-            return Result.withError({
+            return error({
                 errorMessage: "У токена нет времени истечения",
             })
         }
 
         const id = Number.parseInt(decodedToken.id)
-        return Result.withOk({
+        return ok({
             ...decodedToken,
             id,
             expiredTimestamp: decodedToken.exp,

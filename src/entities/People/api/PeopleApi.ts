@@ -7,6 +7,7 @@ import { IUpdatePeopleRequest } from "@/entities/People/models/requests/IUpdateP
 import { IUpdatePeopleResponse } from "@/entities/People/models/responses/IUpdatePeopleResponse"
 import { EmptyResult } from "@/shared/services/Result/EmptyResult"
 import { IGetPeopleByIdResponse } from "@/entities/People/models/responses/IGetPeopleByIdResponse"
+import { error, ok } from "ts-result-meow"
 
 export class PeopleApi {
     static async getAllAsync(pageNumber?: number): Promise<Result<IGetAllPeopleResponse>> {
@@ -16,10 +17,10 @@ export class PeopleApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 
     static async createAsync(requestData: ICreatePeopleRequest): Promise<Result<ICreatePeopleResponse>> {
@@ -31,10 +32,10 @@ export class PeopleApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 
     static async updateByIdAsync(
@@ -49,10 +50,10 @@ export class PeopleApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 
     static async deleteByIdAsync(peopleId: number): Promise<EmptyResult> {
@@ -76,9 +77,9 @@ export class PeopleApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 }

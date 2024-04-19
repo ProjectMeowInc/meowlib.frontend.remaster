@@ -4,6 +4,7 @@ import { EmptyResult } from "@/shared/services/Result/EmptyResult"
 import { Result } from "@/shared/services/Result/Result"
 import { IGetAllBooksInFavoriteResponse } from "@/entities/UserFavorite/models/responses/IGetAllBooksInFavoriteResponse"
 import { IGetBookInFavoriteByIdResponse } from "@/entities/UserFavorite/models/responses/IGetBookInFavoriteByIdResponse"
+import { error, ok } from "ts-result-meow"
 
 export class UserFavoriteApi {
     static async addBookInFavorite(requestData: IAddBookInFavoriteRequest): Promise<EmptyResult> {
@@ -29,10 +30,10 @@ export class UserFavoriteApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 
     static async getBookInFavoriteById(bookId: number): Promise<Result<IGetBookInFavoriteByIdResponse>> {
@@ -43,9 +44,9 @@ export class UserFavoriteApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 }

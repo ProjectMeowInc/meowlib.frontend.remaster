@@ -6,6 +6,7 @@ import { IBaseErrorResponse } from "@/shared/models/IBaseErrorResponse"
 import { IValidationErrorResponse } from "@/shared/models/IValidationErrorResponse"
 import { LogService } from "@/shared/services/LogService"
 import { AuthService } from "@/entities/Auth/service/AuthService"
+import { ok } from "ts-result-meow"
 
 type MethodsType = "GET" | "POST" | "PUT" | "DELETE"
 const BaseUrl: string = "http://localhost:5000/api"
@@ -46,7 +47,7 @@ export class HTTPRequest<TContent> {
         try {
             const result = await axios.request<TContent>(config)
 
-            return Result.withOk(result.data)
+            return ok(result.data)
         } catch (err: any) {
             if (err.isAxiosError) {
                 const error = err as AxiosError<IBaseErrorResponse | IValidationErrorResponse>

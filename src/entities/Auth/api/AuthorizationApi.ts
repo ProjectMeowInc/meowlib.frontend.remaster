@@ -6,6 +6,7 @@ import { Result } from "@/shared/services/Result/Result"
 import { ILoginResponse } from "@/entities/Auth/models/response/LogInResponse"
 import { IUpdateAuthResponse } from "@/entities/Auth/models/response/UpdateAuthResponse"
 import { IUpdateAuthRequest } from "@/entities/Auth/models/requests/UpdateAuthRequest"
+import { error, ok } from "ts-result-meow"
 
 export class AuthorizationApi {
     static async registration(requestData: ISignInRequest): Promise<EmptyResult> {
@@ -30,10 +31,10 @@ export class AuthorizationApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 
     static async updateAuth(requestData: IUpdateAuthRequest): Promise<Result<IUpdateAuthResponse>> {
@@ -44,9 +45,9 @@ export class AuthorizationApi {
             .sendAsync()
 
         if (result.hasError()) {
-            return Result.withError(result.getError())
+            return error(result.getError())
         }
 
-        return Result.withOk(result.unwrap())
+        return ok(result.unwrap())
     }
 }
