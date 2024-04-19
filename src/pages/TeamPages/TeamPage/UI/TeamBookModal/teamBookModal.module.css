@@ -1,0 +1,32 @@
+.wrapper {
+    position: fixed;
+    width: 100vw;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.7);
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 60%;
+    height: 70dvh;
+    background-color: #202020;
+    border-radius: 5px;
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px;
+}
+
+.books {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px;
+}
+
+.modal::-webkit-scrollbar {
+    width: 0;
+}

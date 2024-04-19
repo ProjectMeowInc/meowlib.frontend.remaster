@@ -1,0 +1,42 @@
+@media (min-width: 320px) {
+    .container {
+        border-radius: 5px;
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        align-items: center;
+        width: 40dvw;
+        color: white;
+        height: 30dvh;
+        transition: 0.2s all;
+    }
+
+    .container:hover {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 20dvw;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: 15dvw;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        width: 12dvw;
+    }
+}
+
+@media (min-width: 1920px) {
+    .container {
+        width: 9dvw;
+    }
+}

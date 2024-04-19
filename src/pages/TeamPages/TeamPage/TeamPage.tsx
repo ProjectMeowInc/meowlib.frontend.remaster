@@ -12,8 +12,7 @@ interface ITeamPageProps {
     }
 }
 
-const TeamPage: FC<ITeamPageProps> = async ({params: {teamId}}) => {
-
+const TeamPage: FC<ITeamPageProps> = async ({ params: { teamId } }) => {
     const getTeamResult = await TeamService.getTeamByIdAsync(teamId)
 
     if (getTeamResult.hasError()) {
@@ -24,10 +23,10 @@ const TeamPage: FC<ITeamPageProps> = async ({params: {teamId}}) => {
 
     return (
         <div>
-            <TeamInfoBlock name={team.name} description={team.description}/>
+            <TeamInfoBlock name={team.name} description={team.description} />
             <div className={classes.info}>
-                <BooksList/>
-                <MemberList teamId={team.id} members={team.members}/>
+                <BooksList teamId={teamId} />
+                <MemberList teamId={team.id} members={team.members} />
             </div>
         </div>
     )
