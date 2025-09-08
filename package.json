@@ -18,7 +18,7 @@
         "next": "^15.5.2",
         "react": "^18",
         "react-cookie": "^7.0.2",
-        "react-dom": "^18",
+        "react-dom": "^19",
         "react-toastify": "^11.0.5",
         "ts-result-meow": "^0.0.6"
     },
