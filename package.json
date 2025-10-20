@@ -20,7 +20,7 @@
         "react-cookie": "^8.0.1",
         "react-dom": "^19",
         "react-toastify": "^11.0.5",
-        "ts-result-meow": "^0.0.6"
+        "ts-result-meow": "^0.0.13"
     },
     "devDependencies": {
         "@types/js-cookie": "^3.0.6",
